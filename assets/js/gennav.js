@@ -8,11 +8,11 @@
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
-                    <a href="/traducciones/blackopsiiilatino.html">
+                    <a href="/proyectos/blackopsiiilatino.html">
                         <img src="../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
                         Latino
                     </a>
-                    <a href="/traducciones/blackopslatino.html">
+                    <a href="/proyectos/blackopslatino.html">
                         <img src="../assets/img/BO1/logo.jpg" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
                     </a>
@@ -33,11 +33,11 @@
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
-                    <a href="/traducciones/blackopsiiilatino.html">
+                    <a href="/proyectos/blackopsiiilatino.html">
                         <img src="/assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
                         Latino
                     </a>
-                    <a href="/traducciones/blackopslatino.html">
+                    <a href="/proyectos/blackopslatino.html">
                         <img src="/assets/img/BO1/logo.jpg" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
                     </a>
@@ -60,11 +60,11 @@
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
-                    <a href="/traducciones/blackopsiiilatino.html">
+                    <a href="/proyectos/blackopsiiilatino.html">
                         <img src="assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
                         Latino
                     </a>
-                    <a href="/traducciones/blackopslatino.html">
+                    <a href="/proyectos/blackopslatino.html">
                         <img src="assets/img/BO1/logo.jpg" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
                     </a>
@@ -87,11 +87,11 @@
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
-                    <a href="/traducciones/blackopsiiilatino.html">
+                    <a href="/proyectos/blackopsiiilatino.html">
                         <img src="../../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
                         Latino
                     </a>
-                    <a href="/traducciones/blackopslatino.html">
+                    <a href="/proyectos/blackopslatino.html">
                         <img src="../../assets/img/BO1/logo.jpg" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
                     </a>
