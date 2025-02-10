@@ -1,0 +1,5 @@
+﻿User-agent: *
+Disallow: /.github/
+Disallow: /assets/
+Disallow: /deps/
+Disallow: /pq2/
