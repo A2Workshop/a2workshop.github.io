@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Black Ops III PC Español Latino</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpg" href="../assets/img/A2/favicon.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../deps/bootstrap/js/popper.min.js"></script>
+  <link rel="stylesheet" href="../deps/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/css/guias.css" />
+  <link rel="stylesheet" href="../assets/css/bo3.css" />
+  <script src="../deps/FileSaver.min.js"></script>
+  <script src="../deps/jquery-3.6.4.min.js"></script>
+  <meta name="theme-color" content="#000000">
+</head>
+<script>
+  $(document).ready(function () {
+    $('.megamenu > a').on('click', function (e) {
+      e.preventDefault();
+      $('.megamenu-content').fadeIn();
+    });
+
+    $('.close-btn').on('click', function () {
+      $('.megamenu-content').fadeOut();
+    });
+  });
+</script>
+
+<body>
+  <script>
+    $(document).ready(function () {
+      const $sidebarToggle = $("#sidebar-toggle");
+      const $sidebarClose = $("#sidebar-close");
+      const $sidebar = $("#sidebar");
+
+      $sidebarClose.on("click", function () {
+        $sidebar.removeClass("show");
+      });
+
+      $sidebarToggle.on("click", function () {
+        $sidebar.toggleClass("show");
+      });
+    });
+    $(window).resize(function () {
+      if ($(window).width() > 1200) {
+        $("#sidebar").removeClass("show");
+      }
+    });
+  </script>
+  <button id="sidebar-toggle" class="btn btn-primary hide-desktop3">
+    <span class="iconify" data-icon="bi:person-lines-fill" style="color: white;"></span>
+  </button>
+  <div id="sidebar" class="hide-desktop3 bg-sidebar">
+    <button id="sidebar-close" class="btn btn-secondary">
+      <span class="iconify" data-icon="carbon:close-filled" style="color: #f6490c;" data-width="32"></span>
+    </button>
+    <div class="container mt-4">
+      <h4 class="fw-bold text-center">CREADO POR:</h4>
+      <div class="card mb-3 card-hover">
+        <div class="row g-3">
+          <img src="../assets/img/Profile/guitargamer.jpg" style="height: 10%;" alt="guitargamer">
+          <div class="card-body">
+            <h5 class="card-title fs-6 fw-bold">Guitargamer</h5><br>
+          </div>
+        </div>
+        <div class=" text-center">
+          <a href="https://steamcommunity.com/profiles/76561198078360579" class="btn btn-primary mt-2 mb-2">Perfil
+            de Steam</a>
+        </div>
+      </div>
+
+      <div class="card mb-3 card-hover">
+        <div class="row g-3">
+          <img src="../assets/img/Profile/atuburapaler.jpg" style="height: 20%;" alt="atuburapaler">
+          <div class="card-body">
+            <h5 class="card-title fs-6 fw-bold">atuburapaler</h5><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="text-center">
+            <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+            <a href="https://steamcommunity.com/id/atubp" class="btn btn-primary mt-2 mb-2">Perfil
+              de Steam</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 card-hover">
+        <div class="row g-3">
+          <img src="../assets/img/Profile/Artur16211.jpg" style="height: 20%;" alt="Artur16211">
+          <div class="card-body">
+            <h5 class="card-title fs-6 fw-bold">Artur16211</h5><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+            <a href="https://steamcommunity.com/id/artur16211" class="btn btn-primary mt-2 mb-2">Perfil
+              de Steam</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="list-example" class="list-group">
+          <a class="list-group-item list-group-item-action fw-bold text-center">Índice</a>
+          <a class="list-group-item list-group-item-action border-custom" href="#item-1">Introducción</a>
+          <a class="list-group-item list-group-item-action" href="#item-2">¿Qué hay de nuevo?</a>
+          <a class="list-group-item list-group-item-action" href="#item-3">Avances</a>
+          <a class="list-group-item list-group-item-action" href="#item-4">Información</a>
+          <a class="list-group-item list-group-item-action" href="#item-5">Descargas</a>
+          <a class="list-group-item list-group-item-action" href="#item-6">Instalación</a>
+          <a class="list-group-item list-group-item-action" href="#item-7">Errores Conocidos</a>
+          <a class="list-group-item list-group-item-action" href="#item-8">Workshop - Zombies</a>
+          <a class="list-group-item list-group-item-action" href="#item-9">Créditos</a>
+          <a class="list-group-item list-group-item-action" href="#item-10">Comentarios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="navbar-container"></div>
+  <script src="../assets/js/gennav.js"></script>
+
+  <!-- Header Desk -->
+  <div class="hide-mobile2 container container-content text-white bg-guideheader mt-3 rounded-5">
+    <div class="row">
+      <div class="col-2">
+        <div class="container mt-2">
+          <img src="../assets/img/BO3/logo.png" width="70%" />
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="container mt-5">
+          <h1 class="fw-bold fs-1">Call of Duty: Black Ops III Traducción Español Latino</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10">
+        <p class="mt-3 border-custom p-3">
+          Guía para cambiar el idioma del Call of Duty: Black Ops III de PC al Español Latino.
+        </p>
+      </div>
+      <div class="col-2">
+        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
+            src="../assets/img/Custom_Button/steam_button_icon.png" width="100%" /></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Mobile-->
+  <div class="hide-desktop2 container container-content text-white bg-guideheader mt-3 rounded-5 ">
+    <div class="container justify-content-center">
+      <img src="../assets/img/BO3/logo.png" class="centered-gif" />
+    </div>
+    <div class="container mt-2">
+      <h1 class="fw-bold fs-1">Call of Duty: Black Ops III Traducción Español Latino</h1>
+    </div>
+    <p class="mt-3 border-custom p-3">
+      Guía para cambiar el idioma del Call of Duty: Black Ops III de PC al Español Latino.
+    </p>
+    <div class="container justify-content-center text-center">
+      <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
+          src="../assets/img/Custom_Button/steam_button_icon.png" width="35%" /></a>
+    </div>
+    <br>
+  </div>
+
+  <!-- Guía -->
+  <div class="container container-content text-white bg-guideheader mt-3 rounded-5 scroll-indice">
+    <div class="row">
+      <div class="col-9" id="changemobile">
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
+          class="scrollspy-example-2" tabindex="0">
+          <div id="item-1" class="container mt-4">
+            <h2 class="fw-bold fs-2 title">🫡 Introducción</h2>
+            <img src="../assets/img/BO3/Banner.png" alt="imagen1" width="100%" />
+            <br><br>
+            <p>
+              Como muchos saben, el idioma Español Latino fue exclusivo de
+              consolas para este juego, por lo que se decidió modificar los
+              archivos del idioma Español Castellano para portear su doblaje a
+              PC.<br /><br />
+              En esta Guía se explicará el proceso de instalación del doblaje
+              completo en todos sus modos.
+            </p>
+          </div>
+          <br />
+          <div id="item-2" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">🆕 ¿Qué hay de nuevo?</h2>
+            <br>
+            <div class="accordion mt-3" id="accordionExample">
+
+              <!-- Panel 2.4 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingZero">
+                  <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseZero" aria-expanded="false" aria-controls="collapseZero">
+                    Actualización v2.4 - 01/07/2023
+                  </button>
+                </h2>
+                <div id="collapseZero" class="accordion-collapse collapse show" aria-labelledby="headingZero"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p><span class="iconify" data-icon="material-symbols:build-circle-rounded"
+                        style="color: rgb(104, 104, 105)"></span>
+                      Corregido un diálogo de la <b>Campaña.</b></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 1 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Actualización v2.3 - 29/04/2023
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p><span class="iconify" data-icon="material-symbols:add-circle"
+                        style="color: rgb(250, 230, 46)"></span>
+                      Agregados mapas de DLC del modo <b>Multijugador</b>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Actualización v2.2 - 12/04/2023
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p><span class="iconify" data-icon="material-symbols:build-circle-rounded"
+                        style="color: rgb(104, 104, 105)"></span> Corregido un diálogo del <b>Arco de la oscuridad</b>
+                      en <b>Der
+                        Eisendrache.</b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 3 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Actualización v2.1 - 06/03/2023
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p><span class="iconify" data-icon="material-symbols:add-circle"
+                        style="color: rgb(250, 230, 46)"></span>
+                      Agregado soporte nativo para <b>Revelations.</b></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2.0 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Actualización v2.0 - 20/02/2023
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>
+                      <span class="iconify" data-icon="material-symbols:build-circle-rounded"
+                        style="color: rgb(104, 104, 105)"></span>
+                      Cambiado el nombre a <b>"Mod Latino Deluxe".</b><br /><span class="iconify"
+                        data-icon="material-symbols:add-circle" style="color: rgb(250, 230, 46)"></span>
+                      Soporte nativo para el modo <b>Campaña.</b><br /><span class="iconify"
+                        data-icon="material-symbols:add-circle" style="color: rgb(250, 230, 46)"></span>
+                      Soporte nativo para el modo <b>Multijugador.</b><br /><span class="iconify"
+                        data-icon="material-symbols:add-circle" style="color: rgb(250, 230, 46)"></span>
+                      Soporte nativo para los modos <b>Bonificación.</b><br /><span class="iconify"
+                        data-icon="material-symbols:add-circle" style="color: rgb(250, 230, 46)"></span>
+                      Compatible con el cliente
+                      <t>en desarrollo boiii.</t><br />
+                      <span class="iconify" data-icon="material-symbols:build-circle-rounded"
+                        style="color: rgb(104, 104, 105)"></span>
+                      Todos los audios del juego fueron reemplazados de forma más limpia y sin pérdidas, también ahora
+                      pesan <b>10</b>
+                      veces menos que la versión anterior.<br /><span class="iconify"
+                        data-icon="material-symbols:add-circle" style="color: rgb(250, 230, 46)"></span>
+                      Todos los mapas disponibles mediante <b>reemplazo de archivos</b>, a excepción de
+                      Revelations.<br />
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading6">
+                  <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    Versión 1.0 - 10/06/2022
+                  </button>
+                </h2>
+                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p><span class="iconify" data-icon="material-symbols:add-circle"
+                        style="color: rgb(250, 230, 46)"></span>
+                      Versión Inicial.</b></p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <br />
+          <div id="item-3" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">📽️ Avances</h2>
+            <div class="grid-container">
+              <div class="grid-item"><iframe width="100%" src="https://www.youtube.com/embed/nwQBtpsrCCI"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+              <div class="grid-item"><iframe width="100%" src="https://www.youtube.com/embed/tvVp_UYiJ8Y"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+              <div class="grid-item"><iframe width="100%" src="https://www.youtube.com/embed/Z4I6EChsZyQ"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+              <div class="grid-item"><iframe width="100%" src="https://www.youtube.com/embed/w4U-ayK4DvU"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+            </div>
+          </div>
+          <br>
+          <div id="item-4" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">ℹ️ Información</h2>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg> El
+              mod es 100% Plug
+              &
+              Play: El juego detecta los archivos como si fueran originales de Steam, compatible con
+              multijugador cooperativo, en línea, por servidores, LAN, mods de la comunidad y todas las funciones
+              nativas
+              de
+              Black Ops III.<br />
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg> El
+              mod portea
+              <b>absolutamente todos</b> los diálogos de la última versión original en <b>PlayStation 4</b>, incluyendo
+              todos los contenidos descargables.<br />
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg> Se
+              ha
+              probado la
+              compatibilidad hasta el día de la actualización con el cliente <b>
+                <t>boiii</t>
+              </b>, el parche de la comunidad <b>T7 Community Patch</b> y <b>Steam Deck</b>.<br />
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              Todos
+              los diálogos
+              están
+              convertidos sin pérdidas, tienen la misma calidad que en consola, sin ruido ni
+              interferencias.<br />
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              Todos
+              los diálogos
+              son
+              fáciles de conseguir abriendo nuestros archivos con programas como <b>Black Ops II Sound
+                Studio Extended</b> o <b>Greyhound</b> y aunque, no somos dueños de los mismos, agradeceríamos ser
+              mencionados si usan nuestro mod como medio para adquirirlos.<br />
+            <div class="border">
+              <figure class="m-2">
+                <blockquote class="blockquote">
+                  <p><b>Información sobre la versión de la Microsoft Store (16/12/2024):</b> Esta versión supuestamente
+                    tiene "spanish (mexico)", conseguimos esa versión y al intentar descargar el juego en ese idioma,
+                    simplemente no se descarga nada del idioma y el juego crashea al intentar iniciarlo, para los que
+                    quieran esa versión por el doblaje español latino, no la compren, no incluye realmente español
+                    latino.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  Publicado originalmente por <cite title="Source Title">Artur</cite>
+                </figcaption>
+              </figure>
+            </div>
+            </p>
+          </div>
+          <br>
+          <div id="item-5" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">⬇️ Descargas</h2>
+            <p>
+              <br>
+              <b>Todos los modos juntos:</b><br>
+              <a href="https://www.mediafire.com/file/sf2fsytks3afe5c/BO3_MSPC_FULL_2.4.7z/file"><img
+                  src="../assets/img/Custom_Button/mediafire_full.png" alt="" width="30%"></a>
+              <br>
+              <br>
+              <b>Modos/Mapas por separado:</b><br>
+              <a href="https://www.mediafire.com/folder/fxa4xrrlre40k/Call+Of+Duty+Black+Ops+III+-+Mod+Latino+Deluxe"><img
+                  src="../assets/img/Custom_Button/mediafire_separado.png" alt="" width="30%"></a>
+              <br><br>
+              El contenido del enlace, consta de cuatro elementos:
+            <div class="row hide-mobile">
+              <div class="col-6">
+                <img src="../assets/img/BO3/2819323099_preview.png" alt="" width="100%">
+              </div>
+              <div class="col-6">
+                <ul class="list-group fs-6">
+                  <li class="list-group-item">La carpeta <b>Campaña</b> contiene los archivos para las campañas y los
+                    modos bonus en un solo archivo comprimido.</li>
+                  <li class="list-group-item">La carpeta <b>Multijugador</b> contiene archivos del multijugador y de los
+                    mapas de contenido descargable.</li>
+                  <li class="list-group-item">La carpeta <b>Zombis</b> contiene todos los mapas clasificados por el
+                    título del contenido descargable.</li>
+                  <li class="list-group-item">El archivo <b>CORE</b> contiene los archivos que usa el juego en todos sus
+                    modos de juego.</li>
+                </ul>
+                <br>
+              </div>
+              <div class="border">
+                <figure class="m-2">
+                  <blockquote class="blockquote">
+                    <p>Los archivos que señalan <b>(Requerido)</b> indican que deben ser instalados con prioridad porque
+                      contienen diálogos compartidos entre varios mapas o modos, omitirlos causará incoherencias y
+                      disonancia en el doblaje. </p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    Publicado originalmente por <cite title="Source Title">atu</cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="hide-desktop">
+              <img src="../assets/img/BO3/2819323099_preview.png" alt="" width="100%">
+              <ul class="list-group fs-6">
+                <li class="list-group-item">La carpeta <b>Campaña</b> contiene los archivos para las campañas y los
+                  modos bonus en un solo archivo comprimido.</li>
+                <li class="list-group-item">La carpeta <b>Multijugador</b> contiene archivos del multijugador y de los
+                  mapas de contenido descargable.</li>
+                <li class="list-group-item">La carpeta <b>Zombis</b> contiene todos los mapas clasificados por el
+                  título del contenido descargable.</li>
+                <li class="list-group-item">El archivo <b>CORE</b> contiene los archivos que usa el juego en todos sus
+                  modos de juego.</li>
+              </ul>
+              <br>
+              <div class="border">
+                <figure class="m-2">
+                  <blockquote class="blockquote">
+                    <p>Los archivos que señalan <b>(Requerido)</b> indican que deben ser instalados con prioridad porque
+                      contienen diálogos compartidos entre varios mapas o modos, omitirlos causará incoherencias y
+                      disonancia en el doblaje. </p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    Publicado originalmente por <cite title="Source Title">atu</cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <br>
+            <b>Distribución de mapas del modo Zombies:</b>
+            <br>
+            <img src="../assets/img/BO3/2819323099_preview_Contenido-mapas.png" alt="" width="100%">
+            </p>
+          </div>
+          <br>
+          <div id="item-6" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">Instalación</h2><br>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+              <path fill="#fff" fill-rule="evenodd"
+                d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+            </svg>
+            Primero
+            hay que
+            descargar el <b>mod completo</b> o lo deseado de las <b>carpetas</b> siguiendo la información
+            anterior.<br><br>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+              <path fill="#fff" fill-rule="evenodd"
+                d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+            </svg> Algún
+            programa para
+            descomprimir archivos <b>7z</b> (7-Zip, NanaZip, etc)<br><br>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+              <path fill="#fff" fill-rule="evenodd"
+                d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+            </svg> A sí
+            mismo el juego
+            debe
+            estar instalado en <b>Español de España.</b><br><br>
+            <img src="../assets/img/BO3/2819323099_preview_idioma.png" alt="" width="70%"><br><br>
+            <br>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+              <path fill="#fff" fill-rule="evenodd"
+                d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+            </svg> Hay
+            que
+            <b>ubicar la
+              carpeta
+              del juego</b> y dirigirse a "Call of Duty Black Ops III\zone\snd\es".<br><br>
+            <img src="../assets/img/BO3/2819323099_preview_es.gif" alt="" width="70%"><br><br>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+              <path fill="#fff" fill-rule="evenodd"
+                d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+            </svg> En
+            esta
+            última carpeta
+            se
+            debe <b>extraer el contenido</b>(.sabs .sabl) del <b>archivo comprimido</b>(.7z) que hayamos elegido,
+            importante
+            <b>sobrescribir todos los archivos del destino.</b>
+            <br><br>
+            <img src="../assets/img/BO3/2819323099_preview_es2.gif" alt="" width="70%"><br><br>
+          </div>
+          <br>
+          <div id="item-7" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">🤔 Errores Conocidos</h2>
+            <p>
+              <i>Estos errores no afectan de forma drástica la jugabilidad, aún así están siendo investigados y puede
+                que
+                en
+                un futuro logremos resolverlos o puede que no (no disponemos de las herramientas de Treyarch)</i>
+              <br><br>
+              <b><u>Campaña:</u></b><br>
+              En el modo <b>Campaña</b> si la misión tiene varios escenarios, el motor puede saturarse resultando en
+              algunos
+              sonidos quedando mudos (Disparos y golpes)<br><br>
+
+              <u>Soluciones (Cualquiera de estas sirve):</u><br>
+              → <b>Salir al menú de la campaña</b> (Usando Salir y Guardar) y reanudar la misión.<br>
+              → <b>Salir al menú de inicio, cambiar al menú de otro modo</b> (Zombies o Multijugador) y volver al modo
+              Campaña
+              para reanudar misión.<br>
+              → Reiniciar el juego.<br><br>
+
+              <u><b>Multijugador:</b></u><br>
+              En el modo <b>Multijugador</b>, si la partida es muy larga y/o tiene mas de una ronda (Punto Caliente,
+              Dominio,
+              Demolición, etc.) algunos sonidos pueden llegar a quedar mudos (música y diálogos)<br><br>
+
+              Soluciones (Cualquiera de estas sirve):<br>
+              → <b>Salir al menú de inicio, cambiar al menú de otro modo</b> (Campaña o Zombies) y volver al modo
+              multijugador.<br>
+              → Reiniciar el juego.<br><br>
+
+              <u><b>Zombies:</b></u><br>
+              En rondas altas, puede ocurrir lo mismo que en los anteriores errores descritos, esto debería
+              solucionarse
+              al terminar la partida, pero puede volver a ocurrir.<br><br>
+              En el mapa Der Eisendrache, en el último paso del arco de oscuridad, algunas veces puede que omita la
+              primera parte del nombre.
+            </p><br>
+          </div>
+          <div id="item-8" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">🧟 Workshop - Zombies</h2><br>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              Todos los mapas del
+              modo Zombies están disponibles de forma adicional en la Workshop para los que gusten elegir este método
+              (Recomendado para los usuarios con una copia en inglés)<br><br>
+              En esta colección se pueden encontrar todos los mapas:</p>
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2822435465"><img
+                src="../assets/img/BO3/workshop.png" width="100%" /></a>
+          </div>
+          <br>
+          <div id="item-9" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">🤝 Créditos</h2><br>
+            <p>Casi un año de desarollo, y mucha gente aportó a este proyecto:<br>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              <b>Artur16211 "Artur"</b>
+              se
+              encargó de recopilar los diálogos originales, crear diccionarios de alias de sonido, ordenarlos e
+              inyectarlos en los archivos originales del juego.<br>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              <b>atuburapaler "atu"</b>
+              se
+              encargó de la presentación, edición, grabación, redacción, y organizó algunos diálogos.<br>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              <b>Guitargamer</b>
+              es el
+              autor de la modificación a <u><i>Black Ops II Sound Studio</i></u> de <b>master131</b> su <a
+                href="https://github.com/tovaru/Black-Ops-II-Sound-Studio-Extended">Black Ops II Sound Studio
+                Extended</a> agregando soporte para Black Ops III es la herramienta que usamos para descompilar,
+              compilar e inyectar todos los diálogos de consola y PC.<br>
+              Ademas de crear Scripts para desencriptar/encriptar los audios de Revelations y poder remplazar sus
+              audios.<br>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              <b>Activision,
+                Treyarch,
+                y otros</b> son dueños del material utilizado en esta creación, no se busca infrigir ninguna norma ni
+              lucrar
+              con
+              el mismo.<br>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M256 42.667c117.821 0 213.334 95.513 213.334 213.333c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m0 42.667c-94.256 0-170.666 76.41-170.666 170.666c0 94.257 76.41 170.667 170.666 170.667c94.257 0 170.667-76.41 170.667-170.667c0-94.256-76.41-170.666-170.667-170.666m0 64c58.91 0 106.667 47.756 106.667 106.666S314.911 362.667 256 362.667c-58.91 0-106.666-47.756-106.666-106.667c0-58.91 47.756-106.666 106.666-106.666" />
+              </svg>
+              <b>Elenco del doblaje
+                original mexicano:</b>
+              <a href="https://doblaje.fandom.com/es/wiki/Call_of_Duty:_Black_Ops_III">doblaje.fandom.com/CODBOIII</a>
+            </p>
+          </div>
+          <div id="item-10" class="container border-custom">
+          </div>
+        </div>
+      </div>
+      <div class="col-3 hide-mobile3">
+        <div class="container mt-4 margin-index">
+          <h4 class="fw-bold text-center">CREADO POR:</h4>
+          <div class="card mb-3 card-hover">
+            <div class="row g-3">
+              <div class="col-6">
+                <img src="../assets/img/Profile/guitargamer.jpg" style="height: 108px;" alt="guitargamer"
+                  class="img rem">
+              </div>
+              <div class="col-6">
+                <div class="card-body">
+                  <h5 class="card-title fs-6 fw-bold">Guitargamer</h5><br>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <br class="mb-3">
+                <a href="https://steamcommunity.com/profiles/76561198078360579" class="btn btn-primary mt-2 mb-2">Perfil
+                  de Steam</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3 subcard card-hover">
+            <div class="row g-3">
+              <div class="col-6">
+                <img src="../assets/img/Profile/atuburapaler.jpg" style="height: 108px;" alt="atuburapaler">
+              </div>
+              <div class="col-6">
+                <div class="card-body">
+                  <h5 class="card-title fs-6 fw-bold">atuburapaler</h5><br>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+                <a href="https://steamcommunity.com/id/atubp" class="btn btn-primary mt-2 mb-2">Perfil
+                  de Steam</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3 subcard card-hover">
+            <div class="row g-3">
+              <div class="col-6">
+                <img src="../assets/img/Profile/Artur16211.jpg" style="height: 108px;" alt="Artur16211">
+              </div>
+              <div class="col-6">
+                <div class="card-body">
+                  <h5 class="card-title fs-6 fw-bold">Artur16211</h5><br>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+                <a href="https://steamcommunity.com/id/artur16211" class="btn btn-primary mt-2 mb-2">Perfil
+                  de Steam</a>
+              </div>
+            </div>
+
+            <div class="row mt-10 position-absolute pb-5 hide-mobile3" id="index-container">
+              <div id="list-example" class="list-group">
+                <a class="list-group-item list-group-item-action fw-bold text-center">Índice</a>
+                <a class="list-group-item list-group-item-action border-custom" href="#item-1">Introducción</a>
+                <a class="list-group-item list-group-item-action" href="#item-2">¿Qué hay de nuevo?</a>
+                <a class="list-group-item list-group-item-action" href="#item-3">Avances</a>
+                <a class="list-group-item list-group-item-action" href="#item-4">Información</a>
+                <a class="list-group-item list-group-item-action" href="#item-5">Descargas</a>
+                <a class="list-group-item list-group-item-action" href="#item-6">Instalación</a>
+                <a class="list-group-item list-group-item-action" href="#item-7">Errores Conocidos</a>
+                <a class="list-group-item list-group-item-action" href="#item-8">Workshop - Zombies</a>
+                <a class="list-group-item list-group-item-action" href="#item-9">Créditos</a>
+                <a class="list-group-item list-group-item-action" href="#item-10">Comentarios</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="container container-content text-white bg-guideheader mt-3 rounded-5">
+      <div class="row">
+        <div id="changemobile2" class="col-9">
+          <div class="container mt-4">
+            <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
+            <br>
+            <ul class="nav nav-pills hide-mobile">
+              <li class="nav-item"><button onclick="showTab('tab2')" class="btn btn-warning fs-5 fw-bold"
+                  aria-current="page">Web</button>
+              </li>
+              <li class="nav-item"><button onclick="showTab('tab1')"
+                  class="btn btn-warning activeborder fs-5 fw-bold">Steam</button>
+              </li>
+            </ul>
+            <!-- select mobile -->
+            <div class="hide-desktop">
+              <select class="form-select custom-select" aria-label="Default select example">
+                <option value="1">Web</option>
+                <option value="2" selected>Steam</option>
+              </select>
+            </div>
+            <br>
+            <script>
+              // when the user changes the select option, show the corresponding tab
+              const select = document.querySelector('.hide-desktop select');
+              select.addEventListener('change', function () {
+                if (this.value === '1') {
+                  showTab('tab2');
+                } else if (this.value === '2') {
+                  showTab('tab1');
+                } else {
+                  console.error('Invalid tab:', this.value);
+                }
+              });
+            </script>
+            <div class="container" id="tab1-comments">
+              <textarea class="form-control" id="comment-text" rows="3" placeholder="Añadir un comentario"
+                style="resize: none;"></textarea>
+              <div id="comments"></div>
+              <br>
+              <div aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#comments">1</a></li>
+                  <li class="page-item"><a class="page-link"
+                      href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099#commentthread_PublishedFile_Public_76561198851405406_2819323099_area">2</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#comments">...</a>
+                  </li>
+                  <li class="page-item"><a class="page-link"
+                      href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099#commentthread_PublishedFile_Public_76561198851405406_2819323099_area">>></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="tab2-comments">
+              <script src="https://giscus.app/client.js" data-repo="Artur16211/a2workshop" data-repo-id="R_kgDOJct79w"
+                data-category="General" data-category-id="DIC_kwDOJct7984CYF89" data-mapping="pathname" data-strict="0"
+                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark_dimmed"
+                data-lang="es" crossorigin="anonymous" async>
+                </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+  <!-- margin -->
+  <div class="container text-center mt-3">
+    <br>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      const tab1Comments = document.getElementById('tab1-comments');
+      const tab2Comments = document.getElementById('tab2-comments');
+
+      if (tab === 'tab1') {
+        tab1Comments.style.display = 'block';
+        tab2Comments.style.display = 'none';
+      } else if (tab === 'tab2') {
+        tab1Comments.style.display = 'none';
+        tab2Comments.style.display = 'block';
+      } else {
+        console.error('Invalid tab:', tab);
+      }
+    }
+
+    showTab('tab1');
+
+    const tabButtons = document.querySelectorAll('.nav-pills .btn');
+
+    for (let i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].addEventListener('click', function () {
+        for (let j = 0; j < tabButtons.length; j++) {
+          tabButtons[j].classList.remove('activeborder');
+        }
+        this.classList.add('activeborder');
+      });
+    }
+
+  </script>
+</body>
+
+</html>
+<script src="../deps/bootstrap/js/bootstrap.js"></script>
+<script src="../deps/iconify.min.js"></script>
+<!-- index -->
+<script>
+  var indexContainer = document.getElementById('index-container');
+  var marginIndex = document.querySelector('.margin-index');
+  var isFixed = false;
+
+  var marginIndexOffsetTop = marginIndex.offsetTop + 300;
+  var indexContainerOffsetTop = indexContainer.offsetTop;
+
+  window.addEventListener('scroll', function () {
+    var scrollPosition = window.pageYOffset;
+
+    if (scrollPosition >= marginIndexOffsetTop && !isFixed) {
+      indexContainer.classList.add('position-fixed');
+      indexContainer.style.bottom = '0';
+      isFixed = true;
+    }
+
+    if (scrollPosition < marginIndexOffsetTop && isFixed) {
+      indexContainer.classList.remove('position-fixed');
+      indexContainer.style.bottom = '';
+      isFixed = false;
+    }
+  });
+</script>
+<!-- when the user clicks on the textarea, redirect to the steam comments -->
+<script>
+  var textarea = document.getElementById('comment-text');
+
+  textarea.addEventListener('click', function () {
+    window.location.href = 'https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099#commentthread_PublishedFile_Public_76561198851405406_2819323099_area';
+  });
+</script>
+<script src="../deps/jszip.min.js"></script>
+<script src="../assets/js/steamcomments.js"></script>
+<!-- hover credits -->
+<script>
+  var cards = document.getElementsByClassName("card-hover");
+
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("mouseenter", function () {
+      this.classList.add("card-hover");
+    });
+
+    cards[i].addEventListener("mouseleave", function () {
+      this.classList.remove("card-hover");
+    });
+  }
+</script>
+
+<script>
+  $(document).ready(function () {
+    $('.list-group-item').click(function () {
+      $('.list-group-item').removeClass('active');
+      $(this).addClass('active');
+    });
+  });
+</script>
+<!-- update div class -->
+<script>
+  function updateDivClass() {
+    const divElement = document.getElementById('changemobile');
+
+    if (window.matchMedia('(max-width: 1199px)').matches) {
+      divElement.classList.remove('col-9');
+      divElement.classList.add('col');
+    } else {
+      divElement.classList.remove('col');
+      divElement.classList.add('col-9');
+    }
+  }
+
+  window.addEventListener('load', updateDivClass);
+  window.addEventListener('resize', updateDivClass);
+
+</script>
+<script>
+  function updateDivClass() {
+    const divElement = document.getElementById('changemobile2');
+
+    if (window.matchMedia('(max-width: 1199px)').matches) {
+      divElement.classList.remove('col-9');
+      divElement.classList.add('col');
+    } else {
+      divElement.classList.remove('col');
+      divElement.classList.add('col-9');
+    }
+  }
+
+  window.addEventListener('load', updateDivClass);
+  window.addEventListener('resize', updateDivClass);
+
+</script>

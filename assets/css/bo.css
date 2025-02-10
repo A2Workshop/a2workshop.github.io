@@ -1,0 +1,61 @@
+﻿.activeborder {
+    border: #dbdbdb solid 4px !important;
+    border-bottom: none !important;
+    color: #000000;
+    background-color: #1b2838 !important;
+}
+
+.btn-primary {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+    color: #000000 !important;
+}
+
+.btn-primary:hover {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+
+}
+
+.btn-primary:active {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+}
+
+.btn-primary:disabled {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+}
+
+.btn-primary:focus {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+}
+
+.card-hover:hover {
+    border: 2px solid #dbdbdb;
+    position: relative;
+    z-index: 1;
+    transition: border-color 0.3s ease;
+}
+
+.list-group-item.active {
+    background-color: #dbdbdb;
+    border-color: #363636;
+    color: #000 !important;
+}
+
+.list-group-item.active:hover {
+    background-color: #dbdbdb;
+    border-color: #363636;
+}
+
+.list-group-item.active:focus {
+    background-color: #dbdbdb;
+    border-color: #363636;
+}
+
+.list-group-item.active:active {
+    background-color: #dbdbdb;
+    border-color: #363636;
+}

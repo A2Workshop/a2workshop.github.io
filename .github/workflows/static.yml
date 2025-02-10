@@ -1,0 +1,71 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate hashes for static files
+        run: |
+          find . -type f \( -iname '*.css' -o -iname '*.js' -o -iname '*.jpeg' -o -iname '*.jpg' -o -iname '*.png' -o -iname '*.webm' -o -iname '*.webp' -o -iname '*.gif' \) ! -iname 'bootstrap*' | while read file; do
+            hash=$(sha256sum "$file" | cut -d ' ' -f 1)
+            dir=$(dirname "$file")
+            base=$(basename "$file")
+            ext="${base##*.}"
+            name="${base%.*}"
+            new_name="$dir/$name-$hash.$ext"
+            mv "$file" "$new_name"
+            echo "$file -> $new_name" >> hash_mapping.txt
+          done
+
+          if [ -f hash_mapping.txt ]; then
+            while IFS= read -r line; do
+              old_file=$(echo "$line" | cut -d ' ' -f 1)
+              new_file=$(echo "$line" | cut -d ' ' -f 3)
+              old_file_rel=${old_file#./}
+              new_file_rel=${new_file#./}
+              grep -rl "$old_file_rel" --include=\*.{css,html,js} . | xargs -r sed -i "s|$old_file_rel|$new_file_rel|g"
+            done < hash_mapping.txt
+          fi
+
+      - name: Remove .html from href
+        run: |
+          grep -rl --include=\*.{html,js} 'href="' . | xargs -r sed -i 's|href="\([^"]*\)\.html"|href="\1"|g'
+
+      - name: Adjust URLs for GitHub Pages
+        run: |
+          PREFIX="/web/"
+          grep -rlE 'href="|src="' --include=\*.{html,css,js} . | xargs -r sed -i "s|href=\"/|href=\"$PREFIX|g"
+          grep -rlE 'href="|src="' --include=\*.{html,css,js} . | xargs -r sed -i "s|src=\"/|src=\"$PREFIX|g"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

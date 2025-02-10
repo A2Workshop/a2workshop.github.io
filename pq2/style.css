@@ -1,0 +1,263 @@
+﻿@font-face {
+    font-family: 'ivystyle-tw';
+    src: url('../pq2/font/IvyStyleTW-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'futura';
+    src: url('../pq2/font/FuturaLT.ttf') format('truetype');
+}
+
+body {
+    font-family: 'futura';
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: url('../pq2/img/bg/black-dots.png');
+}
+
+.font-title {
+    font-family: 'ivystyle-tw';
+    text-shadow: 3px 3px #000,-3px 3px #000,3px -3px #000,-3px -3px #000,7px 7px #000;
+    text-transform: uppercase;
+    font-size: 2.625rem;
+    line-height: 1;
+    margin-bottom: 5rem;
+    transform: rotate(-4deg);
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar .logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    filter: brightness(0.5);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    flex-direction: column;
+}
+
+.video-overlay .logo {
+    width: 450px;
+    height: auto;
+}
+
+.section1 {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.bg_section1 {
+    background-image: url('../pq2/img/bg/black-dots.png');
+}
+
+.bg_section2 {
+    background-image: url('../pq2/img/bg/red-dots.png');
+}
+
+.section2 {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.nav-link:hover {
+    color: #f04e29 !important;
+}
+
+.nav-link.active {
+    color: #f04e29 !important;
+}
+
+.dropdown-item:hover {
+    background-color: #000 !important;
+    color: #f04e29 !important;
+}
+
+.dropdown-menu {
+    margin-top: 20px !important;
+}
+
+@media (min-width: 990px) {
+    .carousel-item img {
+        border-radius: 0;
+        margin: 0 10px;
+        box-shadow: 10px 5px 0 #e6340c7a;
+        position: relative;
+        z-index: 1;
+        border: 2px solid black;
+        width: 40%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 990px) {
+    .carousel-item img {
+        border-radius: 0;
+        margin: 0 10px;
+        box-shadow: 10px 5px 0 #f04e2977;
+        position: relative;
+        z-index: 1;
+        border: 2px solid black;
+        width: 80%;
+        object-fit: contain;
+    }
+}
+
+.carousel-item img
+{
+    background-color: #000000;
+}
+
+.trailer-video iframe {
+    box-shadow: 10px 5px 0 #f04e2977;
+    border-radius: 0;
+    border: 2px solid black;
+}
+
+@media (max-width: 990px) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .font-title {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 990px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+.dropdown-item {
+    color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.navtitle-mobile:hover {
+    color: #ffffff !important;
+}
+
+.navtitle-mobile.active {
+    color: #ffffff !important;
+}
+
+.navbar-toggler.active {
+    background-color: #f04e29 !important;
+}
+
+.navbar-toggler:hover {
+    background-color: #f04e29 !important;
+}
+
+.navbar-toggler {
+    background-color: #f04e29 !important;
+}
+
+.btn-primary {
+    background-color: #f04e29 !important;
+    border-color: #f04e29 !important;
+    border-radius: 0%;
+}
+
+.modal-content {
+    background-color: #000000b9;
+}
+
+.modal-header {
+    border: none;
+}
+
+.pe-cursor {
+    cursor: pointer;
+}
+
+@media (max-width: 990px) {
+    #imageModal .modal-header.hide-desktop {
+        justify-content: center;
+    }
+
+    #imageModal .btn-close {
+        position: static;
+        margin: auto;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .arrow-modal{
+        margin-top: 35%;
+    }
+}
+
+.btn-light {
+    background-color: #ffffff00 !important;
+    border: none;
+    color: #ffffff8a;
+}
+
+.btn-light:hover {
+    background-color: #ffffff00 !important;
+    border: none;
+    color: #ffffffbe;
+}
+
