@@ -9,12 +9,12 @@
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
+                        <img src="../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
                         <img src="../assets/img/BO1/logo.jpg" alt="bolalogo">
-                        (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
+                        (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
                         <img src="../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
@@ -34,12 +34,12 @@
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="/assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
+                        <img src="/assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
                         <img src="/assets/img/BO1/logo.jpg" alt="bolalogo">
-                        (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
+                        (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
                         <img src="/pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
@@ -61,12 +61,12 @@
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
+                        <img src="assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
                         <img src="assets/img/BO1/logo.jpg" alt="bolalogo">
-                        (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
+                        (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
                         <img src="pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
@@ -88,12 +88,12 @@
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="../../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Traducción Español
+                        <img src="../../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
                         <img src="../../assets/img/BO1/logo.jpg" alt="bolalogo">
-                        (PC) Call of Duty: Black Ops Zombies Traducción Español Latino
+                        (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
                         <img src="../../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
