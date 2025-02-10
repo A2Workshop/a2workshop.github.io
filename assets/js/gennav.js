@@ -105,21 +105,21 @@
         </nav>
     `;
 
-    // Añadir tambien /web/ a las rutas
-
-    if (window.location.pathname === "/index.html" || window.location.pathname === "/" || window.location.pathname === "/web/index.html" || window.location.pathname === "/web/" || window.location.pathname === "/index" || window.location.pathname === "/" || window.location.pathname === "/web/index" || window.location.pathname === "/web/") {
+    if (window.location.pathname === "/index.html" || window.location.pathname === "/" || window.location.pathname === "/index") {
         document.getElementById("navbar-container").innerHTML = navbar2;
     }
-
-    else if (window.location.pathname === "/contacto.html" || window.location.pathname === "/web/contacto.html" || window.location.pathname === "/contacto" || window.location.pathname === "/web/contacto") {
-        document.getElementById("navbar-container").innerHTML = navbar3;
     
-    } else if (window.location.pathname === "/pq2espanol/Descargar.html" || window.location.pathname === "/pq2espanol/Descargar" || window.location.pathname === "/web/pq2espanol/Descargar.html" || window.location.pathname === "/web/pq2espanol/Descargar") {
+    else if (window.location.pathname === "/contacto.html" || window.location.pathname === "/contacto") {
+        document.getElementById("navbar-container").innerHTML = navbar3;
+    }
+    
+    else if (window.location.pathname === "/pq2espanol/Descargar.html" || window.location.pathname === "/pq2espanol/Descargar") {
         document.getElementById("navbar-container").innerHTML = navbarQ2Descargar;
-
-    } else {
+    }
+    
+    else {
         document.getElementById("navbar-container").innerHTML = navbar;
-    }    
+    }     
 
 }
 
