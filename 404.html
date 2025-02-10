@@ -1,41 +1,54 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpg" href="assets/img/A2/favicon.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="deps/bootstrap/js/popper.min.js"></script>
-    <link rel="stylesheet" href="deps/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/guias.css" />
-    <link rel="stylesheet" href="assets/css/contact.css" />
-    <script src="deps/jquery-3.6.4.min.js"></script>
-    <meta name="theme-color" content="#000000">
-</head>
-
-<body>
-    <div id="navbar-container"></div>
-    <script src="assets/js/gennav.js"></script>
-    <script src="assets/js/activenav.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#021425">
+    <link rel="icon" type="image/jpg" href="assets/img/A2/favicon.jpg">
+    <title>404 - Página no encontrada</title>
     <style>
         body {
             background-color: #021425;
             color: white;
             text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
-
         .error-container {
-            margin-top: 10%;
+            max-width: 600px;
+            padding: 20px;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
-
-    <div class="container error-container">
+</head>
+<body>
+    <div class="error-container">
+        <img src="https://a2workshop.github.io/assets/img/A2/logo.png" alt="Logo" class="logo">
         <h1><b>404</b></h1>
         <h2>Página no encontrada</h2>
         <p>La página que buscas no existe o ha sido movida.</p>
-        <a href="/" class="btn btn-primary">Volver al inicio</a>
+        <a href="/" class="btn">Volver al inicio</a>
     </div>
 </body>
-
 </html>
