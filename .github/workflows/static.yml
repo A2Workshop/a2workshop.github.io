@@ -52,12 +52,6 @@ jobs:
         run: |
           grep -rl --include=\*.{html,js} 'href="' . | xargs -r sed -i 's|href="\([^"]*\)\.html"|href="\1"|g'
 
-      - name: Adjust URLs for GitHub Pages
-        run: |
-          PREFIX="/web/"
-          grep -rlE 'href="|src="' --include=\*.{html,css,js} . | xargs -r sed -i "s|href=\"/|href=\"$PREFIX|g"
-          grep -rlE 'href="|src="' --include=\*.{html,css,js} . | xargs -r sed -i "s|src=\"/|src=\"$PREFIX|g"
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
