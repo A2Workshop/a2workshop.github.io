@@ -11,34 +11,42 @@
     <link rel="stylesheet" href="assets/css/contact.css" />
     <script src="deps/jquery-3.6.4.min.js"></script>
     <meta name="theme-color" content="#000000">
-</head>
-<script>
-    $(document).ready(function () {
-      $('.megamenu > a').on('click', function (e) {
-          e.preventDefault();
-          $('.megamenu-content').fadeIn();
-      });
-  
-      $('.close-btn').on('click', function () {
-          $('.megamenu-content').fadeOut();
-      });
-  });
-  </script>
-<body>  
-    <div id="navbar-container"></div>
-    <script src="assets/js/gennav.js"></script>
-
-    <script src="assets/js/activenav.js"></script>
+    <title>Página no encontrada</title>
     <style>
         body {
             background-color: #021425;
+            color: white;
+            text-align: center;
+            padding-top: 10%;
+        }
+        h1 {
+            font-size: 5rem;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+        .home-link {
+            font-size: 1.2rem;
+            color: #0d6efd;
+            text-decoration: none;
+        }
+        .home-link:hover {
+            text-decoration: underline;
         }
     </style>
-    <br>
+</head>
 
+<body>
     <div class="container">
-        <h1 class="text-center text-white"><b>404 Página no encontrada</b></h2>
+        <h1>404</h1>
+        <p>Lo sentimos, la página que buscas no existe.</p>
+        <a class="home-link" href="/">Volver al inicio</a>
     </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 5000);
+    </script>
 </body>
 
 </html>

@@ -11,42 +11,175 @@
     <link rel="stylesheet" href="assets/css/contact.css" />
     <script src="deps/jquery-3.6.4.min.js"></script>
     <meta name="theme-color" content="#000000">
-    <title>Página no encontrada</title>
+</head>
+<script>
+    $(document).ready(function () {
+      $('.megamenu > a').on('click', function (e) {
+          e.preventDefault();
+          $('.megamenu-content').fadeIn();
+      });
+  
+      $('.close-btn').on('click', function () {
+          $('.megamenu-content').fadeOut();
+      });
+  });
+  </script>
+<body>  
+    <div id="navbar-container"></div>
+    <script src="assets/js/gennav.js"></script>
+
+    <script src="assets/js/activenav.js"></script>
+    <!-- Contenido -->
     <style>
         body {
             background-color: #021425;
-            color: white;
-            text-align: center;
-            padding-top: 10%;
-        }
-        h1 {
-            font-size: 5rem;
-        }
-        p {
-            font-size: 1.5rem;
-        }
-        .home-link {
-            font-size: 1.2rem;
-            color: #0d6efd;
-            text-decoration: none;
-        }
-        .home-link:hover {
-            text-decoration: underline;
         }
     </style>
-</head>
-
-<body>
+    <br>
     <div class="container">
-        <h1>404</h1>
-        <p>Lo sentimos, la página que buscas no existe.</p>
-        <a class="home-link" href="/">Volver al inicio</a>
+        <h1 class="text-center text-white"><b>CONTACTO</b></h2>
     </div>
-    <script>
-        setTimeout(() => {
-            window.location.href = "/";
-        }, 5000);
-    </script>
+    <div class="container container-cardsc hide-mobile2">
+        <div class="card choice unset unseta1 bg-primary text-white">
+            <div class="card-body a1">
+                <h5 class="card-title card-title-contacto text-center"><b>Artur16211</b></h5>
+                <img class="rounded-circle mx-auto d-block" src="assets/img/Profile/Artur16211.jpg" alt="imagen1" width="70%" />
+                <div class="center-icon hide-small">
+                    <span class="iconify" data-icon="skill-icons:discord" data-width="32"></span><a
+                        class="text-hide">+</a><br>
+                    <span class="iconify" data-icon="logos:youtube-icon" data-width="32"></span>
+                </div>
+                <p class="card-text hide-small text-hide"><br>...</p>
+                <span class="iconify hide-small" data-icon="skill-icons:discord" data-width="28"></span> Artur16211<br>
+                <span class="iconify hide-small" data-icon="logos:youtube-icon" data-width="32"></span>
+                <a class="text-white" href="https://www.youtube.com/@artur16211">https://www.youtube.com/@artur16211</a>
+            </div>
+        </div>
+
+        <div class="card choice unset unseta2 bg-primary text-white">
+            <div class="card-body a2">
+                <h5 class="card-title card-title-contacto text-center"><b>atuburapaler</b></h5>
+                <img class="rounded-circle mx-auto d-block" src="assets/img/Profile/atuburapaler.jpg" alt="imagen1"
+                    width="70%" />
+                <div class="center-icon hide-small">
+                    <span class="iconify" data-icon="skill-icons:discord" data-width="32"></span><a
+                        class="text-hidea2">+</a><br>
+                    <span class="iconify" data-icon="logos:youtube-icon" data-width="32"></span>
+                </div>
+                <p class="card-text hide-small text-hidea2">...</p>
+                <span class="iconify" data-icon="skill-icons:discord" data-width="32"></span> atuburapaler<br>
+                <span class="iconify hide-small" data-icon="logos:youtube-icon" data-width="32"></span>
+                <a class="text-white" href="https://www.youtube.com/@atubp">https://www.youtube.com/@atubp</a>
+            </div>
+        </div>
+
+        <script src="deps/bootstrap/js/bootstrap.js"></script>
+        <script src="deps/iconify.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const choiceArray = document.querySelectorAll(".choice");
+
+                choiceArray.forEach((card) => {
+                    card.addEventListener("click", () => {
+
+                        // Si no está expandida, ábrela
+                        choiceArray.forEach((element) => {
+                            element.classList.remove("expand", "unset");
+                            element.classList.add('small');
+                            const centerIcon = element.querySelector(".hide-small");
+                            if (centerIcon) {
+                                centerIcon.style.display = "flex";
+                            }
+                            if (element.classList.contains("a1")) {
+                                element.classList.add("smalla1");
+                            } else if (element.classList.contains("a2")) {
+                                element.classList.add("smalla2");
+                            }
+                        });
+
+                        card.classList.remove("small");
+                        // card.classList.add("disable-expand");
+                        const centerIcon = card.querySelector(".hide-small");
+                        if (centerIcon) {
+                            centerIcon.style.display = "none"
+                        }
+                        if (card.classList.contains("a1")) {
+                            card.classList.remove("smalla1");
+                        } else if (card.classList.contains("a2")) {
+                            card.classList.remove("smalla2");
+                        }
+                        card.classList.add('expand');
+                    });
+                });
+
+                // Cerrar al hacer clic fuera de todas las tarjetas
+                document.addEventListener("click", (e) => {
+                    choiceArray.forEach((card) => {
+                        if (!card.contains(e.target) && card.classList.contains("expand")) {
+                            card.classList.remove("expand");
+                            card.classList.add("unset", "small");
+                            if (card.classList.contains("a1")) {
+                                card.classList.add("smalla1");
+                            } else if (card.classList.contains("a2")) {
+                                card.classList.add("smalla2");
+                            }
+                            const centerIcon = card.querySelector(".hide-small");
+                            if (centerIcon) {
+                                centerIcon.style.display = "flex";
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+    <div class="container hide-desktop2">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <img class="rounded-circle mx-0 d-block" src="assets/img/Profile/Artur16211.jpg" alt="imagen1"
+                            width="10%" />
+                        Artur16211 <span class="iconify" data-icon="skill-icons:discord" data-width="32"></span>
+                        <P class="text-hideca">+</P><span class="iconify" data-icon="logos:youtube-icon"
+                            data-width="32"></span>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <span class="iconify hide-small" data-icon="skill-icons:discord" data-width="28"></span>
+                        Artur16211<br>
+                        <span class="iconify hide-small" data-icon="logos:youtube-icon" data-width="32"></span>
+                        <a href="https://www.youtube.com/@artur16211">www.youtube.com/@artur16211</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <img class="rounded-circle mx-0 d-block" src="assets/img/Profile/atuburapaler.jpg" alt="imagen1"
+                            width="10%"/>atuburapaler <span class="iconify" data-icon="skill-icons:discord"
+                            data-width="32"></span>
+                        <P class="text-hideca">+</P><span class="iconify" data-icon="logos:youtube-icon"
+                            data-width="32"></span>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <span class="iconify" data-icon="skill-icons:discord" data-width="32"></span> atuburapaler<br>
+                        <span class="iconify hide-small" data-icon="logos:youtube-icon" data-width="32"></span>
+                        <a href="https://www.youtube.com/@atubp">www.youtube.com/@atubp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
