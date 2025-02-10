@@ -11,37 +11,33 @@
     <link rel="stylesheet" href="assets/css/contact.css" />
     <script src="deps/jquery-3.6.4.min.js"></script>
     <meta name="theme-color" content="#000000">
-    <title>Página no encontrada</title>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <script src="assets/js/gennav.js"></script>
+    <script src="assets/js/activenav.js"></script>
+
     <style>
         body {
             background-color: #021425;
             color: white;
             text-align: center;
-            padding-top: 10%;
+            font-family: Arial, sans-serif;
         }
-        h1 {
-            font-size: 5rem;
-        }
-        p {
-            font-size: 1.5rem;
-        }
-        .home-link {
-            font-size: 1.2rem;
-            color: #0d6efd;
-            text-decoration: none;
-        }
-        .home-link:hover {
-            text-decoration: underline;
+
+        .error-container {
+            margin-top: 10%;
         }
     </style>
-</head>
 
-<body>
-    <div class="container">
-        <h1>404</h1>
-        <p>Lo sentimos, la página que buscas no existe.</p>
-        <a class="home-link" href="/">Volver al inicio</a>
+    <div class="container error-container">
+        <h1><b>404</b></h1>
+        <h2>Página no encontrada</h2>
+        <p>La página que buscas no existe o ha sido movida.</p>
+        <a href="/" class="btn btn-primary">Volver al inicio</a>
     </div>
+
     <script>
         setTimeout(() => {
             window.location.href = "/";
