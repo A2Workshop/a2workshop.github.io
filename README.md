@@ -1,1 +1,1 @@
-https://a2workshop.github.io/web
+https://a2workshop.github.io/
