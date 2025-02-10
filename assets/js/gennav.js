@@ -109,7 +109,7 @@
         document.getElementById("navbar-container").innerHTML = navbar2;
     }
     
-    else if (window.location.pathname === "/contacto.html" || window.location.pathname === "/contacto" || window.location.pathname === "/404.html" || window.location.pathname === "/404") {
+    else if (window.location.pathname === "/contacto.html" || window.location.pathname === "/contacto") {
         document.getElementById("navbar-container").innerHTML = navbar3;
     }
     
