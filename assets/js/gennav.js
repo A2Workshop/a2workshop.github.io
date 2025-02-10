@@ -2,8 +2,8 @@
     const navbar = `
         <nav>
             <div class="nav-container">
-                <a href="/index.html" class="hide-desktop"><img src="../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/index.html" class="hide-mobile"><img src="../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
@@ -54,8 +54,8 @@
     const navbar3 = `
         <nav>
             <div class="nav-container">
-                <a href="/index.html" class="hide-desktop"><img src="assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/index.html" class="hide-mobile"><img src="assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
@@ -81,8 +81,8 @@
     const navbarQ2Descargar = `
         <nav>
             <div class="nav-container">
-                <a href="/index.html" class="hide-desktop"><img src="../../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/index.html" class="hide-mobile"><img src="../../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="../../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
