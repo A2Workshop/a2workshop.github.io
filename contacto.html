@@ -157,15 +157,5 @@
             const collapseOne = new bootstrap.Collapse(document.getElementById('collapseOne'), { toggle: true });
             const collapseTwo = new bootstrap.Collapse(document.getElementById('collapseTwo'), { toggle: true });
         }
-
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 990) {
-                const collapseOne = new bootstrap.Collapse(document.getElementById('collapseOne'), { toggle: true });
-                const collapseTwo = new bootstrap.Collapse(document.getElementById('collapseTwo'), { toggle: true });
-            } else {
-                const collapseOne = new bootstrap.Collapse(document.getElementById('collapseOne'), { toggle: false });
-                const collapseTwo = new bootstrap.Collapse(document.getElementById('collapseTwo'), { toggle: false });
-            }
-        });
     });    
 </script>
