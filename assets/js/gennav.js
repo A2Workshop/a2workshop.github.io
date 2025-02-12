@@ -78,11 +78,11 @@
         </nav>
     `;
 
-    const navbarQ2Descargar = `
+    const navbarpq2install = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/" class="hide-mobile"><img src="../../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="../../pq2/img/a2logo/logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../../pq2/img/a2logo/full_logo.png" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
@@ -113,8 +113,8 @@
         document.getElementById("navbar-container").innerHTML = navbar3;
     }
     
-    else if (window.location.pathname === "/pq2espanol/Descargar.html" || window.location.pathname === "/pq2espanol/Descargar") {
-        document.getElementById("navbar-container").innerHTML = navbarQ2Descargar;
+    else if (window.location.pathname === "/traducciones/pq2espanol/Instalacion.html" || window.location.pathname === "/traducciones/pq2espanol/Instalacion") {
+        document.getElementById("navbar-container").innerHTML = navbarpq2install;
     }
     
     else {
