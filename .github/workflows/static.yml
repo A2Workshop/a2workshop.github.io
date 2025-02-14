@@ -27,19 +27,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate sitemap
-        id: sitemap
-        uses: cicirello/generate-sitemap@v1.10.1
-        with:
-          base-url-path: https://a2workshop.github.io/
-          sitemap-format: xml
-          exclude-paths: >
-            /assets
-            /deps
-            /pq2
-            /404.html
-            /googlea5ddacbeb250ee30.html
-
       - name: Generate hashes for static files
         run: |
           find . -type f \( -iname '*.css' -o -iname '*.js' -o -iname '*.jpeg' -o -iname '*.jpg' -o -iname '*.png' -o -iname '*.webm' -o -iname '*.webp' -o -iname '*.gif' \) ! -iname 'bootstrap*' | while read file; do
