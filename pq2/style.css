@@ -243,9 +243,9 @@ body {
         height: 1.5rem;
     }
 
-    /* .arrow-modal {
-        margin-top: 22%;
-    } */
+    .arrow-modal {
+        bottom: 5% !important;
+    }
 }
 
 @media (min-width: 990px) {
