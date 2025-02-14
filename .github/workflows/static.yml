@@ -32,6 +32,7 @@ jobs:
         uses: cicirello/generate-sitemap@v1.10.1
         with:
           base-url-path: https://a2workshop.github.io/
+          sitemap-format: txt
           exclude-paths: >
             /assets
             /deps
