@@ -212,30 +212,33 @@
                     <span class="visually-hidden">Siguiente</span>
                 </button>
             </div>
-        </div> 
+        </div>
         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-fullscreen">
                 <div class="modal-content border-0">
                     <div class="modal-header hide-mobile">
-                        <button type="button" class="btn-close bg-white p-3" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close bg-white p-3" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body p-0 text-center">
-                        <button id="prevImage" class="btn btn-light position-absolute top-50 start-0 translate-middle-y arrow-modal">
+                        <button id="prevImage"
+                            class="btn btn-light position-absolute top-50 start-0 translate-middle-y arrow-modal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                 <path fill="currentColor"
                                     d="M11.8 13H15q.425 0 .713-.288T16 12t-.288-.712T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275t.275-.7t-.275-.7zm.2 9q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
                             </svg>
                         </button>
                         <img src="" id="modalImage" class="img-fluid"
-                             style="max-width: 100%; max-height: 90%; object-fit: contain;">
-                        <button id="nextImage" class="btn btn-light position-absolute top-50 end-0 translate-middle-y arrow-modal">
+                            style="max-width: 100%; max-height: 90%; object-fit: contain;">
+                        <button id="nextImage"
+                            class="btn btn-light position-absolute top-50 end-0 translate-middle-y arrow-modal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                 <path fill="currentColor"
                                     d="m12 16l4-4l-4-4l-1.4 1.4l1.6 1.6H8v2h4.2l-1.6 1.6zm0 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
                             </svg>
                         </button>
                         <button type="button" class="btn-close bg-white hide-desktop mt-2" data-bs-dismiss="modal"
-                                aria-label="Cerrar"></button>
+                            aria-label="Cerrar"></button>
                     </div>
                 </div>
             </div>
@@ -301,29 +304,29 @@
             const modalImage = document.getElementById('modalImage');
             const images = Array.from(document.querySelectorAll('.carousel img[data-bs-toggle="modal"]'));
             let currentIndex = 0;
-    
+
             function showImage(image) {
                 const src = image.getAttribute('src');
                 modalImage.setAttribute('src', src);
                 currentIndex = images.indexOf(image);
             }
-    
+
             images.forEach(image => {
                 image.addEventListener('click', () => showImage(image));
             });
-    
+
             document.getElementById('prevImage').addEventListener('click', function () {
                 currentIndex = (currentIndex - 1 + images.length) % images.length;
                 showImage(images[currentIndex]);
             });
-    
+
             document.getElementById('nextImage').addEventListener('click', function () {
                 currentIndex = (currentIndex + 1) % images.length;
                 showImage(images[currentIndex]);
             });
         });
     </script>
-    
+
 </body>
 
 </html>
