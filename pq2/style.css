@@ -237,15 +237,15 @@ body {
     }
 
     #imageModal .btn-close {
-        position: static;
-        margin: auto;
+        margin-left: 50%;
+        margin-bottom: 5%;
         width: 1.5rem;
         height: 1.5rem;
     }
 
-    .arrow-modal {
+    /* .arrow-modal {
         margin-top: 35%;
-    }
+    } */
 }
 
 @media (min-width: 990px) {
