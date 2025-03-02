@@ -137,7 +137,7 @@ body {
     .carousel-item img {
         border-radius: 0;
         margin: 0 10px;
-        box-shadow: 10px 5px 0 #e6340c7a;
+        box-shadow: 10px 5px 0 #0000007a;
         position: relative;
         z-index: 1;
         border: 2px solid black;
@@ -150,7 +150,7 @@ body {
     .carousel-item img {
         border-radius: 0;
         margin: 0 10px;
-        box-shadow: 10px 5px 0 #f04e2977;
+        box-shadow: 10px 5px 0 #0000007a;
         position: relative;
         z-index: 1;
         border: 2px solid black;
