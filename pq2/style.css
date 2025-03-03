@@ -211,6 +211,7 @@ body {
 
 .navbar-toggler {
     background-color: #f04e29 !important;
+    border-radius: 0%;
 }
 
 .btn-primary {
