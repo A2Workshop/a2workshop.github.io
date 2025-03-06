@@ -1,6 +1,4 @@
 ﻿User-agent: *
 Disallow: /.github/
-Disallow: /assets/
 Disallow: /deps/
-Disallow: /pq2/
 Sitemap: https://a2workshop.github.io/sitemap.xml
