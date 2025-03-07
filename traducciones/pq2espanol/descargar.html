@@ -614,7 +614,7 @@
             if (guide == 'extras' || guide == 'faq') {
                 localStorage.removeItem('selectedDevice');
                 localStorage.removeItem('selectedMethod');
-                console.log('Removed saved device and method');
+                // console.log('Removed saved device and method');
             }
         }
 
@@ -655,7 +655,7 @@
                     //setTimeout(() => {
                     document.getElementById('layerfs_btn').click(); // Activar botón de LayerFS
 
-                    console.log('Loaded selected device:', savedDevice);
+                    // console.log('Loaded selected device:', savedDevice);
                     document.querySelector(`.btn-${savedDevice}`).click(); // Activar botón de dispositivo guardado
                     //}, 100);
                 }
@@ -706,9 +706,9 @@
                 `;
             } else if (method === 'parcheo') {
                 localStorage.removeItem('selectedDevice');
-                console.log('set method:', method);
+                // console.log('set method:', method);
                 localStorage.setItem('selectedMethod', 'parcheo');
-                console.log('Removed saved device');
+                // console.log('Removed saved device');
                 //
                 document.getElementById('patchrom_btn').classList.add('active-btn');
                 document.getElementById('layerfs_btn').classList.remove('active-btn');
@@ -757,7 +757,7 @@
 
         function change_device(type) {
             localStorage.setItem('selectedDevice', type);
-            console.log('Saved selected device:', type);
+            // console.log('Saved selected device:', type);
 
             let content = '';
             switch (type) {
