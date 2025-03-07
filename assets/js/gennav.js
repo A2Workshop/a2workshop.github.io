@@ -98,6 +98,9 @@
                     <a href="/traducciones/pq2espanol.html">
                         <img src="../../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                     </a>
+                    <a href="https://p3pespanol.wordpress.com/2024/05/04/persona-q-parche-en-espanol/">
+                        <img src="../../pq2/img/es_logo/blackbg_q1.png" alt="pq2eslogo"> (3DS) Persona Q Traducción al Español
+                    </a>
                     </div>
                 </div>
                 <a href="/contacto.html">Contacto</a>
