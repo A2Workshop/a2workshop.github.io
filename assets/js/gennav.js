@@ -81,8 +81,8 @@
     const navbarpq2install = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../../pq2/img/a2logo/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/" class="hide-mobile"><img src="../../pq2/img/a2logo/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="../../../pq2/img/a2logo/logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../../../pq2/img/a2logo/full_logo.png" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
