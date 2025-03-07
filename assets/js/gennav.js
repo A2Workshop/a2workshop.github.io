@@ -82,7 +82,7 @@
         <nav>
             <div class="nav-container">
                 <a href="/" class="hide-desktop"><img src="../../../pq2/img/a2logo/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/" class="hide-mobile"><img src="../../../pq2/img/a2logo/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../../pq2/img/a2logo/full_logo.png" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
@@ -113,7 +113,7 @@
         document.getElementById("navbar-container").innerHTML = navbar3;
     }
     
-    else if (window.location.pathname === "/traducciones/pq2espanol/descargar.html" || window.location.pathname === "/traducciones/pq2espanol/descargar") {
+    else if (window.location.pathname === "/traducciones/pq2espanol/prueba.html" || window.location.pathname === "/traducciones/pq2espanol/prueba") {
         document.getElementById("navbar-container").innerHTML = navbarpq2install;
     }
     
