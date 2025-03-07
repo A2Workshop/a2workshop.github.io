@@ -1,0 +1,925 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>PQ2 en Español - Descargar</title>
+    <link rel="icon" href="../../assets/img/A2/favicon.jpg">
+    <meta name="theme-color" content="#f04e29">
+    <link rel="stylesheet" href="../../deps/bootstrap/css/bootstrap.min.css">
+    <script src="../../deps/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="../../pq2/guide/style.css">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="A2Workshop">
+    <meta property="og:description" content="Descargar Persona Q2 en Español.">
+    <meta property="og:image" content="https://a2workshop.github.io/pq2/img/es_logo/webpreview.png">
+    <meta property="og:url" content="https://a2workshop.github.io/traducciones/pq2espanol/descargar">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A2Workshop">
+    <meta name="twitter:description" content="Descargar Persona Q2 en Español.">
+    <meta name="twitter:image" content="https://a2workshop.github.io/pq2/img/es_logo/webpreview.png">
+</head>
+
+<body class="bg_bg">
+    <script>
+        $(document).ready(function () {
+            $('.megamenu > a').on('click', function (e) {
+                e.preventDefault();
+                $('.megamenu-content').fadeIn();
+            });
+
+            $('.close-btn').on('click', function () {
+                $('.megamenu-content').fadeOut();
+            });
+        });
+    </script>
+    <div id="navbar-container"></div>
+    <script src="../../assets/js/gennav.js"></script>
+
+    <div class="row container mx-auto">
+        <div class="col-lg-9 col-12">
+            <div class="container mt-2 p-4 bg_container">
+                <img src="../../pq2/img/es_logo/pq2_still.png" alt="Logo" class="logo">
+                <h1 class="fs-3 text-center">Parche de traducción al Español de Persona Q<span
+                        class="orange-text">2</span>: New
+                    Cinema
+                    Labyrinth</h1>
+            </div>
+
+            <div class="mt-2 p-4 bg_container">
+                <div class="row mt-3 g-0 hide-changeguide-mobile">
+                    <div class="col-4">
+                        <button id="guide-instalacion" class="btn btn-guide w-100"
+                            onclick="change_guide('instalacion')">Instalación</button>
+                    </div>
+                    <div class="col-4">
+                        <button id="guide-extras" class="btn btn-guide w-100 disabled-guide"
+                            onclick="change_guide('extras')">Extras</button>
+                    </div>
+                    <div class="col-4">
+                        <button id="guide-faq" class="btn btn-guide w-100 disabled-guide"
+                            onclick="change_guide('faq')">FAQ</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column hide-changeguide-desktop">
+                    <button id="guide-instalacion" class="btn btn-guide-mobile w-100 mb-2"
+                        onclick="change_guide('instalacion')">Instalación</button>
+                    <button id="guide-extras" class="btn btn-guide-mobile w-100 mb-2 disabled-guide"
+                        onclick="change_guide('extras')">Extras</button>
+                    <button id="guide-faq" class="btn btn-guide-mobile w-100 disabled-guide"
+                        onclick="change_guide('faq')">FAQ</button>
+                </div>
+                <div id="guide-content"></div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-2 text-center hide-mobile">
+            <div class="mt-2 p-2 bg_container">
+                <h2 class="title2 fs-4 mb-2">Creado Por:</h2>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <img src="../../assets/img/Profile/Artur16211.jpg" alt="Artur16211" class="img-fluid">
+                    </div>
+                    <div class="col-12 mt-2">
+                        <p class="fs-5">Artur16211</p>
+                        <button class="btn btn-link" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#socialArtur" aria-expanded="false" aria-controls="socialArtur">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6l-6-6z" />
+                            </svg>
+                        </button>
+                        <div class="collapse" id="socialArtur">
+                            <a href="https://www.youtube.com/@artur16211" target="_blank" class="fs-6"><span
+                                    class="iconify hide-small" data-icon="logos:youtube-icon"
+                                    data-width="24"></span>Artur1621</a>
+                            <br>
+                            <span class="iconify" data-icon="skill-icons:discord" data-width="24"></span>artur16211
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <img src="../../assets/img/Profile/HxCannon.jpg" alt="HxCannon" class="img-fluid">
+                    </div>
+                    <div class="col-12 mt-2">
+                        <p class="fs-5">HxCannon</p>
+                        <button class="btn btn-link" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#socialHxCannon" aria-expanded="false" aria-controls="socialHxCannon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6l-6-6z" />
+                            </svg>
+                        </button>
+                        <div class="collapse" id="socialHxCannon">
+                            <a href="https://www.youtube.com/@hxcannon" target="_blank" class="fs-6"><span
+                                    class="iconify hide-small" data-icon="logos:youtube-icon"
+                                    data-width="24"></span>HxCannon</a>
+                            <br>
+                            <span class="iconify" data-icon="skill-icons:discord" data-width="24"></span>hxcannon
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <img src="../../assets/img/Profile/Manuovi_07.jpg" alt="Manuovi_07" class="img-fluid">
+                    </div>
+                    <div class="col-12 mt-2">
+                        <p class="fs-5">Manuovi_07</p>
+                        <button class="btn btn-link" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#socialManuovi" aria-expanded="false" aria-controls="socialManuovi">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6l-6-6z" />
+                            </svg>
+                        </button>
+                        <div class="collapse" id="socialManuovi">
+                            <span class="iconify" data-icon="skill-icons:discord" data-width="24"></span>manuovi_07
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="credits-container mt-3 p-4 bg_container mx-auto">
+            <h3 class="text-center"><b>Agradecimientos Especiales</b></h3>
+            <p class="text-center">Agradecemos a las siguientes personas y proyectos por su ayuda directa o indirecta en
+                esta traducción:</p>
+            <div class="row hide-mobile">
+                <div class="col-md-6">
+                    <ul>
+                        <li><strong>TGE:</strong> <a href="https://github.com/tge-was-taken/Atlus-Script-Tools"
+                                target="_blank">AtlusScriptTools</a></li>
+                        <li><strong>ShrineFox:</strong> <a href="https://shrinefox.com/browse?post=pq2talkanimfix"
+                                target="_blank">Talk Animation Fix y documentación</a></li>
+                        <li><strong>DeathChaos25:</strong> <a href="https://github.com/DeathChaos25/PQ_Patches"
+                                target="_blank">PQ Patches</a>, <a
+                                href="https://github.com/DeathChaos25/PQ2PersonaNameTBL"
+                                target="_blank">PQ2PersonaNameTBL</a></li>
+                        <li><strong>Melonman19:</strong> <a href="https://github.com/Meloman19/PersonaEditor"
+                                target="_blank">Persona Editor</a></li>
+                        <li><strong>hadashisora:</strong> <a href="https://github.com/hadashisora/NintyFont"
+                                target="_blank">NintyFont</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li><strong>ObsidianX:</strong> <a href="https://github.com/ObsidianX/3dstools"
+                                target="_blank">3dstools</a></li>
+                        <li><strong>lraty-li:</strong> Búsqueda de texto en code.bin.</li>
+                        <li><strong>FanTranslatorsInternational:</strong> <a
+                                href="https://github.com/FanTranslatorsInternational/Kuriimu2"
+                                target="_blank">Kuriimu2</a></li>
+                        <li><strong>MapStudioProject:</strong> <a href="https://github.com/MapStudioProject/CTR-Studio"
+                                target="_blank">CTR Studio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hide-desktop">
+                <ul>
+                    <li><strong>TGE:</strong> <a href="https://github.com/tge-was-taken/Atlus-Script-Tools"
+                            target="_blank">AtlusScriptTools</a></li>
+                    <li><strong>ShrineFox:</strong> <a href="https://shrinefox.com/browse?post=pq2talkanimfix"
+                            target="_blank">Talk Animation Fix y documentación</a></li>
+                    <li><strong>DeathChaos25:</strong> <a href="https://github.com/DeathChaos25/PQ_Patches"
+                            target="_blank">PQ Patches</a>, <a href="https://github.com/DeathChaos25/PQ2PersonaNameTBL"
+                            target="_blank">PQ2PersonaNameTBL</a></li>
+                    <li><strong>Melonman19:</strong> <a href="https://github.com/Meloman19/PersonaEditor"
+                            target="_blank">Persona Editor</a></li>
+                    <li><strong>hadashisora:</strong> <a href="https://github.com/hadashisora/NintyFont"
+                            target="_blank">NintyFont</a></li>
+                    <li><strong>ObsidianX:</strong> <a href="https://github.com/ObsidianX/3dstools"
+                            target="_blank">3dstools</a></li>
+                    <li><strong>lraty-li:</strong> Búsqueda de texto en code.bin.</li>
+                    <li><strong>FanTranslatorsInternational:</strong> <a
+                            href="https://github.com/FanTranslatorsInternational/Kuriimu2" target="_blank">Kuriimu2</a>
+                    </li>
+                    <li><strong>MapStudioProject:</strong> <a href="https://github.com/MapStudioProject/CTR-Studio"
+                            target="_blank">CTR Studio</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Sidebar -->
+    <a class="sidebar-toggle animated-border" onclick="toggleSidebar()">
+        <img src="../../pq2/img/creadopor_card.png">
+    </a>
+
+
+    <div id="mobileSidebar" class="mobile-sidebar">
+        <button class="btn mb-3 btn-close-sidebar" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg"
+                width="48" height="48" viewBox="0 0 48 48">
+                <defs>
+                    <mask id="ipTCloseOne0">
+                        <g fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4">
+                            <path fill="#000"
+                                d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z" />
+                            <path stroke-linecap="round" d="M29.657 18.343L18.343 29.657m0-11.314l11.314 11.314" />
+                        </g>
+                    </mask>
+                </defs>
+                <path fill="#e85100" d="M0 0h48v48H0z" mask="url(#ipTCloseOne0)" />
+            </svg></button>
+        <h2 class="title2 fs-4 mb-2">Creado Por:</h2>
+        <div class="row mt-3">
+            <div class="col-12">
+                <img src="../../assets/img/Profile/Artur16211.jpg" alt="Artur16211" class="img-fluid">
+            </div>
+            <div class="col-12 mt-2">
+                <p class="fs-5">Artur16211</p>
+                <div id="socialArtur">
+                    <a href="https://www.youtube.com/@artur16211" target="_blank" class="fs-6">
+                        <span class="iconify hide-small" data-icon="logos:youtube-icon" data-width="24"></span>Artur1621
+                    </a>
+                    <br>
+                    <span class="iconify" data-icon="skill-icons:discord" data-width="24"></span>artur16211
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-3">
+            <div class="col-12">
+                <img src="../../assets/img/Profile/HxCannon.jpg" alt="HxCannon" class="img-fluid">
+            </div>
+            <div class="col-12 mt-2">
+                <p class="fs-5">HxCannon</p>
+                <div id="socialHxCannon">
+                    <a href="https://www.youtube.com/@hxcannon" target="_blank" class="fs-6">
+                        <span class="iconify hide-small" data-icon="logos:youtube-icon" data-width="24"></span>HxCannon
+                    </a>
+                    <br>
+                    <span class="iconify" data-icon="skill-icons:discord" data-width="24"></span>hxcannon
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <img src="../../assets/img/Profile/Manuovi_07.jpg" alt="Manuovi_07" class="img-fluid">
+            </div>
+            <div class="col-12 mt-2">
+                <p class="fs-5">Manuovi_07</p>
+                <div id="socialManuovi">
+                    <span class="iconify" data-icon="skill-icons:discord" data-width="24"></span>manuovi_07
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar -->
+
+    <script>
+        const creditsContainer = document.querySelector('.credits-container');
+
+        function change_guide(guide, subsection = null) {
+            let content = '';
+            switch (guide) {
+                case 'instalacion':
+                    content = `
+                        <h2 class="title3">Guía de Instalación</h2>
+                        <section class="mt-4">
+                            <h2 class="title2">Requisitos</h2>
+                            <p class="mb-3 fs-5">Para jugar a Persona Q<span class="orange-text">2</span> en español necesitarás:</p>
+                            <ul class="fs-5">
+                                <li>Una consola <span class="red-text">2</span>DS/<span class="red-text">3</span>DS con un CFW como Luma3DS, o un emulador instalado de <span class="ct-text">3</span>DS en tu dispositivo.</li>
+                                <li>Una copia del juego región USA.</li>
+                            </ul>
+                            <hr>
+                            <h2 class="title2">ENLACES</h2>
+                            <h2 class="title1">Formato Parche (xdelta):</h2>
+                            <a href="https://ouo.io/pNRDVuI" target="_blank" class="btn btn-primary1 mt-2 border-5">Formato Parche <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-8 4v-5h2v3h12v-3h2v5z"/></svg></a>
+                            <br>
+                            <h2 class="title1">Formato LayerFS (mod.cpk):</h2>
+                            <a href="https://ouo.io/dVmL6d" target="_blank" class="btn btn-primary2 mt-2 border-5">Formato LayerFS <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-8 4v-5h2v3h12v-3h2v5z"/></svg></a>
+                            <br>
+                            <hr>
+                            <h2 class="title2">Método de Instalación</h2>
+                            <div class="border-explanation p-3">
+                                <p class="mb-3 fs-5 fw-bold blue-text">Parcheo de ROM:</p>
+                                <p class="mb-3 fs-6">
+                                    Este método consiste en aplicar un parche a un archivo <b>.cia</b> 
+                                    <b>desencriptado</b> y <b>extraído de tu cartucho</b>, generando un nuevo 
+                                    <b>.cia</b> con la traducción aplicada.
+                                </p>
+                                <p class="mb-3 fs-5 fw-bold pink-text">LayerFS:</p>
+                                <p class="mb-3 fs-6">
+                                    Este método permite reemplazar archivos del juego mediante <b>LayerFS</b>, 
+                                    sin modificar directamente la ROM.
+                                </p>
+                            </div>
+                            <br>
+                            <div class="text-center my-3">
+                                <button class="btn btn-design btn-patch mx-2" id="patchrom_btn" onclick="change_method('parcheo')">Parcheo de ROM</button>
+                                <br class="hide-desktop2"><br class="hide-desktop2">
+                                <button class="btn btn-design btn-layer mx-2" id="layerfs_btn" onclick="change_method('layerfs')">LayerFS</button>
+                            </div>
+                            <div id="method-content" class="p-3 fs-5 text-center">
+                                <p>Selecciona un método de instalación para continuar.</p>
+                            </div>
+                        </section>
+                    `;
+                    creditsContainer.style.display = 'block';
+                    break;
+                case 'extras':
+                    content = `
+                        <h2 class='title3'>Extras</h2>
+                        <h4 class="mb-3 text-uppercase fw-bold">Índice</h4>
+                        <div class="container text-center index-design">
+                            <a class="nav-link fs-4 mt-2 hide-mobile" href="#" onclick="event.preventDefault(); change_guide('extras', 'texturas-hd')">Texturas/Interfaz HD</a>
+                            <a class="nav-link fs-4 mt-2 hide-desktop" href="#" onclick="event.preventDefault(); change_guide('extras', 'texturas-hd')">Texturas/<br>Interfaz HD</a>
+                            <hr>
+                            <a class="nav-link fs-4 mb-2" href="#" onclick="event.preventDefault(); change_guide('extras', 'pqpatches')">PQ Patches</a>
+                            <hr>
+                            <a class="nav-link fs-4 mb-2" href="#" onclick="event.preventDefault(); change_guide('extras', 'modding')">Modding</a>
+                        </div>
+                        <section class="mt-4" id="texturas-hd">
+                            <h2 class="title2 hide-mobile">Texturas/Interfaz HD</h2>
+                            <h2 class="title2 hide-desktop">Texturas/<br>Interfaz HD</h2>
+                            <p class="fs-5">Paquete de texturas HD creado por <b>HxCannon</b>.</p>
+                            <ul class="fs-5">
+                                <li> Para que las texturas HD se muestren correctamente, se recomienda configurar la resolución interna del emulador en al menos <b>3x</b>.</li>
+                            </ul>
+                            <br>
+                            <div class="accordion" id="accordionImages">
+                                <!-- Comparador 1 -->
+                                <div class="accordion-item bg-dark text-white border-accordion">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Batalla</button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionImages">
+                                        <div class="image-comparator" id="comparator-1">
+                                            <div class="image-container">
+                                                <img src="../../pq2/img/comparison_hd/hd/battle.png" class="image-before" alt="HD batalla">
+                                                <img src="../../pq2/img/comparison_hd/sd/battle.png" class="image-after" alt="SD batalla">
+                                            </div>
+                                            <div class="slider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Comparador 2 -->
+                                <div class="accordion-item bg-dark text-white border-accordion">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Taquilla</button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionImages">
+                                        <div class="image-comparator" id="comparator-2">
+                                            <div class="image-container">
+                                                <img src="../../pq2/img/comparison_hd/hd/taquilla.png" class="image-before" alt="HD taquilla">
+                                                <img src="../../pq2/img/comparison_hd/sd/taquilla.png" class="image-after" alt="SD taquilla">
+                                            </div>
+                                            <div class="slider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Comparador 3 -->
+                                <div class="accordion-item bg-dark text-white border-accordion">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Habitación Terciopelo</button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionImages">
+                                        <div class="image-comparator" id="comparator-3">
+                                            <div class="image-container">
+                                                <img src="../../pq2/img/comparison_hd/hd/fusion.png" class="image-before" alt="HD fusión">
+                                                <img src="../../pq2/img/comparison_hd/sd/fusion.png" class="image-after" alt="SD fusión">
+                                            </div>
+                                            <div class="slider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <h2 class="title">Instalación</h2>
+                            <br>
+                            <p class="fs-5"><b>Opción 1</b>: En tu emulador de <span class="ct-text">3</span>DS con el juego agregado o instalado, da clic derecho y selecciona <b>Open</b>, <b>Custom Texture Location</b> y extrae el contenido del archivo .zip a la carpeta que se abrirá.</p>
+                            <br>
+                            <p class="fs-5"><b>Opción 2</b>: En la carpeta de tu emulador de <span class="ct-text">3</span>DS, entra a <code>load/textures/00040000001D7100</code> y pega el contenido del archivo .zip.</p>
+                            <br>
+                            <img src="../../pq2/img/tutorial_textures/1.png" class="img-fluid tutorial-img tutorial-img-texturas" alt="Paso 1">
+                            <br>
+                            <br>
+                            <p class="fs-5">Después de extraer el contenido, regresa al emulador y en el menú de configuración activa la opción <b>Use Custom Textures</b>.</p>
+                            <br>
+                            <img src="../../pq2/img/tutorial_textures/2.png" class="img-fluid tutorial-img tutorial-img-texturas" alt="Paso 2">
+                            <br>
+                            <br>
+                            <h2 class="title">Enlace:</h2>
+                            <a href="https://ouo.io/e56ut5" target="_blank" class="btn btn-primary mt-2 border-5">Texturas HD <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-8 4v-5h2v3h12v-3h2v5z"/></svg></a>
+                            
+                        </section>
+                        <hr>
+                        <section class="mt-4" id="pqpatches">
+                            <h2 class="title2">PQ Patches</h2>
+                            <p class="fs-5">Estos parches desarrollados por <a href="https://github.com/DeathChaos25" target="_blank" class="text-decoration-none">DeathChaos25</a> para Persona Q2 (región USA), permiten <span class="orange-text">mostrar los nombres "canónicos" de los protagonistas</span> y habilitar el <span class="orange-text">soporte para mods mediante un archivo <code>mod.cpk</code></span> a través de <a class="pink-text text-decoration-none">LayerFS</a>.<br><br>Estos son compatibles con el parche al español y los puedes instalar parcheando los archivos de la traducción siguiendo las instrucciones en su repositorio de GitHub (<a class="hide-mobile" href="https://github.com/DeathChaos25/PQ_Patches" target="_blank">https://github.com/DeathChaos25/PQ_Patches</a><a class="hide-desktop" href="https://github.com/DeathChaos25/PQ_Patches" target="_blank">https://github.com/Death<br>Chaos25/PQ_Patches</a>) o descargando los archivos <code>code.bin</code> y <code>exheader.bin</code> ya pre-parcheados en esta sección.</p>
+                            <br>
+                            <h2 class="title1 text-start">Descargas:</h2>
+                            <a href="https://www.mediafire.com/folder/92r7usmlwc0xy/ModCPK" class="btn btn-primary mt-2 border-5" target="_blank">Versión <b>MOD.CPK</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-8 4v-5h2v3h12v-3h2v5z"/></svg></a>
+                            <br>
+                            <a href="https://www.mediafire.com/folder/pbta1djdhcxl2/ModCPK_CanonNames" class="btn btn-primary mt-2 border-5" target="_blank">Versión <b>MOD.CPK</b> y <b>Nombres Canónicos</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-8 4v-5h2v3h12v-3h2v5z"/></svg></a>
+                        </section>
+                            <hr>
+                        <section class="mt-4" id="modding">
+                            <h2 class="title2">Modding</h2>
+                            <p class="fs-5">La traducción se puede utilizar con otros mods, para ello necesitarás los <b>PQ Patches</b> y la traducción en formato <b>Mod Compendium</b> (esto último solo si se realizó la instalación mediante <a class="pink-text text-decoration-none">LayerFS</a>), la mayoria de los mods los puedes encontrar en <a href="https://gamebanana.com/games/9561" target="_blank" class="text-decoration-none">GameBanana</a> y normalmente requieren el programa <a href="https://github.com/TekkaGB/AemulusModManager" target="_blank" class="text-decoration-none">Aemulus</a>.</p>
+                            <br>
+                            <h2 class="title1 text-start">Enlace:</h2>
+                            <a href="https://gamebanana.com/mods/579515" target="_blank" class="btn btn-secondary mt-2 border-5">Traducción en formato <b>Mod Compendium</b> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-8 4v-5h2v3h12v-3h2v5z"/></svg></a>
+                        </section>
+                    `;
+                    creditsContainer.style.display = 'none';
+                    break;
+                case 'faq':
+                    content = `<h2 class='title3'>FAQ <br>(Preguntas Frecuentes)</h2>
+                    <h2 class="title1">¿Cómo puedo reportar un error?</h2>
+                    <p class="fs-6">
+                        Consulta la sección de
+                        <a href="#errores-conocidos" class="text-decoration-none link-color"><b>Errores Conocidos</b></a> y el resto de esta página.
+                        Si no encuentras tu problema, puedes reportarlo en el servidor de Discord de
+                        <a href="https://discord.gg/WCSNDWXNyQ" target="_blank" class="text-decoration-none link-color"><b>Persona Cannon</b></a>
+                        o contactarme directamente en Discord (Artur16211).
+                    </p>
+                    <br>
+                    <h2 class="title1">¿La traducción es compatible con Android?</h2>
+                    <p class="fs-6">Sí, la traducción es compatible con Android, pero necesitarás un emulador de 3DS en tu dispositivo y seguir las instrucciones de instalación en esta página.</p>
+                    <br>
+                    <h2 class="title1">¿Las texturas HD son compatibles con Android?</h2>
+                    <p class="fs-6">Sí, las texturas HD son compatibles con Android, puedes seguir las instrucciones de instalación en extras con la <b>opción 2</b>.</p>
+                    <br>
+                    <h2 class="title1">¿La fuente no está en HD?</h2>
+                    <p class="fs-6">La fuente del juego no puede ser escalada, por lo que no se puede mejorar su calidad.</p>
+                    <br>
+                    <h2 class="title1">¿La traducción es compatible con los DLC?</h2>
+                    <p class="fs-6">Sí, la traducción es compatible con todos los DLC del juego.</p>
+                    <br>
+                    <h2 class="title1">El xdelta dice que la ROM no es la correcta.</h2>
+                    <p class="fs-6">Esto ocurre cuando la ROM (.cia) tiene un checksum diferente al esperado, y aunque no debería suceder, puedes parchear la ROM desactivando la verificación de checksum en tu programa de parcheo (no se garantiza que funcione).</p>
+                    <br>
+                    <h2 class="title1">¿La traducción es compatible con la versión Europea/Japonesa del juego?</h2>
+                    <p class="fs-6">No, de momento la traducción solo es compatible con la versión USA del juego.</p>
+                    <br>
+                    <h2 class="title1">¿La traducción es compatible con otros Mods?</h2>
+                    <p class="fs-6">Sí, la traducción es compatible con otros mods, pero no se garantiza que los mods estén traducidos.</p> 
+                    <br>
+                    <h2 class="title1">El juego sigue funcionando pero no avanza después de un diálogo.</h2>
+                    <p class="fs-6">Esto ocurre en algunos emuladores al tener activado "Modo New 3DS" en la configuración del emulador, desactiva esta opción para solucionar el problema.</p>
+                    <br>
+                    <h2 class="title3" id="errores-conocidos">Errores Conocidos</h2>
+                    <h2 class="title1">Algunos nombres de Objetos, Personas y/o Habilidades tienen caracteres extraños.</h2>
+                    <p class="fs-6">Este error es conocido y se debe a un error de memoria del juego, esto no afecta la jugabilidad y ocurre de manera arbitraria, se soluciona con el tiempo jugando y/o reiniciando el juego.</p>
+                    <h2 class="title1">Algunos tutoriales tienen la fuente pequeña cuando no es necesario.</h2>
+                    <p class="fs-6">Esto se solucionará en una futura actualización.</p>
+                    `;
+                    creditsContainer.style.display = 'none';
+                    break;
+            }
+            document.getElementById('guide-content').innerHTML = content;
+
+            // slider
+            // Función para inicializar un comparador
+            function initComparator(comparator) {
+                const afterImage = comparator.querySelector('.image-after');
+                const slider = comparator.querySelector('.slider');
+
+                let isDragging = false;
+
+                // Restaurar la posición del slider si existe
+                const savedPosition = comparator.getAttribute('data-slider-position');
+                if (savedPosition) {
+                    afterImage.style.clipPath = `inset(0 0 0 ${savedPosition}%)`;
+                    slider.style.left = `${savedPosition}%`;
+                }
+
+                // Función para actualizar la posición del slider
+                function updateSliderPosition(clientX) {
+                    const rect = comparator.getBoundingClientRect();
+                    let xPosition = clientX - rect.left;
+                    let percentage = (xPosition / rect.width) * 100;
+
+                    // Limitar entre 0 y 100
+                    percentage = Math.max(0, Math.min(percentage, 100));
+
+                    // Actualizar el clip-path y la posición del slider
+                    afterImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+                    slider.style.left = `${percentage}%`;
+
+                    // Guardar la posición actual del slider
+                    comparator.setAttribute('data-slider-position', percentage);
+                }
+
+                // Eventos de ratón
+                slider.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    e.preventDefault(); // Evita que se seleccione el contenido
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (isDragging) updateSliderPosition(e.clientX);
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                // Eventos táctiles (móviles)
+                slider.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    e.preventDefault(); // Evita el desplazamiento de la pantalla
+                });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (isDragging) {
+                        updateSliderPosition(e.touches[0].clientX);
+                    }
+                });
+
+                document.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+            }
+
+            // Inicializar los comparadores
+            const comparators = document.querySelectorAll('.image-comparator');
+            comparators.forEach(comparator => {
+                initComparator(comparator);
+            });
+
+            // Guardar el estado del slider antes de colapsar el acordeón
+            document.querySelectorAll('.accordion-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const collapse = button.closest('.accordion-item').querySelector('.accordion-collapse');
+                    if (collapse.classList.contains('show')) {
+                        // Guardar el estado del slider antes de colapsar
+                        const comparator = collapse.querySelector('.image-comparator');
+                        if (comparator) {
+                            const sliderPosition = comparator.querySelector('.slider').style.left;
+                            comparator.setAttribute('data-slider-position', parseFloat(sliderPosition));
+                        }
+                    }
+                });
+            });
+            // slider
+
+
+            // Actualizar el hash con la sección y subsección
+            if (subsection) {
+                window.location.hash = `#${guide}&section=${subsection}`;
+            } else {
+                window.location.hash = `#${guide}`;
+            }
+
+            // Desplazarse a la subsección después de cargar el contenido
+            if (subsection) {
+                setTimeout(() => {
+                    const element = document.getElementById(subsection);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+
+            // Actualizar el estado de los botones
+            const buttons = document.querySelectorAll('.btn-guide');
+            buttons.forEach(button => {
+                if (button.id === `guide-${guide}`) {
+                    button.classList.remove('disabled-guide');
+                } else {
+                    button.classList.add('disabled-guide');
+                }
+            });
+
+            // Actualizar el estado de los botones
+            const buttons2 = document.querySelectorAll('.btn-guide-mobile');
+            buttons2.forEach(button => {
+                if (button.id === `guide-${guide}`) {
+                    button.classList.remove('disabled-guide');
+                } else {
+                    button.classList.add('disabled-guide');
+                }
+            });
+
+            if (guide == 'extras' || guide == 'faq') {
+                localStorage.removeItem('selectedDevice');
+                localStorage.removeItem('selectedMethod');
+                console.log('Removed saved device and method');
+            }
+        }
+
+        function loadSectionFromHash() {
+            const hash = window.location.hash.substring(1);
+            const parts = hash.split('&');
+            let guide = parts[0];
+            let subsection = null;
+
+            // Si no hay hash, establecer guía por defecto
+            if (!guide) {
+                guide = 'instalacion';
+            }
+
+            // Extraer subsección si existe
+            if (parts.length > 1) {
+                const sectionParam = parts.find(part => part.startsWith('section='));
+                if (sectionParam) {
+                    subsection = sectionParam.split('=')[1];
+                }
+            }
+
+            if (['instalacion', 'extras', 'faq'].includes(guide)) {
+                change_guide(guide, subsection);
+            }
+
+            const savedDevice = localStorage.getItem('selectedDevice');
+            const savedMethod = localStorage.getItem('selectedMethod');
+
+            if (guide !== 'extras' || guide !== 'faq' || guide == null) {
+                if (savedMethod == 'parcheo') {
+                    document.getElementById('patchrom_btn').click();
+                }
+            }
+
+            if (savedDevice) {
+                if (guide !== 'extras' || guide !== 'faq' || guide == null) {
+                    //setTimeout(() => {
+                    document.getElementById('layerfs_btn').click(); // Activar botón de LayerFS
+
+                    console.log('Loaded selected device:', savedDevice);
+                    document.querySelector(`.btn-${savedDevice}`).click(); // Activar botón de dispositivo guardado
+                    //}, 100);
+                }
+            }
+        }
+
+        $(document).ready(function () {
+            // Cargar sección al inicio
+            loadSectionFromHash();
+
+            // Escuchar cambios en el hash (navegación manual o con botones atrás/adelante)
+            $(window).on('hashchange', function () {
+                loadSectionFromHash();
+            });
+        });
+
+        function change_method(method) {
+            let content = '';
+            if (method === 'layerfs') {
+                localStorage.removeItem('selectedMethod');
+                document.getElementById('layerfs_btn').classList.add('active-btn');
+                document.getElementById('patchrom_btn').classList.remove('active-btn');
+                content = `
+                    <h2 class='text-center'>LayerFS</h2>
+                    <div class="text-start fw-bold">Paso 1:</div>
+                    <p class="text-start">Descarga el parche de traducción en formato <a class="pink-text text-decoration-none">LayerFS (mod.cpk)</a>.</a>
+                    <hr>
+                    <div class="text-start fw-bold">Paso 2:</div>
+                    <p class="text-start">Consigue los <b>PQ Patches</b> para cargar la traducción desde el <code>mod.cpk</code> en la sección <a class="text-decoration-none" href="#" onclick="change_guide('extras'); setTimeout(function(){ document.getElementById('pqpatches').scrollIntoView({ behavior: 'smooth' }); }, 300); return false;">Extras</a>.
+                    <div class='text-center my-3'>
+                        <div class='row'>
+                            <div class='col-lg-4'>
+                                <button class='btn btn-console btn-design w-100' onclick='change_device("console")'>Consola (<span class="red-text">2</span>DS/<span class="red-text">3</span>DS)</button>
+                                <br class="hide-desktop3"><br class="hide-desktop3">
+                            </div>
+                            <div class='col-lg-4'>
+                                <button class='btn btn-android btn-design w-100' onclick='change_device("android")'>Android</button>
+                                <br class="hide-desktop3"><br class="hide-desktop3">
+                            </div>
+                            <div class='col-lg-4'>
+                                <button class='btn btn-pc btn-design w-100' onclick='change_device("pc")'>PC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='content-device' class='p-3'>
+                        <p>Selecciona un dispositivo para continuar.</p>
+                    </div>
+                `;
+            } else if (method === 'parcheo') {
+                localStorage.removeItem('selectedDevice');
+                console.log('set method:', method);
+                localStorage.setItem('selectedMethod', 'parcheo');
+                console.log('Removed saved device');
+                //
+                document.getElementById('patchrom_btn').classList.add('active-btn');
+                document.getElementById('layerfs_btn').classList.remove('active-btn');
+                content = `<h2 class='text-center'>Parcheo de ROM</h2>
+                    <div class="text-start fw-bold">Paso 1:</div>
+                    <p class="text-start">Descarga el parche de traducción en formato <a class="blue-text text-decoration-none">Parche (xdelta)</a>.</a>
+                    <hr>
+                    <div class="text-start fw-bold">Paso 2:</div>
+                    <p class="text-start">Con la consola apagada, mantén presionado el botón <code>START</code> y enciéndela para acceder al menú de <b>GodMode9</b>.</p>
+                    <p class="text-start">En este menú, selecciona el cartucho de Persona Q2 "<b>GAMECART (CTR9002F0C2)</b>" y presiona <code>A</code>.</p>
+                    <img src="../../pq2/img/tutorial_patch/gm9/root_1.png" alt="Paso 1" class="img img-fluid tutorial-img tutorial-img-android">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 3:</div>
+                    <p class="text-start mb-3">Selecciona el formato <b class="hide-mobile2">00040000001D7100_v00.trim.3ds</b><b class="hide-desktop2">00040000001D7100_<br>v00.trim.3ds</b> y presiona <code>A</code>.</p>
+                    <img src="../../pq2/img/tutorial_patch/gm9/c_2.png" alt="Paso 2" class="img img-fluid tutorial-img tutorial-img-android">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 4:</div>
+                    <p class="text-start mb-3">Selecciona <b>NCSD image options...</b></p>
+                    <img src="../../pq2/img/tutorial_patch/gm9/top_1.png" alt="Paso 3" class="img img-fluid tutorial-img tutorial-img-android">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 5:</div>
+                    <p class="text-start mb-3">Selecciona <b>Build CIA from file</b>.</p>
+                    <img src="../../pq2/img/tutorial_patch/gm9/top_2.png" alt="Paso 4" class="img img-fluid tutorial-img tutorial-img-android">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 6:</div>
+                    <p class="text-start mb-3">Espera a que el proceso termine y presiona <code>A</code> para continuar.</p>
+                    <img src="../../pq2/img/tutorial_patch/gm9/top_3.png" alt="Paso 5" class="img img-fluid tutorial-img tutorial-img-android">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 7:</div>
+                    <p class="text-start mb-3">Conecta tu tarjeta SD a tu computadora y en <b>gm9/out</b> copia el archivo <b class="hide-mobile2">00040000001D7100_v00.trim.standard.cia</b><b class="hide-desktop2">00040000001D7100_<br>v00.trim.standard.cia</b>.</p>
+                    <img src="../../pq2/img/tutorial_patch/SD.png" alt="Paso 6" class="img img-fluid tutorial-img tutorial-img-android">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 8:</div>
+                    <p class="text-start mb-3">Descarga la traducción en formato <code>Parche</code> y algún programa para aplicar parches <b>xdelta</b> como <a href="https://www.romhacking.net/utilities/704/" target="_blank">Delta Patcher</a>.</p>
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 9:</div>
+                    <p class="text-start mb-3">Abre el programa, selecciona el archivo <b class="hide-mobile2">00040000001D7100_v00.trim.standard.cia</b><b class="hide-desktop2">00040000001D7100_<br>v00.trim.standard.cia</b> como ROM y el parche de traducción como Patch.</p>
+                    <img src="../../pq2/img/tutorial_patch/Delta.png" alt="Paso 8" class="img img-fluid tutorial-img tutorial-img-android">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 10:</div>
+                    <p class="text-start mb-3">Aplica el parche y obtendrás un archivo <b>.cia</b> llamado <b class="hide-mobile2">00040000001D7100_v00.trim.standardPATCHED.cia</b><b class="hide-desktop2">00040000001D7100_<br>v00.trim.standard<br>PATCHED.cia</b> que será tu ROM con la traducción aplicada, lista para instalar en tu consola o emulador.</p>
+                `;
+            }
+            document.getElementById('method-content').innerHTML = content;
+        }
+
+        function change_device(type) {
+            localStorage.setItem('selectedDevice', type);
+            console.log('Saved selected device:', type);
+
+            let content = '';
+            switch (type) {
+                case 'console':
+                    content = `
+                        <hr>
+                        <div class="text-start fw-bold">Paso 3:</div>
+                        <p class="text-start">
+                            Con la consola apagada, mantén presionado el botón <code>SELECT</code> y enciéndela para acceder al menú de Luma3DS.
+                        </p>
+                        <p class="text-start">
+                            En este menú, activa la opción <strong>"Enable game patching"</strong> y luego presiona <strong>"Save and exit"</strong>.
+                        </p>
+                        <img src="../../pq2/img/tutorial_cpk/console/1.png" alt="Paso 3" class="img img-fluid tutorial-img">
+                        <hr>
+                        <div class="text-start fw-bold mt-3">Paso 4:</div>
+                        <p class="text-start">
+                            Extrae la tarjeta SD de tu consola, insértala en tu computadora y copia los siguientes archivos a la carpeta <code>luma/titles/00040000001D7100</code>:
+                        </p>
+                        <ul class="text-start">
+                            <li>En la raíz de <code>00040000001D7100</code>: coloca <code>code.bin</code> y <code>exheader.bin</code>.</li>
+                            <li>Dentro de una subcarpeta llamada <code>romfs</code>: coloca <code>mod.cpk</code>.</li>
+                        </ul>
+                        <img src="../../pq2/img/tutorial_cpk/console/2.png" alt="Paso 4" class="img img-fluid tutorial-img"><br><br>
+                        <img src="../../pq2/img/tutorial_cpk/console/3.png" alt="Paso 4" class="img img-fluid tutorial-img">
+                    `;
+                    break;
+                case 'android':
+                    content = `
+                        <hr>
+                        <div class="text-start fw-bold">Paso 3:</div>
+                        <p class="text-start">
+                            Abre el explorador de archivos de tu dispositivo y ubica la carpeta de tu emulador de <span class="ct-text">3</span>DS.
+                        </p>
+                        <img src="../../pq2/img/tutorial_cpk/Android/1.png" alt="Paso 3" class="img img-fluid tutorial-img-android">
+                        <hr>
+                        <div class="text-start fw-bold mt-3">Paso 4:</div>
+                        <p class="text-start">
+                            Una vez allí, navega a <code>load/mods/00040000001D7100</code>. 
+                            Si la carpeta no existe, créala manualmente.
+                        </p>
+                        <img src="../../pq2/img/tutorial_cpk/Android/2.png" alt="Paso 4" class="img img-fluid tutorial-img-android"><br><br>
+                        <img src="../../pq2/img/tutorial_cpk/Android/3.png" alt="Paso 4" class="img img-fluid tutorial-img-android">
+                        <hr>
+                        <div class="text-start fw-bold mt-3">Paso 5:</div>
+                        <p class="text-start">
+                            Dentro de <code>00040000001D7100</code>, crea dos nuevas carpetas llamadas 
+                            <code>romfs</code> y <code>exefs</code>.
+                        </p>
+                        <img src="../../pq2/img/tutorial_cpk/Android/4.png" alt="Paso 5" class="img img-fluid tutorial-img-android">
+                        <hr>
+                        <div class="text-start fw-bold mt-3">Paso 6:</div>
+                        <p class="text-start">
+                            Coloca los siguientes archivos en las carpetas correspondientes:
+                        </p>
+                        <ul class="text-start">
+                            <li><code>exefs</code>: Pega el archivo <code>code.bin</code>.</li>
+                            <li><code>romfs</code>: Pega el archivo <code>mod.cpk</code>.</li>
+                            <li>En la raíz de <code>/00040000001D7100</code>: Pega el archivo <code>exheader.bin</code>.</li>
+                        </ul>
+                        <img src="../../pq2/img/tutorial_cpk/Android/5.png" alt="Paso 6" class="img img-fluid tutorial-img-android"><br><br>
+                        <img src="../../pq2/img/tutorial_cpk/Android/6.png" alt="Paso 6" class="img img-fluid tutorial-img-android"><br><br>
+                        <img src="../../pq2/img/tutorial_cpk/Android/7.png" alt="Paso 6" class="img img-fluid tutorial-img-android">
+                    `;
+                    break;
+                case 'pc':
+                    content = `
+                    <hr>
+                    <div class="text-start fw-bold">Paso 3:</div>
+                    <p class="text-start">
+                        Abre tu emulador de <span class="ct-text">3</span>DS y haz clic derecho en el juego 
+                        <strong>Persona Q2</strong>. 
+                        Luego, abre el submenú <strong>"Open"</strong> y selecciona <strong>"Mods Location"</strong>.
+                    </p>
+                    <img src="../../pq2/img/tutorial_cpk/pc/2.png" alt="Paso 3" class="img img-fluid tutorial-img">
+                    <hr>
+                    <div class="text-start fw-bold mt-3">Paso 4:</div>
+                    <p class="text-start">
+                        En la carpeta que se abrió, coloca los siguientes archivos en sus respectivas ubicaciones:
+                    </p>
+                    <ul class="text-start">
+                        <li><code>exefs</code>: Pega el archivo <code>code.bin</code>.</li>
+                        <li><code>romfs</code>: Pega el archivo <code>mod.cpk</code>.</li>
+                        <li>En la raíz de la carpeta: Pega el archivo <code>exheader.bin</code>.</li>
+                    </ul>
+                    <img src="../../pq2/img/tutorial_cpk/pc/3.png" alt="Paso 4" class="img img-fluid tutorial-img">
+                    `;
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById('content-device').innerHTML = content;
+
+            document.querySelectorAll('.btn-design').forEach(btn => {
+                btn.classList.remove('active-btn');
+            });
+
+            document.getElementById('layerfs_btn').classList.add('active-btn');
+            document.getElementById('patchrom_btn').classList.remove('active-btn');
+            document.querySelector(`.btn-${type}`).classList.add('active-btn');
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("mobileSidebar");
+            const toggleBtn = document.querySelector('.sidebar-toggle');
+            sidebar.classList.toggle("show");
+            toggleBtn.classList.toggle("hidden");
+        }
+
+        // Cerrar sidebar en pantallas grandes
+        window.addEventListener('resize', function () {
+            const sidebar = document.getElementById('mobileSidebar');
+            const toggleBtn = document.querySelector('.sidebar-toggle');
+
+            if (window.innerWidth > 1200) {
+                sidebar.classList.remove("show");
+                toggleBtn.classList.remove("hidden");
+            } else if (sidebar.classList.contains("show")) {
+                toggleBtn.classList.add("hidden");
+            } else {
+                toggleBtn.classList.remove("hidden");
+            }
+        });
+
+
+    </script>
+
+    <footer class="footer mt-3 hide-desktop">
+        <div class="container mt-4">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <a class="logo-link" href="../">
+                        <img src="../../pq2/img/A2Logo_PQ2.png" alt="Logo" class="logo" style="width: 200px;">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <br>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <p class="text-white text-center">Este proyecto no está afiliado con ATLUS o SEGA. Todos los
+                        derechos reservados por sus respectivos propietarios.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="footer mt-3 hide-mobile">
+        <div class="container mt-4">
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <a class="logo-link w-25" href="../">
+                        <img src="../../pq2/img/A2Logo_PQ2.png" alt="Logo" class="logo" style="width: 200px;">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <!-- <h3 class="font-title
+                    ">¡Unete a nuestro servidor de Discord!</h3>
+                    <a href="https://discord.gg/WCSNDWXNyQ"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#5865f2" rx="60"/><g clip-path="url(#skillIconsDiscord0)"><path fill="#fff" d="M197.308 64.797a165 165 0 0 0-40.709-12.627a.62.62 0 0 0-.654.31c-1.758 3.126-3.706 7.206-5.069 10.412c-15.373-2.302-30.666-2.302-45.723 0c-1.364-3.278-3.382-7.286-5.148-10.412a.64.64 0 0 0-.655-.31a164.5 164.5 0 0 0-40.709 12.627a.6.6 0 0 0-.268.23c-25.928 38.736-33.03 76.52-29.546 113.836a.7.7 0 0 0 .26.468c17.106 12.563 33.677 20.19 49.94 25.245a.65.65 0 0 0 .702-.23c3.847-5.254 7.276-10.793 10.217-16.618a.633.633 0 0 0-.347-.881c-5.44-2.064-10.619-4.579-15.601-7.436a.642.642 0 0 1-.063-1.064a86 86 0 0 0 3.098-2.428a.62.62 0 0 1 .646-.088c32.732 14.944 68.167 14.944 100.512 0a.62.62 0 0 1 .655.08a80 80 0 0 0 3.106 2.436a.642.642 0 0 1-.055 1.064a102.6 102.6 0 0 1-15.609 7.428a.64.64 0 0 0-.339.889a133 133 0 0 0 10.208 16.61a.64.64 0 0 0 .702.238c16.342-5.055 32.913-12.682 50.02-25.245a.65.65 0 0 0 .26-.46c4.17-43.141-6.985-80.616-29.571-113.836a.5.5 0 0 0-.26-.238M94.834 156.142c-9.855 0-17.975-9.047-17.975-20.158s7.963-20.158 17.975-20.158c10.09 0 18.131 9.127 17.973 20.158c0 11.111-7.962 20.158-17.973 20.158m66.456 0c-9.855 0-17.974-9.047-17.974-20.158s7.962-20.158 17.974-20.158c10.09 0 18.131 9.127 17.974 20.158c0 11.111-7.884 20.158-17.974 20.158"/></g><defs><clipPath id="skillIconsDiscord0"><path fill="#fff" d="M28 51h200v154.93H28z"/></clipPath></defs></g></svg></a> -->
+                </div>
+                <div class="col-md-4">
+                    <p class="text-white text-center">Este proyecto no está afiliado con ATLUS o SEGA. Todos los
+                        derechos reservados por sus respectivos propietarios.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../../deps/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../deps/iconify.min.js"></script>
+</body>
+
+</html>

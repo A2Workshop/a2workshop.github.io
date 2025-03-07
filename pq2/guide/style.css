@@ -391,8 +391,20 @@ footer {
     border-radius: 0px !important;
 }
 
+.tutorial-img-texturas {
+    max-width: auto !important;
+    min-width: 80%;
+    border-radius: 0px !important;
+}
+
 @media (max-width: 768px) {
     .tutorial-img-android {
+        max-width: auto !important;
+        min-width: 100%;
+        border-radius: 0px !important;
+    }
+
+    .tutorial-img-texturas {
         max-width: auto !important;
         min-width: 100%;
         border-radius: 0px !important;
@@ -746,4 +758,8 @@ footer {
     .hide-changeguide-desktop {
         display: none !important;
     }
+}
+
+.link-color {
+    color: #297ff0;
 }
