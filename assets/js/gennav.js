@@ -113,7 +113,7 @@
         document.getElementById("navbar-container").innerHTML = navbar3;
     }
     
-    else if (window.location.pathname === "/traducciones/pq2espanol/prueba.html" || window.location.pathname === "/traducciones/pq2espanol/prueba") {
+    else if (window.location.pathname === "/traducciones/pq2espanol/descargar.html" || window.location.pathname === "/traducciones/pq2espanol/descargar") {
         document.getElementById("navbar-container").innerHTML = navbarpq2install;
     }
     
