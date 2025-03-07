@@ -220,6 +220,11 @@ body {
     border-radius: 0%;
 }
 
+.btn-primary:hover {
+    background-color: #9e341c !important;
+    border-color: #9e341c !important;
+}
+
 .modal-content {
     background-color: #000000b9;
 }
