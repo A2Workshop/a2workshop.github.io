@@ -556,7 +556,7 @@ footer {
 .animated-border {
     border: 1px solid transparent;
     border-radius: 10%;
-    animation: border-pulse 5s infinite;
+    animation: border-pulse 3s infinite;
     padding: 2px;
 }
 
