@@ -43,8 +43,28 @@
 
     <div class="row container mx-auto">
         <div class="col-lg-9 col-12">
-            <div class="container mt-2 p-4 bg_container">
-                <a href="/traducciones/pq2espanol.html" class=""><img src="../../pq2/img/es_logo/pq2_still.png" alt="Logo" class="logo"></a>
+            <div class="container mt-2 p-4 bg_container video-overlay">
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                        var video = document.querySelector('.video-overlay video');
+                        var fallbackImage = document.querySelector('.fallback-image');
+    
+                        if (isSafari) {
+                            video.style.display = 'none';
+                            fallbackImage.style.display = 'block';
+                        } else {
+                            fallbackImage.style.display = 'none';
+                        }
+                    });
+                </script>
+    
+                <video autoplay loop muted playsinline class="logo">
+                    <source src="../../pq2/img/es_logo/pq2.webm" type="video/webm">
+                    <img src="../../pq2/img/es_logo/pq2_still.png" alt="Logo" class="logo">
+                </video>
+    
+                <img src="../../pq2/img/es_logo/pq2_still.png" alt="Logo" class="fallback-image logo" style="display: none;" href="https://a2workshop.github.io/traducciones/pq2espanol">
                 <h1 class="fs-3 text-center">Parche de traducción al Español de Persona Q<span
                         class="orange-text">2</span>: New
                     Cinema
