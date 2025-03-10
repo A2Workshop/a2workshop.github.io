@@ -844,3 +844,7 @@ code{
     font-weight: bold !important;
     color: #f04e29;
 }
+
+body {
+    --bs-border-color: #f04e29;
+}
