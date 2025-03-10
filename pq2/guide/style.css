@@ -822,3 +822,20 @@ footer {
     color: #d3d3d3 !important; 
     text-decoration: underline;
 }
+
+.console-btn {
+    background-color: #f8f9fa !important;
+    border-radius: 5px !important;
+    padding: 2px 5px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+
+}
+
+code{
+    background-color: #000000;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-weight: bold !important;
+    color: #f04e29;
+}
