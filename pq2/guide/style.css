@@ -763,3 +763,33 @@ footer {
 .link-color {
     color: #297ff0;
 }
+
+@media (max-width: 768px) {
+    .accordion{
+        margin: -6%;
+    }
+}
+
+@media (max-width: 486px) {
+    .accordion{
+        margin: -7%;
+    }
+}
+
+@media (max-width: 432px) {
+    .accordion{
+        margin: -8%;
+    }
+}
+
+@media (max-width: 389px) {
+    .accordion{
+        margin: -9%;
+    }
+}
+
+@media (max-width: 358px) {
+    .accordion{
+        margin: -10%;
+    }
+}
