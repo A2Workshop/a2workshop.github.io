@@ -374,6 +374,11 @@ footer {
     border-radius: 0px;
 }
 
+.border-explanation2 {
+    border: 2px solid #66CAF3;
+    border-radius: 0px;
+}
+
 .img-fluid {
     max-width: 128px;
     border-radius: 50%;
@@ -730,6 +735,20 @@ footer {
     background-color: #aa5380 !important;
     border-color: #aa5380 !important;
     color: #ffffff;
+}
+
+.btn-primary3 {
+    background-color: #66CAF3 !important;
+    border-color: #66CAF3 !important;
+    border-radius: 0%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary3:hover {
+    background-color: #4f9cbb !important;
+    border-color: #4f9cbb !important;
 }
 
 .btn-secondary {
