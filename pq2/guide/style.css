@@ -793,3 +793,8 @@ footer {
         margin: -10%;
     }
 }
+
+.image-comparator {
+    width: 100%;
+    max-width: 100%;
+}
