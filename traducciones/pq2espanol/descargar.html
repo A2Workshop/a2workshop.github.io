@@ -709,8 +709,9 @@
                 document.getElementById('patchrom_btn').classList.remove('active-btn');
                 document.getElementById('layerfs_btn').classList.remove('active-btn');
                 activeMethod = null;
-                // delete saved device from local storage
+                // delete saved device/method from local storage
                 localStorage.removeItem('selectedDevice');
+                localStorage.removeItem('selectedMethod');
                 return;
             }
 
