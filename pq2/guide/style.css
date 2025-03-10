@@ -670,7 +670,7 @@ footer {
     transform: translateX(-50%);
     top: 0;
     height: 100%;
-    width: 5px; /* Grosor del slider */
+    width: 3px; /* Grosor del slider */
     background: #fff;
     box-shadow: -1px 0 0 #000, 1px 0 0 #000;
     cursor: col-resize;
