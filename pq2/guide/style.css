@@ -846,6 +846,11 @@ code{
     color: #f04e29;
 }
 
+.code-softlock{
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+}
+
 body {
     --bs-border-color: #f04e29;
 }
