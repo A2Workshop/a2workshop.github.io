@@ -285,4 +285,11 @@ body {
     color: #ffffff !important;
     margin-bottom: 2px !important;
     margin-top: 2px !important;
+    width: 100%;
+}
+
+@media (max-width: 990px){
+    .nav-hr{
+    margin-top: 8px !important;
+    }
 }
