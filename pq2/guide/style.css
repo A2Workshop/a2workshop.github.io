@@ -862,3 +862,7 @@ code{
 body {
     --bs-border-color: #f04e29;
 }
+
+.nav-hr{
+    color: #ffffff;
+}
