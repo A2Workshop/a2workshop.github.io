@@ -29,30 +29,13 @@
 <body class="bg_bg">
     <script>
         $(document).ready(function () {
-            const megamenu = $('.megamenu');
-            const megamenuContent = $('.megamenu-content');
-            const closeBtn = $('.close-btn');
-    
-            // Abrir el megamenú
-            megamenu.on('click', function (e) {
+            $('.megamenu > a').on('click', function (e) {
                 e.preventDefault();
-                megamenuContent.fadeIn();
-                $('body').addClass('megamenu-open');
+                $('.megamenu-content').fadeIn();
             });
-    
-            // Cerrar el megamenú
-            closeBtn.on('click', function (e) {
-                e.preventDefault();
-                megamenuContent.fadeOut();
-                $('body').removeClass('megamenu-open');
-            });
-    
-            // Cerrar el megamenú al hacer clic fuera de él
-            $(document).on('click', function (e) {
-                if (!megamenu.is(e.target) && megamenu.has(e.target).length === 0) {
-                    megamenuContent.fadeOut();
-                    $('body').removeClass('megamenu-open');
-                }
+
+            $('.close-btn').on('click', function () {
+                $('.megamenu-content').fadeOut();
             });
         });
     </script>
