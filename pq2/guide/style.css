@@ -615,9 +615,17 @@ footer {
     }
 }
 
+@media (max-width: 1200px) {
+    .credits-container{
+        width: 73% !important;
+        margin-right: 26% !important
+    }
+}
+
 @media (max-width: 990px) {
     .credits-container{
-        width: 95%;
+        width: 97% !important;
+        margin-right: 1% !important;
     }
 }
 
