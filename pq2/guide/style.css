@@ -132,6 +132,10 @@ nav a:hover {
         overflow-y: auto;
     }
 
+    body.megamenu-open {
+        overflow: hidden;
+    }
+
     .megamenu-content a {
         display: flex;
         align-items: center;
