@@ -13,10 +13,6 @@
     src: url('../../assets/font/MotivaSansRegular.woff.ttf') format('truetype');
 }
 
-.nav-container{
-    font-family: 'motiva';
-}
-
 /* Navbar 2 */
 nav {
     position: relative;
@@ -32,6 +28,7 @@ nav {
 }
 
 .nav-container {
+    font-family: 'motiva';
     display: flex;
     justify-content: center;
     align-items: center;
