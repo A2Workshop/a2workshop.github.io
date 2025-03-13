@@ -21,7 +21,7 @@
                     </a>
                     </div>
                 </div>
-                <a href="/contacto.html">Contacto</a>
+                <a href="/contacto.html" class="contacto-hover">Contacto</a>
             </div>
         </nav>
     `;
@@ -46,7 +46,7 @@
                     </a>
                     </div>
                 </div>
-                <a href="/contacto.html">Contacto</a>
+                <a href="/contacto.html" class="contacto-hover">Contacto</a>
             </div>
         </nav>
     `;
@@ -73,7 +73,7 @@
                     </a>
                     </div>
                 </div>
-                <a href="/contacto.html">Contacto</a>
+                <a href="/contacto.html" class="contacto-hover">Contacto</a>
             </div>
         </nav>
     `;
@@ -108,7 +108,7 @@
                     </a>
                     </div>
                 </div>
-                <a href="/contacto.html">Contacto</a>
+                <a href="/contacto.html" class="contacto-hover">Contacto</a>
             </div>
         </nav>
     `;
