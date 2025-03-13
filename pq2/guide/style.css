@@ -859,6 +859,11 @@ code{
     color: #ffffff !important;
 }
 
+.code-fix{
+    background-color: #910000 !important;
+    color: #ffffff !important;
+}
+
 body {
     --bs-border-color: #f04e29;
 }
