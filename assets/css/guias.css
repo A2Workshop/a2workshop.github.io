@@ -459,7 +459,7 @@ nav a:hover {
     position: absolute;
     top: 40px;
     left: 0;
-    background-color: #333;
+    background-color: rgb(41, 41, 41);
     padding: 20px;
     border-radius: 5px;
     width: 600px;
