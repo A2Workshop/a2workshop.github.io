@@ -8,6 +8,15 @@
     src: url('../../pq2/font/FuturaLT.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'motiva';
+    src: url('../../assets/font/MotivaSansRegular.woff.ttf') format('truetype');
+}
+
+.nav-container{
+    font-family: 'motiva';
+}
+
 /* Navbar 2 */
 nav {
     position: relative;
