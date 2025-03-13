@@ -245,3 +245,7 @@ nav a:hover {
     height: 50px;
   }
 }
+
+.nav-container img{
+  border-radius: 10px;
+}

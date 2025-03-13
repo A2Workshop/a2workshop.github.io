@@ -575,3 +575,7 @@ nav a:hover {
     font-size: 16px;
   }
 }
+
+.nav-container img{
+  border-radius: 10px;
+}
