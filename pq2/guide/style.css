@@ -866,7 +866,8 @@ code{
 
 .code-fix{
     background-color: #000000 !important;
-    color: #ff0000 !important;
+    color: #f74f4f !important;
+    font-weight: bold;
 }
 
 body {
