@@ -616,12 +616,19 @@ footer {
 }
 
 .credits-container{
-    width: 92%;
+    width: 90%;
 }
 
 @media (min-width: 990px) {
     .credits-container{
-        margin-right: 7% !important;
+        margin-right: 9% !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .credits-container{
+        width: 90% !important;
+        margin-right: 9% !important
     }
 }
 
