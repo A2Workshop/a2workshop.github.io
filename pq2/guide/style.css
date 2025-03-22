@@ -719,8 +719,8 @@ footer {
 /* slider */
 
 .btn-primary {
-    background-color: #f04e29 !important;
-    border-color: #f04e29 !important;
+    background-color: #D10B09 !important;
+    border-color: #D10B09 !important;
     border-radius: 0%;
     display: block;
     margin-left: auto;
@@ -728,8 +728,8 @@ footer {
 }
 
 .btn-primary:hover {
-    background-color: #9e341c !important;
-    border-color: #9e341c !important;
+    background-color: #b10a07 !important;
+    border-color: #b10a07 !important;
 }
 
 .btn-primary1 {
