@@ -888,3 +888,9 @@ body {
 .nav-container img{
     border-radius: 10px;
 }
+
+.addon-img{
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 0px !important;
+}
