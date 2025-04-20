@@ -113,6 +113,44 @@
         </nav>
     `;
 
+    const navbarp4dinstall = `
+        <nav>
+            <div class="nav-container">
+                <a href="/" class="hide-desktop"><img src="../../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <div class="megamenu">
+                    <a href="#">Proyectos</a>
+                    <div class="megamenu-content">
+                    <button class="close-btn">&times;</button>
+                    <a href="/proyectos/blackopsiiilatino.html">
+                        <img src="../../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
+                        Latino
+                    </a>
+                    <a href="/proyectos/blackopslatino.html">
+                        <img src="../../assets/img/BO1/logo.jpg" alt="bolalogo">
+                        (PC) Call of Duty: Black Ops Zombies Español Latino
+                    </a>
+                    <a href="/traducciones/pq2espanol.html">
+                        <img src="../../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
+                    </a>
+                    <a href="/traducciones/p4despanol.html">
+                        <img src="../../p4d/img/es_logo/blackbg.png" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
+                    </a>
+                    <hr class="nav-hr">
+                    <a href="https://p3pespanol.wordpress.com/2024/05/04/persona-q-parche-en-espanol/">
+                        <img src="../../pq2/img/es_logo/blackbg_q1.png" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
+                    </a>
+                    <a href="https://gamebanana.com/mods/54473">
+                        <img src="../../pq2/img/es_logo/p5_ps3.jpg" alt="p5ps3logo"> (PS3) Persona 5 Backport
+                                Español
+                    </a>
+                    </div>
+                </div>
+                <a href="/contacto.html" class="contacto-hover">Contacto</a>
+            </div>
+        </nav>
+    `;
+
     if (window.location.pathname === "/index.html" || window.location.pathname === "/" || window.location.pathname === "/index") {
         document.getElementById("navbar-container").innerHTML = navbar2;
     }
@@ -123,6 +161,10 @@
     
     else if (window.location.pathname === "/traducciones/pq2espanol/descargar.html" || window.location.pathname === "/traducciones/pq2espanol/descargar") {
         document.getElementById("navbar-container").innerHTML = navbarpq2install;
+    }
+
+    else if (window.location.pathname === "/traducciones/p4despanol.html" || window.location.pathname === "/traducciones/p4despanol" || window.location.pathname === "/p4despanol.html" || window.location.pathname === "/p4despanol") {
+        document.getElementById("navbar-container").innerHTML = navbarp4dinstall;
     }
     
     else {
