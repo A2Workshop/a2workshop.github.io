@@ -501,6 +501,7 @@ footer {
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
+    box-shadow: 0 0 10px #ff33ff, 0 0 20px #ff33ff;
 }
 
 .scroll-down-arrow.visible {
@@ -510,7 +511,8 @@ footer {
 }
 
 .scroll-down-arrow:hover {
-    background-color: #ff33ff;
+    background-color: #c528c5;
+    box-shadow: 0 0 10px #c528c5, 0 0 20px #c528c5;
 }
 
 .scroll-down-arrow svg {
