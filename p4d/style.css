@@ -483,3 +483,38 @@ footer {
     border-radius: 80%;
     box-shadow: 0 0 5px #ff33ff;
 }
+
+.scroll-down-arrow {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #ff33ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.scroll-down-arrow.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-down-arrow:hover {
+    background-color: #ff33ff;
+}
+
+.scroll-down-arrow svg {
+    width: 30px;
+    height: 30px;
+    fill: #ffffff;
+}
