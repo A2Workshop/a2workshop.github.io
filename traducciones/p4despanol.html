@@ -27,6 +27,18 @@
 </head>
 
 <body class="bg-bg">
+    <script>
+        $(document).ready(function () {
+            $('.megamenu > a').on('click', function (e) {
+                e.preventDefault();
+                $('.megamenu-content').fadeIn();
+            });
+
+            $('.close-btn').on('click', function () {
+                $('.megamenu-content').fadeOut();
+            });
+        });
+    </script>
     <div id="navbar-container"></div>
     <script src="../../assets/js/gennav.js"></script>
 
