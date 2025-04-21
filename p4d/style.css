@@ -284,8 +284,6 @@ nav a:hover {
     z-index: 2;
 }
 
-
-
 .logo-container .logo_p4d {
     transition: transform 0.1s;
     animation: temblorFuerte 0.5s;
