@@ -360,6 +360,20 @@
             const comparators = document.querySelectorAll('.image-comparator');
             comparators.forEach(initComparator);
         });
+
+        // Previene el zoom con Ctrl+ y Ctrl-
+        document.addEventListener('keydown', function (e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '0')) {
+                e.preventDefault();
+            }
+        });
+
+        // Previene el zoom con rueda del mouse + Ctrl
+        document.addEventListener('wheel', function (e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
     <script src="../deps/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
