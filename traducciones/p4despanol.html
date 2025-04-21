@@ -242,6 +242,28 @@
         </div>
     </footer>
     <script>
+        // Desactivar el swipe táctil para ambos carruseles
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar el carrusel desktop
+            const carouselDesktop = new bootstrap.Carousel('#comparisonCarouselDesktop', {
+                touch: false,  // Desactiva el swipe táctil
+            });
+            
+            // Configurar el carrusel mobile
+            const carouselMobile = new bootstrap.Carousel('#comparisonCarousel', {
+                touch: false,  // Desactiva el swipe táctil
+            });
+            document.getElementById('comparisonCarousel').addEventListener('slid.bs.carousel', function () {
+                const activeItem = this.querySelector('.carousel-item.active .image-comparator');
+                if (activeItem) {
+                    initComparator(activeItem);
+                }
+            });
+            
+            const comparators = document.querySelectorAll('.image-comparator');
+            comparators.forEach(initComparator);
+        });
+
         // Función para inicializar un comparador (igual que antes)
         function initComparator(comparator) {
             const afterImage = comparator.querySelector('.image-after');
