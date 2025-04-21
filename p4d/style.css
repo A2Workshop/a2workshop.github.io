@@ -259,6 +259,12 @@ nav a:hover {
     transform: translate(-50%, -50%) scale(1.3);
 }
 
+@media (max-width: 768px) {
+    .video-wrapper iframe {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
 .overlay-image {
     position: absolute;
     width: 100%;
