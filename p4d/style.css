@@ -583,7 +583,7 @@ footer {
 
 .close-btn-modal {
     position: fixed;
-    color: white;
+    color: rgba(255, 255, 255, 0);
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
@@ -595,7 +595,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 
 /* Posición del botón de cerrar en desktop */
