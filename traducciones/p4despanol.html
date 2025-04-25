@@ -285,6 +285,8 @@
             // Configurar el carrusel mobile
             const carouselMobile = new bootstrap.Carousel('#comparisonCarousel', {
                 touch: false,  // Desactiva el swipe táctil
+                interval: 5000,     // ó el que tengas configurado
+                pause: 'hover'      // da igual en móvil, no hay hover
             });
             document.getElementById('comparisonCarousel').addEventListener('slid.bs.carousel', function () {
                 const activeItem = this.querySelector('.carousel-item.active .image-comparator');
@@ -303,42 +305,6 @@
             const slider = comparator.querySelector('.slider');
 
             let isDragging = false;
-
-            // Eventos para pausar/reanudar carruseles
-            const pauseCarousels = () => {
-                carouselDesktopInstance.pause();
-                carouselMobileInstance.pause();
-            };
-            const cycleCarousels = () => {
-                carouselDesktopInstance.cycle();
-                carouselMobileInstance.cycle();
-            };
-
-            slider.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                e.preventDefault();
-                pauseCarousels();
-            });
-
-            slider.addEventListener('touchstart', (e) => {
-                isDragging = true;
-                e.preventDefault();
-                pauseCarousels();
-            });
-
-            document.addEventListener('mouseup', () => {
-                if (isDragging) {
-                    isDragging = false;
-                    cycleCarousels();
-                }
-            });
-
-            document.addEventListener('touchend', () => {
-                if (isDragging) {
-                    isDragging = false;
-                    cycleCarousels();
-                }
-            });
 
             // Restaurar la posición del slider si existe
             const savedPosition = comparator.getAttribute('data-slider-position');
@@ -376,6 +342,7 @@
 
             slider.addEventListener('touchstart', (e) => {
                 isDragging = true;
+                carouselMobile.pause();    // PAUSA el auto-slide
                 e.preventDefault();
             });
 
@@ -386,7 +353,10 @@
             });
 
             document.addEventListener('touchend', () => {
-                isDragging = false;
+                if (isDragging) {
+                    isDragging = false;
+                    carouselMobile.cycle();  // REANUDA el auto-slide
+                }
             });
         }
 
