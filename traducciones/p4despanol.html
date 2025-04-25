@@ -304,6 +304,42 @@
 
             let isDragging = false;
 
+            // Eventos para pausar/reanudar carruseles
+            const pauseCarousels = () => {
+                carouselDesktopInstance.pause();
+                carouselMobileInstance.pause();
+            };
+            const cycleCarousels = () => {
+                carouselDesktopInstance.cycle();
+                carouselMobileInstance.cycle();
+            };
+
+            slider.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                e.preventDefault();
+                pauseCarousels();
+            });
+
+            slider.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                e.preventDefault();
+                pauseCarousels();
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    cycleCarousels();
+                }
+            });
+
+            document.addEventListener('touchend', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    cycleCarousels();
+                }
+            });
+
             // Restaurar la posición del slider si existe
             const savedPosition = comparator.getAttribute('data-slider-position');
             if (savedPosition) {
