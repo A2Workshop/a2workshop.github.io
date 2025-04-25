@@ -348,15 +348,50 @@ nav a:hover {
         width: 100%;
     }
 
-    .logo-container .text-white-outline {
-        font-size: 16px !important;
-    }
-
     .logo-container .btn-primary {
         font-size: 14px !important;
         padding: 8px 16px !important;
     }
 }
+
+
+
+
+
+.logo-container .text-white-outline {
+    font-size:38px;
+}
+
+@media (max-width: 1498px) {
+    .logo-container .text-white-outline {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 1188px) {
+    .logo-container .text-white-outline {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1074px) {
+    .logo-container .text-white-outline {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 486px) {
+    .logo-container .text-white-outline {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 382px) {
+    .logo-container .text-white-outline {
+        font-size: 10px;
+    }
+}
+
 
 .section1 {
     padding: 4rem 0;
