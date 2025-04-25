@@ -281,6 +281,20 @@
 
             // Deshabilitar el scroll del body cuando el modal está abierto
             document.body.style.overflow = "hidden";
+
+            // desactivar el carrusel al abrir el modal
+            const carousel = bootstrap.Carousel.getInstance(
+                document.getElementById('comparisonCarousel')
+            );
+            if (carousel) {
+                carousel.pause();
+            }
+            const carouselDesktop = bootstrap.Carousel.getInstance(
+                document.getElementById('comparisonCarouselDesktop')
+            );
+            if (carouselDesktop) {
+                carouselDesktop.pause();
+            }
         }
 
         // Cerrar el modal al hacer clic en el botón de cerrar
@@ -291,6 +305,21 @@
 
                 // Habilitar el scroll del body cuando el modal está cerrado
                 document.body.style.overflow = "auto";
+
+                // reanudar el carrusel al cerrar el modal
+                const carousel = bootstrap.Carousel.getInstance(
+                    document.getElementById('comparisonCarousel')
+                );
+                if (carousel) {
+                    carousel.cycle();
+                }
+
+                const carouselDesktop = bootstrap.Carousel.getInstance(
+                    document.getElementById('comparisonCarouselDesktop')
+                );
+                if (carouselDesktop) {
+                    carouselDesktop.cycle();
+                }
             }
         });
 
