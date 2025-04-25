@@ -289,6 +289,12 @@
             modal.style.display = "block";
             modalImg.src = img.src;
 
+            // Pausar ambos carruseles
+            const carouselDesktop = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarouselDesktop'));
+            const carouselMobile = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarousel'));
+            if (carouselDesktop) carouselDesktop.pause();
+            if (carouselMobile) carouselMobile.pause();
+
             // Deshabilitar el scroll del body cuando el modal está abierto
             document.body.style.overflow = "hidden";
         }
@@ -299,11 +305,16 @@
                 const modal = document.getElementById("imageModal");
                 modal.style.display = "none";
 
+                // Reanudar ambos carruseles
+                const carouselDesktop = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarouselDesktop'));
+                const carouselMobile = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarousel'));
+                if (carouselDesktop) carouselDesktop.cycle();
+                if (carouselMobile) carouselMobile.cycle();
+
                 // Habilitar el scroll del body cuando el modal está cerrado
                 document.body.style.overflow = "auto";
             }
         });
-
         // Desactivar el swipe táctil para ambos carruseles
         document.addEventListener('DOMContentLoaded', () => {
             // Inicializar carrusel desktop (sin swipe táctil)
