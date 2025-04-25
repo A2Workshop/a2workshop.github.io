@@ -81,9 +81,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/menu_ps4.png" class="image-before"
-                                                alt="ps4 menu">
+                                                alt="ps4 menu" onclick="expandImage(this)">
                                             <img src="../../p4d/img/screenshots/menu_psv.png" class="image-after"
-                                                alt="psv menu">
+                                                alt="psv menu" onclick="expandImage(this)">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -96,9 +96,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/custom_ps4.png" class="image-before"
-                                                alt="custom ps4">
+                                                alt="custom ps4" onclick="expandImage(this)">
                                             <img src="../../p4d/img/screenshots/custom_psv.png" class="image-after"
-                                                alt="custom psv">
+                                                alt="custom psv" onclick="expandImage(this)">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -119,9 +119,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/shop_ps4.png" class="image-before"
-                                                alt="shop ps4">
+                                                alt="shop ps4" onclick="expandImage(this)">
                                             <img src="../../p4d/img/screenshots/shop_psv.png" class="image-after"
-                                                alt="shop psv">
+                                                alt="shop psv" onclick="expandImage(this)">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -134,9 +134,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/event_ps4.png" class="image-before"
-                                                alt="event ps4">
+                                                alt="event ps4" onclick="expandImage(this)">
                                             <img src="../../p4d/img/screenshots/event_psv.png" class="image-after"
-                                                alt="event psv">
+                                                alt="event psv" onclick="expandImage(this)">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -168,8 +168,10 @@
                                 <span class="label-right">PS Vita</span>
                             </div>
                             <div class="image-container">
-                                <img src="../../p4d/img/screenshots/menu_ps4.png" class="image-before" alt="ps4 menu">
-                                <img src="../../p4d/img/screenshots/menu_psv.png" class="image-after" alt="psv menu">
+                                <img src="../../p4d/img/screenshots/menu_ps4.png" class="image-before" alt="ps4 menu"
+                                    onclick="expandImage(this)">
+                                <img src="../../p4d/img/screenshots/menu_psv.png" class="image-after" alt="psv menu"
+                                    onclick="expandImage(this)">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -184,9 +186,9 @@
                             </div>
                             <div class="image-container">
                                 <img src="../../p4d/img/screenshots/custom_ps4.png" class="image-before"
-                                    alt="custom ps4">
-                                <img src="../../p4d/img/screenshots/custom_psv.png" class="image-after"
-                                    alt="custom psv">
+                                    alt="custom ps4" onclick="expandImage(this)">
+                                <img src="../../p4d/img/screenshots/custom_psv.png" class="image-after" alt="custom psv"
+                                    onclick="expandImage(this)">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -200,8 +202,10 @@
                                 <span class="label-right">PS Vita</span>
                             </div>
                             <div class="image-container">
-                                <img src="../../p4d/img/screenshots/shop_ps4.png" class="image-before" alt="shop ps4">
-                                <img src="../../p4d/img/screenshots/shop_psv.png" class="image-after" alt="shop psv">
+                                <img src="../../p4d/img/screenshots/shop_ps4.png" class="image-before" alt="shop ps4"
+                                    onclick="expandImage(this)">
+                                <img src="../../p4d/img/screenshots/shop_psv.png" class="image-after" alt="shop psv"
+                                    onclick="expandImage(this)">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -215,8 +219,10 @@
                                 <span class="label-right">PS Vita</span>
                             </div>
                             <div class="image-container">
-                                <img src="../../p4d/img/screenshots/event_ps4.png" class="image-before" alt="event ps4">
-                                <img src="../../p4d/img/screenshots/event_psv.png" class="image-after" alt="event psv">
+                                <img src="../../p4d/img/screenshots/event_ps4.png" class="image-before" alt="event ps4"
+                                    onclick="expandImage(this)">
+                                <img src="../../p4d/img/screenshots/event_psv.png" class="image-after" alt="event psv"
+                                    onclick="expandImage(this)">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -274,7 +280,36 @@
             </div>
         </div>
     </footer>
+    <!-- Add this modal HTML near the top of your body (right after the scroll-down-arrow div) -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-btn-modal desktop">&times;</span>
+        <span class="close-btn-modal mobile">&times;</span>
+        <img class="image-modal-content" id="expandedImage">
+    </div>
     <script>
+        // Función para expandir la imagen
+        function expandImage(img) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("expandedImage");
+
+            modal.style.display = "block";
+            modalImg.src = img.src;
+
+            // Deshabilitar el scroll del body cuando el modal está abierto
+            document.body.style.overflow = "hidden";
+        }
+
+        // Cerrar el modal al hacer clic en el botón de cerrar
+        document.querySelectorAll('.close-btn-modal').forEach(btn => {
+            btn.onclick = function () {
+                const modal = document.getElementById("imageModal");
+                modal.style.display = "none";
+
+                // Habilitar el scroll del body cuando el modal está cerrado
+                document.body.style.overflow = "auto";
+            }
+        });
+
         // Desactivar el swipe táctil para ambos carruseles
         document.addEventListener('DOMContentLoaded', () => {
             // Inicializar carrusel desktop (sin swipe táctil)

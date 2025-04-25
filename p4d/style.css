@@ -359,7 +359,7 @@ nav a:hover {
 
 
 .logo-container .text-white-outline {
-    font-size:38px;
+    font-size: 38px;
 }
 
 @media (max-width: 1498px) {
@@ -421,7 +421,8 @@ body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     overflow: hidden;
 }
 
@@ -554,4 +555,94 @@ footer {
     width: 30px;
     height: 30px;
     fill: #ffffff;
+}
+
+/* Estilos para el modal de imagen ampliada */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow: auto;
+    text-align: center;
+}
+
+.image-modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-btn-modal {
+    position: fixed;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+/* Posición del botón de cerrar en desktop */
+.close-btn-modal.desktop {
+    top: 20px;
+    left: 20px;
+}
+
+/* Posición del botón de cerrar en móvil */
+.close-btn-modal.mobile {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Hacer las imágenes del carrusel clickeables */
+.image-comparator .image-container img {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.image-comparator .image-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Ajustar el modal para móviles */
+@media (max-width: 768px) {
+    .image-modal-content {
+        max-width: 95%;
+        max-height: 80%;
+    }
+
+    .close-btn-modal.desktop {
+        display: none;
+    }
+
+    .close-btn-modal.mobile {
+        display: flex;
+    }
+}
+
+@media (min-width: 769px) {
+    .close-btn-modal.desktop {
+        display: flex;
+    }
+
+    .close-btn-modal.mobile {
+        display: none;
+    }
 }
