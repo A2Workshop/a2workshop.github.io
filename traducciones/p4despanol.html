@@ -276,102 +276,88 @@
     </footer>
     <script>
         // Desactivar el swipe táctil para ambos carruseles
-        document.addEventListener('DOMContentLoaded', function () {
-            // Configurar el carrusel desktop
-            const carouselDesktop = new bootstrap.Carousel('#comparisonCarouselDesktop', {
-                touch: false,  // Desactiva el swipe táctil
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar carrusel desktop (sin swipe táctil)
+            new bootstrap.Carousel('#comparisonCarouselDesktop', {
+                touch: false
             });
 
-            // Configurar el carrusel mobile
-            const carouselMobile = new bootstrap.Carousel('#comparisonCarousel', {
-                touch: false,  // Desactiva el swipe táctil
-                interval: 5000,     // ó el que tengas configurado
-                pause: 'hover'      // da igual en móvil, no hay hover
-            });
-            document.getElementById('comparisonCarousel').addEventListener('slid.bs.carousel', function () {
-                const activeItem = this.querySelector('.carousel-item.active .image-comparator');
-                if (activeItem) {
-                    initComparator(activeItem);
-                }
+            // Inicializar carrusel mobile
+            const carouselEl = document.getElementById('comparisonCarousel');
+            new bootstrap.Carousel(carouselEl, {
+                touch: false,
+                interval: 5000,
+                pause: 'hover'  // en móvil no tiene efecto hover, pero dejamos la opción
             });
 
-            const comparators = document.querySelectorAll('.image-comparator');
-            comparators.forEach(initComparator);
+            // Al cambiar de slide, reinicializar el comparator de la nueva slide
+            carouselEl.addEventListener('slid.bs.carousel', () => {
+                const active = carouselEl.querySelector('.carousel-item.active .image-comparator');
+                if (active) initComparator(active);
+            });
+
+            // Al cargar la página, inicializar todos los comparators
+            document.querySelectorAll('.image-comparator').forEach(initComparator);
         });
 
         // inicializar un comparador
         function initComparator(comparator) {
             const afterImage = comparator.querySelector('.image-after');
             const slider = comparator.querySelector('.slider');
-
             let isDragging = false;
 
-            // Restaurar la posición del slider si existe
-            const savedPosition = comparator.getAttribute('data-slider-position');
-            if (savedPosition) {
-                afterImage.style.clipPath = `inset(0 0 0 ${savedPosition}%)`;
-                slider.style.left = `${savedPosition}%`;
+            // Restaurar posición guardada (si existe)
+            const saved = comparator.getAttribute('data-slider-position');
+            if (saved) {
+                afterImage.style.clipPath = `inset(0 0 0 ${saved}%)`;
+                slider.style.left = `${saved}%`;
             }
 
-            //actualizar la posición del slider
+            // Función para mover el slider
             function updateSliderPosition(clientX) {
                 const rect = comparator.getBoundingClientRect();
-                let xPosition = clientX - rect.left;
-                let percentage = (xPosition / rect.width) * 100;
-
-                percentage = Math.max(0, Math.min(percentage, 100));
-
-                afterImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
-                slider.style.left = `${percentage}%`;
-
-                comparator.setAttribute('data-slider-position', percentage);
+                let x = clientX - rect.left;
+                let pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                afterImage.style.clipPath = `inset(0 0 0 ${pct}%)`;
+                slider.style.left = `${pct}%`;
+                comparator.setAttribute('data-slider-position', pct);
             }
 
-            slider.addEventListener('mousedown', (e) => {
+            // Eventos de ratón
+            slider.addEventListener('mousedown', e => {
                 isDragging = true;
                 e.preventDefault();
             });
-
-            document.addEventListener('mousemove', (e) => {
+            document.addEventListener('mousemove', e => {
                 if (isDragging) updateSliderPosition(e.clientX);
             });
-
             document.addEventListener('mouseup', () => {
                 isDragging = false;
             });
 
-            slider.addEventListener('touchstart', (e) => {
+            // Eventos táctiles
+            slider.addEventListener('touchstart', e => {
                 isDragging = true;
-                carouselMobile.pause();    // PAUSA el auto-slide
                 e.preventDefault();
+                // Pausar auto-slide
+                const carousel = bootstrap.Carousel.getInstance(
+                    document.getElementById('comparisonCarousel')
+                );
+                carousel.pause();
             });
-
-            document.addEventListener('touchmove', (e) => {
-                if (isDragging) {
-                    updateSliderPosition(e.touches[0].clientX);
-                }
+            document.addEventListener('touchmove', e => {
+                if (isDragging) updateSliderPosition(e.touches[0].clientX);
             });
-
             document.addEventListener('touchend', () => {
-                if (isDragging) {
-                    isDragging = false;
-                    carouselMobile.cycle();  // REANUDA el auto-slide
-                }
+                if (!isDragging) return;
+                isDragging = false;
+                // Reanudar auto-slide
+                const carousel = bootstrap.Carousel.getInstance(
+                    document.getElementById('comparisonCarousel')
+                );
+                carousel.cycle();
             });
         }
-
-        // Inicializar los comparadores cuando el carrusel se mueve
-        document.getElementById('comparisonCarousel').addEventListener('slid.bs.carousel', function () {
-            const activeItem = this.querySelector('.carousel-item.active .image-comparator');
-            if (activeItem) {
-                initComparator(activeItem);
-            }
-        });
-        // Inicializar todos los comparadores al cargar la página
-        document.addEventListener('DOMContentLoaded', function () {
-            const comparators = document.querySelectorAll('.image-comparator');
-            comparators.forEach(initComparator);
-        });
 
         // Previene el zoom con Ctrl+ y Ctrl-
         document.addEventListener('keydown', function (e) {
