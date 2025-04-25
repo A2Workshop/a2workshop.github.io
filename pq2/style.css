@@ -189,6 +189,18 @@ body {
     color: white !important;
 }
 
+@media (max-width: 354px) {
+    .dropdown-item {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 310px) {
+    .dropdown-item {
+        font-size: 12px !important;
+    }
+}
+
 .nav-link {
     color: white !important;
 }
