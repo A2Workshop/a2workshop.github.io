@@ -266,8 +266,18 @@
         </div>
     </footer>
     <div id="imageModal" class="image-modal">
-        <span class="close-btn-modal desktop"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="m8 8.707l3.646 3.647l.708-.707L8.707 8l3.647-3.646l-.707-.708L8 7.293L4.354 3.646l-.707.708L7.293 8l-3.646 3.646l.707.708z" clip-rule="evenodd"/></svg></span>
-        <span class="close-btn-modal mobile"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="m8 8.707l3.646 3.647l.708-.707L8.707 8l3.647-3.646l-.707-.708L8 7.293L4.354 3.646l-.707.708L7.293 8l-3.646 3.646l.707.708z" clip-rule="evenodd"/></svg></span>
+        <span class="close-btn-modal desktop"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                viewBox="0 0 16 16">
+                <path fill="#fff" fill-rule="evenodd"
+                    d="m8 8.707l3.646 3.647l.708-.707L8.707 8l3.647-3.646l-.707-.708L8 7.293L4.354 3.646l-.707.708L7.293 8l-3.646 3.646l.707.708z"
+                    clip-rule="evenodd" />
+            </svg></span>
+        <span class="close-btn-modal mobile"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                viewBox="0 0 16 16">
+                <path fill="#fff" fill-rule="evenodd"
+                    d="m8 8.707l3.646 3.647l.708-.707L8.707 8l3.647-3.646l-.707-.708L8 7.293L4.354 3.646l-.707.708L7.293 8l-3.646 3.646l.707.708z"
+                    clip-rule="evenodd" />
+            </svg></span>
         <img class="image-modal-content" id="expandedImage">
     </div>
     <script>
@@ -281,20 +291,6 @@
 
             // Deshabilitar el scroll del body cuando el modal está abierto
             document.body.style.overflow = "hidden";
-
-            // desactivar el carrusel al abrir el modal
-            const carousel = bootstrap.Carousel.getInstance(
-                document.getElementById('comparisonCarousel')
-            );
-            if (carousel) {
-                carousel.pause();
-            }
-            const carouselDesktop = bootstrap.Carousel.getInstance(
-                document.getElementById('comparisonCarouselDesktop')
-            );
-            if (carouselDesktop) {
-                carouselDesktop.pause();
-            }
         }
 
         // Cerrar el modal al hacer clic en el botón de cerrar
@@ -305,21 +301,6 @@
 
                 // Habilitar el scroll del body cuando el modal está cerrado
                 document.body.style.overflow = "auto";
-
-                // reanudar el carrusel al cerrar el modal
-                const carousel = bootstrap.Carousel.getInstance(
-                    document.getElementById('comparisonCarousel')
-                );
-                if (carousel) {
-                    carousel.cycle();
-                }
-
-                const carouselDesktop = bootstrap.Carousel.getInstance(
-                    document.getElementById('comparisonCarouselDesktop')
-                );
-                if (carouselDesktop) {
-                    carouselDesktop.cycle();
-                }
             }
         });
 
