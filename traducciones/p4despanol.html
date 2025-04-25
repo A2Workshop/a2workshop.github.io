@@ -285,6 +285,7 @@
         function expandImage(img) {
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("expandedImage");
+            const modalContent = document.querySelector(".modal-content-image");
 
             modal.style.display = "block";
             modalImg.src = img.src;
@@ -297,24 +298,39 @@
 
             // Deshabilitar el scroll del body cuando el modal está abierto
             document.body.style.overflow = "hidden";
+
+            // Prevenir que clicks en la imagen o contenido del modal cierren el modal o reanuden el carrusel
+            modalContent.onclick = function (e) {
+                e.stopPropagation();
+            };
         }
 
-        // Cerrar el modal al hacer clic en el botón de cerrar
+        // Cerrar el modal al hacer clic en el botón de cerrar o fuera del contenido
         document.querySelectorAll('.close-btn-modal').forEach(btn => {
             btn.onclick = function () {
-                const modal = document.getElementById("imageModal");
-                modal.style.display = "none";
-
-                // Reanudar ambos carruseles
-                const carouselDesktop = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarouselDesktop'));
-                const carouselMobile = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarousel'));
-                if (carouselDesktop) carouselDesktop.cycle();
-                if (carouselMobile) carouselMobile.cycle();
-
-                // Habilitar el scroll del body cuando el modal está cerrado
-                document.body.style.overflow = "auto";
+                closeModal();
             }
         });
+
+        // Cerrar al hacer clic fuera del contenido del modal
+        document.getElementById("imageModal").onclick = function () {
+            closeModal();
+        };
+
+        // Función para cerrar el modal y reanudar carruseles
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+
+            // Reanudar ambos carruseles
+            const carouselDesktop = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarouselDesktop'));
+            const carouselMobile = bootstrap.Carousel.getInstance(document.getElementById('comparisonCarousel'));
+            if (carouselDesktop) carouselDesktop.cycle();
+            if (carouselMobile) carouselMobile.cycle();
+
+            // Habilitar el scroll del body cuando el modal está cerrado
+            document.body.style.overflow = "auto";
+        }
         // Desactivar el swipe táctil para ambos carruseles
         document.addEventListener('DOMContentLoaded', () => {
             // Inicializar carrusel desktop (sin swipe táctil)
