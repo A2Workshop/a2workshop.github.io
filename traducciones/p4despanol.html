@@ -79,9 +79,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/menu_ps4.png" class="image-before"
-                                                alt="ps4 menu" onclick="expandImage(this)">
+                                                alt="ps4 menu">
                                             <img src="../../p4d/img/screenshots/menu_psv.png" class="image-after"
-                                                alt="psv menu" onclick="expandImage(this)">
+                                                alt="psv menu">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -94,9 +94,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/custom_ps4.png" class="image-before"
-                                                alt="custom ps4" onclick="expandImage(this)">
+                                                alt="custom ps4">
                                             <img src="../../p4d/img/screenshots/custom_psv.png" class="image-after"
-                                                alt="custom psv" onclick="expandImage(this)">
+                                                alt="custom psv">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -115,9 +115,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/shop_ps4.png" class="image-before"
-                                                alt="shop ps4" onclick="expandImage(this)">
+                                                alt="shop ps4">
                                             <img src="../../p4d/img/screenshots/shop_psv.png" class="image-after"
-                                                alt="shop psv" onclick="expandImage(this)">
+                                                alt="shop psv">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -130,9 +130,9 @@
                                         </div>
                                         <div class="image-container">
                                             <img src="../../p4d/img/screenshots/event_ps4.png" class="image-before"
-                                                alt="event ps4" onclick="expandImage(this)">
+                                                alt="event ps4">
                                             <img src="../../p4d/img/screenshots/event_psv.png" class="image-after"
-                                                alt="event psv" onclick="expandImage(this)">
+                                                alt="event psv">
                                         </div>
                                         <div class="slider"></div>
                                     </div>
@@ -162,9 +162,9 @@
                             </div>
                             <div class="image-container">
                                 <img src="../../p4d/img/screenshots/menu_ps4.png" class="image-before" alt="ps4 menu"
-                                    onclick="expandImage(this)">
+                                ">
                                 <img src="../../p4d/img/screenshots/menu_psv.png" class="image-after" alt="psv menu"
-                                    onclick="expandImage(this)">
+                                ">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -177,9 +177,9 @@
                             </div>
                             <div class="image-container">
                                 <img src="../../p4d/img/screenshots/custom_ps4.png" class="image-before"
-                                    alt="custom ps4" onclick="expandImage(this)">
+                                    alt="custom ps4">
                                 <img src="../../p4d/img/screenshots/custom_psv.png" class="image-after" alt="custom psv"
-                                    onclick="expandImage(this)">
+                                ">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -192,9 +192,9 @@
                             </div>
                             <div class="image-container">
                                 <img src="../../p4d/img/screenshots/shop_ps4.png" class="image-before" alt="shop ps4"
-                                    onclick="expandImage(this)">
+                                ">
                                 <img src="../../p4d/img/screenshots/shop_psv.png" class="image-after" alt="shop psv"
-                                    onclick="expandImage(this)">
+                                ">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -207,9 +207,9 @@
                             </div>
                             <div class="image-container">
                                 <img src="../../p4d/img/screenshots/event_ps4.png" class="image-before" alt="event ps4"
-                                    onclick="expandImage(this)">
+                                ">
                                 <img src="../../p4d/img/screenshots/event_psv.png" class="image-after" alt="event psv"
-                                    onclick="expandImage(this)">
+                                ">
                             </div>
                             <div class="slider"></div>
                         </div>
@@ -265,64 +265,8 @@
             </div>
         </div>
     </footer>
-    <div id="imageModal" class="image-modal">
-        <span class="close-btn-modal desktop"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                viewBox="0 0 16 16">
-                <path fill="#fff" fill-rule="evenodd"
-                    d="m8 8.707l3.646 3.647l.708-.707L8.707 8l3.647-3.646l-.707-.708L8 7.293L4.354 3.646l-.707.708L7.293 8l-3.646 3.646l.707.708z"
-                    clip-rule="evenodd" />
-            </svg></span>
-        <span class="close-btn-modal mobile"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                viewBox="0 0 16 16">
-                <path fill="#fff" fill-rule="evenodd"
-                    d="m8 8.707l3.646 3.647l.708-.707L8.707 8l3.647-3.646l-.707-.708L8 7.293L4.354 3.646l-.707.708L7.293 8l-3.646 3.646l.707.708z"
-                    clip-rule="evenodd" />
-            </svg></span>
-        <img class="image-modal-content" id="expandedImage">
-    </div>
     <script>
-        // Función para expandir la imagen
-        function expandImage(img) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("expandedImage");
 
-            modal.style.display = "block";
-            modalImg.src = img.src;
-
-            // desactovar el auto-slide del carrusel
-            const carousel = bootstrap.Carousel.getInstance(
-                document.getElementById('comparisonCarousel')
-            );
-            carousel.pause();
-            const carouselDesktop = bootstrap.Carousel.getInstance(
-                document.getElementById('comparisonCarouselDesktop')
-            );
-            carouselDesktop.pause();
-
-            // Deshabilitar el scroll del body cuando el modal está abierto
-            document.body.style.overflow = "hidden";
-        }
-
-        // Cerrar el modal al hacer clic en el botón de cerrar
-        document.querySelectorAll('.close-btn-modal').forEach(btn => {
-            btn.onclick = function () {
-                const modal = document.getElementById("imageModal");
-                modal.style.display = "none";
-
-                // Reiniciar el carrusel al cerrar el modal
-                const carousel = bootstrap.Carousel.getInstance(
-                    document.getElementById('comparisonCarousel')
-                );
-                carousel.cycle();
-                const carouselDesktop = bootstrap.Carousel.getInstance(
-                    document.getElementById('comparisonCarouselDesktop')
-                );
-                carouselDesktop.cycle();
-
-                // Habilitar el scroll del body cuando el modal está cerrado
-                document.body.style.overflow = "auto";
-            }
-        });
 
 
         // Desactivar el swipe táctil para ambos carruseles
