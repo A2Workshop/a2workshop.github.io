@@ -290,6 +290,10 @@ nav a:hover {
 }
 
 .logo-container .logo_p4d {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     transition: transform 0.1s;
     animation: temblorFuerte 0.5s;
 }

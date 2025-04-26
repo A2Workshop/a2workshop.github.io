@@ -264,17 +264,15 @@
         </div>
     </footer>
     <script>
-        const logo = document.querySelector('.logo-container');
-        let lastTouchTime = 0;
-    
-        logo.addEventListener('touchstart', (e) => {
-            const now = new Date().getTime();
-            if (now - lastTouchTime < 300) {
-                e.preventDefault(); // evita el zoom por doble toque
-            }
-            lastTouchTime = now;
-        }, { passive: false });
+        // animation mobile
+        const logo = document.querySelector('.logo_p4d');
 
+        logo.addEventListener('click', () => {
+            logo.classList.add('temblor-activo');
+            setTimeout(() => {
+                logo.classList.remove('temblor-activo');
+            }, 500);
+        });
 
         // Desactivar el swipe táctil para ambos carruseles
         document.addEventListener('DOMContentLoaded', () => {
