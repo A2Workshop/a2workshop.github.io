@@ -98,6 +98,9 @@
                     <a href="/traducciones/pq2espanol.html">
                         <img src="../../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                     </a>
+                    <a href="/traducciones/p4despanol.html">
+                        <img src="../../p4d/img/es_logo/blackbg.png" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
+                    </a>
                     <hr class="nav-hr">
                     <a href="https://p3pespanol.wordpress.com/2024/05/04/persona-q-parche-en-espanol/">
                         <img src="../../pq2/img/es_logo/blackbg_q1.png" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
