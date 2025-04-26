@@ -283,6 +283,12 @@ nav a:hover {
     z-index: 2;
 }
 
+@media (min-width: 1910px) {
+    .logo-container {
+        max-width: 400px;
+    }
+}
+
 .logo-container .logo_p4d {
     transition: transform 0.1s;
     animation: temblorFuerte 0.5s;
