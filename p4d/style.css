@@ -346,11 +346,7 @@ nav a:hover {
 
 @media (max-width: 768px) {
     .logo-container {
-        width: 35%;
-    }
-
-    .logo-container .logo_p4d {
-        width: 100%;
+        width: 80%;
     }
 
     .logo-container .btn-primary {
