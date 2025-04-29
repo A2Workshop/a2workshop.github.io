@@ -160,8 +160,8 @@
                                 <span class="label-right">PS Vita</span>
                             </div>
                             <div class="image-container">
-                                <img src="../../p4d/img/screenshots/menu_ps4.webp" class="image-before" alt="ps4 menu" ">
-                                <img src=" ../../p4d/img/screenshots/menu_psv.webp" class="image-after" alt="psv menu" ">
+                                <img src="../../p4d/img/screenshots/menu_ps4.webp" class="image-before" alt="ps4 menu">
+                                <img src=" ../../p4d/img/screenshots/menu_psv.webp" class="image-after" alt="psv menu">
                             </div>
                             <div class=" slider">
                             </div>
@@ -177,7 +177,7 @@
                                 <img src="../../p4d/img/screenshots/custom_ps4.webp" class="image-before"
                                     alt="custom ps4">
                                 <img src="../../p4d/img/screenshots/custom_psv.webp" class="image-after"
-                                    alt="custom psv" ">
+                                    alt="custom psv">
                             </div>
                             <div class=" slider">
                             </div>
@@ -190,8 +190,8 @@
                                 <span class="label-right">PS Vita</span>
                             </div>
                             <div class="image-container">
-                                <img src="../../p4d/img/screenshots/shop_ps4.webp" class="image-before" alt="shop ps4" ">
-                                <img src=" ../../p4d/img/screenshots/shop_psv.webp" class="image-after" alt="shop psv" ">
+                                <img src="../../p4d/img/screenshots/shop_ps4.webp" class="image-before" alt="shop ps4">
+                                <img src=" ../../p4d/img/screenshots/shop_psv.webp" class="image-after" alt="shop psv">
                             </div>
                             <div class=" slider">
                             </div>
@@ -204,9 +204,10 @@
                                 <span class="label-right">PS Vita</span>
                             </div>
                             <div class="image-container">
-                                <img src="../../p4d/img/screenshots/event_ps4.webp" class="image-before" alt="event ps4" ">
+                                <img src="../../p4d/img/screenshots/event_ps4.webp" class="image-before"
+                                    alt="event ps4">
                                 <img src=" ../../p4d/img/screenshots/event_psv.webp" class="image-after"
-                                    alt="event psv" ">
+                                    alt="event psv">
                             </div>
                             <div class=" slider">
                             </div>
@@ -305,11 +306,39 @@
             const slider = comparator.querySelector('.slider');
             let isDragging = false;
 
+            // Obtener elementos de las etiquetas
+            const labels = comparator.querySelector('.comparator-labels');
+            const leftLabel = labels.querySelector('.label-left');
+            const rightLabel = labels.querySelector('.label-right');
+
             // Restaurar posición guardada (si existe)
             const saved = comparator.getAttribute('data-slider-position');
             if (saved) {
                 afterImage.style.clipPath = `inset(0 0 0 ${saved}%)`;
                 slider.style.left = `${saved}%`;
+                // Actualizar etiquetas iniciales
+                updateLabels(parseFloat(saved));
+            } else {
+                // Posición inicial al 50% (mostrar ambas imágenes)
+                const initialPct = 50;
+                afterImage.style.clipPath = `inset(0 0 0 ${initialPct}%)`;
+                slider.style.left = `${initialPct}%`;
+                comparator.setAttribute('data-slider-position', initialPct);
+                updateLabels(initialPct);
+            }
+
+            // Función para actualizar visibilidad de etiquetas
+            function updateLabels(pct) {
+                if (pct <= 20) {
+                    leftLabel.classList.add('hidden');
+                    rightLabel.classList.remove('hidden');
+                } else if (pct >= 80) {
+                    rightLabel.classList.add('hidden');
+                    leftLabel.classList.remove('hidden');
+                } else {
+                    rightLabel.classList.remove('hidden');
+                    leftLabel.classList.remove('hidden');
+                }
             }
 
             // Función para mover el slider
@@ -317,9 +346,13 @@
                 const rect = comparator.getBoundingClientRect();
                 let x = clientX - rect.left;
                 let pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+
                 afterImage.style.clipPath = `inset(0 0 0 ${pct}%)`;
                 slider.style.left = `${pct}%`;
                 comparator.setAttribute('data-slider-position', pct);
+
+                // Actualizar etiquetas
+                updateLabels(pct);
             }
 
             // Eventos de ratón

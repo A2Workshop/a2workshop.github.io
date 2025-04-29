@@ -504,10 +504,10 @@ footer {
 
 .label-left,
 .label-right {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #0070ccd3;
     color: white;
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 1px;
     font-weight: bold;
 }
 
@@ -517,6 +517,14 @@ footer {
 
 .label-right {
     margin-left: auto;
+}
+
+.comparator-labels span {
+    transition: opacity 0.3s ease;
+}
+
+.comparator-labels .hidden {
+    opacity: 0;
 }
 
 .carousel-control-prev,
