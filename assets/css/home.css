@@ -70,6 +70,24 @@ nav a:hover {
   height: auto;
 }
 
+@media (min-width: 990px) {
+  .logo-container img {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .logo-container img {
+    max-width: 700px;
+  }
+}
+
+@media (max-height: 270px) {
+  .logo-container img {
+    margin-top: 100px;
+  }
+}
+
 /* Navbar 2 */
 nav {
   background: rgba(0, 0, 0, 0.7);
