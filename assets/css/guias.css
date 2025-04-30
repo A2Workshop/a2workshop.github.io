@@ -579,3 +579,14 @@ nav a:hover {
 .nav-container img{
   border-radius: 10px;
 }
+
+.responsive-col {
+  flex: 0 0 auto;
+  width: 75%;
+}
+
+@media (max-width: 1199px) {
+  .responsive-col {
+    width: 100%;
+  }
+}

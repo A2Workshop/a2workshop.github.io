@@ -181,7 +181,7 @@
     <!-- Guía -->
     <div class="container container-content text-white bg-guideheader mt-3 rounded-5 scroll-indice">
         <div class="row">
-            <div class="col-9" id="changemobile">
+            <div class="col-9 responsive-col" id="changemobile">
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
                     class="scrollspy-example-2" tabindex="0">
                     <div id="item-0" class="container mt-4">
@@ -442,7 +442,7 @@
 
         <div class="container container-content text-white bg-guideheader mt-3 rounded-5">
             <div class="row">
-                <div id="changemobile2" class="col-9">
+                <div id="changemobile2" class="col-9 responsive-col">
                     <div class="container mt-4">
                         <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
                         <br>
@@ -516,38 +516,4 @@
             $(this).addClass('active');
         });
     });
-</script>
-<script>
-    function updateDivClass() {
-        const divElement = document.getElementById('changemobile');
-
-        if (window.matchMedia('(max-width: 1199px)').matches) {
-            divElement.classList.remove('col-9');
-            divElement.classList.add('col');
-        } else {
-            divElement.classList.remove('col');
-            divElement.classList.add('col-9');
-        }
-    }
-
-    window.addEventListener('load', updateDivClass);
-    window.addEventListener('resize', updateDivClass);
-
-</script>
-<script>
-    function updateDivClass() {
-        const divElement = document.getElementById('changemobile2');
-
-        if (window.matchMedia('(max-width: 1199px)').matches) {
-            divElement.classList.remove('col-9');
-            divElement.classList.add('col');
-        } else {
-            divElement.classList.remove('col');
-            divElement.classList.add('col-9');
-        }
-    }
-
-    window.addEventListener('load', updateDivClass);
-    window.addEventListener('resize', updateDivClass);
-
 </script>
