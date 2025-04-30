@@ -70,13 +70,13 @@ nav a:hover {
   height: auto;
 }
 
-@media (min-width: 990px) {
+@media (min-width: 990px) and (min-height: 230px) {
   .logo-container img {
     max-width: 500px;
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1400px) and (min-height: 230px) {
   .logo-container img {
     max-width: 700px;
   }
