@@ -142,12 +142,12 @@
                         <img src="../../p4d/img/es_logo/blackbg.png" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
                     </a>
                     <hr class="nav-hr">
-                    <a href="https://p3pespanol.wordpress.com/2024/05/04/persona-q-parche-en-espanol/">
-                        <img src="../../pq2/img/es_logo/blackbg_q1.png" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
-                    </a>
                     <a href="https://gamebanana.com/mods/54473">
                         <img src="../../pq2/img/es_logo/p5_ps3.jpg" alt="p5ps3logo"> (PS3) Persona 5 Backport
                                 Español
+                    </a>
+                    <a href="https://gamebanana.com/mods/511619">
+                        <img src="../../pq2/img/es_logo/blackbg_q1.png" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
                     </a>
                     </div>
                 </div>
