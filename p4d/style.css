@@ -3,6 +3,10 @@
     src: url('../../assets/font/MotivaSansRegular.woff.ttf') format('truetype');
 }
 
+:root {
+    color-scheme: dark;
+}
+
 /* Navbar 2 */
 nav {
     position: relative;

@@ -3,6 +3,10 @@
   src: url('../font/MotivaSansRegular.woff.ttf') format('truetype');
 }
 
+:root {
+  color-scheme: dark;
+}
+
 body {
   font-family: 'motiva';
   margin: 0;

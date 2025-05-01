@@ -3,6 +3,10 @@
   src: url('../font/MotivaSansRegular.woff.ttf') format('truetype');
 }
 
+:root {
+  color-scheme: dark;
+}
+
 .img-zoom {
   transition: transform .2s;
 }

@@ -8,6 +8,10 @@
     src: url('../pq2/font/FuturaLT.ttf') format('truetype');
 }
 
+:root {
+    color-scheme: dark;
+}
+
 body {
     font-family: 'futura';
     margin: 0;
