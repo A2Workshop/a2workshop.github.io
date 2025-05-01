@@ -2,22 +2,22 @@
     const navbar = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/" class="hide-mobile"><img src="../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../assets/img/A2/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
+                        <img src="../assets/img/BO3/logo.webp" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
-                        <img src="../assets/img/BO1/logo.jpg" alt="bolalogo">
+                        <img src="../assets/img/BO1/logo.webp" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
-                        <img src="../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
+                        <img src="../pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                     </a>
                     </div>
                 </div>
@@ -34,15 +34,15 @@
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="/assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
+                        <img src="/assets/img/BO3/logo.webp" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
-                        <img src="/assets/img/BO1/logo.jpg" alt="bolalogo">
+                        <img src="/assets/img/BO1/logo.webp" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
-                        <img src="/pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
+                        <img src="/pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                     </a>
                     </div>
                 </div>
@@ -54,22 +54,22 @@
     const navbar3 = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/" class="hide-mobile"><img src="assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="assets/img/A2/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
+                        <img src="assets/img/BO3/logo.webp" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
-                        <img src="assets/img/BO1/logo.jpg" alt="bolalogo">
+                        <img src="assets/img/BO1/logo.webp" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
-                        <img src="pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
+                        <img src="pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                     </a>
                     </div>
                 </div>
@@ -81,26 +81,26 @@
     const navbarpq2install = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../../../pq2/img/a2logo/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/" class="hide-mobile"><img src="../../pq2/img/a2logo/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="../../../pq2/img/a2logo/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../../pq2/img/a2logo/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="../../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
+                        <img src="../../assets/img/BO3/logo.webp" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
-                        <img src="../../assets/img/BO1/logo.jpg" alt="bolalogo">
+                        <img src="../../assets/img/BO1/logo.webp" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
-                        <img src="../../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
+                        <img src="../../pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                     </a>
                     <!--
                     <a href="/traducciones/p4despanol.html">
-                        <img src="../../p4d/img/es_logo/blackbg.png" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
+                        <img src="../../p4d/img/es_logo/blackbg.webp" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
                     </a>
                     -->
                     <hr class="nav-hr">
@@ -109,7 +109,7 @@
                                 Español
                     </a>
                     <a href="https://gamebanana.com/mods/511619">
-                        <img src="../../pq2/img/es_logo/blackbg_q1.png" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
+                        <img src="../../pq2/img/es_logo/blackbg_q1.webp" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
                     </a>
                     </div>
                 </div>
@@ -121,25 +121,25 @@
     const navbarp4dinstall = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../../assets/img/A2/logo.png" alt="logo" class="logo_nav"></a>
-                <a href="/" class="hide-mobile"><img src="../../assets/img/A2/full_logo.png" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop"><img src="../../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-mobile"><img src="../../assets/img/A2/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
                     <button class="close-btn">&times;</button>
                     <a href="/proyectos/blackopsiiilatino.html">
-                        <img src="../../assets/img/BO3/logo.png" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
+                        <img src="../../assets/img/BO3/logo.webp" alt="bo3lalogo"> (PC) Call of Duty: Black Ops III Español
                         Latino
                     </a>
                     <a href="/proyectos/blackopslatino.html">
-                        <img src="../../assets/img/BO1/logo.jpg" alt="bolalogo">
+                        <img src="../../assets/img/BO1/logo.webp" alt="bolalogo">
                         (PC) Call of Duty: Black Ops Zombies Español Latino
                     </a>
                     <a href="/traducciones/pq2espanol.html">
-                        <img src="../../pq2/img/es_logo/blackbg.png" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
+                        <img src="../../pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                     </a>
                     <a href="/traducciones/p4despanol.html">
-                        <img src="../../p4d/img/es_logo/blackbg.png" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
+                        <img src="../../p4d/img/es_logo/blackbg.webp" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
                     </a>
                     <hr class="nav-hr">
                     <a href="https://gamebanana.com/mods/54473">
@@ -147,7 +147,7 @@
                                 Español
                     </a>
                     <a href="https://gamebanana.com/mods/511619">
-                        <img src="../../pq2/img/es_logo/blackbg_q1.png" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
+                        <img src="../../pq2/img/es_logo/blackbg_q1.webp" alt="pqeslogo"> (3DS) Persona Q Traducción al Español
                     </a>
                     </div>
                 </div>
