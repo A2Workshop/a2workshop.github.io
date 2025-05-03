@@ -28,7 +28,7 @@
 
     const navbarindex = `
         <nav>
-            <div class="nav-container">
+            <div class="nav-container p-2">
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
                     <div class="megamenu-content">
