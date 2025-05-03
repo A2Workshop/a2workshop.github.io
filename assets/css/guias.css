@@ -35,7 +35,7 @@
 
 .container-content {
   /* background-color: #1b2838; */
-  background-color: #1b2838c2;
+  background-color: #0b1b2e3d;
 }
 
 .container {
@@ -44,34 +44,8 @@
 
 body {
   font-family: 'motiva';
+  background-color: #1c2836;
 }
-
-.animated-background {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(-45deg, #00446b, #1b2230);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
-  z-index: -1;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 
 .list-group-item {
   background-color: #1a2431;
@@ -421,7 +395,7 @@ nav {
   position: relative;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.342);
   padding: 10px 0;
   display: flex;
   justify-content: center;
