@@ -159,11 +159,11 @@
     if (window.location.pathname === "/index.html" || window.location.pathname === "/" || window.location.pathname === "/index") {
         document.getElementById("navbar-container").innerHTML = navbarindex;
     }
-    
+
     else if (window.location.pathname === "/contacto.html" || window.location.pathname === "/contacto") {
         document.getElementById("navbar-container").innerHTML = navbarcontacto;
     }
-    
+
     else if (window.location.pathname === "/traducciones/pq2espanol/descargar.html" || window.location.pathname === "/traducciones/pq2espanol/descargar") {
         document.getElementById("navbar-container").innerHTML = navbarpq2install;
     }
@@ -171,10 +171,10 @@
     else if (window.location.pathname === "/traducciones/p4despanol.html" || window.location.pathname === "/traducciones/p4despanol" || window.location.pathname === "/p4despanol.html" || window.location.pathname === "/p4despanol") {
         document.getElementById("navbar-container").innerHTML = navbarp4d;
     }
-    
+
     else {
         document.getElementById("navbar-container").innerHTML = navbar;
-    }     
+    }
 
 }
 
