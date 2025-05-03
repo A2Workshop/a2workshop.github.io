@@ -35,7 +35,7 @@
 
 .container-content {
   /* background-color: #1b2838; */
-  background-color: #0b1b2e3d;
+  background-color: #1b2838c2;
 }
 
 .container {
@@ -44,7 +44,7 @@
 
 body {
   font-family: 'motiva';
-  background-color: #1c2836;
+  background: #001520;
 }
 
 .list-group-item {
@@ -395,7 +395,7 @@ nav {
   position: relative;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.342);
+  background: rgba(0, 0, 0, 0.7);
   padding: 10px 0;
   display: flex;
   justify-content: center;
