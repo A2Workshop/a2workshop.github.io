@@ -34,7 +34,8 @@
 }
 
 .container-content {
-  background-color: #1b2838;
+  /* background-color: #1b2838; */
+  background-color: #1b2838c2;
 }
 
 .container {
@@ -51,7 +52,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, #00446b, #a44007);
+  background: linear-gradient(-45deg, #00446b, #1b2230);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
   z-index: -1;
