@@ -26,7 +26,7 @@
         </nav>
     `;
 
-    const navbar2 = `
+    const navbarindex = `
         <nav>
             <div class="nav-container">
                 <div class="megamenu">
@@ -51,7 +51,7 @@
         </nav>
     `;
 
-    const navbar3 = `
+    const navbarcontacto = `
         <nav>
             <div class="nav-container">
                 <a href="/" class="hide-desktop"><img src="assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
@@ -118,7 +118,7 @@
         </nav>
     `;
 
-    const navbarp4dinstall = `
+    const navbarp4d = `
         <nav>
             <div class="nav-container">
                 <a href="/" class="hide-desktop"><img src="../../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
@@ -157,11 +157,11 @@
     `;
 
     if (window.location.pathname === "/index.html" || window.location.pathname === "/" || window.location.pathname === "/index") {
-        document.getElementById("navbar-container").innerHTML = navbar2;
+        document.getElementById("navbar-container").innerHTML = navbarindex;
     }
     
     else if (window.location.pathname === "/contacto.html" || window.location.pathname === "/contacto") {
-        document.getElementById("navbar-container").innerHTML = navbar3;
+        document.getElementById("navbar-container").innerHTML = navbarcontacto;
     }
     
     else if (window.location.pathname === "/traducciones/pq2espanol/descargar.html" || window.location.pathname === "/traducciones/pq2espanol/descargar") {
@@ -169,7 +169,7 @@
     }
 
     else if (window.location.pathname === "/traducciones/p4despanol.html" || window.location.pathname === "/traducciones/p4despanol" || window.location.pathname === "/p4despanol.html" || window.location.pathname === "/p4despanol") {
-        document.getElementById("navbar-container").innerHTML = navbarp4dinstall;
+        document.getElementById("navbar-container").innerHTML = navbarp4d;
     }
     
     else {
