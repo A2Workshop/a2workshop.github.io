@@ -132,7 +132,7 @@ function updatePaginationControls() {
 
 
   // Números de página
-  const maxVisiblePages = 5; // Máximo de números de página a mostrar
+  const maxVisiblePages = 3; // Máximo de números de página a mostrar
   let startPage, endPage;
 
   if (totalPages <= maxVisiblePages) {
