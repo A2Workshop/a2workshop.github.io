@@ -586,3 +586,7 @@ footer {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+.title-screenshots{
+    margin-top: -72px !important;
+}
