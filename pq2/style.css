@@ -309,3 +309,19 @@ body {
     margin-top: 8px !important;
     }
 }
+
+.hide-mobile-contact{
+    margin-left: 20px;
+}
+
+@media (max-width: 301px){
+    .hide-mobile-contact{
+        display: none !important;
+    }
+}
+
+@media (min-width: 990px){
+    .hide-mobile-contact{
+        display: none !important;
+    }
+}
