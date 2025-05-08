@@ -48,12 +48,13 @@ body {
 }
 
 .list-group-item {
-  background-color: #1a2431;
+  background-color: #1b2838;
   color: white !important;
 }
 
 .list-group-item:hover {
-  background-color: #363636;
+  background-color: #1b2838;
+  border-color: #ffffff;
   color: white;
 }
 
