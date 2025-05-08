@@ -526,14 +526,17 @@
                 </tbody>
               </table>
             </div>
+            <div class="text-center mt-2">
+              <button id="show-more" class="btn btn-sm btn-outline-primary">▼ Ver todos</button>
+            </div>
             <script>
               fetch('../assets/md5/bo3/md5.txt')
                 .then(response => response.text())
                 .then(text => {
                   const tbody = document.getElementById('md5-table-body');
+                  const button = document.getElementById('show-more');
                   const lines = text.trim().split('\n');
 
-                  // Crea filas y guárdalas en un array
                   const rows = lines.map(line => {
                     const [filename, hash] = line.split('|');
                     if (filename && hash) {
@@ -542,47 +545,30 @@
                       return tr;
                     }
                     return null;
-                  }).filter(Boolean); // elimina nulls
+                  }).filter(Boolean);
 
-                  // Mostrar solo los primeros 3
+                  // Insertar los primeros 3 visibles, el resto oculto
                   rows.forEach((row, index) => {
-                    if (index < 3) {
-                      tbody.appendChild(row);
-                    } else {
-                      row.style.display = 'none'; // ocultar los demás por defecto
-                      tbody.appendChild(row);
-                    }
+                    if (index >= 3) row.style.display = 'none';
+                    tbody.appendChild(row);
                   });
 
-                  // Si hay más de 3, mostrar el botón/flecha
-                  if (rows.length > 3) {
-                    const toggleRow = document.createElement('tr');
-                    const toggleCell = document.createElement('td');
-                    toggleCell.colSpan = 2;
-                    toggleCell.style.textAlign = 'center';
-                    toggleCell.innerHTML = `<button id="show-more" class="btn btn-sm btn-outline-primary">▼ Ver todos</button>`;
-                    toggleRow.appendChild(toggleCell);
-                    tbody.appendChild(toggleRow);
+                  // Lógica del botón
+                  let expanded = false;
+                  button.style.display = rows.length > 3 ? 'inline-block' : 'none';
 
-                    const button = toggleCell.querySelector('#show-more');
-                    let expanded = false;
-                    button.addEventListener('click', () => {
-                      expanded = !expanded;
-                      rows.forEach((row, index) => {
-                        if (index >= 3) {
-                          row.style.display = expanded ? '' : 'none';
-                        }
-                      });
-                      button.innerHTML = expanded ? '▲ Ocultar' : '▼ Ver todos';
+                  button.addEventListener('click', () => {
+                    expanded = !expanded;
+                    rows.forEach((row, index) => {
+                      if (index >= 3) row.style.display = expanded ? '' : 'none';
                     });
-                  }
+                    button.innerHTML = expanded ? '▲ Ocultar' : '▼ Ver todos';
+                  });
                 })
                 .catch(error => {
                   console.error('Error al cargar el archivo MD5:', error);
                 });
             </script>
-
-
           </div>
           <br>
           <div id="item-6" class="container border-custom">
