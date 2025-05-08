@@ -40,21 +40,21 @@
 }
 
 .list-group-item.active {
-    background-color: #bd6009;
-    border-color: #363636;
+    background-color: #363636;
+    border-color: #ffffff;
 }
 
 .list-group-item.active:hover {
-    background-color: #bd6009;
-    border-color: #363636;
+    background-color: #363636;
+    border-color: #ffffff;
 }
 
 .list-group-item.active:focus {
-    background-color: #bd6009;
-    border-color: #363636;
+    background-color: #363636;
+    border-color: #ffffff;
 }
 
 .list-group-item.active:active {
-    background-color: #bd6009;
-    border-color: #363636;
+    background-color: #363636;
+    border-color: #ffffff;
 }
