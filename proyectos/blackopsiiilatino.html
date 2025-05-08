@@ -161,11 +161,11 @@
         </p>
       </div>
       <div class="col-2">
-        <!-- <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
-            src="../assets/img/Custom_Button/steam_button_icon.webp" width="100%" alt="steam button" /></a> -->
-        <a
+        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3476068089"><img
+            src="../assets/img/Custom_Button/steam_button_icon.webp" width="100%" alt="steam button" /></a>
+        <!-- <a
           href="http://web.archive.org/web/20241125024216/https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
-            src="../assets/img/Custom_Button/internetarchive_button_icon.webp" width="100%" alt="Wayback Button" /></a>
+            src="../assets/img/Custom_Button/internetarchive_button_icon.webp" width="100%" alt="Wayback Button" /></a> -->
       </div>
     </div>
   </div>
@@ -182,11 +182,11 @@
       Guía para cambiar el idioma del Call of Duty: Black Ops III de PC al Español Latino.
     </p>
     <div class="container justify-content-center text-center">
-      <!-- <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
-          src="../assets/img/Custom_Button/steam_button_icon.webp" width="35%" alt="steam button" /></a> -->
-      <a
+      <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3476068089"><img
+          src="../assets/img/Custom_Button/steam_button_icon.webp" width="35%" alt="steam button" /></a>
+      <!-- <a
         href="http://web.archive.org/web/20241125024216/https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
-          src="../assets/img/Custom_Button/internetarchive_button_icon.webp" width="35%" alt="Wayback Button" /></a>
+          src="../assets/img/Custom_Button/internetarchive_button_icon.webp" width="35%" alt="Wayback Button" /></a> -->
     </div>
     <br>
   </div>
@@ -215,23 +215,6 @@
             <h2 class="fw-bold fs-2 mt-3 title">🆕 ¿Qué hay de nuevo?</h2>
             <br>
             <div class="accordion mt-3" id="accordionExample">
-              <!-- Panel 2.6 -->
-              <!-- <div class="accordion-item">
-                <h2 class="accordion-header" id="heading8">
-                  <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                    Actualización v2.6 - 05/05/2025
-                  </button>
-                </h2>
-                <div id="collapse8" class="accordion-collapse collapse show" aria-labelledby="heading8"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><span class="iconify" data-icon="material-symbols:build-circle-rounded"
-                        style="color: rgb(66, 66, 66); background-color: rgb(255, 255, 255); border-radius: 50%;"></span>
-                      Corregidos los diálogos del <b>arco de la oscuridad</b> en <b>Der Eisendrache</b>.</p>
-                  </div>
-                </div>
-              </div> -->
               <!-- Panel 2.5 -->
               <div class="accordion-item">
                 <h2 class="accordion-header" id="heading7">
@@ -527,6 +510,77 @@
             <img src="../assets/img/BO3/2819323099_preview_Contenido-mapas.webp" alt="bo3 latino mapas zombies"
               width="100%">
             </p>
+          </div>
+          <div id="md5" class="container border-custom">
+            <h2 class="fw-bold fs-2 mt-3 title">MD5</h2>
+            <table class="table table-dark table-striped table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Archivo</th>
+                  <th scope="col">MD5</th>
+                </tr>
+              </thead>
+              <tbody id="md5-table-body">
+                <!-- md5 content -->
+              </tbody>
+            </table>
+            <script>
+              fetch('../assets/md5/bo3/md5.txt')
+                .then(response => response.text())
+                .then(text => {
+                  const tbody = document.getElementById('md5-table-body');
+                  const lines = text.trim().split('\n');
+            
+                  // Crea filas y guárdalas en un array
+                  const rows = lines.map(line => {
+                    const [filename, hash] = line.split('|');
+                    if (filename && hash) {
+                      const tr = document.createElement('tr');
+                      tr.innerHTML = `<td>${filename}</td><td>${hash}</td>`;
+                      return tr;
+                    }
+                    return null;
+                  }).filter(Boolean); // elimina nulls
+            
+                  // Mostrar solo los primeros 3
+                  rows.forEach((row, index) => {
+                    if (index < 3) {
+                      tbody.appendChild(row);
+                    } else {
+                      row.style.display = 'none'; // ocultar los demás por defecto
+                      tbody.appendChild(row);
+                    }
+                  });
+            
+                  // Si hay más de 3, mostrar el botón/flecha
+                  if (rows.length > 3) {
+                    const toggleRow = document.createElement('tr');
+                    const toggleCell = document.createElement('td');
+                    toggleCell.colSpan = 2;
+                    toggleCell.style.textAlign = 'center';
+                    toggleCell.innerHTML = `<button id="show-more" class="btn btn-sm btn-outline-primary">▼ Ver todos</button>`;
+                    toggleRow.appendChild(toggleCell);
+                    tbody.appendChild(toggleRow);
+            
+                    const button = toggleCell.querySelector('#show-more');
+                    let expanded = false;
+                    button.addEventListener('click', () => {
+                      expanded = !expanded;
+                      rows.forEach((row, index) => {
+                        if (index >= 3) {
+                          row.style.display = expanded ? '' : 'none';
+                        }
+                      });
+                      button.innerHTML = expanded ? '▲ Ocultar' : '▼ Ver todos';
+                    });
+                  }
+                })
+                .catch(error => {
+                  console.error('Error al cargar el archivo MD5:', error);
+                });
+            </script>
+            
+
           </div>
           <br>
           <div id="item-6" class="container border-custom">
