@@ -326,3 +326,7 @@ body {
         display: none !important;
     }
 }
+
+.desktop-contact{
+    margin-top: -2px;
+}
