@@ -6,12 +6,21 @@ let allComments = [];
 
 // Función para formatear la fecha y hora
 function formatFechaHora(fechaHoraString) {
-  var fechaHora = new Date(fechaHoraString);
-  var opcionesFecha = { day: 'numeric', month: 'long' };
-  var opcionesHora = { hour: 'numeric', minute: 'numeric' };
+  var opcionesFecha = { 
+    timeZone: 'America/Mexico_City',
+    day: 'numeric', 
+    month: 'long',
+    year: 'numeric'
+  };
+  var opcionesHora = {
+    timeZone: 'America/Mexico_City',
+    hour: 'numeric', 
+    minute: 'numeric'
+  };
 
-  var dia = fechaHora.toLocaleDateString('es-ES', opcionesFecha);
-  var hora = fechaHora.toLocaleTimeString('es-ES', opcionesHora);
+  var fechaHora = new Date(fechaHoraString);
+  var dia = fechaHora.toLocaleDateString('es-MX', opcionesFecha);
+  var hora = fechaHora.toLocaleTimeString('es-MX', opcionesHora);
 
   return `${dia} a las ${hora}`;
 }
