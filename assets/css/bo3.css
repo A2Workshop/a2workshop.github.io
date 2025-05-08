@@ -40,21 +40,45 @@
 }
 
 .list-group-item.active {
-    background-color: #1b2838;
+    background-color: #bd6009;
     border-color: #ffffff;
 }
 
 .list-group-item.active:hover {
-    background-color: #1b2838;
+    background-color: #bd6009;
     border-color: #ffffff;
 }
 
 .list-group-item.active:focus {
-    background-color: #1b2838;
+    background-color: #bd6009;
     border-color: #ffffff;
 }
 
 .list-group-item.active:active {
+    background-color: #bd6009;
+    border-color: #ffffff;
+}
+
+.group-item-common.active {
     background-color: #1b2838;
     border-color: #ffffff;
+    color: #fdfdfd !important;
+}
+
+.group-item-common.active:hover {
+    background-color: #1b2838;
+    border-color: #ffffff;
+    color: #fdfdfd !important;
+}
+
+.group-item-common.active:focus {
+    background-color: #1b2838;
+    border-color: #ffffff;
+    color: #fdfdfd !important;
+}
+
+.group-item-common.active:active {
+    background-color: #1b2838;
+    border-color: #ffffff;
+    color: #fdfdfd !important;
 }
