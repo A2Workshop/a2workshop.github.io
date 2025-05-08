@@ -304,7 +304,7 @@
                                     const lines = text.trim().split('\n');
 
                                     const rows = lines.map(line => {
-                                        const [filename, hash] = line.split('|');
+                                        const [filename, hash] = line.split(':');
                                         if (filename && hash) {
                                             const tr = document.createElement('tr');
                                             tr.innerHTML = `<td>${filename}</td><td>${hash}</td>`;
