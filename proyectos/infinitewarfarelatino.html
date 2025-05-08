@@ -1,0 +1,677 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>COD: Infinite Warfare PC Español Latino</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../assets/img/A2/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Guía para cambiar el idioma del Call of Duty: Infinite Warfare de PC al Español Latino." />
+    <script src="../deps/bootstrap/js/popper.min.js"></script>
+    <link rel="stylesheet" href="../deps/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/guias.css" />
+    <link rel="stylesheet" href="../assets/css/iw.css" />
+    <script src="../deps/FileSaver.min.js"></script>
+    <script src="../deps/jquery-3.6.4.min.js"></script>
+    <meta name="theme-color" content="#090c10">
+    <link rel="canonical" href="https://a2workshop.github.io/proyectos/infinitewarfarelatino" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="A2Workshop">
+    <meta property="og:description" content="Infinite Warfare PC en Español Latino.">
+    <meta property="og:image" content="https://a2workshop.github.io/assets/img/IW/webpreview.png">
+    <meta property="og:url" content="https://a2workshop.github.io/proyectos/infinitewarfarelatino">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A2Workshop">
+    <meta name="twitter:description" content="Infinite Warfare PC en Español Latino.">
+    <meta name="twitter:image" content="https://a2workshop.github.io/assets/img/IW/webpreview.png">
+</head>
+<script>
+    $(document).ready(function () {
+        $('.megamenu > a').on('click', function (e) {
+            e.preventDefault();
+            $('.megamenu-content').fadeIn();
+        });
+
+        $('.close-btn').on('click', function () {
+            $('.megamenu-content').fadeOut();
+        });
+    });
+</script>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            const $sidebarToggle = $("#sidebar-toggle");
+            const $sidebarClose = $("#sidebar-close");
+            const $sidebar = $("#sidebar");
+
+            $sidebarClose.on("click", function () {
+                $sidebar.removeClass("show");
+            });
+
+            $sidebarToggle.on("click", function () {
+                $sidebar.toggleClass("show");
+            });
+        });
+        $(window).resize(function () {
+            if ($(window).width() > 1200) {
+                $("#sidebar").removeClass("show");
+            }
+        });
+    </script>
+    <button id="sidebar-toggle" class="btn btn-primary hide-desktop3">
+        <span class="iconify" data-icon="bi:person-lines-fill" style="color: white;"></span>
+    </button>
+    <div id="sidebar" class="hide-desktop3 bg-sidebar">
+        <button id="sidebar-close" class="btn btn-secondary">
+            <span class="iconify" data-icon="carbon:close-filled" style="color: #f6490c;" data-width="32"></span>
+        </button>
+        <div class="container mt-4">
+            <h4 class="fw-bold text-center">CREADO POR:</h4>
+            <div class="card mb-3 card-hover">
+                <div class="row g-3">
+                    <img src="https://cdn.fastly.steamstatic.com/steamcommunity/public/images/items/1504020/4495cb7125faf0795bf63ce532290bc28bebb440.gif"
+                        style="height: 10%;" alt="namish">
+                    <div class="card-body">
+                        <h5 class="card-title fs-6 fw-bold">Namish9741</h5><br>
+                    </div>
+                </div>
+                <div class=" text-center">
+                    <a href="https://steamcommunity.com/profiles/76561199112392013"
+                        class="btn btn-primary mt-2 mb-2">Perfil
+                        de Steam</a>
+                </div>
+            </div>
+
+            <div class="card mb-3 card-hover">
+                <div class="row g-3">
+                    <img src="../assets/img/Profile/atuburapaler.jpg" style="height: 20%;" alt="atuburapaler">
+                    <div class="card-body">
+                        <h5 class="card-title fs-6 fw-bold">atuburapaler</h5><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center">
+                        <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+                        <a href="https://steamcommunity.com/id/atubp" class="btn btn-primary mt-2 mb-2">Perfil
+                            de Steam</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3 card-hover">
+                <div class="row g-3">
+                    <img src="../assets/img/Profile/Artur16211.jpg" style="height: 20%;" alt="Artur16211">
+                    <div class="card-body">
+                        <h5 class="card-title fs-6 fw-bold">Artur16211</h5><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+                        <a href="https://steamcommunity.com/id/artur16211" class="btn btn-primary mt-2 mb-2">Perfil
+                            de Steam</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="list-example" class="list-group">
+                    <a class="list-group-item list-group-item-action fw-bold text-center">Índice</a>
+                    <a class="list-group-item list-group-item-action border-custom" href="#item-1">Introducción</a>
+                    <a class="list-group-item list-group-item-action" href="#item-2">Actualizaciones</a>
+                    <a class="list-group-item list-group-item-action" href="#item-3">Avances</a>
+                    <a class="list-group-item list-group-item-action" href="#item-4">Información</a>
+                    <a class="list-group-item list-group-item-action" href="#descargar">Descargas</a>
+                    <a class="list-group-item list-group-item-action" href="#item-6">Instalación</a>
+                    <a class="list-group-item list-group-item-action" href="#item-7">Errores Conocidos</a>
+                    <a class="list-group-item list-group-item-action" href="#item-8">Workshop - Zombies</a>
+                    <a class="list-group-item list-group-item-action" href="#item-9">Créditos</a>
+                    <a class="list-group-item list-group-item-action" href="#item-10">Comentarios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="navbar-container"></div>
+    <script src="../assets/js/gennav.js"></script>
+
+    <!-- Header Desk -->
+    <div class="hide-mobile2 container container-content text-white bg-guideheader mt-3 rounded-5">
+        <div class="row">
+            <div class="col-2">
+                <div class="container mt-2">
+                    <img src="../assets/img/IW/images.steamusercontent.jpeg" width="70%" alt="bo3 latino logo" />
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="container mt-5">
+                    <h1 class="fw-bold fs-1">Call of Duty: Infinite Warfare Traducción Español Latino</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <p class="mt-3 border-custom p-3">
+                    Guía para cambiar el idioma del Call of Duty: Infinite Warfare de PC al Español Latino.
+                </p>
+            </div>
+            <div class="col-2">
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146"><img
+                        src="../assets/img/Custom_Button/steam_button_icon.webp" width="100%" alt="steam button" /></a>
+                <!-- <a
+          href="http://web.archive.org/web/20241125024216/https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
+            src="../assets/img/Custom_Button/internetarchive_button_icon.webp" width="100%" alt="Wayback Button" /></a> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Mobile-->
+    <div class="hide-desktop2 container container-content text-white bg-guideheader mt-3 rounded-5 ">
+        <div class="container justify-content-center">
+            <img src="../assets/img/IW/images.steamusercontent.jpeg" class="centered-gif" alt="bo3 latino logo" />
+        </div>
+        <div class="container mt-2">
+            <h2 class="fw-bold fs-1">Call of Duty: Infinite Warfare Traducción Español Latino</h2>
+        </div>
+        <p class="mt-3 border-custom p-3">
+            Guía para cambiar el idioma del Call of Duty: Infinite Warfare de PC al Español Latino.
+        </p>
+        <div class="container justify-content-center text-center">
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146"><img
+                    src="../assets/img/Custom_Button/steam_button_icon.webp" width="35%" alt="steam button" /></a>
+            <!-- <a
+        href="http://web.archive.org/web/20241125024216/https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099"><img
+          src="../assets/img/Custom_Button/internetarchive_button_icon.webp" width="35%" alt="Wayback Button" /></a> -->
+        </div>
+        <br>
+    </div>
+
+    <!-- Guía -->
+    <div class="container container-content text-white bg-guideheader mt-3 rounded-5 scroll-indice">
+        <div class="row">
+            <div class="col-9 responsive-col" id="changemobile">
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
+                    class="scrollspy-example-2" tabindex="0">
+                    <div id="item-1" class="container mt-4">
+                        <h2 class="fw-bold fs-2 title">🫡 Introducción</h2>
+                        <img src="../assets/img/IW/3438530146_preview_Inf-Warf-Lat-Logo.png" alt="bo3 latino banner"
+                            width="100%" />
+                        <br><br>
+                        <p>
+                            Como muchos saben, el idioma Español Latino fue exclusivo de consolas y de la Microsoft
+                            Store para este juego, por lo que se decidió extraer y portear los archivos provenientes de
+                            la versión UWP de la plataforma antes mencionada para su versión Win32.<br /><br />
+                            En esta Guía se explicará el proceso de instalación de la localización completa en todos sus
+                            modos.
+                        </p>
+                    </div>
+                    <br />
+                    <div id="item-2" class="container border-custom">
+                        <h2 class="fw-bold fs-2 mt-3 title">🆕 Actualizaciones</h2>
+                        <br>
+                        <div class="accordion mt-3" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading6">
+                                    <button class="accordion-button collapsed fs-4" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false"
+                                        aria-controls="collapse6">
+                                        Versión 1.0 - 08/05/2025
+                                    </button>
+                                </h2>
+                                <div id="collapse6" class="accordion-collapse collapse show" aria-labelledby="heading6"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p><span class="iconify" data-icon="material-symbols:add-circle"
+                                                style="color: rgb(0, 173, 216); background-color: rgb(0, 0, 0); border-radius: 50%;"></span>
+                                            Versión Inicial.</b></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                    <div id="item-3" class="container border-custom">
+                        <h2 class="fw-bold fs-2 mt-3 title">📽️ Avances</h2>
+                        <div class="grid-container">
+                            <div class="grid-item"><iframe width="100%" src="https://www.youtube.com/embed/nwQBtpsrCCI"
+                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="item-4" class="container border-custom">
+                        <h2 class="fw-bold fs-2 mt-3 title">ℹ️ Información</h2>
+                        <p>
+                            <b class="fs-3">•</b> El mod es 100% Plug & Play: Los archivos son originales y el juego los
+                            lee como un idioma independiente, es compatible con el modo multijugador cooperativo, en
+                            línea, por servidores, LAN, mods de la comunidad y todas las funciones nativas, a excepción
+                            del modo Zombis por Steam (Leer a continuación)<br />
+                            <b class="fs-3">•</b> <b>No es posible</b> jugar el modo <b>Zombis en Steam</b>, única y
+                            exclusivamente es posible en el cliente de Aurora, <b>IW7-Mod</b>.<br />
+                            <b class="fs-3">•</b> El mod portea la localización completa de la última versión original
+                            en la Microsoft Store, incluyendo todos los contenidos descargables.<br />
+                            <b class="fs-3">•</b>
+                            Se ha probado la compatibilidad hasta el día de la actualización en Steam Deck y el cliente
+                            <b>IW7-Mod</b> antes mencionado.<br />
+                        </p>
+                    </div>
+                    <br>
+                    <div id="descargar" class="container border-custom">
+                        <h2 class="fw-bold fs-2 mt-3 title">⬇️ Descargas</h2>
+                        <p>
+                            <br>
+                            <b>Juego base</b>:<br>
+                            <a href="https://www.mediafire.com/file/mutow5n4u8et52e/IW_NAPC_BASE_1.0.7z/file"><img
+                                    src="../assets/img/Custom_Button/mediafire_separado.webp" alt="bo3 latino button"
+                                    width="30%"></a>
+                            <br>
+                            <br>
+                            <b>Contenido descargable (DLC)</b>:<br>
+                            <a href="https://www.mediafire.com/file/jvvofyh51xll9rl/IW_NAPC_DLC_1.0.7z/file"><img
+                                    src="../assets/img/Custom_Button/mediafire_full.webp" alt="bo3 latino button"
+                                    width="30%"></a>
+                            <br><br>
+                    </div>
+                    <div id="md5" class="container border-custom">
+                        <h2 class="fw-bold fs-2 mt-3 title">MD5</h2>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-bordered table-sm fs-6">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Archivo</th>
+                                        <th scope="col">MD5</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="md5-table-body">
+                                    <!-- md5 content -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center mt-2">
+                            <button id="show-more" class="btn btn-sm btn-outline-primary">▼ Ver todos</button>
+                        </div>
+                        <script>
+                            fetch('../assets/md5/iw/md5.txt')
+                                .then(response => response.text())
+                                .then(text => {
+                                    const tbody = document.getElementById('md5-table-body');
+                                    const button = document.getElementById('show-more');
+                                    const lines = text.trim().split('\n');
+
+                                    const rows = lines.map(line => {
+                                        const [filename, hash] = line.split('|');
+                                        if (filename && hash) {
+                                            const tr = document.createElement('tr');
+                                            tr.innerHTML = `<td>${filename}</td><td>${hash}</td>`;
+                                            return tr;
+                                        }
+                                        return null;
+                                    }).filter(Boolean);
+
+                                    // Insertar los primeros 3 visibles, el resto oculto
+                                    rows.forEach((row, index) => {
+                                        if (index >= 3) row.style.display = 'none';
+                                        tbody.appendChild(row);
+                                    });
+
+                                    // Lógica del botón
+                                    let expanded = false;
+                                    button.style.display = rows.length > 3 ? 'inline-block' : 'none';
+
+                                    button.addEventListener('click', () => {
+                                        expanded = !expanded;
+                                        rows.forEach((row, index) => {
+                                            if (index >= 3) row.style.display = expanded ? '' : 'none';
+                                        });
+                                        button.innerHTML = expanded ? '▲ Ocultar' : '▼ Ver todos';
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error('Error al cargar el archivo MD5:', error);
+                                });
+                        </script>
+                    </div>
+                    <br>
+                    <div id="item-6" class="container border-custom">
+                        <h2 class="fw-bold fs-2 mt-3 title">Instalación</h2><br>
+                        <b class="fs-3">•</b>
+                        Primero hay que descargar el mod ya sea con o sin DLCs.<br><br>
+
+                        <b class="fs-3">•</b> Algún programa para descomprimir archivos 7z.<br><br>
+
+                        <b class="fs-3">•</b> Localiza la carpeta raíz del juego.<br><br>
+                        <img src="../assets/img/IW/3438530146_preview_iw_gif1.gif" alt="iw latino gif" width="70%" />
+                        <br><br>
+                        <b class="fs-3">•</b> Estando la raíz del juego, debes <b>renombrar o eliminar la carpeta del
+                            idioma</b> en el que está instalado el juego (ya sea english, spanish, etc.) y
+                        posteriormente se debe <b>extraer el contenido</b> del archivo comprimido .7z
+                        <b>sobrescribiendo</b> los archivos existentes.</b>
+                        <br><br>
+                        <img src="../assets/img/IW/3438530146_preview_iw_gif2.gif" alt="iw latino gif2" width="70%" />
+                        <br><br>
+                    </div>
+                    <br>
+                    <div id="item-9" class="container border-custom">
+                        <h2 class="fw-bold fs-2 mt-3 title">🤝 Créditos</h2><br>
+                        <p> Este proyecto se basó en más de dos años de investigación.<br>
+                            <b class="fs-3">•</b>
+                            Namish9741 "Namish" tuvo la idea original, se encargó de administrar los archivos de ambas
+                            versiones, y asegurar su compatibilidad.<br>
+                            <b class="fs-3">•</b>
+                            skkuull se encargó de arreglar y encontrar la diferencia de arquitecturas, además de asistir
+                            con el IW7-Mod.<br>
+                            <b class="fs-3">•</b>
+                            Carloskrillex dió asistencia general en el proceso de compatibilidad.<br>
+                            <b class="fs-3">•</b>
+                            Artur16211 "Artur" se encargó de asistir en la compatibilidad de archivos UWP.<br>
+                            <b class="fs-3">•</b>
+                            atuburapaler "atu" se encargó de la presentación, edición, grabación, y redacción.<br>
+                            <b class="fs-3">•</b>
+                            <a href="https://doblaje.fandom.com/es/wiki/Call_of_Duty:_Infinite_Warfare">Doblaje original
+                                del videojuego</a>.<br>
+                            <b class="fs-3">•</b>
+                            Activision, Infinity Ward, y otros son dueños del material utilizado en esta creación, no se
+                            busca infringir ninguna norma ni lucrar con el mismo.<br>
+                        </p>
+                    </div>
+                    <div id="item-10" class="container border-custom">
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 hide-mobile3">
+                <div class="container mt-4 margin-index">
+                    <h4 class="fw-bold text-center">CREADO POR:</h4>
+                    <div class="card mb-3 card-hover">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <img src="https://cdn.fastly.steamstatic.com/steamcommunity/public/images/items/1504020/4495cb7125faf0795bf63ce532290bc28bebb440.gif"
+                                    style="height: 108px;" alt="namish" class="img rem">
+                            </div>
+                            <div class="col-6">
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6 fw-bold">Namish9741</h5><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <br class="mb-3">
+                                <a href="https://steamcommunity.com/profiles/76561199112392013"
+                                    class="btn btn-primary mt-2 mb-2">Perfil
+                                    de Steam</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 subcard card-hover">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <img src="../assets/img/Profile/atuburapaler.jpg" style="height: 108px;"
+                                    alt="atuburapaler">
+                            </div>
+                            <div class="col-6">
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6 fw-bold">atuburapaler</h5><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+                                <a href="https://steamcommunity.com/id/atubp" class="btn btn-primary mt-2 mb-2">Perfil
+                                    de Steam</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 subcard card-hover">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <img src="../assets/img/Profile/Artur16211.jpg" style="height: 108px;" alt="Artur16211">
+                            </div>
+                            <div class="col-6">
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6 fw-bold">Artur16211</h5><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
+                                <a href="https://steamcommunity.com/id/artur16211"
+                                    class="btn btn-primary mt-2 mb-2">Perfil
+                                    de Steam</a>
+                            </div>
+                        </div>
+
+                        <div class="row mt-10 position-absolute pb-5 hide-mobile3" id="index-container">
+                            <div id="list-example" class="list-group">
+                                <a class="list-group-item list-group-item-action fw-bold text-center">Índice</a>
+                                <a class="list-group-item list-group-item-action border-custom"
+                                    href="#item-1">Introducción</a>
+                                <a class="list-group-item list-group-item-action" href="#item-2">Actualizaciones</a>
+                                <a class="list-group-item list-group-item-action" href="#item-3">Avances</a>
+                                <a class="list-group-item list-group-item-action" href="#item-4">Información</a>
+                                <a class="list-group-item list-group-item-action" href="#descargar">Descargas</a>
+                                <a class="list-group-item list-group-item-action" href="#item-6">Instalación</a>
+                                <a class="list-group-item list-group-item-action" href="#item-7">Errores Conocidos</a>
+                                <a class="list-group-item list-group-item-action" href="#item-8">Workshop - Zombies</a>
+                                <a class="list-group-item list-group-item-action" href="#item-9">Créditos</a>
+                                <a class="list-group-item list-group-item-action" href="#item-10">Comentarios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container container-content text-white bg-guideheader mt-3 rounded-5">
+            <div class="row">
+                <div id="changemobile2" class="col-9 responsive-col">
+                    <div class="container mt-4">
+                        <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
+                        <br>
+                        <ul class="nav nav-pills hide-mobile">
+                            <li class="nav-item"><button onclick="showTab('tab2')" class="btn btn-warning fs-5 fw-bold"
+                                    aria-current="page">Web</button>
+                            </li>
+                            <li class="nav-item"><button onclick="showTab('tab1')"
+                                    class="btn btn-warning activeborder fs-5 fw-bold">Steam</button>
+                            </li>
+                        </ul>
+                        <!-- select mobile -->
+                        <div class="hide-desktop">
+                            <select class="form-select custom-select" aria-label="Default select example">
+                                <option value="1">Web</option>
+                                <option value="2" selected>Steam</option>
+                            </select>
+                        </div>
+                        <br>
+                        <script>
+                            // when the user changes the select option, show the corresponding tab
+                            const select = document.querySelector('.hide-desktop select');
+                            select.addEventListener('change', function () {
+                                if (this.value === '1') {
+                                    showTab('tab2');
+                                } else if (this.value === '2') {
+                                    showTab('tab1');
+                                } else {
+                                    console.error('Invalid tab:', this.value);
+                                }
+                            });
+                        </script>
+                        <div class="container" id="tab1-comments">
+                            <textarea class="form-control" id="comment-text" rows="3" placeholder="Añadir un comentario"
+                                style="resize: none;"></textarea>
+                            <div id="comments"></div>
+                            <br>
+                            <div aria-label="Page navigation example">
+                                <ul class="pagination" id="pagination-controls">
+                                    <!-- <li class="page-item"><a class="page-link" href="#comments">1</a></li>
+                  <li class="page-item"><a class="page-link"
+                      href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099#commentthread_PublishedFile_Public_76561198851405406_2819323099_area">2</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#comments">...</a>
+                  </li>
+                  <li class="page-item"><a class="page-link"
+                      href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099#commentthread_PublishedFile_Public_76561198851405406_2819323099_area">>></a>
+                  </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="tab2-comments">
+                            <script src="https://giscus.app/client.js" data-repo="Artur16211/a2workshop"
+                                data-repo-id="R_kgDOJct79w" data-category="General"
+                                data-category-id="DIC_kwDOJct7984CYF89" data-mapping="pathname" data-strict="0"
+                                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+                                data-theme="dark_dimmed" data-lang="es" crossorigin="anonymous" async>
+                                </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <footer class="footer mt-5 hide-desktop2">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <a class="logo-link" href="../">
+                        <img src="../assets/img/A2/full_logo.webp" alt="a2workshop Logo" class="logo"
+                            style="width: 200px;">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <br>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <p class="text-white text-center copyright-text">Este proyecto no está afiliado con Activision o
+                        Infinity Ward.
+                        Todos los derechos reservados por sus respectivos propietarios.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="footer mt-5 hide-mobile2">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <a class="logo-link w-25" href="../">
+                        <img src="../assets/img/A2/logo.webp" alt="a2workshop Logo" class="logo" style="width: 200px;">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <br>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-white text-center copyright-text">Este proyecto no está afiliado con Activision o
+                        Infinity Ward.
+                        Todos los derechos reservados por sus respectivos propietarios.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function showTab(tab) {
+            const tab1Comments = document.getElementById('tab1-comments');
+            const tab2Comments = document.getElementById('tab2-comments');
+
+            if (tab === 'tab1') {
+                tab1Comments.style.display = 'block';
+                tab2Comments.style.display = 'none';
+            } else if (tab === 'tab2') {
+                tab1Comments.style.display = 'none';
+                tab2Comments.style.display = 'block';
+            } else {
+                console.error('Invalid tab:', tab);
+            }
+        }
+
+        showTab('tab1');
+
+        const tabButtons = document.querySelectorAll('.nav-pills .btn');
+
+        for (let i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].addEventListener('click', function () {
+                for (let j = 0; j < tabButtons.length; j++) {
+                    tabButtons[j].classList.remove('activeborder');
+                }
+                this.classList.add('activeborder');
+            });
+        }
+
+    </script>
+</body>
+
+</html>
+<script src="../deps/bootstrap/js/bootstrap.js"></script>
+<script src="../deps/iconify.min.js"></script>
+<!-- index -->
+<script>
+    var indexContainer = document.getElementById('index-container');
+    var marginIndex = document.querySelector('.margin-index');
+    var isFixed = false;
+
+    var marginIndexOffsetTop = marginIndex.offsetTop + 300;
+    var indexContainerOffsetTop = indexContainer.offsetTop;
+
+    window.addEventListener('scroll', function () {
+        var scrollPosition = window.pageYOffset;
+
+        if (scrollPosition >= marginIndexOffsetTop && !isFixed) {
+            indexContainer.classList.add('position-fixed');
+            indexContainer.style.bottom = '0';
+            isFixed = true;
+        }
+
+        if (scrollPosition < marginIndexOffsetTop && isFixed) {
+            indexContainer.classList.remove('position-fixed');
+            indexContainer.style.bottom = '';
+            isFixed = false;
+        }
+    });
+</script>
+<!-- when the user clicks on the textarea, redirect to the steam comments -->
+<script>
+    var textarea = document.getElementById('comment-text');
+
+    textarea.addEventListener('click', function () {
+        window.location.href = 'https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146#commentthread_PublishedFile_Public_76561198851405406_2819323099_area';
+    });
+</script>
+<script src="../deps/jszip.min.js"></script>
+<!-- <script src="../assets/js/steamcomments.js"></script> -->
+<!-- hover credits -->
+<script>
+    var cards = document.getElementsByClassName("card-hover");
+
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("mouseenter", function () {
+            this.classList.add("card-hover");
+        });
+
+        cards[i].addEventListener("mouseleave", function () {
+            this.classList.remove("card-hover");
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.list-group-item').click(function () {
+            $('.list-group-item').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
