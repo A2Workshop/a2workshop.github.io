@@ -240,7 +240,7 @@ function updatePaginationControls() {
 async function fetchCommentsFromWeb() {
   try {
     // const response = await fetch('https://artur16211.github.io/steamguide_comments/comments.json');
-    const response = await fetch('https://a2workshop.github.io/assets/js/comments.json');
+    const response = await fetch('https://a2workshop.github.io/assets/js/archive_steamcomments.json');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
