@@ -16,6 +16,12 @@
                             <img src="../assets/img/BO1/logo.webp" alt="bolalogo">
                             (PC) Call of Duty: Black Ops Zombies Español Latino
                         </a>
+                        <!--
+                        <a href="/proyectos/infinitewarfarelatino.html">
+                            <img src="../assets/img/IW/images.steamusercontent.jpeg" alt="iwlalogo">
+                            (PC) Call of Duty: Infinite Warfare Español Latino
+                        </a>
+                        -->
                         <a href="/traducciones/pq2espanol.html">
                             <img src="../pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                         </a>
@@ -41,6 +47,12 @@
                             <img src="/assets/img/BO1/logo.webp" alt="bolalogo">
                             (PC) Call of Duty: Black Ops Zombies Español Latino
                         </a>
+                        <!--
+                        <a href="/proyectos/infinitewarfarelatino.html">
+                            <img src="/assets/img/IW/images.steamusercontent.jpeg" alt="iwlalogo">
+                            (PC) Call of Duty: Infinite Warfare Español Latino
+                        </a>
+                        -->
                         <a href="/traducciones/pq2espanol.html">
                             <img src="/pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                         </a>
@@ -68,6 +80,12 @@
                             <img src="assets/img/BO1/logo.webp" alt="bolalogo">
                             (PC) Call of Duty: Black Ops Zombies Español Latino
                         </a>
+                        <!--
+                        <a href="/proyectos/infinitewarfarelatino.html">
+                            <img src="assets/img/IW/images.steamusercontent.jpeg" alt="iwlalogo">
+                            (PC) Call of Duty: Infinite Warfare Español Latino
+                        </a>
+                        -->
                         <a href="/traducciones/pq2espanol.html">
                             <img src="pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                         </a>
@@ -95,6 +113,12 @@
                             <img src="../../assets/img/BO1/logo.webp" alt="bolalogo">
                             (PC) Call of Duty: Black Ops Zombies Español Latino
                         </a>
+                        <!--
+                        <a href="/proyectos/infinitewarfarelatino.html">
+                            <img src="../../assets/img/IW/images.steamusercontent.jpeg" alt="iwlalogo">
+                            (PC) Call of Duty: Infinite Warfare Español Latino
+                        </a>
+                        -->
                         <a href="/traducciones/pq2espanol.html">
                             <img src="../../pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                         </a>
@@ -135,6 +159,12 @@
                             <img src="../../assets/img/BO1/logo.webp" alt="bolalogo">
                             (PC) Call of Duty: Black Ops Zombies Español Latino
                         </a>
+                        <!--
+                        <a href="/proyectos/infinitewarfarelatino.html">
+                            <img src="../../assets/img/IW/images.steamusercontent.jpeg" alt="iwlalogo">
+                            (PC) Call of Duty: Infinite Warfare Español Latino
+                        </a>
+                        -->
                         <a href="/traducciones/pq2espanol.html">
                             <img src="../../pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                         </a>
