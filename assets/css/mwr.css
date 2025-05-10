@@ -41,7 +41,7 @@
 
 .list-group-item.active {
     background-color: #0EF40A;
-    border-color: #ffffff;
+    border-color: #0EF40A;
     color: #000000 !important;
 }
 
