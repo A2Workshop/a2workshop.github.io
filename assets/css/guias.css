@@ -384,9 +384,6 @@ t {
 
 #sidebar-close {
   background-color: #0e0e0e;
-  border: #f6490c solid 1px;
-  border-left: none;
-  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.411);
   z-index: 9999;
   transform: translate(-50%, -50%);

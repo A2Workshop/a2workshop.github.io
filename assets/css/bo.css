@@ -59,3 +59,9 @@
     background-color: #dbdbdb;
     border-color: #363636;
 }
+
+#sidebar-close {
+    border: #dbdbdb solid 1px;
+    border-left: none;
+    border-radius: 5px;
+}

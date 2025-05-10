@@ -86,3 +86,9 @@
     border-color: #ffffff;
     color: #fdfdfd !important;
 }
+
+#sidebar-close {
+    border: #FFFD01 solid 1px;
+    border-left: none;
+    border-radius: 5px;
+}
