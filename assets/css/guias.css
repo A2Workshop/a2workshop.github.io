@@ -642,3 +642,9 @@ footer {
   padding-top: 0rem;
   padding-bottom: 0rem;
 }
+
+@media (min-width: 1200px) {
+  .card-title {
+    margin-top: 3rem;
+  }
+}
