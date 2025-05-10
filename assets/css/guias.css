@@ -385,16 +385,13 @@ t {
 #sidebar-close {
   background-color: #0e0e0e;
   border: #f6490c solid 1px;
+  border-left: none;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.411);
-  /* left: 50%; */
   z-index: 9999;
   transform: translate(-50%, -50%);
   position: fixed;
-  /* border: none; */
   margin-top: 5px;
-  /* padding-right: 30%;
-  padding-left: 30%; */
 }
 
 /* Navbar 2 */
