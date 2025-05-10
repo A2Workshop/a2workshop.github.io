@@ -83,7 +83,7 @@ nav a:hover {
         background: rgba(255, 255, 255, 0.2);
     }
 
-    .contacto-hover:hover{
+    .contacto-hover:hover {
         background: rgba(255, 255, 255, 0.2);
     }
 
@@ -92,8 +92,8 @@ nav a:hover {
         position: absolute;
         top: 40px;
         left: 0;
-        background-color: rgb(41, 41, 41);
-        padding: 20px;
+        background-color: rgba(41, 41, 41, 0.986);
+        padding: 14px;
         border-radius: 5px;
         width: 600px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -111,9 +111,11 @@ nav a:hover {
         align-items: center;
         color: white;
         text-decoration: none;
-        padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 10px;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 10px;
+        font-size: 20px;
     }
 
     .megamenu-content a:hover {
@@ -121,7 +123,7 @@ nav a:hover {
     }
 
     .megamenu-content img {
-        max-width: 100px;
+        max-width: 70px;
         margin-right: 10px;
     }
 }
@@ -321,12 +323,12 @@ nav a:hover {
     }
 }
 
-.title{
+.title {
     text-align: center;
     font-weight: bold;
 }
 
-.title1{
+.title1 {
     text-align: start;
     font-weight: bold;
     font-size: 1.2rem;
@@ -512,18 +514,18 @@ footer {
     color: #f04e29 !important;
 }
 
-.accordion-item{
+.accordion-item {
     border-color: #f04e29 !important;
     border-radius: 0px !important;
 }
 
-.accordion-button{
+.accordion-button {
     background-color: #f04e29;
     border-radius: 0px !important;
 }
 
-.accordion-button:not(.collapsed){
-    background-color: #f04e29; 
+.accordion-button:not(.collapsed) {
+    background-color: #f04e29;
 }
 
 .accordion-button:focus {
@@ -564,7 +566,7 @@ footer {
     height: 70px;
     /* shadow */
     box-shadow: 0 0 10px rgba(15, 15, 15, 0.733);
-    
+
 }
 
 .sidebar-toggle.hidden {
@@ -576,9 +578,11 @@ footer {
     0% {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
     }
+
     70% {
         box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
@@ -602,55 +606,55 @@ footer {
         display: block;
     }
 
-    .hide-mobile{
+    .hide-mobile {
         display: none;
     }
 }
 
 @media (min-width: 768px) {
-.hide-desktop2{
-    display: none;
-    }   
-}
-
-@media (min-width: 990px) {
-.hide-desktop3{
-    display: none;
+    .hide-desktop2 {
+        display: none;
     }
 }
 
-.credits-container{
+@media (min-width: 990px) {
+    .hide-desktop3 {
+        display: none;
+    }
+}
+
+.credits-container {
     width: 90%;
 }
 
 @media (min-width: 990px) {
-    .credits-container{
+    .credits-container {
         margin-right: 9% !important;
     }
 }
 
 @media (min-width: 1400px) {
-    .credits-container{
+    .credits-container {
         width: 90% !important;
         margin-right: 9% !important
     }
 }
 
 @media (max-width: 1200px) {
-    .credits-container{
+    .credits-container {
         width: 73% !important;
         margin-right: 26% !important
     }
 }
 
 @media (max-width: 990px) {
-    .credits-container{
+    .credits-container {
         width: 97% !important;
         margin-right: 1% !important;
     }
 }
 
-.btn-close-sidebar{
+.btn-close-sidebar {
     margin-left: 25px;
 }
 
@@ -658,8 +662,10 @@ footer {
 /* Contenedor principal */
 .image-comparator {
     position: relative;
-    width: 90%; /* Ocupa el 90% del ancho del contenedor padre */
-    max-width: 800px; /* Máximo ancho para no estirar demasiado en pantallas grandes */
+    width: 90%;
+    /* Ocupa el 90% del ancho del contenedor padre */
+    max-width: 800px;
+    /* Máximo ancho para no estirar demasiado en pantallas grandes */
     margin: 20px auto;
     overflow: hidden;
     user-select: none;
@@ -673,7 +679,8 @@ footer {
 .image-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* Proporción 16:9 (ajusta según el aspect ratio de tus imágenes) */
+    padding-top: 56.25%;
+    /* Proporción 16:9 (ajusta según el aspect ratio de tus imágenes) */
 }
 
 /* Estilos para ambas imágenes */
@@ -684,12 +691,14 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Mantiene el aspect ratio sin recortar */
+    object-fit: contain;
+    /* Mantiene el aspect ratio sin recortar */
 }
 
 /* Imagen de la derecha (se recorta dinámicamente) */
 .image-after {
-    clip-path: inset(0 0 0 50%); /* Inicialmente, muestra solo la mitad derecha */
+    clip-path: inset(0 0 0 50%);
+    /* Inicialmente, muestra solo la mitad derecha */
 }
 
 /* Slider */
@@ -699,7 +708,8 @@ footer {
     transform: translateX(-50%);
     top: 0;
     height: 100%;
-    width: 3px; /* Grosor del slider */
+    width: 3px;
+    /* Grosor del slider */
     background: #fff;
     box-shadow: -1px 0 0 #000, 1px 0 0 #000;
     cursor: col-resize;
@@ -815,31 +825,31 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .accordion{
+    .accordion {
         margin: -6%;
     }
 }
 
 @media (max-width: 486px) {
-    .accordion{
+    .accordion {
         margin: -7%;
     }
 }
 
 @media (max-width: 432px) {
-    .accordion{
+    .accordion {
         margin: -8%;
     }
 }
 
 @media (max-width: 389px) {
-    .accordion{
+    .accordion {
         margin: -9%;
     }
 }
 
 @media (max-width: 358px) {
-    .accordion{
+    .accordion {
         margin: -10%;
     }
 }
@@ -850,7 +860,7 @@ footer {
 }
 
 .text-secondary {
-    color: #d3d3d3 !important; 
+    color: #d3d3d3 !important;
     text-decoration: underline;
 }
 
@@ -868,7 +878,7 @@ footer {
     padding: 4px 10px !important;
 }
 
-code{
+code {
     background-color: #000000;
     border-radius: 5px;
     padding: 2px 5px;
@@ -876,7 +886,7 @@ code{
     color: #f04e29;
 }
 
-.code-fix{
+.code-fix {
     background-color: #000000 !important;
     color: #f74f4f !important;
     font-weight: bold;
@@ -886,15 +896,15 @@ body {
     --bs-border-color: #f04e29;
 }
 
-.nav-hr{
+.nav-hr {
     color: #ffffff;
 }
 
-.nav-container img{
+.nav-container img {
     border-radius: 10px;
 }
 
-.addon-img{
+.addon-img {
     max-width: 100% !important;
     height: auto !important;
     border-radius: 0px !important;
