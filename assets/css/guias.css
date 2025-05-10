@@ -383,12 +383,18 @@ t {
 }
 
 #sidebar-close {
-  background-color: transparent;
-  border: none;
+  background-color: #0e0e0e;
+  border: #f6490c solid 1px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.411);
+  /* left: 50%; */
+  z-index: 9999;
+  transform: translate(-50%, -50%);
   position: fixed;
-  margin-left: -45px;
-  margin-top: 302px;
-
+  /* border: none; */
+  margin-top: 5px;
+  /* padding-right: 30%;
+  padding-left: 30%; */
 }
 
 /* Navbar 2 */
@@ -636,4 +642,9 @@ footer {
   border-color: #10141a;
   pointer-events: none;
   cursor: default;
+}
+
+.card-body {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
 }
