@@ -42,21 +42,25 @@
 .list-group-item.active {
     background-color: #FF6500;
     border-color: #ffffff;
+    color: #000000 !important;
 }
 
 .list-group-item.active:hover {
     background-color: #FF6500;
     border-color: #ffffff;
+    color: #000000 !important;
 }
 
 .list-group-item.active:focus {
     background-color: #FF6500;
     border-color: #ffffff;
+    color: #000000 !important;
 }
 
 .list-group-item.active:active {
     background-color: #FF6500;
     border-color: #ffffff;
+    color: #000000 !important;
 }
 
 .group-item-common.active {
