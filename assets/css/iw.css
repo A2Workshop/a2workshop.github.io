@@ -92,3 +92,9 @@
     border-left: none;
     border-radius: 5px;
 }
+
+#sidebar-toggle {
+    background-color: #cfcf00;
+    border: #cfcf00 solid 1px;
+    box-shadow: 0 0 10px #cfcf00;
+}

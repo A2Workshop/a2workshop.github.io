@@ -92,3 +92,9 @@
     border-left: none;
     border-radius: 5px;
 }
+
+#sidebar-toggle {
+    background-color: #0EF40A;
+    border: #0EF40A solid 1px;
+    box-shadow: 0 0 10px #0EF40A;
+}

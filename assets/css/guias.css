@@ -370,7 +370,6 @@ t {
   width: 55px;
   height: 60px;
   border-radius: 10px 0px 0px 10px;
-  box-shadow: 0 0 10px rgba(158, 158, 158, 0.719);
   z-index: 9999;
 }
 
