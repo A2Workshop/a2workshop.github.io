@@ -4,6 +4,37 @@ let currentPage = 1;
 let totalPages = 1;
 let allComments = [];
 
+// Obtener el nombre del proyecto actual (maneja con y sin .html)
+function getCurrentProjectName() {
+  const path = window.location.pathname;
+
+  // Extraer el nombre del proyecto de la URL (ej: "blackopsiiilatino" o "blackopsiiilatino.html")
+  const projectMatch = path.match(/\/proyectos\/([^\/]+?)(?:\.html)?$/);
+
+  if (projectMatch) {
+    // Remover .html si está presente y convertir a minúsculas para consistencia
+    return projectMatch[1].toLowerCase().replace('.html', '');
+  }
+
+  return 'default';
+}
+
+// Mapeo de proyectos a archivos JSON (usa nombres sin .html)
+function getJsonUrlForProject(projectName) {
+  const jsonMap = {
+    'blackopsiiilatino': 'https://a2workshop.github.io/assets/js/archive_steamcomments.json',
+    'blackopslatino': 'https://artur16211.github.io/steamguide_comments/comments_4.json',
+    'infinitewarfarelatino': 'https://artur16211.github.io/steamguide_comments/comments_2.json',
+    'modernwarfarerlatino': 'https://artur16211.github.io/steamguide_comments/comments_3.json',
+    //
+    'default': 'https://example.com/comments/general_comments.json'
+  };
+
+  // Buscar el nombre del proyecto (sin importar mayúsculas/minúsculas)
+  const normalizedProjectName = projectName.toLowerCase();
+  return jsonMap[normalizedProjectName] || jsonMap['default'];
+}
+
 // Función para formatear la fecha y hora
 function formatFechaHora(fechaHoraString) {
   var opcionesFecha = {
@@ -138,8 +169,6 @@ function updatePaginationControls() {
   prevLi.appendChild(prevLink);
   paginationContainer.appendChild(prevLi);
 
-
-
   // Números de página
   const maxVisiblePages = 3; // Máximo de números de página a mostrar
   let startPage, endPage;
@@ -207,8 +236,6 @@ function updatePaginationControls() {
     paginationContainer.appendChild(dotsLi);
   }
 
-
-
   // Botón "Siguiente"
   const nextLi = document.createElement('li');
   nextLi.classList.add('page-item');
@@ -248,8 +275,10 @@ function updatePaginationControls() {
 
 async function fetchCommentsFromWeb() {
   try {
-    // const response = await fetch('https://artur16211.github.io/steamguide_comments/comments.json');
-    const response = await fetch('https://a2workshop.github.io/assets/js/archive_steamcomments.json');
+    const currentProject = getCurrentProjectName();
+    const jsonUrl = getJsonUrlForProject(currentProject);
+
+    const response = await fetch(jsonUrl);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -262,13 +291,14 @@ async function fetchCommentsFromWeb() {
     // Mostrar la primera página de comentarios
     displayCurrentPageComments();
 
-    // Almacenar los datos JSON en el almacenamiento local
-    localStorage.setItem('cachedJsonData', JSON.stringify(jsonData));
+    // Almacenar en caché con clave específica del proyecto
+    localStorage.setItem(`cachedJsonData_${currentProject}`, JSON.stringify(jsonData));
   } catch (error) {
     console.error('Error fetching the JSON data:', error);
 
-    // Intentar cargar desde caché si hay un error
-    const cachedData = localStorage.getItem('cachedJsonData');
+    // Intentar cargar desde caché
+    const currentProject = getCurrentProjectName();
+    const cachedData = localStorage.getItem(`cachedJsonData_${currentProject}`);
     if (cachedData) {
       const jsonData = JSON.parse(cachedData);
       allComments = jsonData.comments;
@@ -283,5 +313,6 @@ fetchCommentsFromWeb();
 
 // Limpiar cache cuando la página se recargue
 window.addEventListener('beforeunload', () => {
-  localStorage.removeItem('cachedJsonData');
+  const currentProject = getCurrentProjectName();
+  localStorage.removeItem(`cachedJsonData_${currentProject}`);
 });
