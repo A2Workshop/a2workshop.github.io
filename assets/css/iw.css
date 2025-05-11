@@ -98,3 +98,10 @@
     border: #FFFD01 solid 1px;
     box-shadow: 0 0 10px #FFFD01;
 }
+
+@media (min-width: 990px) {
+  .grid-container {
+    grid-template-rows: repeat(1, 1fr);
+    height: 250px;
+  }
+}

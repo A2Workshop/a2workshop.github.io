@@ -71,3 +71,10 @@
     border: #dbdbdb solid 1px;
     box-shadow: 0 0 10px #dbdbdb;
 }
+
+@media (min-width: 990px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+}
