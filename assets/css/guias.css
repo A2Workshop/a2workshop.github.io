@@ -71,11 +71,6 @@ body {
   color: #066ccc;
 }
 
-.border-custom {
-  border-top: 3px solid transparent;
-  box-shadow: 0 -5px 5px -5px rgba(190, 190, 190, 0.781);
-}
-
 .text-none {
   color: #ffffff;
 }
