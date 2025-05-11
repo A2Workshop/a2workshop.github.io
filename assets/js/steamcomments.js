@@ -133,10 +133,20 @@ function displayCurrentPageComments() {
   updatePaginationControls();
 }
 
-// Función para actualizar los controles de paginación
+// Modificar la función updatePaginationControls para los proyectos específicos
 function updatePaginationControls() {
   const paginationContainer = document.getElementById('pagination-controls');
   paginationContainer.innerHTML = '';
+
+  const currentProject = getCurrentProjectName();
+  const specialProjects = {
+    'blackopslatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478642806',
+    'infinitewarfarelatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146',
+    'modernwarfarerlatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478574794'
+  };
+
+  const isSpecialProject = Object.keys(specialProjects).includes(currentProject);
+  const steamUrl = specialProjects[currentProject];
 
   // Primer número de página
   const firstLi = document.createElement('li');
@@ -174,108 +184,118 @@ function updatePaginationControls() {
   prevLi.appendChild(prevLink);
   paginationContainer.appendChild(prevLi);
 
-  // Números de página
-  const maxVisiblePages = 3; // Máximo de números de página a mostrar
-  let startPage, endPage;
+  // Números de página - solo mostrar si no es un proyecto especial
+  if (!isSpecialProject) {
+    const maxVisiblePages = 3;
+    let startPage, endPage;
 
-  if (totalPages <= maxVisiblePages) {
-    startPage = 1;
-    endPage = totalPages;
-  } else {
-    const maxPagesBeforeCurrent = Math.floor(maxVisiblePages / 2);
-    const maxPagesAfterCurrent = Math.ceil(maxVisiblePages / 2) - 1;
-
-    if (currentPage <= maxPagesBeforeCurrent) {
+    if (totalPages <= maxVisiblePages) {
       startPage = 1;
-      endPage = maxVisiblePages;
-    } else if (currentPage + maxPagesAfterCurrent >= totalPages) {
-      startPage = totalPages - maxVisiblePages + 1;
       endPage = totalPages;
     } else {
-      startPage = currentPage - maxPagesBeforeCurrent;
-      endPage = currentPage + maxPagesAfterCurrent;
+      const maxPagesBeforeCurrent = Math.floor(maxVisiblePages / 2);
+      const maxPagesAfterCurrent = Math.ceil(maxVisiblePages / 2) - 1;
+
+      if (currentPage <= maxPagesBeforeCurrent) {
+        startPage = 1;
+        endPage = maxVisiblePages;
+      } else if (currentPage + maxPagesAfterCurrent >= totalPages) {
+        startPage = totalPages - maxVisiblePages + 1;
+        endPage = totalPages;
+      } else {
+        startPage = currentPage - maxPagesBeforeCurrent;
+        endPage = currentPage + maxPagesAfterCurrent;
+      }
     }
-  }
 
-  // Mostrar puntos suspensivos al principio si es necesario
-  if (startPage > 1) {
-    const dotsLi = document.createElement('li');
-    dotsLi.classList.add('page-item', 'disabled');
-    const dotsLink = document.createElement('a');
-    dotsLink.classList.add('page-link');
-    dotsLink.href = '#comments';
-    dotsLink.textContent = '...';
-    dotsLi.appendChild(dotsLink);
-    paginationContainer.appendChild(dotsLi);
-  }
+    if (startPage > 1) {
+      const dotsLi = document.createElement('li');
+      dotsLi.classList.add('page-item', 'disabled');
+      const dotsLink = document.createElement('a');
+      dotsLink.classList.add('page-link');
+      dotsLink.href = '#comments';
+      dotsLink.textContent = '...';
+      dotsLi.appendChild(dotsLink);
+      paginationContainer.appendChild(dotsLi);
+    }
 
-  // Crear enlaces para cada página
-  for (let i = startPage; i <= endPage; i++) {
-    const pageLi = document.createElement('li');
-    pageLi.classList.add('page-item');
-    if (i === currentPage) pageLi.classList.add('active');
+    for (let i = startPage; i <= endPage; i++) {
+      const pageLi = document.createElement('li');
+      pageLi.classList.add('page-item');
+      if (i === currentPage) pageLi.classList.add('active');
 
-    const pageLink = document.createElement('a');
-    pageLink.classList.add('page-link');
-    pageLink.href = '#comments';
-    pageLink.textContent = i;
-    pageLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = i;
-      displayCurrentPageComments();
-    });
+      const pageLink = document.createElement('a');
+      pageLink.classList.add('page-link');
+      pageLink.href = '#comments';
+      pageLink.textContent = i;
+      pageLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentPage = i;
+        displayCurrentPageComments();
+      });
 
-    pageLi.appendChild(pageLink);
-    paginationContainer.appendChild(pageLi);
-  }
+      pageLi.appendChild(pageLink);
+      paginationContainer.appendChild(pageLi);
+    }
 
-  // Mostrar puntos suspensivos al final si es necesario
-  if (endPage < totalPages) {
-    const dotsLi = document.createElement('li');
-    dotsLi.classList.add('page-item', 'disabled');
-    const dotsLink = document.createElement('a');
-    dotsLink.classList.add('page-link');
-    dotsLink.href = '#comments';
-    dotsLink.textContent = '...';
-    dotsLi.appendChild(dotsLink);
-    paginationContainer.appendChild(dotsLi);
+    if (endPage < totalPages) {
+      const dotsLi = document.createElement('li');
+      dotsLi.classList.add('page-item', 'disabled');
+      const dotsLink = document.createElement('a');
+      dotsLink.classList.add('page-link');
+      dotsLink.href = '#comments';
+      dotsLink.textContent = '...';
+      dotsLi.appendChild(dotsLink);
+      paginationContainer.appendChild(dotsLi);
+    }
   }
 
   // Botón "Siguiente"
+  if (!isSpecialProject && currentPage === totalPages) {
+    nextLi.classList.add('disabled');
+  }
   const nextLi = document.createElement('li');
   nextLi.classList.add('page-item');
-  if (currentPage === totalPages) nextLi.classList.add('disabled');
 
   const nextLink = document.createElement('a');
   nextLink.classList.add('page-link');
-  nextLink.href = '#comments';
+  nextLink.href = isSpecialProject ? steamUrl : '#comments';
   nextLink.textContent = '>';
-  nextLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentPage < totalPages) {
-      currentPage++;
-      displayCurrentPageComments();
-    }
-  });
+
+  if (!isSpecialProject) {
+    nextLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayCurrentPageComments();
+      }
+    });
+  } else {
+    // Para proyectos especiales, no necesitamos el preventDefault
+    // ya que queremos que navegue a Steam
+    nextLink.target = '_blank'; // Abrir en nueva pestaña
+  }
 
   nextLi.appendChild(nextLink);
   paginationContainer.appendChild(nextLi);
 
-  // Último número de página
-  const lastLi = document.createElement('li');
-  lastLi.classList.add('page-item');
-  if (currentPage === totalPages) lastLi.classList.add('active');
-  const lastLink = document.createElement('a');
-  lastLink.classList.add('page-link');
-  lastLink.href = '#comments';
-  lastLink.textContent = ">>";
-  lastLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    currentPage = totalPages;
-    displayCurrentPageComments();
-  });
-  lastLi.appendChild(lastLink);
-  paginationContainer.appendChild(lastLi);
+  // Último número de página - solo mostrar si no es un proyecto especial
+  if (!isSpecialProject) {
+    const lastLi = document.createElement('li');
+    lastLi.classList.add('page-item');
+    if (currentPage === totalPages) lastLi.classList.add('active');
+    const lastLink = document.createElement('a');
+    lastLink.classList.add('page-link');
+    lastLink.href = '#comments';
+    lastLink.textContent = ">>";
+    lastLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentPage = totalPages;
+      displayCurrentPageComments();
+    });
+    lastLi.appendChild(lastLink);
+    paginationContainer.appendChild(lastLi);
+  }
 }
 
 async function fetchCommentsFromWeb() {
