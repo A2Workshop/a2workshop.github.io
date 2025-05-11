@@ -20,19 +20,24 @@ function getCurrentProjectName() {
 }
 
 // Mapeo de proyectos a archivos JSON (usa nombres sin .html)
-function getJsonUrlForProject(projectName) {
+function getJsonUrlsForProject(projectName) {
   const jsonMap = {
-    'blackopsiiilatino': 'https://a2workshop.github.io/assets/js/archive_steamcomments.json',
+    'blackopsiiilatino': [
+      'https://artur16211.github.io/steamguide_comments/comments_4.json',
+      'https://a2workshop.github.io/assets/js/archive_steamcomments.json'
+    ],
     'blackopslatino': 'https://artur16211.github.io/steamguide_comments/comments_4.json',
     'infinitewarfarelatino': 'https://artur16211.github.io/steamguide_comments/comments_2.json',
     'modernwarfarerlatino': 'https://artur16211.github.io/steamguide_comments/comments_3.json',
-    //
     'default': 'https://example.com/comments/general_comments.json'
   };
 
   // Buscar el nombre del proyecto (sin importar mayúsculas/minúsculas)
   const normalizedProjectName = projectName.toLowerCase();
-  return jsonMap[normalizedProjectName] || jsonMap['default'];
+  const urls = jsonMap[normalizedProjectName] || jsonMap['default'];
+
+  // Asegurarse de devolver siempre un array
+  return Array.isArray(urls) ? urls : [urls];
 }
 
 // Función para formatear la fecha y hora
@@ -276,23 +281,42 @@ function updatePaginationControls() {
 async function fetchCommentsFromWeb() {
   try {
     const currentProject = getCurrentProjectName();
-    const jsonUrl = getJsonUrlForProject(currentProject);
+    const jsonUrls = getJsonUrlsForProject(currentProject);
 
-    const response = await fetch(jsonUrl);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+    // Array para almacenar todos los comentarios combinados
+    let combinedComments = [];
+
+    // Fetch todos los archivos JSON en paralelo
+    const responses = await Promise.all(jsonUrls.map(url => fetch(url)));
+
+    // Verificar todas las respuestas
+    for (const response of responses) {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
     }
-    const jsonData = await response.json();
 
-    // Almacenar todos los comentarios
-    allComments = jsonData.comments;
+    // Procesar todos los JSON
+    const jsonDataArray = await Promise.all(responses.map(r => r.json()));
+
+    // Combinar todos los comentarios
+    for (const jsonData of jsonDataArray) {
+      if (jsonData.comments && Array.isArray(jsonData.comments)) {
+        combinedComments = combinedComments.concat(jsonData.comments);
+      }
+    }
+
+    // Almacenar todos los comentarios combinados
+    allComments = combinedComments;
     totalPages = Math.ceil(allComments.length / COMMENTS_PER_PAGE);
 
     // Mostrar la primera página de comentarios
     displayCurrentPageComments();
 
     // Almacenar en caché con clave específica del proyecto
-    localStorage.setItem(`cachedJsonData_${currentProject}`, JSON.stringify(jsonData));
+    localStorage.setItem(`cachedJsonData_${currentProject}`, JSON.stringify({
+      comments: combinedComments
+    }));
   } catch (error) {
     console.error('Error fetching the JSON data:', error);
 
