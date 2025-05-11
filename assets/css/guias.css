@@ -250,7 +250,7 @@ t {
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 10px;
     height: 500px;
-    width: 800px;
+    width: auto;
   }
 
   .grid-item {
