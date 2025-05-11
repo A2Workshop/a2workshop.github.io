@@ -6,15 +6,15 @@ let allComments = [];
 
 // Función para formatear la fecha y hora
 function formatFechaHora(fechaHoraString) {
-  var opcionesFecha = { 
+  var opcionesFecha = {
     timeZone: 'America/Mexico_City',
-    day: 'numeric', 
+    day: 'numeric',
     month: 'long',
     year: 'numeric'
   };
   var opcionesHora = {
     timeZone: 'America/Mexico_City',
-    hour: 'numeric', 
+    hour: 'numeric',
     minute: 'numeric'
   };
 
