@@ -78,3 +78,17 @@
         grid-template-rows: repeat(1, 1fr);
     }
 }
+
+.page-link:hover {
+  background-color: #dbdbdb;
+  border-color: #dbdbdb;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.2rem #dbdbdb;
+}
+
+.page-item.active .page-link {
+  background-color: #dbdbdb;
+  border-color: #dbdbdb;
+}

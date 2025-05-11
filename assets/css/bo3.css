@@ -98,3 +98,17 @@
     border: #f6490c solid 1px;
     box-shadow: 0 0 10px #f6490c;
 }
+
+.page-link:hover {
+  background-color: #aa5708;
+  border-color: #aa5708;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.2rem #aa5708;
+}
+
+.page-item.active .page-link {
+  background-color: #bd6009;
+  border-color: #bd6009;
+}

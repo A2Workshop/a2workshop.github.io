@@ -105,3 +105,17 @@
     height: 250px;
   }
 }
+
+.page-link:hover {
+  background-color: #FFFD01;
+  border-color: #FFFD01;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.2rem #FFFD01;
+}
+
+.page-item.active .page-link {
+  background-color: #FFFD01;
+  border-color: #FFFD01;
+}

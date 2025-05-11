@@ -576,20 +576,15 @@ footer {
 
 .page-link:hover {
   color: #000000;
-  background-color: #aa5708;
-  border-color: #aa5708;
 }
 
 .page-link:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem #aa5708;
 }
 
 .page-item.active .page-link {
   z-index: 1;
   color: #000000;
-  background-color: #bd6009;
-  border-color: #bd6009;
 }
 
 .page-item.disabled .page-link {
