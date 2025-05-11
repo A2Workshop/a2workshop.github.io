@@ -140,9 +140,9 @@ function updatePaginationControls() {
 
   const currentProject = getCurrentProjectName();
   const specialProjects = {
-    'blackopslatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478642806',
-    'infinitewarfarelatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146',
-    'modernwarfarerlatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478574794'
+    'blackopslatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478642806#commentthread_PublishedFile_Public_76561199112392013_3478642806_form',
+    'infinitewarfarelatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146#commentthread_PublishedFile_Public_76561199112392013_3438530146_form',
+    'modernwarfarerlatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478574794#commentthread_PublishedFile_Public_76561199112392013_3478574794_form',
   };
 
   const isSpecialProject = Object.keys(specialProjects).includes(currentProject);
