@@ -116,6 +116,10 @@ body {
   background-color: #1a2431;
 }
 
+#comment-text::placeholder {
+  color: #aaa;
+}
+
 .page-link {
   color: #ffffff;
   background-color: #1a2431;
