@@ -53,6 +53,10 @@ nav a:hover {
     background: none;
 }
 
+.megamenu-content img {
+    border-radius: 8px;
+}
+
 @media (min-width: 990px) {
     nav a {
         padding: 10px 20px;
