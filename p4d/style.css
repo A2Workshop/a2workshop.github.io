@@ -226,6 +226,7 @@ nav a:hover {
 /*  */
 .nav-hr {
     color: #ffffff;
+    margin: 0;
 }
 
 .btn-primary {
