@@ -44,7 +44,15 @@
 
 body {
   font-family: 'motiva';
-  background: #1b2838;
+  /* background: #1b2838; */
+}
+
+.animated-background {
+  background: linear-gradient(-45deg, #1b2838, #25374d);
+}
+
+.logo{
+  display: none; /* desactiva los logos del fondo */
 }
 
 .list-group-item {
@@ -154,8 +162,6 @@ body {
 .mt-10 {
   margin-top: 230px !important;
 }
-
-
 
 .list-group-item-action:focus,
 .list-group-item-action:hover {

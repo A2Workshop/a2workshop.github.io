@@ -28,6 +28,10 @@
     <meta name="twitter:title" content="A2Workshop">
     <meta name="twitter:description" content="Black Ops PC en Español Latino.">
     <meta name="twitter:image" content="https://a2workshop.github.io/assets/img/BO1/webpreview.png">
+
+    <!-- animated background -->
+    <link rel="stylesheet" href="../assets/css/animatedbg.css">
+    <script src="../assets/js/animatedbg.js"></script>
 </head>
 <script>
     $(document).ready(function () {
@@ -132,13 +136,14 @@
 
     <div id="navbar-container"></div>
     <script src="../assets/js/gennav.js"></script>
+    <div class="animated-background"></div>
 
     <!-- Header Desk -->
     <div class="hide-mobile2 container container-content text-white bg-guideheader mt-3 rounded-5">
         <div class="row">
             <div class="col-2">
                 <div class="container mt-2">
-                    <img src="../assets/img/BO1/logo.webp" width="70%" alt="black ops latino logo"  class="rounded-3"/>
+                    <img src="../assets/img/BO1/logo.webp" width="70%" alt="black ops latino logo" class="rounded-3" />
                 </div>
             </div>
             <div class="col-9">
@@ -359,8 +364,7 @@
                             width="70%"><br><br>
                         Después de esto estando en la raíz del juego,
                         pondremos el archivo ZIP y le daremos en extraer aquí remplazando los archivos.<br><br>
-                        <img src="../assets/img/BO1/2908022077_preview_img3.webp" alt="bo1 latino paso3"
-                            width="70%">
+                        <img src="../assets/img/BO1/2908022077_preview_img3.webp" alt="bo1 latino paso3" width="70%">
                     </div>
                     <hr class="border-custom">
                     <div id="item-8" class="container">
@@ -450,48 +454,48 @@
         </div>
 
         <div class="container container-content text-white bg-guideheader mt-3 rounded-5">
-      <div class="row">
-        <div id="changemobile2" class="col-9 responsive-col">
-          <div class="container mt-4">
-            <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
-            <br>
-            <ul class="nav nav-pills hide-mobile">
-              <li class="nav-item"><button onclick="showTab('tab2')" class="btn btn-warning fs-5 fw-bold"
-                  aria-current="page">Web</button>
-              </li>
-              <li class="nav-item"><button onclick="showTab('tab1')"
-                  class="btn btn-warning activeborder fs-5 fw-bold">Steam</button>
-              </li>
-            </ul>
-            <!-- select mobile -->
-            <div class="hide-desktop">
-              <select class="form-select custom-select" aria-label="Default select example">
-                <option value="1">Web</option>
-                <option value="2" selected>Steam</option>
-              </select>
-            </div>
-            <script>
-              // when the user changes the select option, show the corresponding tab
-              const select = document.querySelector('.hide-desktop select');
-              select.addEventListener('change', function () {
-                if (this.value === '1') {
-                  showTab('tab2');
-                } else if (this.value === '2') {
-                  showTab('tab1');
-                } else {
-                  console.error('Invalid tab:', this.value);
-                }
-              });
-            </script>
-            <br class="hide-desktop">
-            <div class="container" id="tab1-comments">
-              <textarea class="form-control" id="comment-text" rows="3" placeholder="Añadir un comentario..."
-                style="resize: none;"></textarea>
-              <div id="comments"></div>
-              <br>
-              <div aria-label="Page navigation example">
-                <ul class="pagination" id="pagination-controls">
-                  <!-- <li class="page-item"><a class="page-link" href="#comments">1</a></li>
+            <div class="row">
+                <div id="changemobile2" class="col-9 responsive-col">
+                    <div class="container mt-4">
+                        <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
+                        <br>
+                        <ul class="nav nav-pills hide-mobile">
+                            <li class="nav-item"><button onclick="showTab('tab2')" class="btn btn-warning fs-5 fw-bold"
+                                    aria-current="page">Web</button>
+                            </li>
+                            <li class="nav-item"><button onclick="showTab('tab1')"
+                                    class="btn btn-warning activeborder fs-5 fw-bold">Steam</button>
+                            </li>
+                        </ul>
+                        <!-- select mobile -->
+                        <div class="hide-desktop">
+                            <select class="form-select custom-select" aria-label="Default select example">
+                                <option value="1">Web</option>
+                                <option value="2" selected>Steam</option>
+                            </select>
+                        </div>
+                        <script>
+                            // when the user changes the select option, show the corresponding tab
+                            const select = document.querySelector('.hide-desktop select');
+                            select.addEventListener('change', function () {
+                                if (this.value === '1') {
+                                    showTab('tab2');
+                                } else if (this.value === '2') {
+                                    showTab('tab1');
+                                } else {
+                                    console.error('Invalid tab:', this.value);
+                                }
+                            });
+                        </script>
+                        <br class="hide-desktop">
+                        <div class="container" id="tab1-comments">
+                            <textarea class="form-control" id="comment-text" rows="3"
+                                placeholder="Añadir un comentario..." style="resize: none;"></textarea>
+                            <div id="comments"></div>
+                            <br>
+                            <div aria-label="Page navigation example">
+                                <ul class="pagination" id="pagination-controls">
+                                    <!-- <li class="page-item"><a class="page-link" href="#comments">1</a></li>
                   <li class="page-item"><a class="page-link"
                       href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099#commentthread_PublishedFile_Public_76561198851405406_2819323099_area">2</a>
                   </li>
@@ -500,20 +504,21 @@
                   <li class="page-item"><a class="page-link"
                       href="https://steamcommunity.com/sharedfiles/filedetails/?id=2819323099#commentthread_PublishedFile_Public_76561198851405406_2819323099_area">>></a>
                   </li> -->
-                </ul>
-              </div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="tab2-comments">
+                            <script src="https://giscus.app/client.js" data-repo="Artur16211/a2workshop"
+                                data-repo-id="R_kgDOJct79w" data-category="General"
+                                data-category-id="DIC_kwDOJct7984CYF89" data-mapping="pathname" data-strict="0"
+                                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+                                data-theme="dark_dimmed" data-lang="es" crossorigin="anonymous" async>
+                                </script>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="tab2-comments">
-              <script src="https://giscus.app/client.js" data-repo="Artur16211/a2workshop" data-repo-id="R_kgDOJct79w"
-                data-category="General" data-category-id="DIC_kwDOJct7984CYF89" data-mapping="pathname" data-strict="0"
-                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark_dimmed"
-                data-lang="es" crossorigin="anonymous" async>
-                </script>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
         <br>
     </div>
     <footer class="footer mt-5 hide-desktop2">
@@ -556,35 +561,35 @@
         </div>
     </footer>
     <script>
-    function showTab(tab) {
-      const tab1Comments = document.getElementById('tab1-comments');
-      const tab2Comments = document.getElementById('tab2-comments');
+        function showTab(tab) {
+            const tab1Comments = document.getElementById('tab1-comments');
+            const tab2Comments = document.getElementById('tab2-comments');
 
-      if (tab === 'tab1') {
-        tab1Comments.style.display = 'block';
-        tab2Comments.style.display = 'none';
-      } else if (tab === 'tab2') {
-        tab1Comments.style.display = 'none';
-        tab2Comments.style.display = 'block';
-      } else {
-        console.error('Invalid tab:', tab);
-      }
-    }
-
-    showTab('tab1');
-
-    const tabButtons = document.querySelectorAll('.nav-pills .btn');
-
-    for (let i = 0; i < tabButtons.length; i++) {
-      tabButtons[i].addEventListener('click', function () {
-        for (let j = 0; j < tabButtons.length; j++) {
-          tabButtons[j].classList.remove('activeborder');
+            if (tab === 'tab1') {
+                tab1Comments.style.display = 'block';
+                tab2Comments.style.display = 'none';
+            } else if (tab === 'tab2') {
+                tab1Comments.style.display = 'none';
+                tab2Comments.style.display = 'block';
+            } else {
+                console.error('Invalid tab:', tab);
+            }
         }
-        this.classList.add('activeborder');
-      });
-    }
 
-  </script>
+        showTab('tab1');
+
+        const tabButtons = document.querySelectorAll('.nav-pills .btn');
+
+        for (let i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].addEventListener('click', function () {
+                for (let j = 0; j < tabButtons.length; j++) {
+                    tabButtons[j].classList.remove('activeborder');
+                }
+                this.classList.add('activeborder');
+            });
+        }
+
+    </script>
 </body>
 
 </html>
@@ -592,59 +597,59 @@
 <script src="../deps/iconify.min.js"></script>
 <!-- index -->
 <script>
-  var indexContainer = document.getElementById('index-container');
-  var marginIndex = document.querySelector('.margin-index');
-  var isFixed = false;
+    var indexContainer = document.getElementById('index-container');
+    var marginIndex = document.querySelector('.margin-index');
+    var isFixed = false;
 
-  var marginIndexOffsetTop = marginIndex.offsetTop + 300;
-  var indexContainerOffsetTop = indexContainer.offsetTop;
+    var marginIndexOffsetTop = marginIndex.offsetTop + 300;
+    var indexContainerOffsetTop = indexContainer.offsetTop;
 
-  window.addEventListener('scroll', function () {
-    var scrollPosition = window.pageYOffset;
+    window.addEventListener('scroll', function () {
+        var scrollPosition = window.pageYOffset;
 
-    if (scrollPosition >= marginIndexOffsetTop && !isFixed) {
-      indexContainer.classList.add('position-fixed');
-      indexContainer.style.bottom = '0';
-      isFixed = true;
-    }
+        if (scrollPosition >= marginIndexOffsetTop && !isFixed) {
+            indexContainer.classList.add('position-fixed');
+            indexContainer.style.bottom = '0';
+            isFixed = true;
+        }
 
-    if (scrollPosition < marginIndexOffsetTop && isFixed) {
-      indexContainer.classList.remove('position-fixed');
-      indexContainer.style.bottom = '';
-      isFixed = false;
-    }
-  });
+        if (scrollPosition < marginIndexOffsetTop && isFixed) {
+            indexContainer.classList.remove('position-fixed');
+            indexContainer.style.bottom = '';
+            isFixed = false;
+        }
+    });
 </script>
 <!-- when the user clicks on the textarea, redirect to the steam comments -->
 <script>
-  var textarea = document.getElementById('comment-text');
+    var textarea = document.getElementById('comment-text');
 
-  textarea.addEventListener('click', function () {
-    window.location.href = 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478642806#commentthread_PublishedFile_Public_76561198840412181_3478642806_textarea';
-  });
+    textarea.addEventListener('click', function () {
+        window.location.href = 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478642806#commentthread_PublishedFile_Public_76561198840412181_3478642806_textarea';
+    });
 </script>
 <script src="../deps/jszip.min.js"></script>
 <script src="../assets/js/steamcomments.js"></script>
 <!-- hover credits -->
 <script>
-  var cards = document.getElementsByClassName("card-hover");
+    var cards = document.getElementsByClassName("card-hover");
 
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("mouseenter", function () {
-      this.classList.add("card-hover");
-    });
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("mouseenter", function () {
+            this.classList.add("card-hover");
+        });
 
-    cards[i].addEventListener("mouseleave", function () {
-      this.classList.remove("card-hover");
-    });
-  }
+        cards[i].addEventListener("mouseleave", function () {
+            this.classList.remove("card-hover");
+        });
+    }
 </script>
 
 <script>
-  $(document).ready(function () {
-    $('.list-group-item').click(function () {
-      $('.list-group-item').removeClass('active');
-      $(this).addClass('active');
+    $(document).ready(function () {
+        $('.list-group-item').click(function () {
+            $('.list-group-item').removeClass('active');
+            $(this).addClass('active');
+        });
     });
-  });
 </script>
