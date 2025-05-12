@@ -52,7 +52,7 @@
 }
 
 .animated-background {
-  background: linear-gradient(-45deg, #a44007, #00446b);
+  background: linear-gradient(-45deg, #00446b, #a44007);
 }
 
 .accordion-button {
