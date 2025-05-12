@@ -52,57 +52,7 @@
 }
 
 .animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(-45deg, #00446b, #a44007);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
-  z-index: -1;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.logo {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: floatLeft linear infinite;
-  opacity: 0; /* Inicialmente invisibles */
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
-  will-change: opacity;
-  border-radius: 10px;
-}
-
-@keyframes floatLeft {
-  0% {
-    transform: translateX(100vw) rotate(0deg);
-    opacity: 0; /* Inicio invisible */
-  }
-  10% {
-    opacity: 0.3; /* visibles al empezar a moverse */
-  }
-  100% {
-    transform: translateX(-100px) rotate(360deg);
-    opacity: 0.5; /* opacidad durante el movimiento */
-  }
+  background: linear-gradient(-45deg, #a44007, #00446b);
 }
 
 .accordion-button {
@@ -116,4 +66,8 @@
 .contacto-title {
     background-color: #72727238 !important;
     border-color: #72727238 !important;
+}
+
+.logo{
+  display: block !important;
 }
