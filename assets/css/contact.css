@@ -53,6 +53,7 @@
 
 .animated-background {
   background: linear-gradient(-45deg, #00446b, #a44007);
+  animation: gradient 10s ease infinite;
 }
 
 .accordion-button {

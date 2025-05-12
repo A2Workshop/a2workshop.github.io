@@ -48,7 +48,8 @@ body {
 }
 
 .animated-background {
-  background: linear-gradient(-45deg, #1b2838, #25374d);
+  background: linear-gradient(-45deg, #1b2838, #202f42);
+  animation: gradient 30s ease infinite;
 }
 
 .logo{
