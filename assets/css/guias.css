@@ -52,8 +52,9 @@ body {
   animation: gradient 20s ease infinite;
 }
 
-.logo{
-  display: none; /* desactiva los logos del fondo */
+.logo {
+  display: none;
+  /* desactiva los logos del fondo */
 }
 
 .list-group-item {

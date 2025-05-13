@@ -398,6 +398,7 @@ footer {
 .img-fluid {
     max-width: 128px;
     border-radius: 50%;
+    content-visibility: auto;
 }
 
 .tutorial-img {
@@ -693,6 +694,7 @@ footer {
     height: 100%;
     object-fit: contain;
     /* Mantiene el aspect ratio sin recortar */
+    content-visibility: auto;
 }
 
 /* Imagen de la derecha (se recorta dinámicamente) */
