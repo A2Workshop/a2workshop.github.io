@@ -92,3 +92,15 @@
   background-color: #dbdbdb;
   border-color: #dbdbdb;
 }
+
+.alert-info
+{
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+    color: #000 !important;
+}
+
+.alert-info b
+{
+    color: #000 !important;
+}
