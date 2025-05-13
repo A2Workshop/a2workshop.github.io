@@ -199,9 +199,9 @@ body {
   display: inline-block;
 }
 
-.avatar-container img {
+/* .avatar-container img {
   content-visibility: auto;
-}
+} */
 
 .steam-icon {
   position: absolute;
