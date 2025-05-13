@@ -262,6 +262,7 @@ body {
     #imageModal .btn-close {
         margin-left: 50%;
         margin-bottom: 5%;
+        transform: translateX(-50%);
         width: 1.5rem;
         height: 1.5rem;
     }
