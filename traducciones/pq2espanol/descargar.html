@@ -357,9 +357,6 @@
                                     <b>desencriptado</b> y <b>extraído de tu cartucho</b>, generando un nuevo 
                                     <b>.cia</b> con la traducción aplicada.
                                 </p>
-                                <p class="mb-3 fs-6">
-                                    <b>MD5:</b> <code>F80799B298DC69F32863DFC20BE9346D</code>
-                                </p>
 
                                 <p class="mb-3 fs-5 fw-bold pink-text">LayerFS:</p>
                                 <p class="mb-3 fs-6">
@@ -535,7 +532,7 @@
                     <p class="fs-6">No, de momento la traducción solo es compatible con la versión USA del juego, pero es posible que se agregue soporte para la versión EUR en el futuro.</p>
                     <br>
                     <h2 class="title1">El parcheador Xdelta dice que mi ROM no es correcta.</h2>
-                    <p class="fs-6">Esto ocurre cuando la ROM (.cia) extraída de tu cartucho tiene un checksum diferente al esperado. Aunque no debería suceder, puedes parchear la ROM desactivando la verificación de checksum en tu programa de parcheo (no se garantiza que funcione).</p>
+                    <p class="fs-6">Esto ocurre cuando la ROM (.cia) extraída de tu cartucho tiene un checksum diferente al esperado, el archivo .cia debería tener un <b>MD5</b> <code>F80799B298DC69F32863DFC20BE9346D</code>. Aunque no debería suceder, puedes intentar parchear la ROM desactivando la verificación de checksum en tu programa de parcheo (no se garantiza que funcione).</p>
                     <br>
                     <h2 class="title1">¿La fuente con las texturas no está en HD?</h2>
                     <p class="fs-6">La fuente del juego no puede ser escalada, por lo que no se puede mejorar su calidad.</p>
@@ -844,7 +841,7 @@
                     <img src="../../pq2/img/tutorial_patch/SD.webp" alt="Paso 6" class="img img-fluid tutorial-img tutorial-img-android">
                     <hr>
                     <div class="text-start fw-bold mt-3">Paso 8:</div>
-                    <p class="text-start mb-3">Descarga la traducción en formato <a class="blue-text text-decoration-none">Parche</a> y algún programa para aplicar parches <b>xdelta</b> como <a href="https://www.romhacking.net/utilities/704/" target="_blank" class="text-decoration-none">Delta Patcher</a>.</p>
+                    <p class="text-start mb-3">Descarga algún programa para aplicar parches <b>xdelta</b> como <a href="https://www.romhacking.net/utilities/704/" target="_blank" class="text-decoration-none">Delta Patcher</a> para aplicar el <a class="blue-text text-decoration-none">parche</a> ya descargado.</p>
                     <hr>
                     <div class="text-start fw-bold mt-3">Paso 9:</div>
                     <p class="text-start mb-3">Abre el programa, selecciona el archivo <b class="hide-mobile2">00040000001D7100_v00.trim.standard.cia</b><b class="hide-desktop2">00040000001D7100_<br>v00.trim.standard.cia</b> como <b>Original file</b> y el parche de traducción como <b>XDelta patch</b>.</p>
