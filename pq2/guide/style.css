@@ -728,3 +728,7 @@ body {
     height: auto !important;
     border-radius: 0px !important;
 }
+
+.accordion-button-addon:not(.collapsed)::after {
+    background-image: none;
+}
