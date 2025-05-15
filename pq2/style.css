@@ -227,7 +227,7 @@ body {
 }
 
 .navbar-toggler {
-    background-color: #f04e29 !important; 
+    background-color: #f04e29 !important;
     border-radius: 0%;
 }
 
@@ -248,6 +248,11 @@ body {
 
 .modal-header {
     border: none;
+}
+
+.modal-header .btn-close {
+    width: 1rem;
+    height: 1rem;
 }
 
 .pe-cursor {
@@ -291,43 +296,43 @@ body {
     color: #ffffffbe;
 }
 
-#nextImage{
+#nextImage {
     touch-action: manipulation;
 }
 
-#prevImage{
+#prevImage {
     touch-action: manipulation;
 }
 
-.nav-hr{
+.nav-hr {
     color: #ffffff !important;
     margin-bottom: 2px !important;
     margin-top: 2px !important;
     width: 100%;
 }
 
-@media (max-width: 990px){
-    .nav-hr{
-    margin-top: 8px !important;
+@media (max-width: 990px) {
+    .nav-hr {
+        margin-top: 8px !important;
     }
 }
 
-.hide-desktop-contact{
+.hide-desktop-contact {
     margin-left: 20px;
 }
 
-@media (max-width: 301px){
-    .hide-desktop-contact{
+@media (max-width: 301px) {
+    .hide-desktop-contact {
         display: none !important;
     }
 }
 
-@media (min-width: 990px){
-    .hide-desktop-contact{
+@media (min-width: 990px) {
+    .hide-desktop-contact {
         display: none !important;
     }
 }
 
-.desktop-contact{
+.desktop-contact {
     margin-top: -2px;
 }
