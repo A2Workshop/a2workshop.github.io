@@ -275,6 +275,16 @@ body {
     .arrow-modal {
         bottom: 5% !important;
     }
+
+    #modalImage {
+        transform: translateY(30%);
+    }
+}
+
+@media (max-width: 990px) and (max-height: 650px) {
+    #modalImage {
+        transform: translateY(0%);
+    }
 }
 
 @media (min-width: 990px) {
