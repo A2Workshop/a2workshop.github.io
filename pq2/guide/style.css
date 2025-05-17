@@ -361,6 +361,7 @@ footer {
     color: white;
     transition: right 0.3s ease-in-out;
     padding: 15px;
+    padding-top: 0;
     z-index: 1000;
 }
 
