@@ -52,8 +52,8 @@
 }
 
 .animated-background {
-  background: linear-gradient(-45deg, #00446b, #a44007);
-  animation: gradient 10s ease infinite;
+    background: linear-gradient(-45deg, #00446b, #a44007);
+    animation: gradient 10s ease infinite;
 }
 
 .accordion-button {
@@ -69,6 +69,6 @@
     border-color: #72727238 !important;
 }
 
-.logo{
-  display: block !important;
+.logo {
+    display: block !important;
 }

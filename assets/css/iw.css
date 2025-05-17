@@ -100,22 +100,22 @@
 }
 
 @media (min-width: 990px) {
-  .grid-container {
-    grid-template-rows: repeat(1, 1fr);
-    height: 250px;
-  }
+    .grid-container {
+        grid-template-rows: repeat(1, 1fr);
+        height: 250px;
+    }
 }
 
 .page-link:hover {
-  background-color: #FFFD01;
-  border-color: #FFFD01;
+    background-color: #FFFD01;
+    border-color: #FFFD01;
 }
 
 .page-link:focus {
-  box-shadow: 0 0 0 0.2rem #FFFD01;
+    box-shadow: 0 0 0 0.2rem #FFFD01;
 }
 
 .page-item.active .page-link {
-  background-color: #FFFD01;
-  border-color: #FFFD01;
+    background-color: #FFFD01;
+    border-color: #FFFD01;
 }

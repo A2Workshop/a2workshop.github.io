@@ -80,28 +80,26 @@
 }
 
 .page-link:hover {
-  background-color: #dbdbdb;
-  border-color: #dbdbdb;
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
 }
 
 .page-link:focus {
-  box-shadow: 0 0 0 0.2rem #dbdbdb;
+    box-shadow: 0 0 0 0.2rem #dbdbdb;
 }
 
 .page-item.active .page-link {
-  background-color: #dbdbdb;
-  border-color: #dbdbdb;
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
 }
 
-.alert-info
-{
+.alert-info {
     background-color: #dbdbdb;
     border-color: #dbdbdb;
     color: #000 !important;
     font-size: 0.9em;
 }
 
-.alert-info b
-{
+.alert-info b {
     color: #000 !important;
 }
