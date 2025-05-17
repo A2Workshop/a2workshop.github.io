@@ -732,3 +732,7 @@ body {
 .accordion-button-addon:not(.collapsed)::after {
     background-image: none;
 }
+
+.creator-name {
+ margin-bottom: 0;
+}
