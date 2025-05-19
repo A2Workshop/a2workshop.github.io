@@ -71,7 +71,7 @@
 .video-wrapper {
     position: relative;
     width: 100%;
-    height: 75vh;
+    height: 90vh;
     overflow: hidden;
 }
 
@@ -82,7 +82,7 @@
     width: 100vw;
     height: 56.25vw;
     /* relación 16:9 */
-    min-height: 60vh;
+    min-height: 70vh;
     min-width: 106.67vh;
     transform: translate(-50%, -50%);
     pointer-events: none;
