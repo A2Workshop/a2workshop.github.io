@@ -82,16 +82,16 @@
     width: 100vw;
     height: 56.25vw;
     /* relación 16:9 */
-    min-height: 70vh;
+    min-height: 60vh;
     min-width: 106.67vh;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.1);
     pointer-events: none;
     z-index: 1;
 }
 
 @media (max-width: 768px) {
     .video-wrapper iframe {
-        transform: translate(-50%, -50%) scale(1.5);
+        transform: translate(-50%, -50%) scale(1.8);
     }
 }
 
