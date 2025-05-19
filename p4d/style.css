@@ -72,7 +72,7 @@
     position: relative;
     width: 100%;
     height: 90vh;
-    max-height: 1000px;
+    max-height: 800px;
     overflow: hidden;
 }
 
@@ -90,7 +90,7 @@
 
 @media (max-width: 768px) {
     .video-wrapper iframe {
-        transform: translate(-50%, -50%) scale(3);
+        transform: translate(-50%, -50%) scale(2);
     }
 }
 
