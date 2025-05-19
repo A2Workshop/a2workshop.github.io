@@ -79,19 +79,17 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100vw;
-    height: 56.25vw;
-    /* relación 16:9 */
-    min-height: 60vh;
-    min-width: 106.67vh;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+    z-index: 0;
     pointer-events: none;
-    z-index: 1;
 }
 
 @media (max-width: 768px) {
     .video-wrapper iframe {
-        transform: translate(-50%, -50%) scale(1.8);
+        transform: translate(-50%, -50%) scale(3);
     }
 }
 
