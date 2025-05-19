@@ -95,13 +95,28 @@
     }
 }
 
-.overlay-image {
+.pattern-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
     z-index: 2;
-    object-fit: cover;
+    pointer-events: none;
+
+    background-image:
+        /* fondo oscurecido */
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.8) 100%),
+
+        /* círculos */
+        radial-gradient(#757575b9 9px, transparent 1px);
+
+    background-size: 100% 100%, 20px 20px;
+    background-repeat: no-repeat, repeat;
+
+    /* solo arriba y abajo con transición suave */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 40%, transparent 60%, black 100%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 40%, transparent 60%, black 100%);
 }
 
 .logo-container {
