@@ -95,6 +95,12 @@
     }
 }
 
+@media (max-width: 400px) {
+    .video-wrapper iframe {
+        transform: translate(-50%, -50%) scale(2.7);
+    }
+}
+
 .pattern-overlay {
     position: absolute;
     top: 0;
