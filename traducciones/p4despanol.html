@@ -419,26 +419,36 @@
                 const leftLabelRect = leftLabel.getBoundingClientRect();
                 const rightLabelRect = rightLabel.getBoundingClientRect();
 
-                // Ocultar slider obre la etiqueta izquierda
+                const margin = 20;
+
+                // Ocultar slider izquierda
                 if (
-                    sliderRect.right > leftLabelRect.left &&
-                    sliderRect.left < leftLabelRect.right
+                    sliderRect.right > leftLabelRect.left - margin &&
+                    sliderRect.left < leftLabelRect.right + margin
                 ) {
                     leftLabel.classList.add('hidden');
                 } else {
                     leftLabel.classList.remove('hidden');
                 }
 
-                // Ocultar slider sobre la etiqueta derecha
+                // Ocultar slider derecha
                 if (
-                    sliderRect.right > rightLabelRect.left &&
-                    sliderRect.left < rightLabelRect.right
+                    sliderRect.right > rightLabelRect.left - margin &&
+                    sliderRect.left < rightLabelRect.right + margin
                 ) {
                     rightLabel.classList.add('hidden');
                 } else {
                     rightLabel.classList.remove('hidden');
                 }
             }
+
+            slider.addEventListener('input', function (e) {
+                updateLabels(parseFloat(e.target.value));
+            });
+
+            window.addEventListener('resize', function () {
+                updateLabels(parseFloat(slider.value));
+            });
 
             // Función para mover el slider
             function updateSliderPosition(clientX) {
