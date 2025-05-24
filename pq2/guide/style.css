@@ -13,30 +13,6 @@
     src: url('../../assets/font/MotivaSansRegular.woff.ttf') format('truetype');
 }
 
-@media (max-width: 1200px) {
-    .hide-mobile {
-        display: none !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .hide-mobile2 {
-        display: none !important;
-    }
-}
-
-@media (min-width: 768px) {
-    .hide-desktop2 {
-        display: none !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hide-desktop {
-        display: none !important;
-    }
-}
-
 /* Navbar 2 */
 nav {
     background: #141414;
@@ -422,22 +398,6 @@ footer {
 @media (max-width: 1200px) {
     .sidebar-toggle {
         display: block;
-    }
-
-    .hide-mobile {
-        display: none;
-    }
-}
-
-@media (min-width: 768px) {
-    .hide-desktop2 {
-        display: none;
-    }
-}
-
-@media (min-width: 990px) {
-    .hide-desktop3 {
-        display: none;
     }
 }
 

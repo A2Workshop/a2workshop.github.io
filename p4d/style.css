@@ -3,30 +3,6 @@
     src: url('../../assets/font/MotivaSansRegular.woff.ttf') format('truetype');
 }
 
-@media (max-width: 1200px) {
-    .hide-mobile {
-        display: none !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .hide-mobile2 {
-        display: none !important;
-    }
-}
-
-@media (min-width: 768px) {
-    .hide-desktop2 {
-        display: none !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hide-desktop {
-        display: none !important;
-    }
-}
-
 .megamenu-content {
     z-index: 9999 !important;
 }

@@ -10,6 +10,7 @@
     content="Guía para cambiar el idioma del Call of Duty: Black Ops 3 de PC al Español Latino." />
   <script src="../deps/bootstrap/js/popper.min.js"></script>
   <link rel="stylesheet" href="../deps/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/css/common.css">
   <link rel="stylesheet" href="../assets/css/guias.css" />
   <link rel="stylesheet" href="../assets/css/bo3.css" />
   <link rel="stylesheet" href="../assets/css/genav.css" />
@@ -445,7 +446,7 @@
                   src="../assets/img/Custom_Button/mediafire_full.webp" alt="bo3 latino button" width="30%"></a>
               <br><br>
               El contenido del enlace, consta de cuatro elementos:
-            <div class="row hide-mobile">
+            <div class="row hide-mobile2">
               <div class="col-6">
                 <img src="../assets/img/BO3/2819323099_preview.webp" alt="bo3 latino modos" width="100%">
               </div>
@@ -479,7 +480,7 @@
                 </figure>
               </div>
             </div>
-            <div class="hide-desktop">
+            <div class="hide-desktop2">
               <img src="../assets/img/BO3/2819323099_preview.webp" alt="bo3 latino modos" width="100%">
               <ul class="list-group fs-6">
                 <li class="list-group-item group-item-common">1. <b>Campaña</b> contiene los archivos para las campañas y los
@@ -794,7 +795,7 @@
           <div class="container mt-4">
             <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
             <br>
-            <ul class="nav nav-pills hide-mobile">
+            <ul class="nav nav-pills hide-mobile2">
               <li class="nav-item"><button onclick="showTab('tab2')" class="btn btn-warning fs-5 fw-bold"
                   aria-current="page">Web</button>
               </li>
@@ -803,7 +804,7 @@
               </li>
             </ul>
             <!-- select mobile -->
-            <div class="hide-desktop">
+            <div class="hide-desktop2">
               <select class="form-select custom-select" aria-label="Default select example">
                 <option value="1">Web</option>
                 <option value="2" selected>Steam</option>
@@ -811,7 +812,7 @@
             </div>
             <script>
               // when the user changes the select option, show the corresponding tab
-              const select = document.querySelector('.hide-desktop select');
+              const select = document.querySelector('.hide-desktop2 select');
               select.addEventListener('change', function () {
                 if (this.value === '1') {
                   showTab('tab2');
@@ -822,7 +823,7 @@
                 }
               });
             </script>
-            <br class="hide-desktop">
+            <br class="hide-desktop2">
             <div class="container" id="tab1-comments">
               <textarea class="form-control" id="comment-text" rows="3" placeholder="Añadir un comentario..."
                 style="resize: none;"></textarea>

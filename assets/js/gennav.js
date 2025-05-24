@@ -2,7 +2,7 @@
     const navbar = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop2"><img src="../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
                 <a href="/" class="hide-mobile"><img src="../assets/img/A2/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
@@ -70,7 +70,7 @@
     const navbarcontacto = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop2"><img src="assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
                 <a href="/" class="hide-mobile"><img src="assets/img/A2/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
@@ -105,7 +105,7 @@
     const navbarpq2install = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../../../pq2/img/a2logo/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop2"><img src="../../../pq2/img/a2logo/logo.webp" alt="logo" class="logo_nav"></a>
                 <a href="/" class="hide-mobile"><img src="../../pq2/img/a2logo/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
@@ -153,7 +153,7 @@
     const navbarp4d = `
         <nav>
             <div class="nav-container">
-                <a href="/" class="hide-desktop"><img src="../../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
+                <a href="/" class="hide-desktop2"><img src="../../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
                 <a href="/" class="hide-mobile"><img src="../../assets/img/A2/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
                     <a href="#">Proyectos</a>
