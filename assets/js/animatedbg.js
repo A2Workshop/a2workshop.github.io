@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     '../../assets/img/BO1/logo.webp',
     '../../assets/img/BO3/logo.webp',
     '../../assets/img/IW/images.steamusercontent.jpeg',
-    '../../assets/img/MWR/MWR.png',
+    '../../assets/img/MWR/MWR.webp',
     '../../pq2/img/es_logo/blackbg.webp'
   ];
 

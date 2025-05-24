@@ -21,7 +21,7 @@
                             (PC) Call of Duty: Infinite Warfare Español Latino
                         </a>
                         <a href="/proyectos/modernwarfarerlatino.html">
-                            <img src="../assets/img/MWR/MWR.png" alt="mwlalogo">
+                            <img src="../assets/img/MWR/MWR.webp" alt="mwlalogo">
                             (PC) Call of Duty: Modern Warfare Remastered Español Latino
                         </a>
                         <a href="/traducciones/pq2espanol.html">
@@ -54,7 +54,7 @@
                             (PC) Call of Duty: Infinite Warfare Español Latino
                         </a>
                         <a href="/proyectos/modernwarfarerlatino.html">
-                            <img src="/assets/img/MWR/MWR.png" alt="mwlalogo">
+                            <img src="/assets/img/MWR/MWR.webp" alt="mwlalogo">
                             (PC) Call of Duty: Modern Warfare Remastered Español Latino
                         </a>
                         <a href="/traducciones/pq2espanol.html">
@@ -89,7 +89,7 @@
                             (PC) Call of Duty: Infinite Warfare Español Latino
                         </a>
                         <a href="/proyectos/modernwarfarerlatino.html">
-                            <img src="assets/img/MWR/MWR.png" alt="mwlalogo">
+                            <img src="assets/img/MWR/MWR.webp" alt="mwlalogo">
                             (PC) Call of Duty: Modern Warfare Remastered Español Latino
                         </a>
                         <a href="/traducciones/pq2espanol.html">
@@ -124,7 +124,7 @@
                             (PC) Call of Duty: Infinite Warfare Español Latino
                         </a>
                         <a href="/proyectos/modernwarfarerlatino.html">
-                            <img src="../../assets/img/MWR/MWR.png" alt="mwlalogo">
+                            <img src="../../assets/img/MWR/MWR.webp" alt="mwlalogo">
                             (PC) Call of Duty: Modern Warfare Remastered Español Latino
                         </a>
                         <a href="/traducciones/pq2espanol.html">
@@ -172,7 +172,7 @@
                             (PC) Call of Duty: Infinite Warfare Español Latino
                         </a>
                         <a href="/proyectos/modernwarfarerlatino.html">
-                            <img src="../../assets/img/MWR/MWR.png" alt="mwlalogo">
+                            <img src="../../assets/img/MWR/MWR.webp" alt="mwlalogo">
                             (PC) Call of Duty: Modern Warfare Remastered Español Latino
                         </a>
                         <a href="/traducciones/pq2espanol.html">
