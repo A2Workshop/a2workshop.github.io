@@ -415,40 +415,17 @@
 
             // Función para actualizar visibilidad de etiquetas
             function updateLabels(pct) {
-                const sliderRect = slider.getBoundingClientRect();
-                const leftLabelRect = leftLabel.getBoundingClientRect();
-                const rightLabelRect = rightLabel.getBoundingClientRect();
-
-                const margin = 20;
-
-                // Ocultar slider izquierda
-                if (
-                    sliderRect.right > leftLabelRect.left - margin &&
-                    sliderRect.left < leftLabelRect.right + margin
-                ) {
+                if (pct <= 20) {
                     leftLabel.classList.add('hidden');
-                } else {
-                    leftLabel.classList.remove('hidden');
-                }
-
-                // Ocultar slider derecha
-                if (
-                    sliderRect.right > rightLabelRect.left - margin &&
-                    sliderRect.left < rightLabelRect.right + margin
-                ) {
+                    rightLabel.classList.remove('hidden');
+                } else if (pct >= 75) {
                     rightLabel.classList.add('hidden');
+                    leftLabel.classList.remove('hidden');
                 } else {
                     rightLabel.classList.remove('hidden');
+                    leftLabel.classList.remove('hidden');
                 }
             }
-
-            slider.addEventListener('input', function (e) {
-                updateLabels(parseFloat(e.target.value));
-            });
-
-            window.addEventListener('resize', function () {
-                updateLabels(parseFloat(slider.value));
-            });
 
             // Función para mover el slider
             function updateSliderPosition(clientX) {
