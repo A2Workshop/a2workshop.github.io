@@ -229,11 +229,14 @@
 
 .section1 {
     padding: 4rem 0;
-    background-color: #0f0f0f;
 }
 
 body {
-    background-color: #0f0f0f;
+    background-image: url('../../p4d/img/bg/bg.png');
+    background-repeat: repeat;
+    background-size: 64px;
+    margin: 0;
+    padding: 0;
     color: rgb(0, 0, 0);
 }
 
@@ -310,7 +313,7 @@ body {
 }
 
 footer {
-    background-color: #0f0f0f;
+    /* background-color: #0f0f0f; */
     font-family: 'motiva';
 }
 
@@ -400,7 +403,7 @@ footer {
 }
 
 .text-bg {
-    color: #0f0f0f;
+    color: #0f0f0f00;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
