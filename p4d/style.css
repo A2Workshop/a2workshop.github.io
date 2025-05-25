@@ -263,6 +263,7 @@ body {
     /* 16:9 aspect ratio */
     overflow: hidden;
     border-radius: 15px;
+    box-shadow: 0 0 10px #ff33ff, 0 0 2px #ff33ff;
 }
 
 .image-container img {
