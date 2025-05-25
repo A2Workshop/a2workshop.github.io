@@ -411,3 +411,9 @@ footer {
     border-radius: 10px;
   }
 }
+
+.index-title.active {
+  background-color: #1b2838 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}

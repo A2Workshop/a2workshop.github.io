@@ -42,13 +42,13 @@
 .list-group-item.active {
     background-color: #0EF40A;
     border-color: #0EF40A;
-    color: #000000 !important;
+    color: #000000;
 }
 
 .list-group-item.active:hover {
     background-color: #0EF40A;
     border-color: #ffffff;
-    color: #000000 !important;
+    color: #000000;
 }
 
 .list-group-item.active:focus {
@@ -60,7 +60,7 @@
 .list-group-item.active:active {
     background-color: #0EF40A;
     border-color: #ffffff;
-    color: #000000 !important;
+    color: #000000;
 }
 
 .group-item-common.active {
