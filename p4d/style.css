@@ -46,6 +46,7 @@
     max-height: 900px;
     max-width: 2900px;
     overflow: hidden;
+    border-radius: 15px;
 }
 
 .video-wrapper iframe {
@@ -187,10 +188,6 @@
         padding: 8px 16px !important;
     }
 }
-
-
-
-
 
 .logo-container .text-white-outline {
     font-size: 38px;
