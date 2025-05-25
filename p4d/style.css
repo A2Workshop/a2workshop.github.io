@@ -340,6 +340,14 @@ footer {
     font-weight: bold;
 }
 
+@media (max-width: 768px) {
+    .label-left,
+    .label-right {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}
+
 .label-left {
     margin-right: auto;
 }
