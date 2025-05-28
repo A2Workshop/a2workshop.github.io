@@ -130,11 +130,9 @@
                         <a href="/traducciones/pq2espanol.html">
                             <img src="../../pq2/img/es_logo/blackbg.webp" alt="pq2eslogo"> (3DS) Persona Q2 Traducción al Español
                         </a>
-                        <!--
                         <a href="/traducciones/p4despanol.html">
                             <img src="../../p4d/img/es_logo/blackbg.webp" alt="p4deslogo"> (PS4/PSV) Persona 4 Dancing Traducción al Español
                         </a>
-                        -->
                         <hr class="nav-hr">
                         <a href="https://gamebanana.com/mods/54473">
                             <img src="../../pq2/img/es_logo/p5_ps3.jpg" alt="p5ps3logo"> (PS3) Persona 5 Backport
