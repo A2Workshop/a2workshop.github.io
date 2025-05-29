@@ -8,18 +8,26 @@
 }
 
 @media (min-width: 990px) {
+    .megamenu>a {
+        background: transparent;
+        transition: background 0.3s, box-shadow 0.3s !important;
+    }
+
     .megamenu:hover>a {
         background: #ff33ffc0 !important;
         box-shadow: 0 0 10px #ff33ff, 0 0 20px #ff33ff;
-        transition: background 0.3s;
-        transition: box-shadow 0.3s;
+        transition: background 0s, box-shadow 0.3s;
+    }
+
+    .contacto-hover {
+        background: transparent;
+        transition: background 0.3s, box-shadow 0.3s;
     }
 
     .contacto-hover:hover {
         background: #ff33ffc0 !important;
         box-shadow: 0 0 10px #ff33ff, 0 0 20px #ff33ff;
-        transition: background 0.3s;
-        transition: box-shadow 0.3s;
+        transition: background 0s, box-shadow 0.3s;
     }
 }
 
@@ -238,7 +246,6 @@ body {
 }
 
 /* carousel/comparador */
-/* Estilos para el carrusel y el comparador */
 .carousel {
     background-color: #33333300;
     padding: 20px 0;
@@ -312,7 +319,6 @@ body {
 }
 
 footer {
-    /* background-color: #0f0f0f; */
     font-family: 'motiva';
 }
 
@@ -337,6 +343,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+
     .label-left,
     .label-right {
         font-size: 12px;

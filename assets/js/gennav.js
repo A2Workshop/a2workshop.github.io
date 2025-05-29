@@ -154,7 +154,7 @@
                 <a href="/" class="hide-desktop2"><img src="../../assets/img/A2/logo.webp" alt="logo" class="logo_nav"></a>
                 <a href="/" class="hide-mobile2"><img src="../../assets/img/A2/full_logo.webp" alt="logo" class="logo_nav"></a>
                 <div class="megamenu">
-                    <a href="#">Proyectos</a>
+                    <a href="#"><b>Proyectos</b></a>
                     <div class="megamenu-content">
                         <button class="close-btn">&times;</button>
                         <a href="/proyectos/blackopsiiilatino.html">
@@ -189,7 +189,7 @@
                         </a>
                     </div>
                 </div>
-                <a href="/contacto.html" class="contacto-hover">Contacto</a>
+                <a href="/contacto.html" class="contacto-hover"><b>Contacto</b></a>
             </div>
         </nav>
     `;
