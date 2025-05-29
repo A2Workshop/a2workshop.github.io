@@ -426,3 +426,11 @@ footer {
 .title-screenshots {
     margin-top: -72px !important;
 }
+
+.a2logofooter {
+    transition: filter 0.4s ease, background-color 0.4s ease;
+}
+
+.a2logofooter:hover {
+    filter: drop-shadow(0 0 5px #ff33ff) drop-shadow(0 0 10px #ff33ff);
+}
