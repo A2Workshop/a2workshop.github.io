@@ -27,7 +27,6 @@
     .contacto-hover:hover {
         background: #ff33ffc0 !important;
         box-shadow: 0 0 10px #ff33ff, 0 0 20px #ff33ff;
-        transition: background 0s, box-shadow 0.3s;
     }
 }
 
