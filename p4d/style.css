@@ -432,5 +432,5 @@ footer {
 }
 
 .logo_nav:hover, .a2logofooter:hover {
-    filter: drop-shadow(0 0 5px #ff33ff) drop-shadow(0 0 10px #ff33ff);
+    filter: drop-shadow(0 0 1px #ff33ff) drop-shadow(0 0 5px #ff33ff);
 }
