@@ -242,7 +242,7 @@ footer {
 }
 
 .btn-link:hover {
-    color: #9e341c;
+    color: #9e341c !important;
 }
 
 .btn-guide {
