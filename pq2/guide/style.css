@@ -675,10 +675,6 @@ body {
     --bs-border-color: #f04e29;
 }
 
-.nav-container img {
-    border-radius: 10px;
-}
-
 .addon-img {
     max-width: 100% !important;
     height: auto !important;

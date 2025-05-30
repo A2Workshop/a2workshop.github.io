@@ -340,10 +340,6 @@ nav {
   }
 }
 
-.nav-container img {
-  border-radius: 10px;
-}
-
 .responsive-col {
   flex: 0 0 auto;
   width: 75%;

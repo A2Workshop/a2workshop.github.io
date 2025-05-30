@@ -7,10 +7,6 @@
     z-index: 9999 !important;
 }
 
-.megamenu-content img {
-        border-radius: 10px;
-}
-
 @media (min-width: 990px) {
     .megamenu>a {
         background: transparent;
