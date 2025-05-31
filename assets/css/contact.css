@@ -23,3 +23,8 @@
     background-color: #72727238 !important;
     border-color: #72727238 !important;
 }
+
+.accordion-item img {
+    width: 10vh;
+    height: auto;
+}
