@@ -1,54 +1,9 @@
-﻿.expand {
-    width: 50%;
-    height: 100% !important;
-}
-
-.expand img {
-    width: 50%;
-}
-
-.unset {
-    width: 16%;
-    height: 240px !important;
-    color: black !important;
-    /* background-color: #ddd !important; */
-}
-
-.small {
-    width: 16%;
-    height: 226px !important;
-    color: rgba(0, 0, 0, 0) !important;
-    /* background-color: #ddd !important; */
-}
-
-.smalla1 {
-    background-color: #8b0000 !important;
-}
-
-.smalla2 {
-    background-color: #005fcc !important;
-}
-
-.unset>div>p {
-    opacity: 0;
-}
-
-.expand>div {
-    transition-delay: 200ms;
-    opacity: 1;
-}
-
-.text-hideca {
+﻿.text-hideca {
     color: #1b283800;
 }
 
 .text-hideaca:hover {
     color: #1b283800;
-}
-
-.card:hover {
-    box-shadow: 0 0 10px #9c9c9c;
-    border-radius: 10px !important;
 }
 
 .animated-background {
@@ -67,8 +22,4 @@
 .contacto-title {
     background-color: #72727238 !important;
     border-color: #72727238 !important;
-}
-
-.logo {
-    display: block !important;
 }
