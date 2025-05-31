@@ -102,6 +102,8 @@
                         onclick="change_guide('faq')">FAQ</button>
                 </div>
                 <div id="guide-content"></div>
+                <p class="javascript-disabled">JavaScript está deshabilitado.<br><br>Por favor, habilítalo para visualizar
+                    el contenido de la guía.</p>
             </div>
         </div>
 
@@ -318,6 +320,10 @@
     <!-- Sidebar -->
 
     <script>
+        // hide class for JS is disabled message
+        const javascriptDisabledMessage = document.querySelector('.javascript-disabled');
+        javascriptDisabledMessage.classList.add('d-none');
+        //
         const creditsContainer = document.querySelector('.credits-container');
 
         function change_guide(guide, subsection = null) {
