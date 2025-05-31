@@ -313,10 +313,10 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .accordion {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-  }
+    .accordion {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+    }
 }
 
 .accordion-item {
