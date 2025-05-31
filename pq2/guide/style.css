@@ -313,9 +313,17 @@ footer {
     color: #f04e29 !important;
 }
 
+@media (max-width: 768px) {
+  .accordion {
+    margin-left: -1.5rem;  /* compensar padding izquierdo del padre */
+    margin-right: -1.5rem; /* compensar padding derecho del padre */
+  }
+}
+
 .accordion-item {
     border-color: #f04e29 !important;
     border-radius: 0px !important;
+    background-color: #141414 !important;
 }
 
 .accordion-button {
@@ -605,12 +613,6 @@ footer {
 
 .link-color {
     color: #297ff0;
-}
-
-@media (max-width: 768px) {
-    .accordion {
-        margin: -3vh;
-    }
 }
 
 .image-comparator {
