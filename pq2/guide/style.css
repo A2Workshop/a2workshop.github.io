@@ -374,7 +374,7 @@ footer {
 }
 
 .sidebar-toggle:hover {
-    border: none;
+    border: 1px solid #f04e2900 !important;
 }
 
 /* Define la animación del borde */
