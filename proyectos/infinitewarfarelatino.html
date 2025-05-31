@@ -678,11 +678,13 @@
 </script>
 <!-- when the user clicks on the textarea, redirect to the steam comments -->
 <script>
-    var textarea = document.getElementById('comment-text');
+  var textarea = document.getElementById('comment-text');
 
-    textarea.addEventListener('click', function () {
-        window.location.href = 'https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146#commentthread_PublishedFile_Public_76561199112392013_3438530146_textarea';
-    });
+  textarea.addEventListener('click', function () {
+    window.open('https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146#commentthread_PublishedFile_Public_76561199112392013_3438530146_textarea',
+      '_blank'
+    );
+  });
 </script>
 <script src="../deps/jszip.min.js"></script>
 <script src="../assets/js/steamcomments.js"></script>
