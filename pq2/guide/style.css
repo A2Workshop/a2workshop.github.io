@@ -373,6 +373,10 @@ footer {
     display: none;
 }
 
+.sidebar-toggle:hover {
+    border: none;
+}
+
 /* Define la animación del borde */
 @keyframes border-pulse {
     0% {
