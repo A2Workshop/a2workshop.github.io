@@ -315,8 +315,8 @@ footer {
 
 @media (max-width: 768px) {
   .accordion {
-    margin-left: -1.5rem;  /* compensar padding izquierdo del padre */
-    margin-right: -1.5rem; /* compensar padding derecho del padre */
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
   }
 }
 
