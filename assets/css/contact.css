@@ -1,12 +1,4 @@
-﻿.text-hideca {
-    color: #1b283800;
-}
-
-.text-hideaca:hover {
-    color: #1b283800;
-}
-
-.animated-background {
+﻿.animated-background {
     background: linear-gradient(-45deg, #00446b, #a44007);
     animation: gradient 10s ease infinite;
 }
