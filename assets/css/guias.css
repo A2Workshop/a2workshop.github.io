@@ -413,3 +413,9 @@ footer {
   border-color: #ffffff !important;
   color: #ffffff;
 }
+
+@media (max-width: 768px) {
+  #descargar img {
+    min-width: 164px;
+  }
+}
