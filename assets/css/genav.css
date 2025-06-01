@@ -23,15 +23,24 @@ nav {
     gap: 15px;
 }
 
+@media (min-width: 990px) {
+    nav a {
+        font-size: 24px;
+    }
+}
+
 @media (max-width: 990px) {
     nav a {
         font-size: 16px;
     }
 }
 
-@media (min-width: 990px) {
+@media (max-width: 330px) {
     nav a {
-        font-size: 24px;
+        font-size: 11px;
+    }
+    .logo_nav {
+        display: none;
     }
 }
 
