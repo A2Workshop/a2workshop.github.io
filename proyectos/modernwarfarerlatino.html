@@ -419,7 +419,7 @@
                         </div>
                         <div class="row">
                             <div class="col text-center">
-                                <br class="mb-3">
+                                <br class="mb-3 br_guitargamer">
                                 <a href="https://steamcommunity.com/profiles/76561199112392013"
                                     class="btn btn-primary mt-2 mb-2" target="_blank">Perfil
                                     de Steam</a>
@@ -680,17 +680,29 @@
 <script src="../assets/js/steamcomments.js"></script>
 <!-- hover credits -->
 <script>
-    var cards = document.getElementsByClassName("card-hover");
+  var cards = document.getElementsByClassName("card-hover");
 
-    for (var i = 0; i < cards.length; i++) {
-        cards[i].addEventListener("mouseenter", function () {
-            this.classList.add("card-hover");
-        });
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("mouseenter", function () {
+      this.classList.add("card-hover");
+    });
 
-        cards[i].addEventListener("mouseleave", function () {
-            this.classList.remove("card-hover");
-        });
-    }
+    cards[i].addEventListener("mouseleave", function () {
+      this.classList.remove("card-hover");
+    });
+  }
+
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("mouseenter", function () {
+      var br = this.querySelector(".br_guitargamer");
+      if (br) br.classList.add("hide-hover");
+    });
+
+    cards[i].addEventListener("mouseleave", function () {
+      var br = this.querySelector(".br_guitargamer");
+      if (br) br.classList.remove("hide-hover");
+    });
+  }
 </script>
 
 <script>

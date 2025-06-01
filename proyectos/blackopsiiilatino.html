@@ -94,7 +94,8 @@
           </div>
         </div>
         <div class="text-center">
-          <a href="https://steamcommunity.com/profiles/76561198078360579" class="btn btn-primary mb-2" target="_blank">Perfil
+          <a href="https://steamcommunity.com/profiles/76561198078360579" class="btn btn-primary mb-2"
+            target="_blank">Perfil
             de Steam</a>
         </div>
       </div>
@@ -438,8 +439,9 @@
             <h2 class="fw-bold fs-2 mt-3 title">⬇️ Descargas</h2>
             <p>
               <b>Modos/Mapas por separado:</b><br>
-              <a href="https://www.mediafire.com/folder/fxa4xrrlre40k/Call+Of+Duty+Black+Ops+III+-+Mod+Latino+Deluxe" target="_blank"><img
-                  src="../assets/img/Custom_Button/mediafire_separado.webp" alt="bo3 latino button" width="30%"></a>
+              <a href="https://www.mediafire.com/folder/fxa4xrrlre40k/Call+Of+Duty+Black+Ops+III+-+Mod+Latino+Deluxe"
+                target="_blank"><img src="../assets/img/Custom_Button/mediafire_separado.webp" alt="bo3 latino button"
+                  width="30%"></a>
               <br>
               <br>
               <b>Todos los modos juntos:</b><br>
@@ -600,7 +602,8 @@
             que
             <b>ubicar la
               carpeta
-              del juego</b> y dirigirse a "<a class="text-break text-decoration-none text-white">Call of Duty Black Ops III\zone\snd\es</a>".<br><br>
+              del juego</b> y dirigirse a "<a class="text-break text-decoration-none text-white">Call of Duty Black Ops
+              III\zone\snd\es</a>".<br><br>
             <video autoplay loop muted playsinline width="70%">
               <source src="../assets/img/BO3/2819323099_preview_es.webm" type="video/webm">
             </video><br>
@@ -686,12 +689,14 @@
               Guitargamer
               es el
               autor de la modificación a <u><i>Black Ops II Sound Studio</i></u> de master131 su <a
-                href="https://github.com/tovaru/Black-Ops-II-Sound-Studio-Extended" target="_blank">Black Ops II Sound Studio
+                href="https://github.com/tovaru/Black-Ops-II-Sound-Studio-Extended" target="_blank">Black Ops II Sound
+                Studio
                 Extended</a> agregando soporte para Black Ops III es la herramienta que usamos para descompilar,
               compilar e inyectar todos los diálogos de consola y PC.<br>
               Ademas de crear Scripts para desencriptar/encriptar los audios de Revelations y poder remplazar sus
               audios.<br>
-              <b class="fs-3">•</b> <a href="https://doblaje.fandom.com/es/wiki/Call_of_Duty:_Black_Ops_III" target="_blank">Doblaje
+              <b class="fs-3">•</b> <a href="https://doblaje.fandom.com/es/wiki/Call_of_Duty:_Black_Ops_III"
+                target="_blank">Doblaje
                 original del videojuego</a>.<br>
               <b class="fs-3">•</b>
               Namish, y varias cuentas de internet aportaron detalles para arreglar diálogos del modo Zombis.<br>
@@ -725,8 +730,9 @@
             </div>
             <div class="row">
               <div class="col text-center">
-                <br class="mb-3">
-                <a href="https://steamcommunity.com/profiles/76561198078360579" class="btn btn-primary mt-2 mb-2" target="_blank">Perfil
+                <br class="mb-3 br_guitargamer">
+                <a href="https://steamcommunity.com/profiles/76561198078360579" class="btn btn-primary mt-2 mb-2"
+                  target="_blank">Perfil
                   de Steam</a>
               </div>
             </div>
@@ -766,7 +772,8 @@
             <div class="row">
               <div class="col text-center">
                 <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
-                <a href="https://steamcommunity.com/id/artur16211" class="btn btn-primary mt-2 mb-2" target="_blank">Perfil
+                <a href="https://steamcommunity.com/id/artur16211" class="btn btn-primary mt-2 mb-2"
+                  target="_blank">Perfil
                   de Steam</a>
               </div>
             </div>
@@ -981,6 +988,18 @@
 
     cards[i].addEventListener("mouseleave", function () {
       this.classList.remove("card-hover");
+    });
+  }
+
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("mouseenter", function () {
+      var br = this.querySelector(".br_guitargamer");
+      if (br) br.classList.add("hide-hover");
+    });
+
+    cards[i].addEventListener("mouseleave", function () {
+      var br = this.querySelector(".br_guitargamer");
+      if (br) br.classList.remove("hide-hover");
     });
   }
 </script>
