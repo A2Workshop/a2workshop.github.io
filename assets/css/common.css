@@ -1,17 +1,17 @@
 ﻿/* desktop */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .hide-desktop {
         display: none !important;
     }
 }
 
-@media (min-width: 990px) {
+@media (min-width: 991px) {
     .hide-desktop2 {
         display: none !important;
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
     .hide-desktop3 {
         display: none !important;
     }
