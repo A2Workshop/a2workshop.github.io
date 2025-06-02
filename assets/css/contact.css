@@ -24,3 +24,7 @@
 .iconify[data-icon="simple-icons:gamebanana"] {
     color: #FCEF40;
 }
+
+.accordion-button:focus {
+    box-shadow: none;
+}
