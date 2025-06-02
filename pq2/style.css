@@ -102,6 +102,12 @@ body {
     height: auto;
 }
 
+@media (max-width: 400px) {
+    .video-overlay .logo {
+        max-width: 100%;
+    }
+}
+
 .section1 {
     margin-left: 10%;
     margin-right: 10%;
@@ -172,6 +178,13 @@ body {
     box-shadow: 10px 5px 0 #f04e2977;
     border-radius: 0;
     border: 2px solid black;
+}
+
+@media (max-width: 330px) {
+    .trailer-video iframe {
+        width: 100%;
+        height: 200px;
+    }
 }
 
 @media (max-width: 990px) {
