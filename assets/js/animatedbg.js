@@ -1,5 +1,4 @@
-﻿// animation
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
   const background = document.querySelector('.animated-background');
 
   const logoUrls = [
@@ -9,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     '../../assets/img/MWR/MWR.webp',
     '../../pq2/img/es_logo/blackbg.webp'
   ];
+
+  let currentMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
 
   for (let i = 0; i < 5; i++) {
     createLogo(logoUrls[i % logoUrls.length]);
@@ -22,27 +23,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const startY = Math.random() * 100;
     logo.style.top = `${startY}vh`;
 
-    // aleatorio entre 40px y 80px
+    applyLogoSize(logo);
+
+    const duration = 10 + Math.random() * 20;
+    logo.style.animationDuration = `${duration}s`;
+
+    const rotation = -20 + Math.random() * 40;
+    logo.style.transform = `rotate(${rotation}deg)`;
+
+    logo.style.animationDelay = `${Math.random() * 10}s`;
+    logo.style.opacity = '0';
+
+    background.appendChild(logo);
+  }
+
+  function applyLogoSize(logo) {
     const isMobile = window.innerWidth <= 768;
     const minSize = isMobile ? 20 : 40;
     const maxSize = isMobile ? 40 : 80;
     const size = minSize + Math.random() * (maxSize - minSize);
     logo.style.width = `${size}px`;
     logo.style.height = `${size}px`;
-
-    // velocidad aleatoria
-    const duration = 10 + Math.random() * 20;
-    logo.style.animationDuration = `${duration}s`;
-
-    // Inclinación aleatoria
-    const rotation = -20 + Math.random() * 40;
-    logo.style.transform = `rotate(${rotation}deg)`;
-
-    //  que no empiecen juntos
-    logo.style.animationDelay = `${Math.random() * 10}s`;
-
-    logo.style.opacity = '0';
-
-    background.appendChild(logo);
   }
+
+  window.addEventListener('resize', function () {
+    const newMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+
+    if (newMode !== currentMode) {
+      currentMode = newMode;
+      document.querySelectorAll('.logo').forEach(logo => applyLogoSize(logo));
+    }
+  });
 });
