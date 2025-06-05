@@ -423,3 +423,7 @@ footer {
     min-width: 164px;
   }
 }
+
+.card-hover-fix:hover {
+  margin-bottom: 60px !important;
+}
