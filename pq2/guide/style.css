@@ -469,7 +469,7 @@ footer {
 /* Contenedor de imágenes */
 .image-container {
     position: relative;
-    padding-top: 56.25%;
+    padding-top: 60%;
 }
 
 .image-container img {
