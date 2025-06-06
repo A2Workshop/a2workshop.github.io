@@ -25,6 +25,10 @@
     color: #FCEF40;
 }
 
+.iconify[data-icon="logos:github-icon"] {
+    filter: brightness(0) invert(1);
+}
+
 .accordion-button:focus {
     box-shadow: none;
 }
