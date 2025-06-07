@@ -14,7 +14,6 @@
 .btn-primary:hover {
     background-color: #dbdbdb;
     border-color: #dbdbdb;
-
 }
 
 .btn-primary:active {
@@ -34,6 +33,7 @@
 
 .card-hover:hover {
     border: 2px solid #dbdbdb;
+    border-radius: 0px;
     position: relative;
     z-index: 1;
     transition: border-color 0.3s ease;

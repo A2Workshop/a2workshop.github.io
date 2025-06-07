@@ -34,6 +34,7 @@
 
 .card-hover:hover {
     border: 2px solid #FFFD01;
+    border-radius: 0px;
     position: relative;
     z-index: 1;
     transition: border-color 0.3s ease;
