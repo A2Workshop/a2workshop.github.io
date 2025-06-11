@@ -165,7 +165,8 @@
 
             <img src="/pq2/img/es_logo/pq2_still.webp" alt="Logo" class="fallback-image logo" style="display: none;">
 
-            <a href="/traducciones/pq2espanol/descargar.html" class="btn btn-primary mt-2 border-5">Descargar</a>
+            <a href="/traducciones/pq2espanol/descargar.html" id="downloadButton"
+                class="btn btn-primary mt-2 border-5">Descargar</a>
         </div>
     </div>
 
@@ -360,7 +361,11 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        if (window.location.hash === '#ts') {
+            document.getElementById('downloadButton').textContent = 'Instalación';
+        }
+    </script>
     <script src="/deps/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
