@@ -362,9 +362,18 @@
         </div>
     </footer>
     <script>
-        if (window.location.hash === '#ts') {
-            document.getElementById('downloadButton').textContent = 'Guía de instalación';
+        function updateButtonText() {
+            const button = document.getElementById('downloadButton');
+            if (window.location.hash === '#ts') {
+                button.textContent = 'Guía de instalación';
+            } else {
+                button.textContent = 'Descargar';
+            }
         }
+
+        updateButtonText();
+
+        window.addEventListener('hashchange', updateButtonText);
     </script>
     <script src="/deps/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
