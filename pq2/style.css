@@ -256,6 +256,7 @@ body {
 .modal-header .btn-close {
     width: 1rem;
     height: 1rem;
+    border-radius: 0%;
 }
 
 .pe-cursor {
@@ -273,6 +274,7 @@ body {
         transform: translateX(-50%);
         width: 1.5rem;
         height: 1.5rem;
+        border-radius: 0%;
     }
 
     .arrow-modal {
