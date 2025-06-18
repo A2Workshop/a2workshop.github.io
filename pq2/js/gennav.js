@@ -14,7 +14,7 @@
                 d="M32 288c-17.7 0-32 14.3-32 32s14.3 32 32 32h384c17.7 0 32-14.3 32-32s-14.3-32-32-32zm0-128c-17.7 0-32 14.3-32 32s14.3 32 32 32h384c17.7 0 32-14.3 32-32s-14.3-32-32-32z" />
         </svg>
     </button>
-    <a class="nav-link hide-desktop-contact" href="${prefix}contacto.html">Contacto</a>
+    <a class="nav-link hide-desktop-contact" href="${prefix}contacto">Contacto</a>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
             <a href="${prefix}" class="logo-link hide-mobile2">
@@ -43,7 +43,7 @@
                 </ul>
             </li>
             <li class="nav-item hide-mobile2">
-                <a class="nav-link desktop-contact" href="${prefix}contacto.html">Contacto</a>
+                <a class="nav-link desktop-contact" href="${prefix}contacto">Contacto</a>
             </li>
             <div class="dropdown-mobile hide-desktop2 flex-column align-items-center d-flex bg-black border-3">
                 <a class="nav-link text-decoration-underline navtitle-mobile" id="navbarDropdown" role="button"
