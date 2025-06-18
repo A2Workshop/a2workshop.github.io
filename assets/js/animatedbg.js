@@ -6,12 +6,13 @@
     '../../assets/img/BO3/logo.webp',
     '../../assets/img/IW/images.steamusercontent.jpeg',
     '../../assets/img/MWR/MWR.webp',
-    '../../pq2/img/es_logo/blackbg.webp'
+    '../../pq2/img/es_logo/blackbg.webp',
+    '../../p4d/img/es_logo/blackbg.webp'
   ];
 
   let currentMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     createLogo(logoUrls[i % logoUrls.length]);
   }
 
