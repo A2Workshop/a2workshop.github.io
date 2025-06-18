@@ -35,6 +35,8 @@
     <!-- animated background -->
     <link rel="stylesheet" href="../assets/css/animatedbg.css">
     <script src="../assets/js/animatedbg.js"></script>
+
+    <script src="../assets/js/common.js"></script>
 </head>
 
 <body>
@@ -668,29 +670,29 @@
 <script src="../assets/js/steamcomments.js"></script>
 <!-- hover credits -->
 <script>
-  var cards = document.getElementsByClassName("card-hover");
+    var cards = document.getElementsByClassName("card-hover");
 
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("mouseenter", function () {
-      this.classList.add("card-hover");
-    });
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("mouseenter", function () {
+            this.classList.add("card-hover");
+        });
 
-    cards[i].addEventListener("mouseleave", function () {
-      this.classList.remove("card-hover");
-    });
-  }
+        cards[i].addEventListener("mouseleave", function () {
+            this.classList.remove("card-hover");
+        });
+    }
 
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("mouseenter", function () {
-      var br = this.querySelector(".br_guitargamer");
-      if (br) br.classList.add("hide-hover");
-    });
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("mouseenter", function () {
+            var br = this.querySelector(".br_guitargamer");
+            if (br) br.classList.add("hide-hover");
+        });
 
-    cards[i].addEventListener("mouseleave", function () {
-      var br = this.querySelector(".br_guitargamer");
-      if (br) br.classList.remove("hide-hover");
-    });
-  }
+        cards[i].addEventListener("mouseleave", function () {
+            var br = this.querySelector(".br_guitargamer");
+            if (br) br.classList.remove("hide-hover");
+        });
+    }
 </script>
 
 <script>

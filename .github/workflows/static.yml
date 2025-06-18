@@ -50,11 +50,6 @@ jobs:
             done < hash_mapping.txt
           fi
 
-      - name: Remove .html from links
-        run: |
-          grep -rl --include=*.html,*.js 'href="' . | xargs -r sed -i -E 's|href="([^"]+)\.html"|href="\1"|g'
-          grep -rl --include=*.js 'href:' . | xargs -r sed -i -E '/href:/s|(href:\s*["'\''"])\/([^\/"'\''?]+)\.html(["'\''"])|\1/\2\3|g'
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
