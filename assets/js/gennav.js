@@ -52,12 +52,12 @@ const routesMap = {
 
 // items
 const menuItems = [
-  { href: '/proyectos/blackopsiiilatino', imgPath: 'assets/img/BO3/logo.webp', alt: 'bo3lalogo', text: '(PC) Call of Duty: Black Ops III Español Latino' },
-  { href: '/proyectos/blackopslatino',    imgPath: 'assets/img/BO1/logo.webp', alt: 'bolalogo', text: '(PC) Call of Duty: Black Ops Zombies Español Latino' },
-  { href: '/proyectos/infinitewarfarelatino', imgPath: 'assets/img/IW/images.steamusercontent.jpeg', alt: 'iwlalogo', text: '(PC) Call of Duty: Infinite Warfare Español Latino' },
-  { href: '/proyectos/modernwarfarerlatino', imgPath: 'assets/img/MWR/MWR.webp', alt: 'mwlalogo', text: '(PC) Call of Duty: Modern Warfare Remastered Español Latino' },
-  { href: '/traducciones/pq2espanol', imgPath: 'pq2/img/es_logo/blackbg.webp', alt: 'pq2eslogo', text: '(3DS) Persona Q2 Traducción al Español' },
-  { href: '/traducciones/p4despanol', imgPath: 'p4d/img/es_logo/blackbg.webp', alt: 'p4deslogo', text: '(PS4/PSV) Persona 4 Dancing Traducción al Español' }
+  { href: '/proyectos/blackopsiiilatino.html', imgPath: 'assets/img/BO3/logo.webp', alt: 'bo3lalogo', text: '(PC) Call of Duty: Black Ops III Español Latino' },
+  { href: '/proyectos/blackopslatino.html',    imgPath: 'assets/img/BO1/logo.webp', alt: 'bolalogo', text: '(PC) Call of Duty: Black Ops Zombies Español Latino' },
+  { href: '/proyectos/infinitewarfarelatino.html', imgPath: 'assets/img/IW/images.steamusercontent.jpeg', alt: 'iwlalogo', text: '(PC) Call of Duty: Infinite Warfare Español Latino' },
+  { href: '/proyectos/modernwarfarerlatino.html', imgPath: 'assets/img/MWR/MWR.webp', alt: 'mwlalogo', text: '(PC) Call of Duty: Modern Warfare Remastered Español Latino' },
+  { href: '/traducciones/pq2espanol.html', imgPath: 'pq2/img/es_logo/blackbg.webp', alt: 'pq2eslogo', text: '(3DS) Persona Q2 Traducción al Español' },
+  { href: '/traducciones/p4despanol.html', imgPath: 'p4d/img/es_logo/blackbg.webp', alt: 'p4deslogo', text: '(PS4/PSV) Persona 4 Dancing Traducción al Español' }
 ];
 
 function generarNavbar() {
@@ -74,8 +74,8 @@ function generarNavbar() {
 
   const proyectoTexto = config.boldProyecto ? '<b>Proyectos</b>' : 'Proyectos';
   const contactoHTML = config.boldContacto
-    ? '<a href="/contacto" class="contacto-hover"><b>Contacto</b></a>'
-    : '<a href="/contacto" class="contacto-hover">Contacto</a>';
+    ? '<a href="/contacto.html" class="contacto-hover"><b>Contacto</b></a>'
+    : '<a href="/contacto.html" class="contacto-hover">Contacto</a>';
 
   let logosHTML = '';
   if (showLogo) {
