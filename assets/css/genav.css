@@ -39,6 +39,7 @@ nav {
     nav a {
         font-size: 11px;
     }
+
     .logo_nav {
         display: none;
     }
@@ -193,14 +194,16 @@ nav a:hover {
 
 .logo_nav {
     height: 50px;
+    width: 255.433px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 990px) {
     .logo_nav {
         height: 50px;
+        width: 80.9167px;
     }
 }
 
 .nav-container img {
-  border-radius: 10px;
+    border-radius: 10px;
 }
