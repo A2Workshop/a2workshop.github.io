@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿// remove .html
+document.addEventListener("DOMContentLoaded", () => {
     const isLocal = location.hostname === "localhost" ||
         location.hostname === "127.0.0.1" ||
         location.protocol === "file:";

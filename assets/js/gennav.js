@@ -53,7 +53,7 @@ const routesMap = {
 // items
 const menuItems = [
   { href: '/proyectos/blackopsiiilatino.html', imgPath: 'assets/img/BO3/logo.webp', alt: 'bo3lalogo', text: '(PC) Call of Duty: Black Ops III Español Latino' },
-  { href: '/proyectos/blackopslatino.html',    imgPath: 'assets/img/BO1/logo.webp', alt: 'bolalogo', text: '(PC) Call of Duty: Black Ops Zombies Español Latino' },
+  { href: '/proyectos/blackopslatino.html', imgPath: 'assets/img/BO1/logo.webp', alt: 'bolalogo', text: '(PC) Call of Duty: Black Ops Zombies Español Latino' },
   { href: '/proyectos/infinitewarfarelatino.html', imgPath: 'assets/img/IW/images.steamusercontent.jpeg', alt: 'iwlalogo', text: '(PC) Call of Duty: Infinite Warfare Español Latino' },
   { href: '/proyectos/modernwarfarerlatino.html', imgPath: 'assets/img/MWR/MWR.webp', alt: 'mwlalogo', text: '(PC) Call of Duty: Modern Warfare Remastered Español Latino' },
   { href: '/traducciones/pq2espanol.html', imgPath: 'pq2/img/es_logo/blackbg.webp', alt: 'pq2eslogo', text: '(3DS) Persona Q2 Traducción al Español' },
@@ -107,11 +107,11 @@ function generarNavbar() {
 
   document.getElementById('navbar-container').innerHTML = html;
 
-  $('.megamenu > a').off('click').on('click', function(e) {
+  $('.megamenu > a').off('click').on('click', function (e) {
     e.preventDefault();
     $('.megamenu-content').fadeIn();
   });
-  $('.close-btn').off('click').on('click', function() {
+  $('.close-btn').off('click').on('click', function () {
     $('.megamenu-content').fadeOut();
   });
 }
