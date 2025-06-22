@@ -68,7 +68,7 @@ function generarNavbar() {
 
   const itemsHTML = menuItems.map((item, i) => `
     <a href="${item.href}"${i > 0 ? ' class="disable-padding-top"' : ''}>
-      <img src="${prefix}${item.imgPath}" alt="${item.alt}"> ${item.text}
+      <img src="${prefix}${item.imgPath}" alt="${item.alt}" style="width: 70px; height: 70px;"> ${item.text}
     </a>
   `).join('');
 
