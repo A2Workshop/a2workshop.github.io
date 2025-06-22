@@ -495,9 +495,9 @@
                         <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
                         <br>
                         <ul class="nav nav-pills hide-mobile2">
-                            <li class="nav-item"><button onclick="showTab('tab2')" class="btn btn-warning fs-5 fw-bold"
+                            <!-- <li class="nav-item"><button onclick="showTab('tab2')" class="btn btn-warning fs-5 fw-bold"
                                     aria-current="page">Web</button>
-                            </li>
+                            </li> -->
                             <li class="nav-item"><button onclick="showTab('tab1')"
                                     class="btn btn-warning activeborder fs-5 fw-bold">Steam</button>
                             </li>
@@ -505,11 +505,11 @@
                         <!-- select mobile -->
                         <div class="hide-desktop2">
                             <select class="form-select custom-select" aria-label="Default select example">
-                                <option value="1">Web</option>
+                                <!-- <option value="1">Web</option> -->
                                 <option value="2" selected>Steam</option>
                             </select>
                         </div>
-                        <script>
+                        <!-- <script>
                             // when the user changes the select option, show the corresponding tab
                             const select = document.querySelector('.hide-desktop2 select');
                             select.addEventListener('change', function () {
@@ -521,7 +521,7 @@
                                     console.error('Invalid tab:', this.value);
                                 }
                             });
-                        </script>
+                        </script> -->
                         <br class="hide-desktop2">
                         <div class="container" id="tab1-comments">
                             <textarea class="form-control" id="comment-text" rows="3"
@@ -542,14 +542,14 @@
                                 </ul>
                             </div>
                         </div>
-                        <div id="tab2-comments">
+                        <!-- <div id="tab2-comments">
                             <script src="https://giscus.app/client.js" data-repo="Artur16211/a2workshop"
                                 data-repo-id="R_kgDOJct79w" data-category="General"
                                 data-category-id="DIC_kwDOJct7984CYF89" data-mapping="pathname" data-strict="0"
                                 data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
                                 data-theme="dark_dimmed" data-lang="es" crossorigin="anonymous" async>
                                 </script>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -596,7 +596,7 @@
             </div>
         </div>
     </footer>
-    <script>
+    <!-- <script>
         function showTab(tab) {
             const tab1Comments = document.getElementById('tab1-comments');
             const tab2Comments = document.getElementById('tab2-comments');
@@ -625,7 +625,7 @@
             });
         }
 
-    </script>
+    </script> -->
 </body>
 
 </html>
