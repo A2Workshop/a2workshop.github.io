@@ -23,7 +23,7 @@ function getCurrentProjectName() {
 function getJsonUrlsForProject(projectName) {
   const jsonMap = {
     'blackopsiiilatino': [
-      'https://artur16211.github.io/steamguide_comments/comments_4.json',
+      'https://artur16211.github.io/steamguide_comments/comments_1.json',
       'https://a2workshop.github.io/assets/js/archive_steamcomments.json'
     ],
     'blackopslatino': 'https://artur16211.github.io/steamguide_comments/comments_4.json',
