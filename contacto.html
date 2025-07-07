@@ -115,6 +115,21 @@
 
 </html>
 <script>
+    // Randomize accordion items
+        window.addEventListener('DOMContentLoaded', () => {
+        const accordion = document.querySelector('#accordionExample');
+        const items = Array.from(accordion.querySelectorAll('.accordion-item'));
+
+        for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [items[i], items[j]] = [items[j], items[i]];
+        }
+
+        accordion.innerHTML = '';
+        items.forEach(item => accordion.appendChild(item));
+    });
+
+    // Open accordions on desktop
     document.addEventListener("DOMContentLoaded", function () {
         if (window.innerWidth > 990) {
             const collapseOne = new bootstrap.Collapse(document.getElementById('collapseOne'), { toggle: true });
