@@ -23,7 +23,7 @@ nav {
     gap: 15px;
 }
 
-.megamenu-content{
+.megamenu-content {
     text-wrap: balance;
 }
 
@@ -46,6 +46,14 @@ nav {
 
     .logo_nav {
         display: none;
+    }
+}
+
+@media (max-width: 362px) {
+    .logo_nav {
+        height: 31px !important;
+        width: 50px !important;
+        margin: 0 !important;
     }
 }
 
