@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../assets/img/A2/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Descripción." />
+    <script src="../deps/bootstrap/js/popper.min.js"></script>
+    <link rel="stylesheet" href="../deps/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/gennav.css" />
+    <script src="../deps/jquery-3.6.4.min.js"></script>
+    <meta name="theme-color" content="#00000">
+    <link rel="canonical" href="https://a2workshop.github.io/proyectos/template" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="A2Workshop">
+    <meta property="og:description" content="Descripción.">
+    <meta property="og:image" content="https://a2workshop.github.io/assets/img/template/webpreview.webp">
+    <meta property="og:url" content="https://a2workshop.github.io/proyectos/template">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A2Workshop">
+    <meta name="twitter:description" content="Descripción.">
+    <meta name="twitter:image" content="https://a2workshop.github.io/assets/img/template/webpreview.webp">
+
+    <script src="../assets/js/common.js"></script>
+</head>
+
+<body class="bg-black text-light">
+    <div id="navbar-container"></div>
+    <script src="../assets/js/gennav.js"></script>
+    <div id="main-container">Test</div>
+</body>
+
+</html>
+<script src="../deps/bootstrap/js/bootstrap.js"></script>
+<script src="../deps/iconify.min.js"></script>
