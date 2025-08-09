@@ -71,19 +71,17 @@
 }
 
 @media (max-width: 768px) {
-  .video-wrapper {
-    max-height: 700px;
-  }
+    .video-wrapper {
+        max-height: 700px;
+    }
 
-  .video-wrapper iframe {
-    transform: translate(-50%, -50%) scale(
-      max(2, calc(100vh / 360))
-    );
-    transform-origin: center;
-    width: 960px;
-    height: 540px;
-    border: none;
-  }
+    .video-wrapper iframe {
+        transform: translate(-50%, -50%) scale(max(2, calc(100vh / 360)));
+        transform-origin: center;
+        width: 960px;
+        height: 540px;
+        border: none;
+    }
 }
 
 .pattern-overlay {

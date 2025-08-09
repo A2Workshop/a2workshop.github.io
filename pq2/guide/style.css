@@ -322,7 +322,7 @@ footer {
 .accordion-item {
     border-color: #f04e29 !important;
     border-radius: 0px !important;
-    background-color: #1b1b1b  !important;
+    background-color: #1b1b1b !important;
 }
 
 .accordion-button {
@@ -676,5 +676,5 @@ body {
 }
 
 .fallback-image {
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.9));
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.9));
 }

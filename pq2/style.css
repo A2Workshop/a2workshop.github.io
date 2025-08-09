@@ -353,10 +353,10 @@ body {
 }
 
 .fallback-image {
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.9));
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.9));
 }
 
-.h1-cust{
+.h1-cust {
     color: transparent;
     user-select: none;
     font-size: 14px;
