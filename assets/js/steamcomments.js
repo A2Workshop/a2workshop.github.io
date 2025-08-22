@@ -29,6 +29,7 @@ function getJsonUrlsForProject(projectName) {
     'blackopslatino': 'https://artur16211.github.io/steamguide_comments/comments_4.json',
     'infinitewarfarelatino': 'https://artur16211.github.io/steamguide_comments/comments_2.json',
     'modernwarfarerlatino': 'https://artur16211.github.io/steamguide_comments/comments_3.json',
+    'legobatman2latino': 'https://artur16211.github.io/steamguide_comments/comments_2.json',
     'default': 'https://example.com/comments/general_comments.json'
   };
 
