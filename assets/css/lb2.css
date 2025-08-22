@@ -13,7 +13,7 @@
     color: #dddddd;
 }
 
-b{
+b {
     text-decoration: underline;
 }
 
@@ -320,8 +320,15 @@ h6 {
 
 /* Comments/ */
 
-code{
+code {
     background-color: #333;
     color: #eee;
     border: 1px solid #555;
+}
+
+@media (max-width: 1200px) {
+    .img-fluid {
+        max-width: 100% !important;
+        height: auto;
+    }
 }
