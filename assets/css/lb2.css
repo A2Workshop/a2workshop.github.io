@@ -1,11 +1,11 @@
 ﻿@font-face {
     font-family: 'Courier New';
-    src: url('../font/CourierNewBold.ttf') format('truetype');
+    src: url('../../../assets/font/CourierNewBold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'motiva';
-    src: url('../font/MotivaSansRegular.woff.ttf') format('truetype');
+    src: url('../../../assets/font/MotivaSansRegular.woff.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -93,7 +93,7 @@ body {
 
 .bricks-top {
     height: 20px;
-    background-image: url('../img/LB2/Bricks.webp');
+    background-image: url('../../../assets/img/LB2/Bricks.webp');
     /* rgb(178, 178, 178) */
     background-repeat: round;
     background-size: auto 100%;
@@ -169,7 +169,7 @@ h2 {
 }
 
 .bg-bricksblack {
-    background-image: url('../img/LB2/blackblicks.webp');
+    background-image: url('../../../assets/img/LB2/blackblicks.webp');
     background-repeat: repeat;
     background-size: auto 100px;
     color: #eee;
@@ -203,7 +203,7 @@ button[data-bs-dismiss="offcanvas"] svg path {
 }
 
 hr {
-    background-image: url('../img/LB2/hr.jpg');
+    background-image: url('../../../assets/img/LB2/hr.jpg');
     background-repeat: round;
     background-size: contain;
     height: 13px;
@@ -254,7 +254,7 @@ h4 {
 
 /* Comments */
 .comments-col {
-    background-image: url('../img/LB2/test.jpg');
+    background-image: url('../../../assets/img/LB2/test.jpg');
     background-size: contain;
 }
 
