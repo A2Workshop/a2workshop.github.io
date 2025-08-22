@@ -6,20 +6,25 @@
 @font-face {
     font-family: 'motiva';
     src: url('../../../assets/font/MotivaSansRegular.woff.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 * {
     font-family: 'Courier New', monospace;
-    font-weight: bold;
     color: #111111;
+    font-weight: bold;
+}
+
+b{
+    text-decoration: underline;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.24);
 }
 
 body {
     background-image: url('../../../assets/img/LB2/blackblicks.webp');
     background-size: auto 100px;
     background-repeat: repeat;
+    font-size: 1.2rem;
 }
 
 #banner-container {
@@ -214,7 +219,7 @@ hr {
 
 .video-container {
     width: auto;
-    height: 315px;
+    height: 530px;
     margin: 0 auto;
 }
 
@@ -230,7 +235,7 @@ hr {
 }
 
 .steam-link img {
-    max-width: 200px;
+    max-width: 300px;
     height: auto;
 }
 
@@ -310,3 +315,9 @@ h6 {
 }
 
 /* Comments/ */
+
+code{
+    background-color: #333;
+    color: #eee;
+    border: 1px solid #555;
+}
