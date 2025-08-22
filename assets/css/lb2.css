@@ -311,6 +311,13 @@ h6 {
     color: #aaa;
 }
 
+.form-control:focus {
+    background-color: #333;
+    color: #eee;
+    border-color: #8b8b8b;
+    box-shadow: none;
+}
+
 /* Comments/ */
 
 code{
