@@ -7,12 +7,13 @@
     '../../assets/img/IW/images.steamusercontent.jpeg',
     '../../assets/img/MWR/MWR.webp',
     '../../pq2/img/es_logo/blackbg.webp',
-    '../../p4d/img/es_logo/blackbg.webp'
+    '../../p4d/img/es_logo/blackbg.webp',
+    '../../assets/img/LB2/icon.jpg'
   ];
 
   let currentMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 7; i++) {
     createLogo(logoUrls[i % logoUrls.length]);
   }
 

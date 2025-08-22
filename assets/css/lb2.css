@@ -193,6 +193,7 @@ h5 {
 footer {
     background-color: #000;
     padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 /* Close button color */
@@ -234,6 +235,13 @@ hr {
 .steam-link img {
     max-width: 300px;
     height: auto;
+}
+
+@media (max-width: 768px) {
+    .steam-link img {
+        max-width: 200px;
+        height: auto;
+    }
 }
 
 h3 {

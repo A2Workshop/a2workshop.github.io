@@ -40,6 +40,8 @@
                                 Español</a></li>
                     <li><a class="dropdown-item" href="/traducciones/p4despanol.html">(PS4/PSV) Persona 4 Dancing
                                 Traducción al Español</a></li>
+                    <li><a class="dropdown-item" href="/proyectos/legobatman2latino.html">(PC) Lego Batman 2 en
+                                Español Latino</a></li>
                 </ul>
             </li>
             <li class="nav-item hide-mobile2">
@@ -60,8 +62,10 @@
                             MWR Español Latino</a></li>
                 <li><a class="dropdown-item mt-2" href="/traducciones/pq2espanol.html">(3DS) Persona Q2 Traducción
                             al Español</a></li>
-                <li><a class="dropdown-item mt-2 mb-3" href="/traducciones/p4despanol.html">(PS4/PSV) P4D
+                <li><a class="dropdown-item mt-2" href="/traducciones/p4despanol.html">(PS4/PSV) P4D
                             Traducción al Español</a></li>
+                <li><a class="dropdown-item mt-2 mb-3" href="/proyectos/legobatman2latino.html">(PC) Lego Batman 2 en
+                            Español Latino</a></li>
             </div>
         </ul>
     </div>
