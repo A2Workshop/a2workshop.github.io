@@ -95,7 +95,7 @@ body {
 
 .bricks-top {
     height: 20px;
-    background-image: url('../../../assets/img/LB2/Bricks.webp');
+    background-image: url('../assets/img/LB2/Bricks.webp');
     /* rgb(178, 178, 178) */
     background-repeat: round;
     background-size: auto 100%;
