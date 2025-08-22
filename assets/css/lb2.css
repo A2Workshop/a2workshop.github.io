@@ -10,14 +10,11 @@
 
 * {
     font-family: 'Courier New', monospace;
-    color: #111111;
-    font-weight: bold;
+    color: #dddddd;
 }
 
 b{
     text-decoration: underline;
-    font-weight: bolder;
-    text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.24);
 }
 
 body {
@@ -107,7 +104,7 @@ body {
 
 .bricks-content {
     /* background-color: rgb(178, 178, 178); */
-    background-color: #BDBDBD;
+    background-color: #424242;
     padding: 1rem;
     font-family: 'motiva';
 }
