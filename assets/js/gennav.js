@@ -56,9 +56,9 @@ const menuItems = [
   { href: '/proyectos/blackopslatino.html', imgPath: 'assets/img/BO1/logo.webp', alt: 'bolalogo', text: '(PC) Call of Duty: Black Ops Zombies Español Latino' },
   { href: '/proyectos/infinitewarfarelatino.html', imgPath: 'assets/img/IW/images.steamusercontent.jpeg', alt: 'iwlalogo', text: '(PC) Call of Duty: Infinite Warfare Español Latino' },
   { href: '/proyectos/modernwarfarerlatino.html', imgPath: 'assets/img/MWR/MWR.webp', alt: 'mwlalogo', text: '(PC) Call of Duty: Modern Warfare Remastered Español Latino' },
+  { href: '/proyectos/legobatman2latino.html', imgPath: 'assets/img/LB2/icon.jpg', alt: 'legobatman2latino', text: '(PC) Lego Batman 2 en Español Latino' },
   { href: '/traducciones/pq2espanol.html', imgPath: 'pq2/img/es_logo/blackbg.webp', alt: 'pq2eslogo', text: '(3DS) Persona Q2 Traducción al Español' },
-  { href: '/traducciones/p4despanol.html', imgPath: 'p4d/img/es_logo/blackbg.webp', alt: 'p4deslogo', text: '(PS4/PSV) Persona 4 Dancing Traducción al Español' },
-  { href: '/proyectos/legobatman2latino.html', imgPath: 'assets/img/LB2/icon.jpg', alt: 'legobatman2latino', text: '(PC) Lego Batman 2 en Español Latino' }
+  { href: '/traducciones/p4despanol.html', imgPath: 'p4d/img/es_logo/blackbg.webp', alt: 'p4deslogo', text: '(PS4/PSV) Persona 4 Dancing Traducción al Español' }
 ];
 
 function generarNavbar() {
