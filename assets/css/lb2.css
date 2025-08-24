@@ -343,4 +343,5 @@ code {
 
 .steam-link .custom-btn {
     border-color: #115bfc !important;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
 }
