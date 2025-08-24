@@ -227,6 +227,13 @@ hr {
     display: block;
 }
 
+@media (max-width: 768px) {
+    .video-container {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .steam-link {
     margin: 10px 0;
     text-align: center;
@@ -344,4 +351,16 @@ code {
 .steam-link .custom-btn {
     border-color: #115bfc !important;
     box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+@media (max-width: 1200px) {
+    .index-nav {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 990px) {
+    .index-nav {
+        font-size: 9px;
+    }
 }
