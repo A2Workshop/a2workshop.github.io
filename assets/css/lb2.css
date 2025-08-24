@@ -340,3 +340,7 @@ code {
         height: auto;
     }
 }
+
+.steam-link .custom-btn {
+    border-color: #115bfc !important;
+}
