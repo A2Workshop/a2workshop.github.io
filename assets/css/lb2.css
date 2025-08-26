@@ -363,4 +363,11 @@ code {
     .index-nav {
         font-size: 9px;
     }
+
+    .capturas {
+        max-height: 300px;
+        object-fit: cover;
+        width: 100%;
+        height: 180px;
+    }
 }
