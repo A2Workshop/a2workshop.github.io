@@ -95,7 +95,7 @@ body {
 
 .bricks-top {
     height: 20px;
-    background-image: url('../../../assets/img/LB2/bricks.png');
+    background-image: url('../../../assets/img/LB2/bricks.webp');
     /* rgb(178, 178, 178) */
     background-repeat: round;
     background-size: auto 100%;
@@ -206,7 +206,7 @@ button[data-bs-dismiss="offcanvas"] svg path {
 }
 
 hr {
-    background-image: url('../../../assets/img/LB2/hr.jpg');
+    background-image: url('../../../assets/img/LB2/hr.webp');
     background-repeat: round;
     background-size: contain;
     height: 13px;
@@ -271,7 +271,7 @@ h4 {
 
 /* Comments */
 .comments-col {
-    background-image: url('../../../assets/img/LB2/test.jpg');
+    background-image: url('../../../assets/img/LB2/test.webp');
     background-size: contain;
     font-size: 16px;
 }
