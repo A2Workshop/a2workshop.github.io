@@ -273,11 +273,13 @@ h4 {
 .comments-col {
     background-image: url('../../../assets/img/LB2/test.jpg');
     background-size: contain;
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {
     .comments-col {
         background-size: 1024px;
+        font-size: 12px;
     }
 }
 
