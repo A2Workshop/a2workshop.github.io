@@ -63,7 +63,7 @@ function formatFechaHora(fechaHoraString) {
 
 // Función para mostrar comentarios de la página actual
 function displayCurrentPageComments() {
-  const commentsContainer = document.getElementById('comments');
+  const commentsContainer = document.getElementById('comentarios');
   commentsContainer.innerHTML = ''; // Limpiar contenedor
 
   // Calcular índices de los comentarios a mostrar
