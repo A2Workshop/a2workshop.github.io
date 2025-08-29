@@ -374,6 +374,12 @@ code {
     }
 }
 
-.footer{
+.footer {
     font-size: 1rem;
+}
+
+.megamenu-content a,
+.contacto-hover,
+.megamenu>a {
+    text-decoration: none !important;
 }
