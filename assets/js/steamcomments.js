@@ -144,6 +144,7 @@ function updatePaginationControls() {
     'blackopslatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478642806#commentthread_PublishedFile_Public_76561198840412181_3478642806_form',
     'infinitewarfarelatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146#commentthread_PublishedFile_Public_76561199112392013_3438530146_form',
     'modernwarfarerlatino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478574794#commentthread_PublishedFile_Public_76561199112392013_3478574794_form',
+    'legobatman2latino': 'https://steamcommunity.com/sharedfiles/filedetails/?id=3553528011#commentthread_PublishedFile_Public_76561198851405406_3553528011_form'
   };
 
   const isSpecialProject = Object.keys(specialProjects).includes(currentProject);
