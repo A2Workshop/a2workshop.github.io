@@ -4,15 +4,15 @@ let currentPage = 1;
 let totalPages = 1;
 let allComments = [];
 
-// Obtener el nombre del proyecto actual (maneja con y sin .html)
+// Extraer el nombre de la URL
 function getCurrentProjectName() {
   const path = window.location.pathname;
 
-  // Extraer el nombre del proyecto de la URL (ej: "blackopsiiilatino" o "blackopsiiilatino.html")
+  // Extraer el nombre de la URL
   const projectMatch = path.match(/\/proyectos\/([^\/]+?)(?:\.html)?$/);
 
   if (projectMatch) {
-    // Remover .html si está presente y convertir a minúsculas para consistencia
+    // Remover .html si está presente
     return projectMatch[1].toLowerCase().replace('.html', '');
   }
 
@@ -33,15 +33,14 @@ function getJsonUrlsForProject(projectName) {
     'default': 'https://example.com/comments/general_comments.json'
   };
 
-  // Buscar el nombre del proyecto (sin importar mayúsculas/minúsculas)
+  // Buscar el nombre del proyecto
   const normalizedProjectName = projectName.toLowerCase();
   const urls = jsonMap[normalizedProjectName] || jsonMap['default'];
 
-  // Asegurarse de devolver siempre un array
   return Array.isArray(urls) ? urls : [urls];
 }
 
-// Función para formatear la fecha y hora
+// Formatear la fecha y hora
 function formatFechaHora(fechaHoraString) {
   var opcionesFecha = {
     timeZone: 'America/Mexico_City',
