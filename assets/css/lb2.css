@@ -383,3 +383,9 @@ code {
 .megamenu>a {
     text-decoration: none !important;
 }
+
+@media (min-width: 768px) {
+    #instalacion video {
+        width: 70%;
+    }
+}
