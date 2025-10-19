@@ -35,18 +35,21 @@
     <div id="navbar-container"></div>
     <script src="../../assets/js/gennav.js"></script>
 
-    <div class="video-wrapper position-relative">
-        <div id="video-loader"
-            class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-black">
+    <div class="video-wrapper">
+        <div id="video-loader" class="video-loader">
             <div class="spinner-border text-light" role="status">
                 <span class="visually-hidden">Cargando...</span>
             </div>
         </div>
-        <iframe class="video-background"
+
+        <iframe
             src="https://www.youtube.com/embed/AENzjfi1S0Q?rel=0&autoplay=1&mute=1&loop=1&playlist=AENzjfi1S0Q&controls=0&modestbranding=1&fs=0&disablekb=1&iv_load_policy=3"
-            frameborder="0" allowfullscreen onload="document.getElementById('video-loader').style.display='none';">
+            frameborder="0" allow="autoplay; fullscreen" allowfullscreen
+            onload="document.getElementById('video-loader').style.display='none';">
         </iframe>
+
         <div class="pattern-overlay"></div>
+
         <div class="container text-center logo-container">
             <img src="../p4d/img/es_logo/es_logo.webp" alt="Logo" class="logo_p4d img-fluid">
             <a class="text-overbg text-white text-white-outline text-decoration-none"><b>PRÓXIMAMENTE</b></a><br>
