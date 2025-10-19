@@ -138,14 +138,14 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     transition: transform 0.1s;
-    animation: temblorFuerte 0.5s;
+    animation: temblorInicial 0.6s;
 }
 
 .logo-container .logo_p4d:hover {
-    animation: temblorInicial 0.5s;
+    animation: temblorHover 0.5s;
 }
 
-@keyframes temblorFuerte {
+@keyframes temblorInicial {
     0% {
         transform: translate(0);
     }
@@ -171,7 +171,7 @@
     }
 }
 
-@keyframes temblorInicial {
+@keyframes temblorHover {
     0% {
         transform: translate(0);
     }
