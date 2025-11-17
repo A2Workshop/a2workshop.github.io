@@ -367,6 +367,23 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            new bootstrap.Carousel('#comparisonCarouselDesktop', {
+                touch: false
+            });
+
+            const carouselEl = document.getElementById('comparisonCarousel');
+            new bootstrap.Carousel(carouselEl, {
+                touch: false,
+                interval: 5000,
+                pause: 'hover'
+            });
+
+            carouselEl.addEventListener('slid.bs.carousel', () => {
+                const active = carouselEl.querySelector('.carousel-item.active .image-comparator');
+                if (active) initComparator(active);
+            });
+
+            document.querySelectorAll('.image-comparator').forEach(initComparator);
 
             let galleryImages = [];
             let currentIndex = 0;
@@ -389,24 +406,17 @@
                 const imgSrc = galleryImages[index];
                 const label = document.getElementById("imageLabel");
 
-                if (imgSrc.includes("_ps4")) {
-                    label.textContent = "PS4";
-                    label.style.display = "block";
-                } else if (imgSrc.includes("_psv")) {
-                    label.textContent = "PS Vita";
-                    label.style.display = "block";
-                } else {
-                    label.style.display = "none";
-                }
+                if (imgSrc.includes("_ps4")) { label.textContent = "PS4"; label.style.display = "block"; }
+                else if (imgSrc.includes("_psv")) { label.textContent = "PS Vita"; label.style.display = "block"; }
+                else label.style.display = "none";
 
                 document.getElementById("modalImage").src = imgSrc;
-
                 blockDoubleTap = true;
-
                 modalInstance.show();
             }
 
             document.querySelectorAll('.image-comparator').forEach((comparator, compIndex) => {
+
                 comparator.addEventListener('click', e => {
                     if (e.target.classList.contains('slider')) return;
 
@@ -416,6 +426,7 @@
                     if (clickX < rect.width / 2) showImage(compIndex * 2);
                     else showImage(compIndex * 2 + 1);
                 });
+
             });
 
             document.getElementById("nextImage").addEventListener("click", () => {
@@ -427,8 +438,81 @@
                 currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
                 showImage(currentIndex);
             });
-
         });
+
+        function initComparator(comparator) {
+            const afterImage = comparator.querySelector('.image-after');
+            const slider = comparator.querySelector('.slider');
+            const labels = comparator.querySelector('.comparator-labels');
+            const leftLabel = labels.querySelector('.label-left');
+            const rightLabel = labels.querySelector('.label-right');
+
+            let isDragging = false;
+
+            const saved = comparator.getAttribute('data-slider-position');
+            let initialPct = saved ? parseFloat(saved) : 50;
+
+            afterImage.style.clipPath = `inset(0 0 0 ${initialPct}%)`;
+            slider.style.left = `${initialPct}%`;
+            comparator.setAttribute('data-slider-position', initialPct);
+
+            updateLabels(initialPct);
+
+            function updateLabels(pct) {
+                if (pct <= 20) { leftLabel.classList.add('hidden'); rightLabel.classList.remove('hidden'); }
+                else if (pct >= 75) { rightLabel.classList.add('hidden'); leftLabel.classList.remove('hidden'); }
+                else { rightLabel.classList.remove('hidden'); leftLabel.classList.remove('hidden'); }
+            }
+
+            function updateSliderPosition(clientX) {
+                const rect = comparator.getBoundingClientRect();
+                let x = clientX - rect.left;
+                let pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+
+                afterImage.style.clipPath = `inset(0 0 0 ${pct}%)`;
+                slider.style.left = `${pct}%`;
+                comparator.setAttribute('data-slider-position', pct);
+
+                updateLabels(pct);
+            }
+
+            slider.addEventListener('mousedown', e => {
+                isDragging = true;
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', e => {
+                if (isDragging) updateSliderPosition(e.clientX);
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            slider.addEventListener('touchstart', e => {
+                isDragging = true;
+                e.preventDefault();
+
+                const carousel = bootstrap.Carousel.getInstance(
+                    document.getElementById('comparisonCarousel')
+                );
+                if (carousel) carousel.pause();
+            });
+
+            document.addEventListener('touchmove', e => {
+                if (isDragging) updateSliderPosition(e.touches[0].clientX);
+            });
+
+            document.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+
+                const carousel = bootstrap.Carousel.getInstance(
+                    document.getElementById('comparisonCarousel')
+                );
+                if (carousel) carousel.cycle();
+            });
+        }
     </script>
     <script src="../deps/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
