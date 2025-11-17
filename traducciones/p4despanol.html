@@ -447,7 +447,7 @@
             const now = Date.now();
             const tapDiff = now - lastTapTime;
 
-            if (tapDiff < 300 && tapDiff > 0) {
+            if (tapDiff < 500 && tapDiff > 0) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
             }
