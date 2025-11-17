@@ -457,3 +457,13 @@ footer {
 .modal-content {
     background-color: #ffffff00;
 }
+
+#imageModal img {
+    touch-action: none !important;
+}
+
+.btn-close {
+    background-color: #ff33ff !important;
+    opacity: 0.8;
+    box-shadow: 0 0 5px #ff33ff;
+}

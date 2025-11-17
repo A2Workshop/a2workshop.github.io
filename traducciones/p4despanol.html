@@ -297,23 +297,33 @@
             </div>
         </div>
         <div class="modal fade" id="imageModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-body p-0 text-center position-relative">
+            <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                <div class="modal-content border-0 bg-black">
 
-                        <img id="modalImage" src="" class="img-fluid">
-
-                        <div id="imageLabel" class="mx-auto mt-1"
-                            style="background: #0070ccd3; display:none; width: fit-content;">
-                        </div>
-
+                    <div class="modal-header hide-mobile3 border-0">
+                        <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"></button>
                     </div>
-                    <button class="carousel-control-prev position-absolute top-50 translate-middle-y" id="prevImage">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </button>
-                    <button class="carousel-control-next position-absolute top-50 translate-middle-y" id="nextImage">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </button>
+
+                    <div class="modal-body p-0 text-center">
+                        <img id="modalImage" class="img-fluid"
+                            style="max-width: 100%; max-height: 90%; object-fit: contain; touch-action:none;">
+
+                        <div id="imageLabel" class="mt-2 text-white px-3 py-1 rounded mx-auto"
+                            style="background: #0070ccd3; width: fit-content; display:none;">
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-close bg-white hide-desktop3 mt-2"
+                        data-bs-dismiss="modal"></button>
+
+                    <a id="prevImage" class="position-absolute top-50 start-0 translate-middle-y ms-4">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+
+                    <a id="nextImage" class="position-absolute top-50 end-0 translate-middle-y me-4">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -375,6 +385,7 @@
 
             function showImage(index) {
                 currentIndex = index;
+
                 const imgSrc = galleryImages[index];
                 const label = document.getElementById("imageLabel");
 
@@ -396,15 +407,13 @@
             }
 
             document.querySelectorAll('.image-comparator').forEach((comparator, compIndex) => {
-
                 comparator.addEventListener('click', e => {
                     if (e.target.classList.contains('slider')) return;
 
                     const rect = comparator.getBoundingClientRect();
                     const clickX = e.clientX - rect.left;
-                    const midpoint = rect.width / 2;
 
-                    if (clickX < midpoint) showImage(compIndex * 2);
+                    if (clickX < rect.width / 2) showImage(compIndex * 2);
                     else showImage(compIndex * 2 + 1);
                 });
             });
@@ -419,41 +428,7 @@
                 showImage(currentIndex);
             });
 
-            new bootstrap.Carousel('#comparisonCarouselDesktop', { touch: false });
-
-            const carouselEl = document.getElementById('comparisonCarousel');
-            new bootstrap.Carousel(carouselEl, {
-                touch: false,
-                interval: 5000,
-                pause: 'hover'
-            });
-
-            carouselEl.addEventListener('slid.bs.carousel', () => {
-                const active = carouselEl.querySelector('.carousel-item.active .image-comparator');
-                if (active) initComparator(active);
-            });
-
-            document.querySelectorAll('.image-comparator').forEach(initComparator);
-
         });
-
-        // disable double tap mobile
-        let blockDoubleTap = false;
-        let lastTapTime = 0;
-
-        document.addEventListener("touchend", function (e) {
-            if (!blockDoubleTap) return;
-
-            const now = Date.now();
-            const tapDiff = now - lastTapTime;
-
-            if (tapDiff < 500 && tapDiff > 0) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
-            }
-
-            lastTapTime = now;
-        }, { passive: false });
     </script>
     <script src="../deps/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
