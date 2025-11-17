@@ -364,6 +364,10 @@
             const modalElement = document.getElementById("imageModal");
             const modalInstance = new bootstrap.Modal(modalElement);
 
+            modalElement.addEventListener('hidden.bs.modal', () => {
+                blockDoubleTap = false;
+            });
+
             document.querySelectorAll('.image-comparator').forEach(comp => {
                 galleryImages.push(comp.querySelector('.image-before').src);
                 galleryImages.push(comp.querySelector('.image-after').src);
@@ -385,6 +389,9 @@
                 }
 
                 document.getElementById("modalImage").src = imgSrc;
+
+                blockDoubleTap = true;
+
                 modalInstance.show();
             }
 
@@ -430,25 +437,24 @@
 
         });
 
-        const modalNavButtons = document.querySelectorAll("#prevImage, #nextImage");
-        let lastTapBtn = 0;
+        // disable double tap mobile
+        let blockDoubleTap = false;
+        let lastTapTime = 0;
 
-        modalNavButtons.forEach(btn => {
-            btn.addEventListener("touchend", function (e) {
-                const currentTime = Date.now();
-                const tapLength = currentTime - lastTapBtn;
+        document.addEventListener("touchend", function (e) {
+            if (!blockDoubleTap) return;
 
-                if (tapLength < 300 && tapLength > 0) {
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    return;
-                }
+            const now = Date.now();
+            const tapDiff = now - lastTapTime;
 
-                lastTapBtn = currentTime;
-            }, { passive: false });
-        });
+            if (tapDiff < 300 && tapDiff > 0) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            }
+
+            lastTapTime = now;
+        }, { passive: false });
     </script>
-
     <script src="../deps/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
