@@ -298,25 +298,24 @@
         </div>
         <div class="modal fade" id="imageModal" tabindex="-1">
             <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content border-0 bg-black">
+                <div class="modal-content border-0 bg-black position-relative">
 
                     <div class="modal-header hide-mobile3 border-0">
                         <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"></button>
                     </div>
 
-                    <div class="modal-header d-flex justify-content-center border-0 hide-desktop3">
-                        <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <div class="modal-body p-0 d-flex flex-column justify-content-center align-items-center">
-
+                    <div
+                        class="modal-body p-0 d-flex flex-column justify-content-center align-items-center position-relative">
+                        <div id="imageLabel"
+                            class="position-absolute top-0 start-50 translate-middle-x mt-2 px-3 py-1 text-white fw-bold"
+                            style="background:#0070ccd3; border-radius:4px; display:none; z-index:20;">
+                        </div>
                         <img id="modalImage" class="img-fluid"
-                            style="max-width:100%; max-height:90%; object-fit:contain;">
-
-                        <div id="imageLabel" class="mx-auto mt-2"
-                            style="background:#0070ccd3; width:fit-content; display:none;"></div>
+                            style="max-width:100%; max-height:80vh; object-fit:contain;">
+                        <button type="button"
+                            class="btn-close bg-white hide-desktop3 mt-3 position-relative mobile-close-btn"
+                            data-bs-dismiss="modal"></button>
                     </div>
-
                     <a id="prevImage" class="position-absolute top-50 start-0 translate-middle-y ms-4">
                         <span class="carousel-control-prev-icon"></span>
                     </a>
@@ -324,11 +323,9 @@
                     <a id="nextImage" class="position-absolute top-50 end-0 translate-middle-y me-4">
                         <span class="carousel-control-next-icon"></span>
                     </a>
-
                 </div>
             </div>
         </div>
-
     </div>
 
     <footer class="footer mt-5 hide-desktop3">
