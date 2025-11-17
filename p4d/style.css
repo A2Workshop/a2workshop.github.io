@@ -345,6 +345,7 @@ footer {
     box-sizing: border-box;
 }
 
+#imageLabel,
 .label-left,
 .label-right {
     background-color: #0070ccd3;
@@ -447,4 +448,12 @@ footer {
 .logo_nav:hover,
 .a2logofooter:hover {
     filter: drop-shadow(0 0 1px #ff33ff) drop-shadow(0 0 5px #ff33ff);
+}
+
+.bg-transparent {
+    background-color: #00000000 !important;
+}
+
+.modal-content {
+    background-color: #ffffff00;
 }
