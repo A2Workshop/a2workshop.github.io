@@ -429,6 +429,22 @@
             document.querySelectorAll('.image-comparator').forEach(initComparator);
 
         });
+
+        let disableDoubleTap = false;
+        let lastTap = 0;
+
+        document.addEventListener("touchend", function (e) {
+            if (!disableDoubleTap) return;
+
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+
+            if (tapLength < 300 && tapLength > 0) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            }
+            lastTap = currentTime;
+        }, { passive: false });
     </script>
 
     <script src="../deps/bootstrap/js/bootstrap.bundle.min.js"></script>
