@@ -430,21 +430,23 @@
 
         });
 
-        let disableDoubleTap = false;
-        let lastTap = 0;
+        const modalNavButtons = document.querySelectorAll("#prevImage, #nextImage");
+        let lastTapBtn = 0;
 
-        document.addEventListener("touchend", function (e) {
-            if (!disableDoubleTap) return;
+        modalNavButtons.forEach(btn => {
+            btn.addEventListener("touchend", function (e) {
+                const currentTime = Date.now();
+                const tapLength = currentTime - lastTapBtn;
 
-            const currentTime = new Date().getTime();
-            const tapLength = currentTime - lastTap;
+                if (tapLength < 300 && tapLength > 0) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    return;
+                }
 
-            if (tapLength < 300 && tapLength > 0) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
-            }
-            lastTap = currentTime;
-        }, { passive: false });
+                lastTapBtn = currentTime;
+            }, { passive: false });
+        });
     </script>
 
     <script src="../deps/bootstrap/js/bootstrap.bundle.min.js"></script>
