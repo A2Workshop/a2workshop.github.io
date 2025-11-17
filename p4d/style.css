@@ -472,20 +472,8 @@ footer {
     padding: 0 !important;
 }
 
-.mobile-close-btn {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#imageLabel {
-    font-size: 14px;
-}
-
 #modalImage {
+    max-width: 100vw;
     max-height: 80vh;
     object-fit: contain;
-}
-
-.modal-body {
-    position: relative;
 }
