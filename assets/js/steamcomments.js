@@ -23,13 +23,13 @@ function getCurrentProjectName() {
 function getJsonUrlsForProject(projectName) {
   const jsonMap = {
     'blackopsiiilatino': [
-      'https://artur16211.github.io/steamguide_comments/comments_1.json',
+      'https://a2workshop.github.io/steamguide_comments/comments_1.json',
       'https://a2workshop.github.io/assets/js/archive_steamcomments.json'
     ],
-    'blackopslatino': 'https://artur16211.github.io/steamguide_comments/comments_4.json',
-    'infinitewarfarelatino': 'https://artur16211.github.io/steamguide_comments/comments_2.json',
-    'modernwarfarerlatino': 'https://artur16211.github.io/steamguide_comments/comments_3.json',
-    'legobatman2latino': 'https://artur16211.github.io/steamguide_comments/comments_5.json',
+    'blackopslatino': 'https://a2workshop.github.io/steamguide_comments/comments_4.json',
+    'infinitewarfarelatino': 'https://a2workshop.github.io/steamguide_comments/comments_2.json',
+    'modernwarfarerlatino': 'https://a2workshop.github.io/steamguide_comments/comments_3.json',
+    'legobatman2latino': 'https://a2workshop.github.io/steamguide_comments/comments_5.json',
     'default': 'https://example.com/comments/general_comments.json'
   };
 
