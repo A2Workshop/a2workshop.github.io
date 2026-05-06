@@ -39,7 +39,6 @@
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         const accordion = document.querySelector('#accordionExample');
-
         const item1 = `
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
@@ -78,13 +77,11 @@
                 </div>
             </div>
         </div>`;
-
         if (Math.random() < 0.5) {
-            accordion.innerHTML = item1 + item2;
+            accordion.innerHTML = item1
         } else {
-            accordion.innerHTML = item2 + item1;
+            accordion.innerHTML = item2
         }
-
         if (window.innerWidth > 990) {
             document.querySelectorAll(".accordion-collapse").forEach(item => {
                 item.removeAttribute("data-bs-parent");
