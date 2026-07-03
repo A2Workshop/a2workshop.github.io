@@ -27,28 +27,55 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate hashes for static files
+      - name: Build static site
         run: |
-          find . -type f \( -iname '*.css' -o -iname '*.js' -o -iname '*.jpeg' -o -iname '*.jpg' -o -iname '*.png' -o -iname '*.webm' -o -iname '*.webp' -o -iname '*.gif' \) ! -iname 'bootstrap*' | while read file; do
-            hash=$(sha256sum "$file" | cut -d ' ' -f 1)
-            dir=$(dirname "$file")
-            base=$(basename "$file")
-            ext="${base##*.}"
-            name="${base%.*}"
-            new_name="$dir/$name-$hash.$ext"
-            mv "$file" "$new_name"
-            echo "$file -> $new_name" >> hash_mapping.txt
-          done
+          rm -rf _site
+          mkdir -p _site
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '_site/' \
+            ./ _site/
 
-          if [ -f hash_mapping.txt ]; then
-            while IFS= read -r line; do
-              old_file=$(echo "$line" | cut -d ' ' -f 1)
-              new_file=$(echo "$line" | cut -d ' ' -f 3)
-              old_file_rel=${old_file#./}
-              new_file_rel=${new_file#./}
-              grep -rl "$old_file_rel" --include=\*.{css,html,js} . | xargs -r sed -i "s|$old_file_rel|$new_file_rel|g"
-            done < hash_mapping.txt
-          fi
+          python3 <<'PY'
+          from __future__ import annotations
+          import hashlib
+          from pathlib import Path
+
+          root = Path("_site")
+          hashable_suffixes = {".css", ".js", ".jpeg", ".jpg", ".png", ".webm", ".webp", ".gif"}
+          reference_suffixes = {".css", ".html", ".js"}
+          mapping: dict[str, str] = {}
+
+          files = sorted(path for path in root.rglob("*") if path.is_file())
+
+          for path in files:
+              if path.suffix.lower() not in hashable_suffixes:
+                  continue
+              if path.name.lower().startswith("bootstrap"):
+                  continue
+
+              digest = hashlib.sha256(path.read_bytes()).hexdigest()
+              new_name = f"{path.stem}-{digest}{path.suffix}"
+              new_path = path.with_name(new_name)
+              relative_old = path.relative_to(root).as_posix()
+              relative_new = new_path.relative_to(root).as_posix()
+
+              path.rename(new_path)
+              mapping[relative_old] = relative_new
+
+          for path in sorted(root.rglob("*")):
+              if not path.is_file() or path.suffix.lower() not in reference_suffixes:
+                  continue
+
+              text = path.read_text(encoding="utf-8")
+              updated = text
+              for old, new in mapping.items():
+                  updated = updated.replace(old, new)
+
+              if updated != text:
+                  path.write_text(updated, encoding="utf-8")
+          PY
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -56,7 +83,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
