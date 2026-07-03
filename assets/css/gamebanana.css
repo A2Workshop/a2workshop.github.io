@@ -73,7 +73,8 @@ main {
     position: absolute;
     top: 8px;
     left: 0px;
-    display: flex;
+    /* display: flex; */
+    display: none;
     gap: 6px;
     z-index: 1;
 }
