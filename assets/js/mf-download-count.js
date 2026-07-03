@@ -60,6 +60,12 @@ function getMediaFireSources(element) {
   ];
 }
 
+function getStaticDownloadBonus(element) {
+  const rawBonus = element.dataset.mediafireStaticDownloads ?? element.dataset.mediafireDownloadOffset ?? '0';
+  const parsedBonus = Number.parseInt(rawBonus, 10);
+  return Number.isFinite(parsedBonus) ? parsedBonus : 0;
+}
+
 async function getSourceDownloadCount(source) {
   const folderKey = source.folderKey;
   const targetFilename = source.filename;
@@ -90,14 +96,15 @@ async function getSourceDownloadCount(source) {
 
 async function updateMediaFireDownloadCount(element) {
   const sources = getMediaFireSources(element);
+  const staticDownloadBonus = getStaticDownloadBonus(element);
 
-  if (sources.length === 0) {
+  if (sources.length === 0 && staticDownloadBonus === 0) {
     return;
   }
 
   try {
     const downloadCounts = await Promise.all(sources.map((source) => getSourceDownloadCount(source)));
-    const totalDownloadCount = downloadCounts.reduce((total, count) => total + count, 0);
+    const totalDownloadCount = downloadCounts.reduce((total, count) => total + count, staticDownloadBonus);
 
     const formattedCount = Number.isFinite(totalDownloadCount)
       ? new Intl.NumberFormat('es-MX').format(totalDownloadCount)
