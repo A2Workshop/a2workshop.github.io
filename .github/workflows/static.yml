@@ -2,7 +2,8 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -11,80 +12,161 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-24.04
-    steps:
+  build:
+    runs-on: ubuntu-latest
 
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Build static site
+      - name: Build static site with hashed assets
+        shell: bash
         run: |
+          set -euo pipefail
+
           rm -rf _site
           mkdir -p _site
+
           rsync -a \
             --exclude '.git/' \
             --exclude '.github/' \
             --exclude '_site/' \
             ./ _site/
 
+          touch _site/.nojekyll
+
           python3 <<'PY'
           from __future__ import annotations
+
           import hashlib
           from pathlib import Path
 
           root = Path("_site")
-          hashable_suffixes = {".css", ".js", ".jpeg", ".jpg", ".png", ".webm", ".webp", ".gif"}
-          reference_suffixes = {".css", ".html", ".js"}
+
+          hashable_suffixes = {
+              ".css",
+              ".js",
+              ".jpeg",
+              ".jpg",
+              ".png",
+              ".webm",
+              ".webp",
+              ".gif",
+              ".ico",
+              ".svg"
+          }
+
+          reference_suffixes = {
+              ".html",
+              ".css",
+              ".js",
+              ".json",
+              ".webmanifest"
+          }
+
+          # No hashear dependencias externas para reducir riesgo.
+          # Si quieres hashear también deps/, borra "deps" de esta lista.
+          ignored_top_dirs = {
+              "deps"
+          }
+
           mapping: dict[str, str] = {}
 
           files = sorted(path for path in root.rglob("*") if path.is_file())
 
           for path in files:
-              if path.suffix.lower() not in hashable_suffixes:
-                  continue
-              if path.name.lower().startswith("bootstrap"):
+              relative_parts = path.relative_to(root).parts
+
+              if relative_parts and relative_parts[0] in ignored_top_dirs:
                   continue
 
-              digest = hashlib.sha256(path.read_bytes()).hexdigest()
+              if path.suffix.lower() not in hashable_suffixes:
+                  continue
+
+              if path.name == ".nojekyll":
+                  continue
+
+              content = path.read_bytes()
+              digest = hashlib.sha256(content).hexdigest()[:12]
+
               new_name = f"{path.stem}-{digest}{path.suffix}"
               new_path = path.with_name(new_name)
+
               relative_old = path.relative_to(root).as_posix()
               relative_new = new_path.relative_to(root).as_posix()
 
               path.rename(new_path)
               mapping[relative_old] = relative_new
 
+          # Reemplaza referencias dentro de HTML/CSS/JS/etc.
+          # Orden largo -> corto para evitar reemplazos parciales raros.
+          ordered_mapping = sorted(
+              mapping.items(),
+              key=lambda item: len(item[0]),
+              reverse=True
+          )
+
           for path in sorted(root.rglob("*")):
-              if not path.is_file() or path.suffix.lower() not in reference_suffixes:
+              if not path.is_file():
                   continue
 
-              text = path.read_text(encoding="utf-8")
+              if path.suffix.lower() not in reference_suffixes:
+                  continue
+
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except UnicodeDecodeError:
+                  continue
+
               updated = text
-              for old, new in mapping.items():
+
+              for old, new in ordered_mapping:
                   updated = updated.replace(old, new)
+                  updated = updated.replace("/" + old, "/" + new)
+                  updated = updated.replace("./" + old, "./" + new)
+                  updated = updated.replace("../" + old, "../" + new)
+                  updated = updated.replace("../../" + old, "../../" + new)
+                  updated = updated.replace("../../../" + old, "../../../" + new)
 
               if updated != text:
                   path.write_text(updated, encoding="utf-8")
+
+          print(f"Hashed assets: {len(mapping)}")
           PY
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5 
+          echo "Removing symlinks if any..."
+          find _site -type l -print -delete
 
-      - name: Upload artifact
+          echo "Checking required index..."
+          test -f _site/index.html
+
+          echo "Site size:"
+          du -sh _site
+
+          echo "Main generated files:"
+          find _site -maxdepth 3 -type f | sort | head -200
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './_site'
+          path: _site
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
