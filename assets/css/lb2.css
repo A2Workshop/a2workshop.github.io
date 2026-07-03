@@ -363,6 +363,30 @@ code {
     box-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
+.download-count-panel {
+    background-color: rgba(0, 0, 0, 0.32);
+    border: 2px solid rgba(1, 81, 252, 0.55);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+    border-radius: 6px;
+    margin-top: 0.65rem;
+    margin-bottom: 0.65rem;
+    padding: 0.55rem 0.7rem;
+}
+
+.download-count-text {
+    margin: 0;
+    color: #eee;
+    font-family: 'motiva', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.download-count-value {
+    font-weight: 700;
+    color: #fff;
+}
+
 @media (max-width: 1200px) {
     .index-nav {
         font-size: 14px;

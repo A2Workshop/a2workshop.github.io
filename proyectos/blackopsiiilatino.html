@@ -117,6 +117,15 @@
         </div>
       </div>
 
+      <div class="card mb-3 download-count-card">
+        <div class="card-body">
+          <p class="download-count-text">Descargas (desde la versión 2.5):
+            <span class="download-count-value" data-mediafire-download-count
+              data-mediafire-sources='[{"folderKey":"fxa4xrrlre40k","filename":"Core (Requerido).7z"},{"folderKey":"y5qw1e4we6y50","filename":"BO3_MSPC_FULL_2.5.7z"}]'>...</span>
+          </p>
+        </div>
+      </div>
+
       <div class="row">
         <div id="list-example" class="list-group">
           <a class="list-group-item list-group-item-action fw-bold text-center index-title">Índice</a>
@@ -759,8 +768,18 @@
                 <a href="../contacto.html" class="btn btn-primary mt-2">Contacto</a><br>
               </div>
             </div>
+          </div>
 
-            <div class="row mt-10 position-absolute pb-5 hide-mobile3" id="index-container">
+          <div class="card download-count-card">
+            <div class="card-body">
+              <p class="download-count-text">Descargas (desde la versión 2.5):<br>
+                <span class="download-count-value" data-mediafire-download-count
+                  data-mediafire-sources='[{"folderKey":"fxa4xrrlre40k","filename":"Core (Requerido).7z"},{"folderKey":"y5qw1e4we6y50","filename":"BO3_MSPC_FULL_2.5.7z"}]'>...</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="row position-absolute pb-5 hide-mobile3" id="index-container">
               <div id="list-example" class="list-group">
                 <a class="list-group-item list-group-item-action fw-bold text-center index-title">Índice</a>
                 <a class="list-group-item list-group-item-action index-item" href="#item-1">Introducción</a>
@@ -775,7 +794,6 @@
                 <a class="list-group-item list-group-item-action index-item" href="#item-9">Créditos</a>
                 <a class="list-group-item list-group-item-action index-item" href="#item-10">Comentarios</a>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -896,6 +914,7 @@
   });
 </script>
 <script src="../assets/js/steamcomments.js"></script>
+<script src="../assets/js/mf-download-count.js"></script>
 <!-- hover credits -->
 <script>
   var cards = document.getElementsByClassName("card-hover");
