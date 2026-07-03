@@ -114,7 +114,7 @@
                     <a class="list-group-item list-group-item-action index-item" href="#descargar">Descargas</a>
                     <a class="list-group-item list-group-item-action index-item" href="#item-6">Instalación</a>
                     <a class="list-group-item list-group-item-action index-item" href="#item-8">Notas</a>
-                    <!-- <a class="list-group-item list-group-item-action index-item" href="#item-9">Comentarios</a> -->
+                    <a class="list-group-item list-group-item-action index-item" href="#item-9">Comentarios</a>
                 </div>
             </div>
         </div>
@@ -387,8 +387,6 @@
                             tiene solución.<br>
                         </p>
                     </div>
-                    <div id="item-9" class="container">
-                    </div>
                 </div>
             </div>
             <div class="col-3 hide-mobile3">
@@ -448,16 +446,48 @@
                                 <a class="list-group-item list-group-item-action index-item"
                                     href="#item-6">Instalación</a>
                                 <a class="list-group-item list-group-item-action index-item" href="#item-8">Notas</a>
-                                <!-- <a class="list-group-item list-group-item-action index-item"
-                                    href="#item-9">Comentarios</a> -->
+                                <a class="list-group-item list-group-item-action index-item"
+                                    href="#item-9">Comentarios</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container container-content text-white bg-guideheader mt-3 rounded-5" id="item-9">
+        <div class="row">
+            <div id="changemobile2" class="col-9 responsive-col">
+                <div class="container mt-4">
+                    <h2 class="fw-bold fs-2 text-center">Comentarios</h2>
+                    <br>
+                    <ul class="nav nav-pills hide-mobile2">
+                        <li class="nav-item"><button class="btn btn-warning activeborder fs-5 fw-bold">Steam</button>
+                        </li>
+                    </ul>
+                    <div class="hide-desktop2">
+                        <select class="form-select custom-select" aria-label="Default select example">
+                            <option value="2" selected>Steam</option>
+                        </select>
+                    </div>
+                    <br class="hide-desktop2">
+                    <div class="container" id="tab1-comments">
+                        <textarea class="form-control" id="comment-text" rows="3" placeholder="Añadir un comentario..."
+                            style="resize: none;" readonly></textarea>
+                        <div id="comentarios" class="text-break"></div>
+                        <br>
+                        <div aria-label="Page navigation example">
+                            <ul class="pagination" id="pagination-controls">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <br>
     </div>
+    
+    <br>
     <footer class="footer mt-5 hide-desktop2">
         <div class="container">
             <div class="row mb-5">
@@ -551,3 +581,15 @@
         });
     });
 </script>
+<script>
+    var textarea = document.getElementById('comment-text');
+
+    if (textarea) {
+        textarea.addEventListener('click', function () {
+            window.open('https://steamcommunity.com/sharedfiles/filedetails/?id=3478642806#commentthread_PublishedFile_Public_76561198840412181_3478642806_textarea',
+                '_blank'
+            );
+        });
+    }
+</script>
+<script src="../assets/js/steamcomments.js"></script>
