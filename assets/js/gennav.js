@@ -269,12 +269,12 @@ function generarNavbar() {
           </div>
 
           ${contactoHTML}
-          ${gameBananaHTML}
+          
         </div>
       </div>
     </nav>
   `;
-
+  // ${gameBananaHTML}
   const navbarContainer = document.getElementById('navbar-container');
 
   if (!navbarContainer) {
