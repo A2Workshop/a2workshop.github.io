@@ -186,7 +186,7 @@ function renderGameBananaCards(submissions) {
 
         <div class="gamebanana-card-stats">
           ${submission.itemType === 'Wip'
-            ? `<span>WIP${submission.progress !== null ? `: ${escapeHtml(submission.progress)}%` : ''}</span>`
+            ? `<span>${submission.progress !== null ? `: ${escapeHtml(submission.progress)}%` : ''}</span>`
             : ''}
 
           ${submission.version
