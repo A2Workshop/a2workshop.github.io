@@ -247,6 +247,14 @@ hr {
     text-align: center;
 }
 
+.steam-link-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 .steam-link img {
     max-width: 300px;
     height: auto;
