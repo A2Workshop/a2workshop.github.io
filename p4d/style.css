@@ -29,12 +29,12 @@
         box-shadow: 0 0 10px #ff33ff, 0 0 20px #ff33ff;
     }
 
-    .gameBanana-hover {
+    .gamebanana-hover {
         background: transparent;
         transition: background 0.3s, box-shadow 0.3s;
     }
 
-    .gameBanana-hover:hover {
+    .gamebanana-hover:hover {
         background: #ff33ffc0 !important;
         box-shadow: 0 0 10px #ff33ff, 0 0 20px #ff33ff;
     }
