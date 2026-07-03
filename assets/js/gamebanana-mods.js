@@ -184,10 +184,7 @@ function renderGameBananaCards(submissions) {
         <div class="gamebanana-card-title">${escapeHtml(submission.name)}</div>
         <div class="gamebanana-card-meta">${escapeHtml(submission.gameName)}</div>
 
-        <div class="gamebanana-card-stats">
-          ${submission.itemType === 'Wip'
-            ? `<span>${submission.progress !== null ? `: ${escapeHtml(submission.progress)}%` : ''}</span>`
-            : ''}
+
 
           ${submission.version
             ? `<span>Version: ${escapeHtml(submission.version)}</span>`
