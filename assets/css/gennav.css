@@ -2,7 +2,12 @@
     color-scheme: dark;
 }
 
-/* Navbar 2 */
+/* Navbar */
+#navbar-container {
+    position: relative;
+    z-index: 10000;
+}
+
 nav {
     position: relative;
     top: 0;
@@ -13,6 +18,7 @@ nav {
     align-items: center;
     border: none;
     box-shadow: none;
+    z-index: 10000;
 }
 
 .nav-container {
@@ -21,40 +27,25 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 15px;
+    width: 100%;
+    max-width: 1180px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
 }
 
-.megamenu-content {
-    text-wrap: balance;
+.nav-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-@media (min-width: 990px) {
-    nav a {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 990px) {
-    nav a {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 330px) {
-    nav a {
-        font-size: 11px;
-    }
-
-    .logo_nav {
-        display: none;
-    }
-}
-
-@media (max-width: 362px) {
-    .logo_nav {
-        height: 31px !important;
-        width: 50px !important;
-        margin: 0 !important;
-    }
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
 }
 
 nav a {
@@ -62,22 +53,49 @@ nav a {
     text-decoration: none;
     border-radius: 5px;
     transition: background 0.3s;
+    white-space: nowrap;
 }
 
 nav a:hover {
     background: rgba(255, 255, 255, 0);
 }
 
+.nav-main-link,
+.megamenu > a,
+.nav-links > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.megamenu {
+    position: relative;
+    z-index: 10001;
+}
+
+.megamenu-content {
+    text-wrap: balance;
+    z-index: 10002;
+}
+
+.logo_nav {
+    height: 50px;
+    width: 255.433px;
+}
+
+.nav-container img {
+    border-radius: 10px;
+}
+
+/* Desktop */
 @media (min-width: 990px) {
     nav a {
+        font-size: 24px;
         padding: 10px 20px;
     }
 
-    .megamenu {
-        position: relative;
-    }
-
-    .megamenu>a {
+    .megamenu > a {
         color: white;
         text-decoration: none;
         padding: 10px 20px;
@@ -85,11 +103,9 @@ nav a:hover {
         transition: background 0.3s;
     }
 
-    .megamenu:hover>a {
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    .contacto-hover:hover {
+    .megamenu:hover > a,
+    .contacto-hover:hover,
+    .gamebanana-hover:hover {
         background: rgba(255, 255, 255, 0.2);
     }
 
@@ -102,8 +118,8 @@ nav a:hover {
         padding: 14px;
         border-radius: 5px;
         width: 600px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 2;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+        z-index: 10002;
     }
 
     .megamenu:hover .megamenu-content {
@@ -117,11 +133,10 @@ nav a:hover {
         align-items: center;
         color: white;
         text-decoration: none;
-        padding: 5px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 5px 20px;
         border-radius: 10px;
         font-size: 20px;
+        white-space: normal;
     }
 
     .megamenu-content a:hover {
@@ -132,11 +147,34 @@ nav a:hover {
         max-width: 70px;
         margin-right: 10px;
     }
+
+    .close-btn {
+        display: none;
+    }
 }
 
+/* Tablet / mobile */
 @media (max-width: 990px) {
+    nav {
+        padding: 8px 0;
+    }
+
+    .nav-container {
+        gap: 10px;
+    }
+
+    .logo_nav {
+        width: 80.9167px;
+        height: 50px;
+    }
+
     nav a {
-        padding: 8px 15px;
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .nav-links {
+        gap: 6px;
     }
 
     .megamenu-content {
@@ -151,13 +189,14 @@ nav a:hover {
         padding-right: 40px !important;
         box-shadow: none;
         border-radius: 0;
-        z-index: 9999;
+        z-index: 10002;
         display: none;
         overflow-y: auto;
+        box-sizing: border-box;
     }
 
     .disable-padding-top {
-        padding-top: 0px !important;
+        padding-top: 0 !important;
     }
 
     .megamenu-content a {
@@ -169,6 +208,7 @@ nav a:hover {
         border-radius: 5px;
         margin-bottom: 10px;
         gap: 10px;
+        white-space: normal;
     }
 
     .megamenu-content img {
@@ -182,9 +222,74 @@ nav a:hover {
     }
 }
 
-@media (min-width: 990px) {
-    .close-btn {
+/* Mobile: logo arriba, 3 botones abajo */
+@media (max-width: 640px) {
+    .nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 8px;
+    }
+
+    .nav-brand {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .nav-links > a,
+    .megamenu > a {
+        min-width: 0;
+        min-height: 38px;
+        padding: 8px 6px;
+        font-size: clamp(0.72rem, 3.4vw, 0.95rem);
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .megamenu {
+        min-width: 0;
+    }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 380px) {
+    .nav-links > a,
+    .megamenu > a {
+        font-size: 0.72rem;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .logo_nav {
+        height: 36px !important;
+        width: auto !important;
+        max-width: 160px;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 330px) {
+    nav a {
+        font-size: 11px;
+    }
+
+    .logo_nav {
         display: none;
+    }
+
+    .nav-brand {
+        display: none;
+    }
+
+    .nav-links {
+        margin-top: 0;
     }
 }
 
@@ -197,24 +302,17 @@ nav a:hover {
     font-size: 24px;
     color: white;
     cursor: pointer;
-    z-index: 10000;
+    z-index: 10003;
 }
 
 .close-btn:hover {
     color: rgba(255, 255, 255, 0.7);
 }
 
-.logo_nav {
-    height: 50px;
-    width: 255.433px;
-}
-
-@media (max-width: 990px) {
-    .logo_nav {
-        width: 80.9167px;
-    }
-}
-
-.nav-container img {
-    border-radius: 10px;
+main,
+section,
+header,
+footer {
+    position: relative;
+    z-index: 1;
 }
