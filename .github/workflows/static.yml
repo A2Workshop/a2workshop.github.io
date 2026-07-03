@@ -68,8 +68,7 @@ jobs:
               ".webmanifest"
           }
 
-          # No hashear dependencias externas para reducir riesgo.
-          # Si quieres hashear también deps/, borra "deps" de esta lista.
+
           ignored_top_dirs = {
               "deps"
           }
@@ -102,8 +101,6 @@ jobs:
               path.rename(new_path)
               mapping[relative_old] = relative_new
 
-          # Reemplaza referencias dentro de HTML/CSS/JS/etc.
-          # Orden largo -> corto para evitar reemplazos parciales raros.
           ordered_mapping = sorted(
               mapping.items(),
               key=lambda item: len(item[0]),
