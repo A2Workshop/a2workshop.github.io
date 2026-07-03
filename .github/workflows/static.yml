@@ -78,7 +78,7 @@ jobs:
           PY
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v5 
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
