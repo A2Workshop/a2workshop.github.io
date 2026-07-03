@@ -8,6 +8,13 @@
     z-index: 10000;
 }
 
+#navbar-container.navbar-page-index {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 nav {
     position: relative;
     top: 0;
@@ -256,6 +263,17 @@ nav a:hover {
     .megamenu {
         min-width: 0;
     }
+
+    #navbar-container.navbar-page-index {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    #navbar-container.navbar-page-index nav {
+        background: rgba(0, 0, 0, 0.55);
+    }
 }
 
 /* Celulares muy pequeños */
@@ -307,6 +325,12 @@ nav a:hover {
 
 .close-btn:hover {
     color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 576px) {
+    .mb-mobile {
+        margin-bottom: 3rem !important;
+    }
 }
 
 main,

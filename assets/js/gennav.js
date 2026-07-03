@@ -254,7 +254,7 @@ function generarNavbar() {
   }
 
   const html = `
-    <nav class="a2-navbar">
+    <nav class="a2-navbar a2-navbar-${escapeHtml(key)}">
       <div class="nav-container ${escapeHtml(extraContainerClass)}">
         ${logosHTML}
 
@@ -281,6 +281,16 @@ function generarNavbar() {
     return;
   }
 
+  navbarContainer.classList.remove(
+    'navbar-page-index',
+    'navbar-page-contacto',
+    'navbar-page-gamebanana',
+    'navbar-page-default',
+    'navbar-page-pq2install',
+    'navbar-page-p4d'
+  );
+
+  navbarContainer.classList.add(`navbar-page-${key}`);
   navbarContainer.innerHTML = html;
 
   $('.megamenu > a').off('click').on('click', function (e) {
