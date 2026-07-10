@@ -19,6 +19,7 @@ interface Props {
   bodyStyle?: string;
   iconify?: boolean;
   lazyMedia?: boolean;
+  preconnectVideo?: boolean;
   locale?: Locale;
   localeBasePath?: string;
   autoDetectLocale?: boolean;
@@ -36,6 +37,7 @@ const {
   bodyStyle,
   iconify = false,
   lazyMedia = false,
+  preconnectVideo = false,
   locale: rawLocale = 'es',
   localeBasePath,
   autoDetectLocale = false,
@@ -65,6 +67,8 @@ const englishUrl = new URL(buildLocalizedPath(basePath, 'en'), Astro.site).href;
     <link rel="dns-prefetch" href="https://i.ytimg.com" />
     <link rel="dns-prefetch" href="https://steamcommunity.com" />
     <link rel="dns-prefetch" href="https://www.mediafire.com" />
+    {preconnectVideo && <link rel="preconnect" href="https://www.youtube.com" />}
+    {preconnectVideo && <link rel="preconnect" href="https://i.ytimg.com" />}
     {description && <meta name="description" content={description} />}
 
     <meta property="og:title" content={socialTitle} />
