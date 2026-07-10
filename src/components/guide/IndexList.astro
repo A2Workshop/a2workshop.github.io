@@ -1,0 +1,15 @@
+---
+import type { IndexItem } from '../../data/guides';
+
+interface Props {
+  items: IndexItem[];
+  ariaLabel?: string;
+}
+const { items, ariaLabel = 'Indice' } = Astro.props;
+---
+
+<div class="guide-index-list" role="navigation" aria-label={ariaLabel}>
+  {items.map((item) => (
+    <a class="guide-index-item" href={item.href}>{item.label}</a>
+  ))}
+</div>

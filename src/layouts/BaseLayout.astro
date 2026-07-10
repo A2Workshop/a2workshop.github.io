@@ -1,0 +1,194 @@
+---
+import '../styles/global.css';
+import type { Locale } from '../i18n/config';
+import {
+  buildLocalizedPath,
+  normalizeLocale,
+  stripLocaleFromPath,
+} from '../i18n/config';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogImage?: string;
+  ogType?: string;
+  themeColor?: string;
+  bodyClass?: string;
+  bodyStyle?: string;
+  iconify?: boolean;
+  lazyMedia?: boolean;
+  locale?: Locale;
+  localeBasePath?: string;
+  autoDetectLocale?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogTitle,
+  ogImage = 'https://a2workshop.github.io/assets/img/A2/webpreview.webp',
+  ogType = 'website',
+  themeColor = '#0000',
+  bodyClass = '',
+  bodyStyle,
+  iconify = false,
+  lazyMedia = false,
+  locale: rawLocale = 'es',
+  localeBasePath,
+  autoDetectLocale = false,
+} = Astro.props;
+
+const locale = normalizeLocale(rawLocale);
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const socialTitle = ogTitle ?? title;
+const basePath = stripLocaleFromPath(localeBasePath ?? Astro.url.pathname);
+const spanishUrl = new URL(buildLocalizedPath(basePath, 'es'), Astro.site).href;
+const englishUrl = new URL(buildLocalizedPath(basePath, 'en'), Astro.site).href;
+---
+
+<!DOCTYPE html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <link rel="icon" href="/assets/img/A2/favicon.ico" />
+    <meta name="theme-color" content={themeColor} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={spanishUrl} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="x-default" href={spanishUrl} />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link rel="dns-prefetch" href="https://i.ytimg.com" />
+    <link rel="dns-prefetch" href="https://steamcommunity.com" />
+    <link rel="dns-prefetch" href="https://www.mediafire.com" />
+    {description && <meta name="description" content={description} />}
+
+    <meta property="og:title" content={socialTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={ogType} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={socialTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImage} />
+
+    {localeBasePath && (
+      <script
+        is:inline
+        define:vars={{
+          locale,
+          basePath,
+          autoDetectLocale,
+        }}
+      >
+        (() => {
+          const currentLocale = locale;
+          const fallbackPath = basePath || '/';
+          const currentUrl = new URL(window.location.href);
+          const requestedLang = currentUrl.searchParams.get('lang');
+          const isSupported = (value) => value === 'es' || value === 'en';
+          const buildPath = (nextLocale) => {
+            if (nextLocale === 'en') {
+              return fallbackPath === '/' ? '/en' : `/en${fallbackPath}`;
+            }
+            return fallbackPath;
+          };
+          const redirectToLocale = (nextLocale) => {
+            const targetPath = buildPath(nextLocale);
+            const targetUrl = `${targetPath}${currentUrl.search}${currentUrl.hash}`;
+            if (targetPath !== window.location.pathname) {
+              window.location.replace(targetUrl);
+            }
+          };
+
+          if (isSupported(requestedLang)) {
+            const targetPath = buildPath(requestedLang);
+            const targetUrl = `${targetPath}${currentUrl.search}${currentUrl.hash}`;
+            if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== targetUrl) {
+              window.location.replace(targetUrl);
+              return;
+            }
+          }
+
+          if (!autoDetectLocale || currentLocale !== 'es') return;
+
+          const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+          const hasSpanish = browserLanguages.some((value) => /^es\b/i.test(value));
+          const primaryLanguage = browserLanguages[0] ?? '';
+          const detectedLocale = hasSpanish || !/^en\b/i.test(primaryLanguage) ? 'es' : 'en';
+
+          if (detectedLocale === 'en') {
+            redirectToLocale('en');
+          }
+        })();
+      </script>
+    )}
+
+    <slot name="head" />
+  </head>
+  <body class={bodyClass} style={bodyStyle}>
+    <slot />
+
+    {iconify && <script src="/deps/iconify.min.js" defer></script>}
+    <script src="/pagejs/locale-links.js" defer></script>
+    {lazyMedia && <script src="/pagejs/lazy-media.js" defer></script>}
+    <script is:inline>
+      (() => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) return;
+
+        const animatedDetails = document.querySelectorAll('details.changelog-item, main details.group');
+        if (!animatedDetails.length) return;
+
+        animatedDetails.forEach((details) => {
+          const summary = details.querySelector('summary');
+          if (!summary) return;
+          details.classList.add('smooth-details');
+
+          summary.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (details.dataset.animating === 'true') return;
+
+            const startHeight = details.offsetHeight;
+            details.dataset.animating = 'true';
+            let done = false;
+            const finish = (closing) => {
+              if (done) return;
+              done = true;
+              if (closing) details.open = false;
+              details.style.height = '';
+              details.dataset.animating = 'false';
+            };
+
+            if (details.open) {
+              details.open = false;
+              const endHeight = details.offsetHeight;
+              details.open = true;
+              details.style.height = `${startHeight}px`;
+              requestAnimationFrame(() => {
+                details.style.height = `${endHeight}px`;
+              });
+              details.addEventListener('transitionend', () => finish(true), { once: true });
+              window.setTimeout(() => finish(true), 380);
+            } else {
+              details.open = true;
+              const endHeight = details.offsetHeight;
+              details.style.height = `${startHeight}px`;
+              requestAnimationFrame(() => {
+                details.style.height = `${endHeight}px`;
+              });
+              details.addEventListener('transitionend', () => finish(false), { once: true });
+              window.setTimeout(() => finish(false), 380);
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

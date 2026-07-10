@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import AnimatedBackground from '../../components/AnimatedBackground.astro';
+---
+
+<BaseLayout
+  title="A2Workshop - Home"
+  description="A2Workshop website."
+  canonical="https://a2workshop.github.io/en"
+  ogTitle="A2Workshop"
+  bodyClass="bg-black text-white min-h-screen flex flex-col justify-center items-center overflow-hidden"
+  locale="en"
+  localeBasePath="/"
+>
+  <Navbar activeKey="index" showLogo={false} extraContainerClass="p-2" locale="en" />
+  <h1 class="sr-only">A2 Workshop</h1>
+  <AnimatedBackground variant="brand" />
+  <div class="relative z-[1] px-4 text-center">
+    <img
+      src="/assets/img/A2/full_logo.webp"
+      alt="Logo"
+      id="a2logo"
+      class="w-[300px] md:w-[500px] xl:w-[700px] max-w-full h-auto"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </div>
+</BaseLayout>

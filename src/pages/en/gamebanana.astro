@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import AnimatedBackground from '../../components/AnimatedBackground.astro';
+---
+
+<BaseLayout
+  title="A2Workshop - GameBanana"
+  description="Artur16211 mods on GameBanana with updated downloads."
+  canonical="https://a2workshop.github.io/en/gamebanana"
+  bodyStyle="background-color: black;"
+  locale="en"
+  localeBasePath="/gamebanana"
+>
+  <link slot="head" rel="stylesheet" href="/assets/css/gamebanana.css" />
+
+  <Navbar activeKey="gamebanana" locale="en" />
+  <AnimatedBackground variant="brand" />
+
+  <main class="mx-auto max-w-[1140px] px-3 py-4">
+    <section class="gamebanana-shell">
+      <div class="gamebanana-hero">
+        <div>
+          <h1 class="gamebanana-title">(16)</h1>
+        </div>
+      </div>
+      <div class="gamebanana-grid" id="gamebanana-grid"></div>
+    </section>
+  </main>
+
+  <script src="/assets/js/gamebanana-mods.js" is:inline></script>
+</BaseLayout>

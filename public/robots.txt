@@ -1,0 +1,4 @@
+﻿User-agent: *
+Disallow: /.github/
+Disallow: /deps/
+Sitemap: https://a2workshop.github.io/sitemap.xml

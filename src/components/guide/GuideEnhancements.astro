@@ -1,0 +1,186 @@
+---
+interface Props {
+  indexSelector?: string;
+  imageSelector?: string;
+  backToTopLabel?: string;
+}
+const {
+  indexSelector = '.guide-index-item',
+  imageSelector = '.guide-prose img',
+  backToTopLabel = 'Volver arriba',
+} = Astro.props;
+---
+
+<div id="guide-progress" aria-hidden="true"></div>
+
+<button id="guide-to-top" type="button" aria-label={backToTopLabel}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+    <path fill="currentColor" d="m12 8l-6 6l1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+  </svg>
+</button>
+
+<script is:inline define:vars={{ indexSelector, imageSelector }}>
+  (function () {
+    'use strict';
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function init() {
+      var bar = document.getElementById('guide-progress');
+      var toTop = document.getElementById('guide-to-top');
+      var scrollScheduled = false;
+
+      function onScroll() {
+        if (scrollScheduled) return;
+        scrollScheduled = true;
+        requestAnimationFrame(function () {
+          scrollScheduled = false;
+          updateScrollUi();
+        });
+      }
+
+      function updateScrollUi() {
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - doc.clientHeight;
+        var pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+        if (bar) bar.style.width = pct + '%';
+        if (toTop) toTop.classList.toggle('is-visible', doc.scrollTop > 400);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      updateScrollUi();
+
+      if (toTop) {
+        toTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+        });
+      }
+
+      document.querySelectorAll(imageSelector).forEach(function (img) {
+        if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+        if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+      });
+
+      var links = Array.prototype.slice.call(
+        document.querySelectorAll(indexSelector + ' a[href^="#"], a' + indexSelector + '[href^="#"]'),
+      );
+      if (!links.length) {
+        links = Array.prototype.slice.call(document.querySelectorAll(indexSelector + '[href^="#"]'));
+      }
+
+      var seen = {};
+      var targets = [];
+      links.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').slice(1));
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el || seen[id]) return;
+        seen[id] = true;
+        targets.push(el);
+      });
+
+      function setActive(id) {
+        links.forEach(function (l) {
+          var lid = decodeURIComponent((l.getAttribute('href') || '').slice(1));
+          l.classList.toggle('is-active', lid === id);
+        });
+      }
+
+      if (targets.length && 'IntersectionObserver' in window) {
+        var visible = {};
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              visible[entry.target.id] = entry.isIntersecting;
+            });
+            for (var i = 0; i < targets.length; i++) {
+              if (visible[targets[i].id]) {
+                setActive(targets[i].id);
+                return;
+              }
+            }
+          },
+          { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
+        );
+        targets.forEach(function (t) {
+          observer.observe(t);
+        });
+      }
+    }
+
+    if (document.readyState !== 'loading') init();
+    else document.addEventListener('DOMContentLoaded', init, { once: true });
+  })();
+</script>
+
+<style is:global>
+  #guide-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--accent, #ff6500);
+    z-index: 10050;
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+
+  #guide-to-top {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent, #ff6500);
+    color: var(--accent-text, #000);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, filter 0.15s ease;
+    z-index: 9997;
+  }
+
+  #guide-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  #guide-to-top:hover {
+    filter: brightness(1.1);
+  }
+
+  .guide-index-item.is-active,
+  .index-nav.is-active {
+    background: var(--accent, #ff6500);
+    color: var(--accent-text, #000) !important;
+    font-weight: 700;
+  }
+  .guide-index-item.is-active {
+    border-left: 0;
+    padding-left: 0.75rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  main [id] {
+    scroll-margin-top: 1.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    #guide-progress,
+    #guide-to-top {
+      transition: none;
+    }
+  }
+</style>

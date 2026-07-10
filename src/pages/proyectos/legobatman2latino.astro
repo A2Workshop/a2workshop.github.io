@@ -1,0 +1,263 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import GuideEnhancements from '../../components/guide/GuideEnhancements.astro';
+import CommentsSection from '../../components/guide/CommentsSection.astro';
+import MobileDrawer from '../../components/MobileDrawer.astro';
+
+const indice = [
+  { href: '#introduccion', label: 'Introducción' },
+  { href: '#contenido', label: 'Contenido' },
+  { href: '#trailer', label: 'Tráiler' },
+  { href: '#descargas', label: 'Descargas' },
+  { href: '#instalacion', label: 'Instalación' },
+  { href: '#limitaciones', label: 'Limitaciones' },
+  { href: '#notas', label: 'Steam Deck' },
+  { href: '#creditos', label: 'Créditos' },
+];
+
+const creadores = [
+  { img: '/assets/img/Profile/Artur16211.webp', alt: 'artur16211', name: 'Artur16211' },
+  { img: '/assets/img/Profile/atuburapaler.jpg', alt: 'atuburapaler', name: 'atuburapaler' },
+];
+---
+
+<BaseLayout
+  title="Lego Batman 2 Mod Español Latino"
+  description="Guía para cambiar el idioma de Lego Batman 2 de PC al Español Latino."
+  canonical="https://a2workshop.github.io/proyectos/legobatman2latino"
+  ogTitle="A2Workshop"
+  ogImage="https://a2workshop.github.io/assets/img/LB2/webpreview.webp"
+  themeColor="#020202"
+  bodyStyle="background-color: #020202; --accent: #0151FC; --accent-text: #ffffff;"
+  iconify
+  lazyMedia
+>
+  <link slot="head" rel="stylesheet" href="/assets/css/lb2.css" />
+
+  <Navbar activeKey="default" boldProyecto />
+
+  <div id="banner-container">
+    <div id="banner" class="banner">
+      <img src="/assets/img/LB2/Banner.webp" alt="Banner de Lego Batman 2" class="banner-img" decoding="async" fetchpriority="high" />
+      <img src="/assets/img/LB2/Logo.webp" alt="Logo" class="banner-logo" decoding="async" fetchpriority="high" />
+      <div class="banner-text blink-text">Guía de instalación</div>
+    </div>
+  </div>
+
+  <div class="mx-auto mt-6 w-full max-w-[1140px] px-0 bricks-container">
+    <div class="bricks-top"></div>
+    <div class="bricks-content grid grid-cols-1 gap-4 p-4 break-words md:grid-cols-12">
+      <div class="px-3 md:col-span-10">
+        <div class="steam-link steam-link-row">
+          <a href="https://web.archive.org/web/20251023165600/https://steamcommunity.com/sharedfiles/filedetails/?id=3553528011" target="_blank">
+            <img src="/assets/img/Custom_Button/View-Steam-Lego-Batman-2.webp" alt="steam button" loading="lazy" decoding="async"
+              class="custom-btn lb2-platform-btn rounded-2xl border" />
+          </a>
+          <a href="https://www.nexusmods.com/legobatman2dcsuperheroes/mods/49" target="_blank">
+            <img src="/assets/img/Custom_Button/View-NexusMods-Lego-Batman-2.webp" alt="nexus mods button" loading="lazy" decoding="async"
+              class="custom-btn lb2-platform-btn rounded-2xl border" />
+          </a>
+        </div>
+
+        <section id="introduccion">
+          <h2>INTRODUCCIÓN</h2>
+          <p>
+            Como muchos saben, este juego nunca contó con doblaje al español latino. Este mod utiliza el
+            doblaje de la película lanzada un año después, la cual fue creada reutilizando las cinemáticas
+            del juego.
+            <br><br>
+            En esta guía se explicará el proceso de instalación del doblaje y traducción en PC. Esta guía
+            NO es para obtener material protegido por derechos de autor de forma ilegítima.
+          </p>
+        </section>
+        <hr>
+
+        <section id="contenido">
+          <h2>CONTENIDO</h2>
+          <p>La <b>versión actual</b> del mod incluye:</p>
+          <ul class="list-disc pl-6">
+            <li>Todas las <b>cinemáticas</b> de la historia en <b>español latino</b>. (*)</li>
+            <li><b>88</b>/<b>122</b> diálogos del gameplay <u>adaptados</u> al <b>español latino</b>.</li>
+            <li><b>Subtítulos</b> adaptados.</li>
+          </ul>
+          <p>(*) Ver detalles en la sección <a href="#limitaciones">Limitaciones</a>.</p>
+        </section>
+        <hr>
+
+        <section id="trailer">
+          <h2>TRÁILER</h2>
+          <div class="video-container">
+            <iframe loading="lazy" width="460" height="215"
+              src="https://www.youtube.com/embed/DW0KvM-99G0?si=-nzfbb0GWzSVn_OO"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <br>
+          <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+            <div class="mb-3 flex justify-center">
+              <img src="/assets/img/LB2/Screenbox_20255324_235309.webp" alt="captura1" class="capturas h-auto max-w-full shadow" loading="lazy" decoding="async" />
+            </div>
+            <div class="mb-3 flex justify-center">
+              <img src="/assets/img/LB2/Screenbox_20253926_103933.webp" alt="captura2" class="capturas h-auto max-w-full shadow" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </section>
+        <hr>
+
+        <section id="descargas" class="flex flex-col items-start">
+          <h2>DESCARGAS</h2>
+          <h4>Requerimientos:</h4>
+          <ul class="list-disc pl-6">
+            <li>Algún programa para descomprimir archivos <b>7z</b>. (7-Zip, NanaZip, etc)</li>
+            <li>
+              <b>QuickBMS</b>:
+              <p class="lb2-quickbms-links">
+                (Windows) <a href="https://aluigi.altervista.org/papers/quickbms.zip" target="_blank">https://aluigi.altervista.org/papers/quickbms.zip</a><br>
+                (Linux) <a href="https://aluigi.altervista.org/papers/quickbms_linux.zip" target="_blank">https://aluigi.altervista.org/papers/quickbms_linux.zip</a>
+              </p>
+            </li>
+            <li><b>ttgames.bms</b>: <a href="https://aluigi.altervista.org/bms/ttgames.bms" target="_blank">https://aluigi.altervista.org/bms/ttgames.bms</a></li>
+          </ul>
+          <h3>Enlace del mod:</h3>
+          <div class="steam-link">
+            <a href="https://www.mediafire.com/file/1vdmy1tsm8f58eo/lb2esplatinomod1.0.1.7z/file" target="_blank">
+              <img src="/assets/img/Custom_Button/Batman-2-get.webp" alt="download button" class="custom-btn rounded-2xl border" loading="lazy" decoding="async" />
+            </a>
+          </div>
+        </section>
+        <hr>
+
+        <section id="instalacion">
+          <h2>INSTALACIÓN</h2>
+          <ol class="list-decimal pl-6">
+            <li>
+              Localiza la carpeta raíz del juego. (Ej. C:\Program Files (x86)\Steam\steamapps\common\LEGO Batman 2)
+              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible>
+                <source src="/assets/img/LB2/Gif1.webm" type="video/webm">
+              </video>
+            </li>
+            <li>
+              <b>Descomprime</b> el contenido de <b>quickbms.zip</b> y el archivo <b>Extract_LB2_Files.bat</b> (incluido en LB2EspLatinoModx.x.7z) en la carpeta del juego. Luego, mueve el archivo <b>ttgames.bms</b> a la misma carpeta.
+              <video loop muted playsinline controls preload="none" class="lb2-install-video" data-autoplay-on-visible>
+                <source src="/assets/img/LB2/Gif2.webm" type="video/webm">
+              </video>
+            </li>
+            <li>
+              Ejecuta <b>Extract_LB2_Files.bat</b> para extraer los archivos <b>.DAT</b> del juego.
+              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible>
+                <source src="/assets/img/LB2/Gif3.webm" type="video/webm">
+              </video>
+            </li>
+            <li>
+              Extrae el contenido de <b>LB2EspLatinoModx.x.7z</b> en la carpeta del juego y reemplaza los archivos.
+              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible>
+                <source src="/assets/img/LB2/Gif4.webm" type="video/webm">
+              </video>
+            </li>
+          </ol>
+        </section>
+        <hr>
+
+        <section id="notas">
+          <h2>STEAM DECK/LINUX</h2>
+          <ul class="list-disc pl-6">
+            <li><b>Descomprime</b> el contenido de <b>Extract_LB2_Files_Linux.tar.gz</b> (incluido en LB2EspLatinoModx.x.7z) y ejecuta <b>Extract_LB2_Files.desktop</b>.</li>
+            <li>Agrega la siguiente línea a las opciones de lanzamiento del juego:</li>
+            <code>HOST_LC_ALL=es_MX.UTF-8 %command%</code>
+          </ul>
+          <img src="/assets/img/LB2/SteamDeck.webp" alt="steam deck" class="lb2-steam-deck-img h-auto w-full" loading="lazy" decoding="async" /><br><br>
+        </section>
+        <hr>
+
+        <section id="limitaciones">
+          <h2>LIMITACIONES</h2>
+          <p>Este mod fue desarrollado a partir de las voces de la película "<b>LEGO Batman: La Película - Los Superhéroes se Unen</b>", y por lo tanto, tiene algunas limitaciones:</p>
+          <ul class="list-disc pl-6">
+            <li>Algunas líneas pueden no estar dobladas debido a limitaciones del material original y se silenciarán o reemplazarán por otras similares dependiendo del caso.</li>
+            <li>La calidad técnica de las voces puede variar, ya que no se cuenta con los archivos de audio originales.</li>
+          </ul>
+        </section>
+        <hr>
+
+        <section id="creditos">
+          <h2>CRÉDITOS</h2>
+          <ul class="list-disc pl-6">
+            <li><a href="https://doblaje.fandom.com/es/wiki/Batman_LEGO:_La_uni%C3%B3n_de_los_superh%C3%A9roes" target="_blank">Doblaje original de la película</a>.</li>
+          </ul>
+        </section>
+
+        <h1 class="h1-cust break-words">LEGO Batman 2 Doblaje Español Latino PC Mod</h1>
+      </div>
+
+      <aside class="hidden shadow-lg md:col-span-2 md:block bg-bricksblack-desktop">
+        <h2 class="lb2-sidebar-title mt-2 text-center">CREADO POR:</h2>
+        {creadores.map((c) => (
+          <div class="mb-3 flex flex-col items-center">
+            <img src={c.img} alt={c.alt} class="lego-circle lb2-creator-avatar rounded-full" loading="lazy" decoding="async" />
+            <h5 class="lb2-creator-name mb-0 mt-1 text-center">{c.name}</h5>
+          </div>
+        ))}
+        <hr>
+        <div class="mt-2 md:sticky md:top-4">
+          <h5 class="text-center">ÍNDICE</h5>
+          <ul class="flex flex-col">
+            {indice.map((i) => (
+              <li><a class="index-nav block py-1 text-white" href={i.href}>{i.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <MobileDrawer
+    id="lb2-sidebar"
+    label="Creado por e índice"
+    breakpoint={768}
+    panelWidth="min(250px, 86vw)"
+    panelClass="text-center"
+    triggerLabel="Abrir panel Creado por"
+  >
+    <svg slot="trigger" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#fff" d="M11 2a5 5 0 1 0 0 10a5 5 0 0 0 0-10M8 7a3 3 0 1 1 6 0a3 3 0 0 1-6 0M4 18.5c0-.18.09-.489.413-.899c.316-.4.804-.828 1.451-1.222C7.157 15.589 8.977 15 11 15q.563 0 1.105.059a1 1 0 1 0 .211-1.99A13 13 0 0 0 11 13c-2.395 0-4.575.694-6.178 1.672c-.8.488-1.484 1.064-1.978 1.69C2.358 16.976 2 17.713 2 18.5c0 .845.411 1.511 1.003 1.986c.56.45 1.299.748 2.084.956C6.665 21.859 8.771 22 11 22l.685-.005a1 1 0 1 0-.027-2L11 20c-2.19 0-4.083-.143-5.4-.492c-.663-.175-1.096-.382-1.345-.582C4.037 18.751 4 18.622 4 18.5m12-.5a1 1 0 0 1 1-1h.99c.558 0 1.01.452 1.01 1.01v2.124A1 1 0 0 1 18.5 22h-.49A1.01 1.01 0 0 1 17 20.99V19a1 1 0 0 1-1-1m2-4a1 1 0 0 0-.117 1.993l.119.007a1 1 0 0 0 .117-1.993z" />
+    </svg>
+    <h5 class="m-0">CREADO POR:</h5>
+    <div class="flex flex-col items-center px-4 py-4">
+      {creadores.map((c) => (
+        <div class="mb-2 flex flex-col items-center p-2">
+          <img src={c.img} alt={c.alt} class="lego-circle lb2-mobile-creator-avatar mb-2 rounded-full" loading="lazy" decoding="async" />
+          <h5 class="lb2-mobile-creator-name mb-0">{c.name}</h5>
+        </div>
+      ))}
+      <hr class="w-full">
+      <div class="mt-3 w-full">
+        <h5 class="text-center">ÍNDICE</h5>
+        <ul class="flex flex-col text-center">
+          {indice.map((i) => (
+            <li><a class="block py-1 text-white" href={i.href}>{i.label}</a></li>
+          ))}
+          <li><a class="block py-1 text-white" href="#comentarios">Comentarios</a></li>
+        </ul>
+      </div>
+    </div>
+  </MobileDrawer>
+  <div class="mx-auto w-full max-w-[1140px] px-3">
+    <CommentsSection
+      variant="lb2"
+      textareaUrl="https://steamcommunity.com/sharedfiles/filedetails/?id=3553528011#commentthread_PublishedFile_Public_76561198851405406_3553528011_textarea"
+    />
+  </div>
+
+  <Footer
+    tone="black"
+    disclaimer="Este proyecto no está afiliado con LEGO Group, Warner Bros. o TT Games. Todos los derechos reservados por sus respectivos propietarios."
+  />
+
+  <GuideEnhancements indexSelector=".index-nav" imageSelector=".capturas" />
+
+  <script is:inline src="/assets/js/mf-download-count.js"></script>
+  <script is:inline src="/pagejs/legobatman2latino.js"></script>
+</BaseLayout>

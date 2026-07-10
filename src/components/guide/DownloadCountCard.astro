@@ -1,0 +1,101 @@
+---
+import type { DownloadCount } from '../../data/guides';
+
+interface Props {
+  data: DownloadCount;
+}
+const { data } = Astro.props;
+---
+
+<p class="download-count-text">
+  <span
+    class="download-count-value"
+    data-mediafire-download-count
+    data-mediafire-static-downloads={String(data.staticDownloads ?? 0)}
+    data-mediafire-sources={data.sources}
+  >...</span>
+</p>
+
+<script>
+  const mediaFireFolderCache = new Map<string, Promise<any[]>>();
+
+  async function fetchMediaFireFolderFiles(folderKey: string) {
+    if (!folderKey) return [];
+    if (mediaFireFolderCache.has(folderKey)) {
+      return mediaFireFolderCache.get(folderKey)!;
+    }
+
+    const apiUrl = new URL('https://www.mediafire.com/api/1.5/folder/get_content.php');
+    apiUrl.searchParams.set('folder_key', folderKey);
+    apiUrl.searchParams.set('content_type', 'files');
+    apiUrl.searchParams.set('response_format', 'json');
+
+    const folderPromise = fetch(apiUrl.toString())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`MediaFire API request failed with status ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((payload) => payload?.response?.folder_content?.files ?? []);
+
+    mediaFireFolderCache.set(folderKey, folderPromise);
+    return folderPromise;
+  }
+
+  function getMediaFireSources(element: HTMLElement) {
+    const sourcesJson = element.dataset.mediafireSources;
+
+    if (sourcesJson) {
+      try {
+        const parsedSources = JSON.parse(sourcesJson);
+        if (Array.isArray(parsedSources)) {
+          return parsedSources;
+        }
+      } catch (error) {
+        console.error('Could not parse MediaFire sources JSON:', error);
+      }
+    }
+
+    return [];
+  }
+
+  async function updateMediaFireDownloadCount(element: HTMLElement) {
+    const sources = getMediaFireSources(element);
+    const staticDownloads = Number.parseInt(element.dataset.mediafireStaticDownloads ?? '0', 10) || 0;
+
+    try {
+      const counts = await Promise.all(
+        sources.map(async (source) => {
+          const files = await fetchMediaFireFolderFiles(source.folderKey);
+          if (source.sumAll === true) {
+            return files.reduce((total, file) => total + (Number.parseInt(file.downloads ?? '0', 10) || 0), 0);
+          }
+          const target = files.find((file) => file.filename === source.filename);
+          return target ? Number.parseInt(target.downloads ?? '0', 10) || 0 : 0;
+        }),
+      );
+
+      const total = counts.reduce((sum, count) => sum + count, staticDownloads);
+      element.textContent = new Intl.NumberFormat('es-MX').format(total);
+    } catch (error) {
+      console.error('Could not load MediaFire download count:', error);
+      element.textContent = '--';
+    }
+  }
+
+  const counters = document.querySelectorAll<HTMLElement>('[data-mediafire-download-count]');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const element = entry.target as HTMLElement;
+        observer.unobserve(element);
+        updateMediaFireDownloadCount(element);
+      });
+    }, { rootMargin: '160px' });
+    counters.forEach((element) => observer.observe(element));
+  } else {
+    counters.forEach(updateMediaFireDownloadCount);
+  }
+</script>

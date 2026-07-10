@@ -1,0 +1,80 @@
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-brand-blue: #00446b;
+  --color-brand-orange: #a44007;
+  --color-surface-dark: #1b2838;
+  --color-surface-darker: #1a2431;
+  --color-surface-darkest: #10141a;
+  --color-surface-guide: #363636;
+  --color-surface-404: #021425;
+  --color-link: #066ccc;
+  --color-title: #2884cf;
+
+  --font-motiva: 'motiva', sans-serif;
+}
+
+@font-face {
+  font-family: 'motiva';
+  src: url('/assets/font/MotivaSansRegular.woff.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+
+  --brand-blue: #00446b;
+  --brand-orange: #a44007;
+  --surface-dark: #1b2838;
+  --surface-darker: #1a2431;
+  --surface-darkest: #10141a;
+  --surface-guide-header: #363636;
+  --surface-404: #021425;
+  --link: #066ccc;
+  --title: #2884cf;
+
+  --bg-gradient: linear-gradient(-45deg, var(--brand-blue), var(--brand-orange));
+  --guide-bg-base: #1b2838;
+  --guide-bg-accent: #2a3d53;
+  --bg-gradient-guide: linear-gradient(-45deg, var(--guide-bg-base), var(--guide-bg-accent), var(--guide-bg-base), var(--guide-bg-accent));
+}
+
+body {
+  margin: 0;
+  font-family: 'motiva', sans-serif;
+}
+
+.nav-hr { color: #ffffff; margin: 0; }
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+details.smooth-details {
+  overflow: hidden;
+  transition: height 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+details.smooth-details > summary {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details.smooth-details {
+    transition: none;
+  }
+}

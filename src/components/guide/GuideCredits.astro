@@ -1,0 +1,53 @@
+---
+import GuideCreditsContent from './GuideCreditsContent.astro';
+import type { Creator, IndexItem, DownloadCount } from '../../data/guides';
+
+interface Props {
+  creators: Creator[];
+  indice: IndexItem[];
+  downloadCount?: DownloadCount | null;
+  ariaLabel?: string;
+  createdByTitle?: string;
+  downloadsTitle?: string;
+  indexTitle?: string;
+  indexAriaLabel?: string;
+}
+const {
+  creators,
+  indice,
+  downloadCount,
+  ariaLabel = 'Indice y creditos',
+  createdByTitle,
+  downloadsTitle,
+  indexTitle,
+  indexAriaLabel,
+} = Astro.props;
+---
+
+<aside class="guide-desktop-credits flex flex-col gap-4" aria-label={ariaLabel}>
+  <GuideCreditsContent
+    creators={creators}
+    indice={indice}
+    downloadCount={downloadCount}
+    stickyIndex
+    createdByTitle={createdByTitle}
+    downloadsTitle={downloadsTitle}
+    indexTitle={indexTitle}
+    indexAriaLabel={indexAriaLabel}
+  />
+</aside>
+
+<style>
+  .guide-desktop-credits {
+    display: none;
+  }
+  @media (min-width: 1200px) {
+    .guide-desktop-credits {
+      display: flex;
+    }
+    .guide-desktop-credits :global(.guide-index-sticky) {
+      position: sticky;
+      top: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
+---
+
+<BaseLayout
+  title="A2Workshop - Contacto"
+  canonical="https://a2workshop.github.io/contacto"
+  ogTitle="A2Workshop"
+  bodyClass="bg-black text-white"
+  iconify
+  locale="es"
+  localeBasePath="/contacto"
+  autoDetectLocale
+>
+  <Navbar activeKey="contacto" boldContacto locale="es" />
+  <AnimatedBackground variant="brand" />
+
+  <main class="mx-auto w-full max-w-[1140px] px-3">
+    <h1 class="mt-6 rounded-xl border border-white/20 bg-white/20 py-3 text-center text-3xl font-bold">
+      Contacto
+    </h1>
+
+    <details class="group mt-8 overflow-hidden rounded-xl border border-white/10 bg-white/10" open>
+      <summary class="flex cursor-pointer list-none flex-wrap items-center gap-3 p-3 [&::-webkit-details-marker]:hidden">
+        <img src="/assets/img/Profile/Artur16211.webp" alt="Artur16211" class="h-14 w-14 rounded-full" decoding="async" />
+        <span class="text-lg">Artur16211</span>
+        <span class="iconify" data-icon="skill-icons:discord" data-width="30"></span>
+        <span class="iconify" data-icon="logos:youtube-icon" data-width="30"></span>
+        <span class="iconify text-[#FCEF40]" data-icon="simple-icons:gamebanana" data-width="24"></span>
+        <svg
+          class="ms-auto h-6 w-6 transition-transform duration-200 group-open:rotate-180"
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+        >
+          <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
+        </svg>
+      </summary>
+
+      <div class="flex flex-col gap-2 border-t border-white/10 p-4">
+        <span>
+          <span class="iconify align-middle" data-icon="skill-icons:discord" data-width="28"></span>
+          Artur16211
+        </span>
+        <span>
+          <span class="iconify align-middle" data-icon="logos:youtube-icon" data-width="28"></span>
+          <a href="https://www.youtube.com/@artur16211" target="_blank" rel="noopener" class="text-link break-all">
+            youtube.com/@artur16211
+          </a>
+        </span>
+        <span>
+          <span class="iconify align-middle text-[#FCEF40]" data-icon="simple-icons:gamebanana" data-width="24"></span>
+          <a href="https://gamebanana.com/members/1753132" target="_blank" rel="noopener" class="text-link">Artur16211</a>
+        </span>
+      </div>
+    </details>
+  </main>
+</BaseLayout>

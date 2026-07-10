@@ -1,0 +1,89 @@
+:root {
+  --accent: #888888;
+  --accent-text: #000000;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:disabled,
+.btn-primary:focus {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text) !important;
+}
+
+.card-hover:hover {
+  border: 2px solid var(--accent);
+  border-radius: 0px;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.3s ease;
+}
+
+.index-item.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #000000 !important;
+}
+
+.list-group-item.active:hover,
+.list-group-item.active:focus,
+.list-group-item.active:active {
+  background-color: var(--accent);
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.group-item-common.active,
+.group-item-common.active:hover,
+.group-item-common.active:focus,
+.group-item-common.active:active {
+  background-color: #1b2838;
+  border-color: #ffffff;
+  color: #fdfdfd !important;
+}
+
+.activeborder {
+  border: var(--accent) solid 4px !important;
+  border-bottom: none !important;
+  color: var(--accent);
+  background-color: #1b2838 !important;
+}
+
+#sidebar-close {
+  border: var(--accent) solid 1px;
+  border-left: none;
+  border-radius: 5px;
+}
+
+#sidebar-toggle {
+  background-color: var(--accent);
+  border: var(--accent) solid 1px;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.page-link:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.2rem var(--accent);
+}
+
+.page-item.active .page-link {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+@media (min-width: 990px) {
+  body.guide-grid-single .guide-prose .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  body.guide-grid-row250 .guide-prose .grid-container {
+    grid-template-rows: repeat(1, 1fr);
+    height: 250px;
+  }
+}

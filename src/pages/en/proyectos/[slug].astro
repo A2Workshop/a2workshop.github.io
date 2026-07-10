@@ -1,0 +1,34 @@
+---
+import GuideLayout from '../../../layouts/GuideLayout.astro';
+import { getGuideProject } from '../../../data/guides-i18n';
+import type { GuideKey } from '../../../data/guides';
+import BlackOpsIIILatinoContent from '../../../components/guide/content/BlackOpsIIILatinoContent.astro';
+import BlackOpsLatinoContent from '../../../components/guide/content/BlackOpsLatinoContent.astro';
+import InfiniteWarfareLatinoContent from '../../../components/guide/content/InfiniteWarfareLatinoContent.astro';
+import ModernWarfareLatinoContent from '../../../components/guide/content/ModernWarfareLatinoContent.astro';
+import Bo3customdubsEnContent from '../../../components/guide/content/Bo3customdubs_en.astro';
+
+export function getStaticPaths() {
+  return ([
+    'blackopsiiilatino',
+    'blackopslatino',
+    'bo3customdubs',
+    'infinitewarfarelatino',
+    'modernwarfarerlatino',
+  ] as const satisfies readonly GuideKey[]).map((slug) => ({
+    params: { slug },
+    props: { slug },
+  }));
+}
+
+const { slug } = Astro.props as { slug: GuideKey };
+const guide = getGuideProject(slug, 'en');
+---
+
+<GuideLayout guide={guide} locale="en" uiLocale={slug === 'bo3customdubs' ? 'en' : 'es'}>
+  {slug === 'blackopsiiilatino' && <BlackOpsIIILatinoContent />}
+  {slug === 'blackopslatino' && <BlackOpsLatinoContent />}
+  {slug === 'bo3customdubs' && <Bo3customdubsEnContent />}
+  {slug === 'infinitewarfarelatino' && <InfiniteWarfareLatinoContent />}
+  {slug === 'modernwarfarerlatino' && <ModernWarfareLatinoContent />}
+</GuideLayout>

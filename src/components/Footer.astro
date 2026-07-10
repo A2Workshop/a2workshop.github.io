@@ -1,0 +1,97 @@
+---
+import type { Locale } from '../i18n/config';
+import { localizeHref, normalizeLocale } from '../i18n/config';
+import { getUiCopy } from '../i18n/ui';
+
+interface Props {
+  disclaimer?: string;
+  logoHref?: string;
+  tone?: 'default' | 'black';
+  locale?: Locale;
+}
+
+const {
+  disclaimer,
+  logoHref = '/',
+  locale: rawLocale = 'es',
+} = Astro.props;
+const tone = Astro.props.tone ?? 'default';
+const locale = normalizeLocale(rawLocale);
+const copy = getUiCopy(locale);
+const footerDisclaimer = disclaimer ?? copy.footer.defaultDisclaimer;
+const localizedLogoHref = localizeHref(locale, logoHref);
+---
+
+<footer class={`footer mt-5 ${tone === 'black' ? 'footer-black' : ''}`}>
+  <div class="footer-inner">
+    <a class="logo-link" href={localizedLogoHref} id="footer-home-link">
+      <img src="/assets/img/A2/full_logo.webp" alt="a2workshop Logo" class="a2logofooter" loading="lazy" decoding="async" />
+    </a>
+    <p class="copyright-text">{footerDisclaimer}</p>
+  </div>
+</footer>
+
+<script>
+  const footerHomeLink = document.getElementById('footer-home-link') as HTMLAnchorElement | null;
+  const currentUrl = new URL(window.location.href);
+  const queryLang = currentUrl.searchParams.get('lang');
+  const footerLangQuery = queryLang === 'en' || queryLang === 'es'
+    ? queryLang
+    : currentUrl.pathname === '/en' || currentUrl.pathname.startsWith('/en/')
+      ? 'en'
+      : null;
+  if (footerHomeLink && (footerLangQuery === 'en' || footerLangQuery === 'es')) {
+    const url = new URL(footerHomeLink.href, window.location.origin);
+    url.searchParams.set('lang', footerLangQuery);
+    footerHomeLink.href = `${url.pathname}${url.search}${url.hash}`;
+  }
+</script>
+
+<style>
+  .footer {
+    background-color: var(--surface-dark);
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.822);
+    padding: 50px 16px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-black {
+    background-color: #000;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    box-shadow: none;
+  }
+
+  .footer-inner {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .a2logofooter {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .copyright-text {
+    margin: 0;
+    max-width: 360px;
+    color: #fff;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+import '../styles/drawer.css';
+
+interface Props {
+  id: string;
+  label: string;
+  breakpoint?: number;
+  docked?: boolean;
+  side?: 'left' | 'right';
+  panelWidth?: string;
+  panelClass?: string;
+  bodyClass?: string;
+  triggerClass?: string;
+  triggerLabel?: string;
+}
+
+const {
+  id,
+  label,
+  breakpoint = 1200,
+  docked = false,
+  side = 'right',
+  panelWidth,
+  panelClass = '',
+  bodyClass = '',
+  triggerClass = '',
+  triggerLabel = 'Abrir panel',
+} = Astro.props;
+
+const backdropId = `${id}-backdrop`;
+
+const instanceCss = docked
+  ? `@media (min-width: ${breakpoint}px){
+      [data-drawer-trigger="${id}"],#${backdropId}{display:none!important}
+      #${id}{position:static;inset:auto;transform:none;width:auto;max-width:none;height:auto;padding:0;overflow:visible;overscroll-behavior:auto;background:transparent;box-shadow:none;z-index:auto;transition:none}
+      #${id} .drawer-close{display:none}
+    }`
+  : `@media (min-width: ${breakpoint}px){
+      [data-drawer-trigger="${id}"],#${backdropId},#${id}{display:none!important}
+    }`;
+---
+
+<button
+  type="button"
+  class:list={['drawer-trigger', triggerClass]}
+  data-drawer-trigger={id}
+  aria-controls={id}
+  aria-expanded="false"
+  aria-label={triggerLabel}
+>
+  <slot name="trigger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+    </svg>
+  </slot>
+</button>
+
+<div id={backdropId} class="drawer-backdrop" data-drawer-backdrop hidden></div>
+
+<aside
+  id={id}
+  class:list={['drawer-panel', panelClass]}
+  data-drawer
+  data-drawer-breakpoint={breakpoint}
+  data-side={side}
+  aria-label={label}
+  style={panelWidth ? `--drawer-width: ${panelWidth};` : undefined}
+>
+  <div class:list={['drawer-body', bodyClass]}>
+    <slot />
+  </div>
+</aside>
+
+<style is:inline set:html={instanceCss}></style>
+
+<script>
+  import '../scripts/drawer';
+</script>

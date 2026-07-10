@@ -1,0 +1,29 @@
+---
+import type { GuideHeaderData } from '../../data/guides';
+
+interface Props {
+  header: GuideHeaderData;
+}
+const { header } = Astro.props;
+---
+
+<header class="guide-hero mt-4 p-5 md:p-6">
+  <div class="flex flex-col gap-4 md:flex-row md:items-center">
+    <img
+      src={header.logo}
+      alt="logo"
+      class="guide-hero-logo h-22 w-22 shrink-0 rounded-[1.2rem] bg-black/55 object-contain md:h-32 md:w-32"
+      decoding="async"
+      fetchpriority="high"
+    />
+    <div class="min-w-0 flex-1">
+      <h1 class="guide-hero-title text-[2.4rem] font-bold leading-[1.04] text-white md:text-[3.6rem]">{header.title}</h1>
+      {header.description && <p class="mt-2 text-[0.98rem] text-white/72 md:text-[1.04rem]">{header.description}</p>}
+    </div>
+    {header.steamUrl && (
+      <a href={header.steamUrl} target="_blank" rel="noopener" class="guide-steam-pill self-start md:self-center">
+        <img src="/assets/img/Custom_Button/steam_button_icon.webp" alt="steam button" class="h-auto w-[180px] md:w-[210px]" loading="lazy" decoding="async" />
+      </a>
+    )}
+  </div>
+</header>

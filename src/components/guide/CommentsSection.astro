@@ -1,0 +1,383 @@
+---
+import type { Locale } from '../../i18n/config';
+
+interface Props {
+  textareaUrl: string;
+  variant?: 'guide' | 'lb2';
+  locale?: Locale;
+}
+const { textareaUrl, variant = 'guide', locale = 'es' } = Astro.props;
+
+const sectionClass = variant === 'lb2' ? 'comments-col' : 'guide-panel mt-4 p-4 md:p-6';
+const titleText = locale === 'en' ? 'Comments (Steam)' : 'Comentarios (Steam)';
+const placeholderText = locale === 'en' ? 'Add a comment...' : 'Anadir un comentario...';
+const textareaRows = variant === 'lb2' ? 2 : 3;
+const dateLocale = locale === 'en' ? 'en-US' : 'es-MX';
+const atLabel = locale === 'en' ? 'at' : 'a las';
+---
+
+<section id="item-10" class={sectionClass}>
+  <div class={variant === 'lb2' ? 'lb2-comments-inner' : ''}>
+    <h2 class="mb-4 text-center text-2xl font-bold text-white">{titleText}</h2>
+
+    {variant === 'guide' && <div class="mb-3 flex justify-center md:justify-start"></div>}
+
+    <textarea
+      class="w-full resize-none rounded-lg border border-white/10 bg-white/5 p-3 text-white placeholder:text-white/40"
+      id="comment-text"
+      rows={textareaRows}
+      placeholder={placeholderText}
+      readonly
+    ></textarea>
+
+    <div id="comentarios" class="text-break"></div>
+    <ul class="pagination mt-3 flex flex-wrap justify-center gap-1" id="pagination-controls"></ul>
+  </div>
+</section>
+
+<script define:vars={{ textareaUrl, dateLocale, atLabel }}>
+  const COMMENTS_PER_PAGE = 10;
+  let currentPage = 1;
+  let totalPages = 1;
+  let allComments = [];
+
+  function getCurrentProjectName() {
+    const path = window.location.pathname;
+    const match = path.match(/\/(?:en\/)?proyectos\/([^\/]+?)(?:\.html)?$/);
+    return match ? match[1].toLowerCase().replace('.html', '') : 'default';
+  }
+
+  function getJsonUrlsForProject(projectName) {
+    const jsonMap = {
+      blackopsiiilatino: [
+        'https://a2workshop.github.io/steamguide_comments/comments_1.json',
+        'https://a2workshop.github.io/assets/js/archive_steamcomments.json',
+      ],
+      blackopslatino: ['https://a2workshop.github.io/steamguide_comments/comments_4.json'],
+      infinitewarfarelatino: ['https://a2workshop.github.io/steamguide_comments/comments_2.json'],
+      modernwarfarerlatino: ['https://a2workshop.github.io/steamguide_comments/comments_3.json'],
+      bo3customdubs: ['https://a2workshop.github.io/steamguide_comments/comments_bo3customdubs.json'],
+      legobatman2latino: ['https://a2workshop.github.io/steamguide_comments/comments_5.json'],
+      default: [],
+    };
+
+    return jsonMap[projectName] ?? jsonMap.default;
+  }
+
+  function formatFechaHora(value) {
+    const date = new Date(value);
+    const dia = date.toLocaleDateString(dateLocale, {
+      timeZone: 'America/Mexico_City',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+    const hora = date.toLocaleTimeString(dateLocale, {
+      timeZone: 'America/Mexico_City',
+      hour: 'numeric',
+      minute: 'numeric',
+    });
+
+    return `${dia} ${atLabel} ${hora}`;
+  }
+
+  function renderPagination() {
+    const container = document.getElementById('pagination-controls');
+    if (!container) return;
+    container.replaceChildren();
+
+    const makeItem = ({ label, page, disabled = false, active = false, externalHref = null }) => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      li.className = `page-item${active ? ' active' : ''}${disabled ? ' disabled' : ''}`;
+      link.className = 'page-link';
+      link.href = externalHref ?? '#comments';
+      link.textContent = label;
+
+      if (externalHref) {
+        link.target = '_blank';
+        link.rel = 'noopener';
+      } else {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (disabled || page === currentPage) return;
+          currentPage = page;
+          renderComments();
+        });
+      }
+
+      li.appendChild(link);
+      container.appendChild(li);
+    };
+
+    makeItem({ label: '<<', page: 1, active: currentPage === 1 });
+    makeItem({ label: '<', page: Math.max(1, currentPage - 1), disabled: currentPage === 1 });
+
+    const maxVisiblePages = 3;
+    let startPage = 1;
+    let endPage = Math.min(totalPages, maxVisiblePages);
+
+    if (totalPages > maxVisiblePages) {
+      const before = Math.floor(maxVisiblePages / 2);
+      const after = Math.ceil(maxVisiblePages / 2) - 1;
+
+      if (currentPage <= before) {
+        startPage = 1;
+        endPage = maxVisiblePages;
+      } else if (currentPage + after >= totalPages) {
+        startPage = totalPages - maxVisiblePages + 1;
+        endPage = totalPages;
+      } else {
+        startPage = currentPage - before;
+        endPage = currentPage + after;
+      }
+    }
+
+    if (startPage > 1) makeItem({ label: '...', page: startPage, disabled: true });
+
+    for (let page = startPage; page <= endPage; page += 1) {
+      makeItem({ label: String(page), page, active: page === currentPage });
+    }
+
+    if (endPage < totalPages) makeItem({ label: '...', page: endPage, disabled: true });
+
+    makeItem({ label: '>', page: Math.min(totalPages, currentPage + 1), disabled: currentPage === totalPages });
+    makeItem({ label: '>>', page: totalPages, active: currentPage === totalPages });
+  }
+
+  function renderComments() {
+    const container = document.getElementById('comentarios');
+    if (!container) return;
+    container.replaceChildren();
+
+    const start = (currentPage - 1) * COMMENTS_PER_PAGE;
+    const currentComments = allComments.slice(start, start + COMMENTS_PER_PAGE);
+
+    currentComments.forEach((comment) => {
+      const card = document.createElement('article');
+      const avatarWrap = document.createElement('div');
+      const avatar = document.createElement('img');
+      const steam = document.createElement('img');
+      const body = document.createElement('div');
+      const author = document.createElement('h6');
+      const date = document.createElement('p');
+      const text = document.createElement('p');
+
+      card.className = 'guide-comment';
+      avatarWrap.className = 'guide-comment-avatar-wrap';
+      avatar.className = 'guide-comment-avatar';
+      avatar.src = comment.avatar;
+      avatar.alt = 'avatar';
+      avatar.width = 60;
+      avatar.height = 60;
+      steam.className = 'guide-comment-steam';
+      steam.src = '/assets/img/Steam/steam_icon.webp';
+      steam.alt = 'Steam';
+      steam.width = 25;
+      steam.height = 25;
+      body.className = 'guide-comment-body';
+      author.className = 'guide-comment-author';
+      author.textContent = comment.author;
+      date.className = 'guide-comment-date';
+      date.textContent = formatFechaHora(comment.timestamp);
+      text.className = 'guide-comment-text';
+      text.textContent = comment.comment;
+
+      avatarWrap.append(avatar, steam);
+      body.append(author, date, text);
+      card.append(avatarWrap, body);
+      container.appendChild(card);
+    });
+
+    renderPagination();
+  }
+
+  async function loadComments() {
+    const urls = getJsonUrlsForProject(getCurrentProjectName());
+    if (urls.length === 0) return;
+
+    try {
+      const responses = await Promise.all(urls.map((url) => fetch(url)));
+      const payloads = await Promise.all(responses.map((response) => response.json()));
+      allComments = payloads.flatMap((payload) => payload.comments ?? []);
+      totalPages = Math.max(1, Math.ceil(allComments.length / COMMENTS_PER_PAGE));
+      renderComments();
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    }
+  }
+
+  document.getElementById('comment-text')?.addEventListener('click', () => {
+    window.open(textareaUrl, '_blank');
+  });
+
+  const commentsSection = document.getElementById('item-10');
+  let commentsLoaded = false;
+  const requestComments = () => {
+    if (commentsLoaded) return;
+    commentsLoaded = true;
+    loadComments();
+  };
+
+  if (commentsSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      requestComments();
+    }, { rootMargin: '320px 0px' });
+    observer.observe(commentsSection);
+  } else {
+    requestComments();
+  }
+</script>
+
+<style is:global>
+  #comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+  }
+
+  .guide-comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    color: #fff;
+  }
+
+  .guide-comment-avatar-wrap {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 76px;
+  }
+
+  .guide-comment-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    object-fit: cover;
+  }
+
+  .guide-comment-steam {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .guide-comment-author {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .guide-comment-date {
+    margin: 0 0 1rem;
+    color: #d6dde6;
+    font-size: 1rem;
+  }
+
+  .guide-comment-text {
+    margin: 0;
+    color: #d8dee6;
+    overflow-wrap: anywhere;
+  }
+
+  .pagination {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .page-item {
+    display: inline-flex;
+  }
+
+  .page-link {
+    display: block;
+    min-width: 2.4rem;
+    padding: 10px;
+    border: 1px solid #000;
+    background: #1b2838;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .page-link:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #000;
+  }
+
+  .page-item.active .page-link {
+    z-index: 1;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text, #000);
+  }
+
+  .page-item.disabled .page-link {
+    background: #10141a;
+    border-color: #10141a;
+    color: #000;
+    pointer-events: none;
+  }
+
+  #comment-text {
+    background-color: #1a2431;
+  }
+
+  #comment-text::placeholder {
+    color: #aaa;
+  }
+
+  .lb2-comments-inner {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 1rem 0.75rem 0.5rem;
+  }
+
+  .comments-col #comment-text {
+    border-radius: 0;
+    background-color: #333;
+    color: #eee;
+    border: 1px solid #555;
+  }
+
+  .comments-col .guide-comment {
+    color: #eee;
+  }
+
+  .comments-col .page-link {
+    background-color: #303030;
+    border: 0;
+    color: #eee;
+    font-family: 'motiva', sans-serif;
+  }
+
+  .comments-col .page-item.active .page-link,
+  .comments-col .page-link:hover {
+    background-color: #505050;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .guide-comment {
+      gap: 0.75rem;
+      padding: 1rem 0.25rem;
+    }
+
+    .guide-comment-avatar-wrap {
+      flex-basis: 76px;
+    }
+
+    .guide-comment-text {
+      font-size: 16px;
+    }
+  }
+</style>

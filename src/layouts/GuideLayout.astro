@@ -1,0 +1,223 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
+import Footer from '../components/Footer.astro';
+import GuideCredits from '../components/guide/GuideCredits.astro';
+import GuideCreditsContent from '../components/guide/GuideCreditsContent.astro';
+import MobileDrawer from '../components/MobileDrawer.astro';
+import GuideHeader from '../components/guide/GuideHeader.astro';
+import CommentsSection from '../components/guide/CommentsSection.astro';
+import GuideEnhancements from '../components/guide/GuideEnhancements.astro';
+import '../styles/guide-theme.css';
+import '../styles/guide-content.css';
+import type { GuideProject } from '../data/guides';
+import type { Locale } from '../i18n/config';
+import { buildLocalizedPath } from '../i18n/config';
+
+interface Props {
+  guide: GuideProject;
+  locale?: Locale;
+  uiLocale?: Locale;
+}
+
+const { guide, locale = 'es', uiLocale = 'es' } = Astro.props;
+
+const bodyStyle = `background-color: ${guide.themeColor}; --accent: ${guide.accent}; --accent-text: ${guide.accentText ?? '#000000'}; --guide-bg-base: ${guide.bgBase ?? '#1b2838'}; --guide-bg-accent: ${guide.bgAccent ?? guide.accent};`;
+const bodyClass = guide.gridVariant && guide.gridVariant !== 'default' ? `guide-grid-${guide.gridVariant}` : '';
+const baseGuidePath = `/proyectos/${guide.key}`;
+const guideCanonicalPath = buildLocalizedPath(baseGuidePath, locale);
+
+const guideUi =
+  uiLocale === 'en'
+    ? {
+        creditsAriaLabel: 'Index and credits',
+        createdByTitle: 'Created by',
+        downloadsTitle: 'Downloads',
+        indexTitle: 'Index',
+        indexAriaLabel: 'Index',
+        drawerLabel: 'Index and credits',
+        drawerTriggerLabel: 'Open index and credits',
+        collapseLabel: 'Hide',
+        expandLabel: 'Show all',
+        md5Error: 'Error loading the MD5 file:',
+        backToTopLabel: 'Back to top',
+        commentsLocale: 'en' as const,
+      }
+    : {
+        creditsAriaLabel: 'Indice y creditos',
+        createdByTitle: 'Creado por',
+        downloadsTitle: 'Descargas',
+        indexTitle: 'Indice',
+        indexAriaLabel: 'Indice',
+        drawerLabel: 'Indice y creditos',
+        drawerTriggerLabel: 'Abrir indice y creditos',
+        collapseLabel: 'Ocultar',
+        expandLabel: 'Ver todos',
+        md5Error: 'Error al cargar el archivo MD5:',
+        backToTopLabel: 'Volver arriba',
+        commentsLocale: 'es' as const,
+      };
+---
+
+<BaseLayout
+  title={guide.title}
+  description={guide.description}
+  canonical={`https://a2workshop.github.io${guideCanonicalPath}`}
+  ogTitle="A2Workshop"
+  ogImage={guide.ogImage}
+  themeColor={guide.themeColor}
+  bodyStyle={bodyStyle}
+  bodyClass={bodyClass}
+  iconify
+  lazyMedia
+  locale={locale}
+  localeBasePath={baseGuidePath}
+  autoDetectLocale={locale === 'es'}
+>
+  <Navbar activeKey="default" boldProyecto locale={locale} />
+  <AnimatedBackground variant="guide" showLogos={false} />
+
+  <main class="guide-shell mx-auto w-full max-w-[1200px] px-3 pb-10 text-white">
+    <GuideHeader header={guide.header} />
+    <div class="guide-layout-grid mt-4">
+      <div class="min-w-0">
+        <div class="scrollspy-example-2 guide-prose" id="changemobile">
+          <slot />
+        </div>
+      </div>
+      <GuideCredits
+        creators={guide.creators}
+        indice={guide.indice}
+        downloadCount={guide.downloadCount}
+        ariaLabel={guideUi.creditsAriaLabel}
+        createdByTitle={guideUi.createdByTitle}
+        downloadsTitle={guideUi.downloadsTitle}
+        indexTitle={guideUi.indexTitle}
+        indexAriaLabel={guideUi.indexAriaLabel}
+      />
+    </div>
+
+    <CommentsSection textareaUrl={guide.commentsTextareaUrl} locale={guideUi.commentsLocale} />
+  </main>
+
+  <MobileDrawer
+    id="guide-credits"
+    label={guideUi.drawerLabel}
+    breakpoint={1200}
+    triggerLabel={guideUi.drawerTriggerLabel}
+    bodyClass="flex flex-col gap-4"
+  >
+    <svg slot="trigger" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#fff" d="M11 2a5 5 0 1 0 0 10a5 5 0 0 0 0-10M8 7a3 3 0 1 1 6 0a3 3 0 0 1-6 0M4 18.5c0-.18.09-.489.413-.899c.316-.4.804-.828 1.451-1.222C7.157 15.589 8.977 15 11 15q.563 0 1.105.059a1 1 0 1 0 .211-1.99A13 13 0 0 0 11 13c-2.395 0-4.575.694-6.178 1.672c-.8.488-1.484 1.064-1.978 1.69C2.358 16.976 2 17.713 2 18.5c0 .845.411 1.511 1.003 1.986c.56.45 1.299.748 2.084.956C6.665 21.859 8.771 22 11 22l.685-.005a1 1 0 1 0-.027-2L11 20c-2.19 0-4.083-.143-5.4-.492c-.663-.175-1.096-.382-1.345-.582C4.037 18.751 4 18.622 4 18.5m12-.5a1 1 0 0 1 1-1h.99c.558 0 1.01.452 1.01 1.01v2.124A1 1 0 0 1 18.5 22h-.49A1.01 1.01 0 0 1 17 20.99V19a1 1 0 0 1-1-1m2-4a1 1 0 0 0-.117 1.993l.119.007a1 1 0 0 0 .117-1.993z" />
+    </svg>
+    <GuideCreditsContent
+      creators={guide.creators}
+      indice={guide.indice}
+      downloadCount={guide.downloadCount}
+      createdByTitle={guideUi.createdByTitle}
+      downloadsTitle={guideUi.downloadsTitle}
+      indexTitle={guideUi.indexTitle}
+      indexAriaLabel={guideUi.indexAriaLabel}
+    />
+  </MobileDrawer>
+
+  <GuideEnhancements backToTopLabel={guideUi.backToTopLabel} />
+
+  <style>
+    .guide-shell {
+      position: relative;
+      z-index: 1;
+    }
+    .guide-layout-grid {
+      display: block;
+    }
+    @media (min-width: 1200px) {
+      .guide-layout-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+    }
+  </style>
+
+  <Footer disclaimer={guide.disclaimer} locale={locale} />
+
+  {guide.md5Path && (
+    <script define:vars={{ md5Path: guide.md5Path, expandLabel: guideUi.expandLabel, collapseLabel: guideUi.collapseLabel, md5Error: guideUi.md5Error }}>
+      const tbody = document.getElementById('md5-table-body');
+      const button = document.getElementById('show-more');
+      let loaded = false;
+
+      const loadMd5 = () => {
+        if (loaded || !tbody) return;
+        loaded = true;
+
+        fetch(md5Path)
+          .then((response) => response.text())
+          .then((text) => {
+            const columnCount = tbody.closest('table')?.querySelectorAll('thead th').length ?? 2;
+            const validMd5 = (value) => !value || /^[0-9a-fA-F]{32}$/.test(value);
+            const rows = text.trim().split(/\r?\n/).map((line) => {
+              const separator = line.includes('|') ? '|' : ':';
+              const parts = line.split(separator);
+              const fileName = parts.shift()?.trim() ?? '';
+              const steamMd5 = parts.shift()?.trim() ?? '';
+              const msMd5 = parts.shift()?.trim() ?? '';
+              if (!fileName || !validMd5(steamMd5) || !validMd5(msMd5)) return null;
+
+              const tr = document.createElement('tr');
+              const fileCell = document.createElement('td');
+              const steamCell = document.createElement('td');
+              fileCell.textContent = fileName;
+              steamCell.textContent = steamMd5 || '-';
+              if (!steamMd5) steamCell.classList.add('md5-empty');
+              tr.append(fileCell, steamCell);
+
+              if (columnCount > 2) {
+                const msCell = document.createElement('td');
+                msCell.textContent = msMd5 || '-';
+                if (!msMd5) msCell.classList.add('md5-empty');
+                tr.append(msCell);
+              }
+
+              return tr;
+            }).filter(Boolean);
+
+            rows.forEach((row, index) => {
+              if (index >= 3) row.style.display = 'none';
+              tbody.appendChild(row);
+            });
+            if (!button) return;
+            let expanded = false;
+            button.style.display = rows.length > 3 ? 'inline-block' : 'none';
+            button.addEventListener('click', () => {
+              expanded = !expanded;
+              rows.forEach((row, index) => {
+                if (index >= 3) row.style.display = expanded ? '' : 'none';
+              });
+              button.textContent = expanded ? collapseLabel : expandLabel;
+            });
+          })
+          .catch((error) => console.error(md5Error, error));
+      };
+
+      if (!tbody) {
+        loadMd5();
+      } else if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+            observer.disconnect();
+            loadMd5();
+          },
+          { rootMargin: '320px' },
+        );
+        observer.observe(tbody.closest('table') ?? tbody);
+      } else {
+        loadMd5();
+      }
+    </script>
+  )}
+</BaseLayout>

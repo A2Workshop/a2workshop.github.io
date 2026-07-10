@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="A2Workshop - 404"
+  bodyClass="bg-surface-404 text-white text-center flex flex-col items-center justify-center min-h-screen m-0"
+  bodyStyle="font-family: Arial, sans-serif;"
+>
+  <div class="max-w-[600px] p-5">
+    <p class="text-[3rem] leading-none m-0">🤔</p>
+    <h1 class="text-xl font-normal mt-2"><b>Error 404:</b> Página no encontrada</h1>
+    <p>¡Ups, algo salió mal! La página que buscas no existe o está en otro lugar.</p>
+    <a
+      href="/"
+      class="inline-block mt-5 px-5 py-2.5 text-white no-underline bg-gradient-to-r from-brand-blue to-brand-orange transition-colors"
+    >
+      Volver a A2Workshop
+    </a>
+  </div>
+</BaseLayout>

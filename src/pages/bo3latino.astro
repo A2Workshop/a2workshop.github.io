@@ -1,0 +1,32 @@
+---
+const baseTarget = '/proyectos/blackopsiiilatino';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>COD: Black Ops III PC Espanol Latino</title>
+    <link rel="canonical" href={`https://a2workshop.github.io${baseTarget}`} />
+    <script is:inline define:vars={{ baseTarget }}>
+      (() => {
+        const url = new URL(window.location.href);
+        const requestedLang = url.searchParams.get('lang');
+        const detectBrowserLang = () => {
+          const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+          const hasSpanish = languages.some((item) => /^es\b/i.test(item));
+          const primaryLanguage = languages[0] ?? '';
+          return hasSpanish || !/^en\b/i.test(primaryLanguage) ? 'es' : 'en';
+        };
+        const nextLang = requestedLang === 'en' || requestedLang === 'es' ? requestedLang : detectBrowserLang();
+        const targetPath = nextLang === 'en' ? `/en${baseTarget}` : baseTarget;
+        const targetUrl = `${targetPath}${url.search}${url.hash}`;
+        window.location.replace(targetUrl);
+      })();
+    </script>
+    <meta http-equiv="refresh" content={`0; url=${baseTarget}`} />
+  </head>
+  <body>
+    <a href={baseTarget}>COD: Black Ops III PC Espanol Latino</a>
+  </body>
+</html>

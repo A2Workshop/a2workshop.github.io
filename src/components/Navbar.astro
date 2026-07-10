@@ -1,0 +1,447 @@
+---
+import { getMenuItems, type NavbarOptions } from '../data/nav';
+import type { Locale } from '../i18n/config';
+import { localizeHref, normalizeLocale } from '../i18n/config';
+import { getUiCopy } from '../i18n/ui';
+
+interface Props extends NavbarOptions {
+  locale?: Locale;
+}
+
+const {
+  activeKey = 'default',
+  showLogo = true,
+  extraContainerClass = '',
+  boldProyecto = false,
+  boldContacto = false,
+  fullLogoSrc = '/assets/img/A2/full_logo.webp',
+  mobileLogoSrc = '/assets/img/A2/logo.webp',
+  locale: rawLocale = 'es',
+} = Astro.props;
+
+const locale = normalizeLocale(rawLocale);
+const copy = getUiCopy(locale);
+const menuItems = getMenuItems(locale);
+const englishCopy = getUiCopy('en');
+const englishMenuItems = getMenuItems('en');
+const homeHref = localizeHref(locale, '/');
+const contactHref = localizeHref(locale, '/contacto');
+
+const path = Astro.url.pathname.toLowerCase();
+const proyectoActive =
+  boldProyecto || path.includes('/proyectos/') || path.includes('/traducciones/');
+const projectsEnHtml = proyectoActive ? `<b>${englishCopy.nav.projects}</b>` : undefined;
+const projectsEnText = proyectoActive ? undefined : englishCopy.nav.projects;
+const contactEnHtml = boldContacto ? `<b>${englishCopy.nav.contact}</b>` : undefined;
+const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
+---
+
+<div id="navbar-container" class={`navbar-page-${activeKey}`}>
+  <nav class={`a2-navbar a2-navbar-${activeKey}`}>
+    <div class={`nav-container ${extraContainerClass}`}>
+      {showLogo && (
+        <div class="nav-brand">
+          <a href={homeHref}>
+            <picture>
+              <source media="(max-width: 990px)" srcset={mobileLogoSrc} />
+              <img src={fullLogoSrc} alt="A2WORKSHOP" class="logo_nav" decoding="async" />
+            </picture>
+          </a>
+        </div>
+      )}
+
+      <div class="nav-links">
+        <div class="megamenu">
+          <a href="#" class="nav-main-link" data-nav-projects data-en-html={projectsEnHtml} data-en-text={projectsEnText}>
+            {proyectoActive ? <b>{copy.nav.projects}</b> : copy.nav.projects}
+          </a>
+
+          <div class="megamenu-content">
+            <button class="close-btn" type="button" aria-label={copy.nav.closeMenu} data-close-menu-en={englishCopy.nav.closeMenu}>&times;</button>
+            {menuItems.map((item, i) => (
+              <a href={item.href} class={i > 0 ? 'disable-padding-top' : undefined} data-menu-index={i} data-en-href={englishMenuItems[i]?.href}>
+                <img src={item.imgPath} alt={item.alt} class="nav-menu-icon" loading="lazy" decoding="async" />
+                <span data-menu-text data-en-text={englishMenuItems[i]?.text}>{item.text}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <a href={contactHref} class="contacto-hover nav-main-link" data-nav-contact data-en-html={contactEnHtml} data-en-text={contactEnText}>
+          {boldContacto ? <b>{copy.nav.contact}</b> : copy.nav.contact}
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<script>
+  const content = document.querySelector('.megamenu-content');
+  const trigger = document.querySelector('.megamenu > a');
+  const closeBtn = document.querySelector('.close-btn');
+
+  const open = () => content?.classList.add('is-open');
+  const close = () => content?.classList.remove('is-open');
+
+  trigger?.addEventListener('click', (e) => {
+    e.preventDefault();
+    open();
+  });
+  closeBtn?.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+  content?.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+</script>
+
+<style is:global>
+  #navbar-container {
+    position: relative;
+    z-index: 998;
+  }
+
+  #navbar-container.navbar-page-index {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .a2-navbar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+  }
+
+  .nav-container {
+    font-family: 'motiva';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1180px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+  }
+
+  .a2-navbar a {
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+
+  .a2-navbar a:hover {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  .nav-main-link,
+  .megamenu > a,
+  .nav-links > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .megamenu {
+    position: relative;
+    z-index: 10001;
+  }
+
+  .megamenu-content {
+    text-wrap: balance;
+    z-index: 10002;
+  }
+
+  .logo_nav {
+    height: 50px;
+    width: auto;
+  }
+
+  .nav-container img {
+    border-radius: 10px;
+  }
+
+  @media (min-width: 990px) {
+    .a2-navbar a {
+      font-size: 24px;
+      padding: 10px 20px;
+    }
+
+    .megamenu > a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .megamenu:hover > a,
+    .contacto-hover:hover,
+    .gamebanana-hover:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .megamenu-content {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background-color: rgba(30, 30, 30, 0.55);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      backdrop-filter: blur(18px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 14px;
+      border-radius: 12px;
+      width: 600px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      z-index: 10002;
+    }
+
+    .megamenu:hover .megamenu-content,
+    .megamenu-content.is-open {
+      display: block;
+      margin-top: -10px !important;
+      margin-left: -150px !important;
+    }
+
+    .megamenu-content a {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      padding: 5px 20px;
+      border-radius: 10px;
+      font-size: 20px;
+      white-space: normal;
+    }
+
+    .megamenu-content a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .megamenu-content img {
+      max-width: 70px;
+      margin-right: 10px;
+    }
+
+    .nav-menu-icon {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+
+    .close-btn {
+      display: none;
+    }
+  }
+
+  @media (max-width: 990px) {
+    .a2-navbar {
+      padding: 8px 0;
+    }
+
+    .nav-container {
+      gap: 10px;
+    }
+
+    .logo_nav {
+      width: auto;
+      height: 50px;
+    }
+
+    .a2-navbar a {
+      font-size: 16px;
+      padding: 8px 12px;
+    }
+
+    .nav-links {
+      gap: 6px;
+    }
+
+    .megamenu-content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.55);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      backdrop-filter: blur(20px) saturate(150%);
+      padding-top: 40px;
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+      box-shadow: none;
+      border-radius: 0;
+      z-index: 10002;
+      display: none;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    .disable-padding-top {
+      padding-top: 0 !important;
+    }
+
+    .megamenu-content a {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      gap: 10px;
+      white-space: normal;
+    }
+
+    .megamenu-content img {
+      max-width: 50px;
+      max-height: 50px;
+      flex-shrink: 0;
+    }
+
+    .megamenu-content.is-open {
+      display: block;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav-container {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 8px;
+    }
+
+    .nav-brand {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .nav-links {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    .nav-links > a,
+    .megamenu > a {
+      width: 100%;
+      min-width: 0;
+      min-height: 38px;
+      padding: 8px 6px;
+      font-size: clamp(0.72rem, 3.4vw, 0.95rem);
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .megamenu {
+      min-width: 0;
+      width: 100%;
+    }
+
+    #navbar-container.navbar-page-index {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    #navbar-container.navbar-page-index .a2-navbar {
+      background: rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  @media (max-width: 380px) {
+    .nav-links > a,
+    .megamenu > a {
+      font-size: 0.72rem;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    .logo_nav {
+      height: 36px !important;
+      width: auto !important;
+      max-width: 160px;
+      margin: 0 !important;
+    }
+  }
+
+  @media (max-width: 330px) {
+    .a2-navbar a {
+      font-size: 11px;
+    }
+
+    .logo_nav {
+      display: none;
+    }
+
+    .nav-brand {
+      display: none;
+    }
+
+    .nav-links {
+      margin-top: 0;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 10003;
+  }
+
+  .close-btn:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media (max-width: 576px) {
+    .mb-mobile {
+      margin-bottom: 3rem !important;
+    }
+  }
+
+  main,
+  section,
+  header,
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+</style>

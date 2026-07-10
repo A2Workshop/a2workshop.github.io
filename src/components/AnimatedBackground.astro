@@ -1,0 +1,168 @@
+---
+interface Props {
+  variant?: 'brand' | 'guide';
+  showLogos?: boolean;
+}
+const { variant = 'brand', showLogos = true } = Astro.props;
+---
+
+<div class:list={['animated-background', `bg-${variant}`]}></div>
+
+{showLogos && (
+  <script>
+    const background = document.querySelector('.animated-background');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = 'connection' in navigator && (navigator.connection as { saveData?: boolean }).saveData;
+    if (background && !reduceMotion && !saveData) {
+      const logoUrls = [
+        '/assets/img/BO1/logo.webp',
+        '/assets/img/BO3/logo.webp',
+        '/assets/img/IW/images.steamusercontent.jpeg',
+        '/assets/img/MWR/MWR.webp',
+        '/pq2/img/es_logo/blackbg.webp',
+        '/p4d/img/es_logo/blackbg.webp',
+        '/assets/img/LB2/icon.jpg',
+      ];
+
+      let currentMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+
+      const applyLogoSize = (logo: HTMLElement) => {
+        const isMobile = window.innerWidth <= 768;
+        const minSize = isMobile ? 20 : 40;
+        const maxSize = isMobile ? 40 : 80;
+        const size = minSize + Math.random() * (maxSize - minSize);
+        logo.style.width = `${size}px`;
+        logo.style.height = `${size}px`;
+      };
+
+      const createLogo = (imageUrl: string) => {
+        const logo = document.createElement('div');
+        logo.className = 'logo';
+        logo.style.backgroundImage = `url('${imageUrl}')`;
+        logo.style.top = `${Math.random() * 100}vh`;
+        applyLogoSize(logo);
+        logo.style.animationDuration = `${10 + Math.random() * 20}s`;
+        logo.style.transform = `rotate(${-20 + Math.random() * 40}deg)`;
+        logo.style.animationDelay = `${Math.random() * 10}s`;
+        logo.style.opacity = '0';
+        return logo;
+      };
+
+      const createLogos = () => {
+        const fragment = document.createDocumentFragment();
+        const logoCount = window.innerWidth <= 768 ? 4 : 7;
+        for (let i = 0; i < logoCount; i++) {
+          fragment.appendChild(createLogo(logoUrls[i % logoUrls.length]));
+        }
+        background.appendChild(fragment);
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(createLogos, { timeout: 1600 });
+      } else {
+        window.setTimeout(createLogos, 600);
+      }
+
+      let resizeScheduled = false;
+      window.addEventListener('resize', () => {
+        if (resizeScheduled) return;
+        resizeScheduled = true;
+        requestAnimationFrame(() => {
+          resizeScheduled = false;
+        const newMode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+        if (newMode !== currentMode) {
+          currentMode = newMode;
+          document.querySelectorAll<HTMLElement>('.logo').forEach(applyLogoSize);
+        }
+        });
+      });
+    }
+  </script>
+)}
+
+<style is:global>
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 400% 400%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .animated-background.bg-brand {
+    background: var(--bg-gradient);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+  }
+
+  .animated-background.bg-guide {
+    background: radial-gradient(120% 120% at 50% 0%, var(--guide-bg-accent, #2a3d53), var(--guide-bg-base, #1b2838) 70%);
+  }
+
+  .animated-background.bg-guide::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(
+      40% 60% at 50% 40%,
+      color-mix(in srgb, var(--accent, #888) 16%, transparent),
+      transparent 60%
+    );
+    animation: guideSheen 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes guideSheen {
+    0% {
+      transform: translateX(-22%);
+    }
+    100% {
+      transform: translateX(22%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animated-background.bg-brand,
+    .animated-background.bg-guide,
+    .animated-background.bg-guide::before {
+      animation: none;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: floatLeft linear infinite;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+    will-change: transform, opacity;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      border-radius: 5px !important;
+    }
+  }
+
+  @keyframes floatLeft {
+    0% {
+      transform: translateX(100vw) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateX(-100px) rotate(360deg);
+      opacity: 0.5;
+    }
+  }
+</style>

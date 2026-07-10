@@ -1,0 +1,25 @@
+---
+import type { Creator } from '../../data/guides';
+
+interface Props {
+  creator: Creator;
+}
+const { creator } = Astro.props;
+const external = !!creator.buttonHref && /^https?:\/\//.test(creator.buttonHref);
+---
+
+<div class="creator-card">
+  <img src={creator.img} alt={creator.name} class="creator-avatar" loading="lazy" decoding="async" />
+  <div class="min-w-0">
+    <div class="creator-name">{creator.name}</div>
+    {creator.buttonLabel && creator.buttonHref && (
+      <a
+        href={creator.buttonHref}
+        class="creator-btn"
+        {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+      >
+        {creator.buttonLabel}
+      </a>
+    )}
+  </div>
+</div>

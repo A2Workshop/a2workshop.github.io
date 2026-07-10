@@ -1,0 +1,160 @@
+---
+interface Props {
+  color?: string;
+  interval?: number;
+}
+const { color = 'var(--accent, #ff33ff)', interval = 6000 } = Astro.props;
+---
+
+<div class="sc-carousel" style={`--sc-color:${color}`} data-sc-interval={interval}>
+  <button class="sc-nav sc-prev" type="button" aria-label="Anterior">&#8249;</button>
+  <div class="sc-viewport"><slot /></div>
+  <button class="sc-nav sc-next" type="button" aria-label="Siguiente">&#8250;</button>
+</div>
+
+<style>
+  .sc-carousel {
+    position: relative;
+  }
+  .sc-carousel .sc-viewport > :global(*) {
+    scrollbar-width: none;
+  }
+  .sc-carousel .sc-viewport > :global(*)::-webkit-scrollbar {
+    display: none;
+  }
+  .sc-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--sc-color);
+    color: #fff;
+    font-size: 1.9rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.85;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+    transition: opacity 0.2s ease, filter 0.15s ease;
+  }
+  .sc-nav:hover {
+    opacity: 1;
+    filter: brightness(1.1);
+  }
+  .sc-prev {
+    left: 0.25rem;
+  }
+  .sc-next {
+    right: 0.25rem;
+  }
+  .sc-nav[disabled] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sc-carousel.sc-static .sc-nav {
+    display: none;
+  }
+  @media (max-width: 640px) {
+    .sc-nav {
+      width: 38px;
+      height: 38px;
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const EDGE = 4;
+
+  document.querySelectorAll<HTMLElement>('.sc-carousel').forEach((wrap) => {
+    const viewport = wrap.querySelector<HTMLElement>('.sc-viewport');
+    const scroller = viewport?.firstElementChild as HTMLElement | null;
+    const prev = wrap.querySelector<HTMLButtonElement>('.sc-prev');
+    const next = wrap.querySelector<HTMLButtonElement>('.sc-next');
+    if (!scroller || !prev || !next) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const interval = Number(wrap.dataset.scInterval) || 0;
+    const page = () => scroller.clientWidth;
+
+    const originals = Array.from(scroller.children) as HTMLElement[];
+    let infinite = false;
+
+    if (scroller.scrollWidth <= scroller.clientWidth + EDGE) {
+      wrap.classList.add('sc-static');
+    } else {
+      // Clone both sides so wraparound stays seamless.
+      infinite = true;
+      const cloneSet = (): DocumentFragment => {
+        const frag = document.createDocumentFragment();
+        originals.forEach((el) => {
+          const clone = el.cloneNode(true) as HTMLElement;
+          clone.setAttribute('data-sc-clone', '');
+          clone.setAttribute('aria-hidden', 'true');
+          clone.removeAttribute('id');
+          clone.querySelectorAll('[id]').forEach((n) => n.removeAttribute('id'));
+          clone.querySelectorAll('a, button').forEach((n) => n.setAttribute('tabindex', '-1'));
+          frag.appendChild(clone);
+        });
+        return frag;
+      };
+      scroller.appendChild(cloneSet());
+      scroller.insertBefore(cloneSet(), scroller.firstChild);
+    }
+
+    const setWidth = () => scroller.scrollWidth / 3;
+
+    const recenter = () => {
+      if (!infinite) return;
+      const w = setWidth();
+      if (scroller.scrollLeft < w - EDGE) scroller.scrollLeft += w;
+      else if (scroller.scrollLeft >= 2 * w - EDGE) scroller.scrollLeft -= w;
+    };
+
+    if (infinite) scroller.scrollLeft = setWidth();
+
+    const go = (dir: number) => {
+      scroller.scrollBy({ left: dir * page(), behavior: 'smooth' });
+    };
+
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+
+    let idle: number | null = null;
+    scroller.addEventListener(
+      'scroll',
+      () => {
+        if (idle !== null) clearTimeout(idle);
+        idle = window.setTimeout(recenter, 120);
+      },
+      { passive: true },
+    );
+    window.addEventListener('resize', () => {
+      if (infinite) scroller.scrollLeft = Math.max(scroller.scrollLeft, EDGE);
+    });
+
+    let timer: number | null = null;
+    const stop = () => {
+      if (timer !== null) {
+        clearInterval(timer);
+        timer = null;
+      }
+    };
+    const start = () => {
+      if (reduce || interval <= 0 || !infinite) return;
+      stop();
+      timer = window.setInterval(() => go(1), interval);
+    };
+    wrap.addEventListener('pointerenter', stop);
+    wrap.addEventListener('pointerleave', start);
+    wrap.addEventListener('pointerdown', stop);
+    start();
+  });
+</script>

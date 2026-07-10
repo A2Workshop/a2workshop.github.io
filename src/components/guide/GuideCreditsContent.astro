@@ -1,0 +1,44 @@
+---
+import CreatorCard from './CreatorCard.astro';
+import IndexList from './IndexList.astro';
+import DownloadCountCard from './DownloadCountCard.astro';
+import type { Creator, IndexItem, DownloadCount } from '../../data/guides';
+
+interface Props {
+  creators: Creator[];
+  indice: IndexItem[];
+  downloadCount?: DownloadCount | null;
+  stickyIndex?: boolean;
+  createdByTitle?: string;
+  downloadsTitle?: string;
+  indexTitle?: string;
+  indexAriaLabel?: string;
+}
+const {
+  creators,
+  indice,
+  downloadCount,
+  stickyIndex = false,
+  createdByTitle = 'Creado por',
+  downloadsTitle = 'Descargas',
+  indexTitle = 'Indice',
+  indexAriaLabel = 'Indice',
+} = Astro.props;
+---
+
+<section class="guide-panel">
+  <h4 class="guide-panel-title">{createdByTitle}</h4>
+  {creators.map((c) => <CreatorCard creator={c} />)}
+</section>
+
+{downloadCount && (
+  <section class="guide-panel">
+    <h4 class="guide-panel-title">{downloadsTitle}</h4>
+    <DownloadCountCard data={downloadCount} />
+  </section>
+)}
+
+<section class:list={['guide-panel', 'guide-index', { 'guide-index-sticky': stickyIndex }]}>
+  <h4 class="guide-panel-title">{indexTitle}</h4>
+  <IndexList items={indice} ariaLabel={indexAriaLabel} />
+</section>
