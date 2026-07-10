@@ -77,7 +77,7 @@ export const guides = {
       { href: '#item-6', label: 'Instalación' },
       { href: '#item-7', label: 'Errores Conocidos' },
       { href: '#item-8', label: 'Workshop - Zombies' },
-      { href: '#item-10', label: 'Nota de responsabilidad' },
+      { href: '#item-11', label: 'Nota de responsabilidad' },
       { href: '#item-9', label: 'Créditos' },
       { href: '#item-10', label: 'Comentarios' },
     ],
