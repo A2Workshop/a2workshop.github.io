@@ -82,7 +82,7 @@ export const guides = {
       { href: '#item-10', label: 'Comentarios' },
     ],
     downloadCount: {
-      staticDownloads: 21854,
+      staticDownloads: 21856,
       sources: '[{"folderKey":"fxa4xrrlre40k","filename":"Core (Requerido).7z"},{"folderKey":"y5qw1e4we6y50","filename":"BO3_MSPC_FULL_3.0.7z"},{"folderKey":"jizltsp4dmgfy","filename":"BO3_MSPC_FULL_3.0_MStore.7z"}]',
     },
     md5Path: '/assets/md5/bo3/md5.txt',
