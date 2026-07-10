@@ -196,6 +196,7 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
   <script is:inline>
     (() => {
       const media = window.matchMedia('(max-width: 990px)');
+      const dropdown = document.querySelector('.pq2-dropdown');
       const getLang = () => new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'es';
       const syncLabels = () => {
         const lang = getLang();
@@ -205,7 +206,16 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
           item.textContent = media.matches && short ? short : full || item.textContent;
         });
       };
+      const closeDropdown = (event) => {
+        if (!dropdown?.open) return;
+        if (event.target instanceof Node && dropdown.contains(event.target)) return;
+        dropdown.open = false;
+      };
       media.addEventListener?.('change', syncLabels);
+      document.addEventListener('pointerdown', closeDropdown);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && dropdown?.open) dropdown.open = false;
+      });
       document.addEventListener('DOMContentLoaded', () => {
         syncLabels();
         setTimeout(syncLabels, 0);
