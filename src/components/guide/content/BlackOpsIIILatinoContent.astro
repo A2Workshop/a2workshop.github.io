@@ -1,157 +1,254 @@
 ---
 const changelog = [
   {
-    version: 'v3.0',
-    date: '2026-07-10',
+    version: "v3.0",
+    date: "2026-07-10",
     open: true,
-        items: [
-      'Recreación 1:1 de los archivos de audio de PS4.',
-      'Mejora general de la calidad del audio.',
-      'Corregido el problema del arco de la oscuridad en Der Eisendrache.',
-      'Corregidos los diálogos de Samantha y Richtofen en Moon.',
-      'Corregidos los problemas de audio en la campaña.',
-      'Corregidos los problemas de audio en partidas largas del modo multijugador.',
-      'Corregidos los problemas de audio en rondas altas en el modo Zombis.',
-      'Compatibilidad con la versión de la Microsoft Store.',
-    ],
-  },
-  {
-    version: 'v2.5',
-    date: '2025-05-03',
-    items: ['Correcciones en diálogos de Shi No Numa.'],
-  },
-  {
-    version: 'v2.4',
-    date: '2023-07-01',
-    items: ['Corregido un diálogo de la Campaña.'],
-  },
-  {
-    version: 'v2.3',
-    date: '2023-04-29',
-    items: ['Agregados mapas de DLC del modo Multijugador.'],
-  },
-  {
-    version: 'v2.2',
-    date: '2023-04-12',
-    items: ['Corregido un diálogo del Arco de la oscuridad en Der Eisendrache.'],
-  },
-  {
-    version: 'v2.1',
-    date: '2023-03-06',
-    items: ['Agregado soporte nativo para Revelations.'],
-  },
-  {
-    version: 'v2.0',
-    date: '2023-02-20',
     items: [
-      'Soporte nativo para Campaña, Multijugador y modos Bonificación.',
-      'Compatible con el cliente en desarrollo boiii.',
-      'Todos los audios fueron reemplazados de forma más limpia y sin pérdidas.',
-      'Todos los mapas disponibles mediante reemplazo de archivos, excepto Revelations.',
+      "Recreación 1:1 de los archivos de audio de PS4.",
+      "Mejora general de la calidad del audio.",
+      "Corregido el problema del arco de la oscuridad en Der Eisendrache.",
+      "Corregidos los diálogos de Samantha y Richtofen en Moon.",
+      "Corregidos los problemas de audio en la campaña.",
+      "Corregidos los problemas de audio en partidas largas del modo multijugador.",
+      "Corregidos los problemas de audio en rondas altas en el modo Zombis.",
+      "Compatibilidad con la versión de la Microsoft Store.",
     ],
   },
   {
-    version: 'v1.0',
-    date: '2022-06-10',
-    items: ['Versión inicial.'],
+    version: "v2.5",
+    date: "2025-05-03",
+    items: ["Correcciones en diálogos de Shi No Numa."],
+  },
+  {
+    version: "v2.4",
+    date: "2023-07-01",
+    items: ["Corregido un diálogo de la Campaña."],
+  },
+  {
+    version: "v2.3",
+    date: "2023-04-29",
+    items: ["Agregados mapas de DLC del modo Multijugador."],
+  },
+  {
+    version: "v2.2",
+    date: "2023-04-12",
+    items: [
+      "Corregido un diálogo del Arco de la oscuridad en Der Eisendrache.",
+    ],
+  },
+  {
+    version: "v2.1",
+    date: "2023-03-06",
+    items: ["Agregado soporte nativo para Revelations."],
+  },
+  {
+    version: "v2.0",
+    date: "2023-02-20",
+    items: [
+      "Soporte nativo para Campaña, Multijugador y modos Bonificación.",
+      "Compatible con el cliente en desarrollo boiii.",
+      "Todos los audios fueron reemplazados de forma más limpia y sin pérdidas.",
+      "Todos los mapas disponibles mediante reemplazo de archivos, excepto Revelations.",
+    ],
+  },
+  {
+    version: "v1.0",
+    date: "2022-06-10",
+    items: ["Versión inicial."],
   },
 ];
 ---
 
 <section id="item-1" class="guide-section">
   <h2 class="section-title">🫡 Introducción</h2>
-  <img src="/assets/img/BO3/Banner.webp" alt="bo3 latino banner" loading="lazy" decoding="async" />
+  <img
+    src="/assets/img/BO3/Banner.webp"
+    alt="bo3 latino banner"
+    loading="lazy"
+    decoding="async"
+  />
   <p>
-    Como muchos saben, el idioma Español Latino fue exclusivo de consolas para este juego. Este
-    proyecto adapta esos audios al idioma Español Castellano de PC para recuperar la experiencia
-    original del doblaje.
+    Como muchos saben, el idioma Español Latino fue exclusivo de consolas para
+    este juego. Este proyecto adapta esos audios al idioma Español Castellano de
+    PC para recuperar la experiencia original del doblaje.
   </p>
   <p>
-    La guía explica el proceso de instalación del doblaje completo en todos sus modos. No está
-    pensada para distribuir material protegido de forma ilegítima.
+    La guía explica el proceso de instalación del doblaje completo en todos sus
+    modos. No está pensada para distribuir material protegido de forma
+    ilegítima.
   </p>
 </section>
 
 <section id="item-2" class="guide-section">
   <h2 class="section-title">🆕 ¿Qué hay de nuevo?</h2>
   <div class="changelog">
-    {changelog.map((entry) => (
-      <details class="changelog-item" open={entry.open}>
-        <summary class="changelog-summary">
-          <span>{entry.version}</span>
-          <span class="changelog-meta">{entry.date}</span>
-        </summary>
-        <div class="changelog-body">
-          <ul class="bullet-list">
-            {entry.items.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-      </details>
-    ))}
+    {
+      changelog.map((entry) => (
+        <details class="changelog-item" open={entry.open}>
+          <summary class="changelog-summary">
+            <span>{entry.version}</span>
+            <span class="changelog-meta">{entry.date}</span>
+          </summary>
+          <div class="changelog-body">
+            <ul class="bullet-list">
+              {entry.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </details>
+      ))
+    }
   </div>
 </section>
 
 <section id="item-3" class="guide-section">
   <h2 class="section-title">📽️ Avances</h2>
   <div class="grid-container">
-    <div class="grid-item"><iframe loading="lazy" src="https://www.youtube.com/embed/Z4I6EChsZyQ" allow="autoplay; encrypted-media" allowfullscreen title="Trailer 3"></iframe></div>
-    <div class="grid-item"><iframe loading="lazy" src="https://www.youtube.com/embed/LadPrKuNzvQ?si=IpmFTbJvExELzuf-" allow="autoplay; encrypted-media" allowfullscreen title="Trailer 5"></iframe></div>
-    <div class="grid-item"><iframe loading="lazy" src="https://www.youtube.com/embed/w4U-ayK4DvU" allow="autoplay; encrypted-media" allowfullscreen title="Trailer 4"></iframe></div>
-    <div class="grid-item"><iframe loading="lazy" src="https://www.youtube.com/embed/nwQBtpsrCCI" allow="autoplay; encrypted-media" allowfullscreen title="Trailer 1"></iframe></div>
+    <div class="grid-item">
+      <iframe
+        loading="lazy"
+        src="https://www.youtube.com/embed/Z4I6EChsZyQ"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="Trailer 3"></iframe>
+    </div>
+    <div class="grid-item">
+      <iframe
+        loading="lazy"
+        src="https://www.youtube.com/embed/LadPrKuNzvQ?si=IpmFTbJvExELzuf-"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="Trailer 5"></iframe>
+    </div>
+    <div class="grid-item">
+      <iframe
+        loading="lazy"
+        src="https://www.youtube.com/embed/w4U-ayK4DvU"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="Trailer 4"></iframe>
+    </div>
+    <div class="grid-item">
+      <iframe
+        loading="lazy"
+        src="https://www.youtube.com/embed/nwQBtpsrCCI"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="Trailer 1"></iframe>
+    </div>
   </div>
 </section>
 
 <section id="item-4" class="guide-section">
   <h2 class="section-title">ℹ️ Información</h2>
   <ul class="bullet-list">
-    <li>El mod es <b>100% Plug &amp; Play</b> y funciona como archivos originales del Español de España.</li>
-    <li>Se portearon los archivos de audio de la última versión de PlayStation 4 incluyendo todo su contenido descargable, este mod es 1:1 con esa versión.</li>
-    <li>Se probó la compatibilidad con clientes de la comunidad y <b>Steam Deck</b>.</li>
+    <li>
+      El mod es <b>100% Plug &amp; Play</b> y funciona como archivos originales del
+      Español de España.
+    </li>
+    <li>
+      Se portearon los archivos de audio de la última versión de PlayStation 4
+      incluyendo todo su contenido descargable, este mod es 1:1 con esa versión.
+    </li>
+    <li>
+      Se probó la compatibilidad con clientes de la comunidad y <b>Steam Deck</b
+      >.
+    </li>
   </ul>
 </section>
 
 <section id="descargar" class="guide-section">
   <h2 class="section-title">⬇️ Descargas</h2>
   <p><b>(Steam) Modos/Mapas por separado:</b></p>
-  <a href="https://www.mediafire.com/folder/fxa4xrrlre40k/Call+Of+Duty+Black+Ops+III+-+Mod+Latino+Deluxe" target="_blank" rel="noopener">
-    <img src="/assets/img/Custom_Button/mediafire_separado.webp" alt="bo3 latino button" class="button-image small" loading="lazy" decoding="async" />
+  <a
+    href="https://www.mediafire.com/folder/fxa4xrrlre40k/Call+Of+Duty+Black+Ops+III+-+Mod+Latino+Deluxe"
+    target="_blank"
+    rel="noopener"
+  >
+    <img
+      src="/assets/img/Custom_Button/mediafire_separado.webp"
+      alt="bo3 latino button"
+      class="button-image small"
+      loading="lazy"
+      decoding="async"
+    />
   </a>
-  <br>
+  <br />
   <p><b>(Steam) Todos los modos juntos:</b></p>
-  <a href="https://www.mediafire.com/file/ri47o9wiyjyom8u/BO3_MSPC_FULL_3.0.7z/file" target="_blank" rel="noopener">
-    <img src="/assets/img/Custom_Button/mediafire_full.webp" alt="bo3 latino full button steam" class="button-image small" loading="lazy" decoding="async" />
+  <a
+    href="https://www.mediafire.com/file/ri47o9wiyjyom8u/BO3_MSPC_FULL_3.0.7z/file"
+    target="_blank"
+    rel="noopener"
+  >
+    <img
+      src="/assets/img/Custom_Button/mediafire_full.webp"
+      alt="bo3 latino full button steam"
+      class="button-image small"
+      loading="lazy"
+      decoding="async"
+    />
   </a>
-  <br>
+  <br />
   <p><b>(Microsoft Store) Todos los modos juntos:</b></p>
-  <a href="https://www.mediafire.com/file/ulqpxepiuu176bk/BO3_MSPC_FULL_3.0_MStore.7z/file" target="_blank" rel="noopener">
-    <img src="/assets/img/Custom_Button/mediafire_full.webp" alt="bo3 latino full button microsoft store" class="button-image small" loading="lazy" decoding="async" />
+  <a
+    href="https://www.mediafire.com/file/ulqpxepiuu176bk/BO3_MSPC_FULL_3.0_MStore.7z/file"
+    target="_blank"
+    rel="noopener"
+  >
+    <img
+      src="/assets/img/Custom_Button/mediafire_full.webp"
+      alt="bo3 latino full button microsoft store"
+      class="button-image small"
+      loading="lazy"
+      decoding="async"
+    />
   </a>
-  <br>
+  <br />
   <p>El contenido del enlace consta de cuatro elementos:</p>
   <div class="cols">
     <div>
-      <img src="/assets/img/BO3/2819323099_preview.webp" alt="bo3 latino modos" loading="lazy" decoding="async" />
+      <img
+        src="/assets/img/BO3/2819323099_preview.webp"
+        alt="bo3 latino modos"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
     <div>
       <ul class="info-list">
-        <li><b>1. Campaña</b> contiene los archivos para campañas y modos bonus.</li>
-        <li><b>2. Multijugador</b> contiene archivos del multijugador y DLC.</li>
-        <li><b>3. Zombis</b> contiene todos los mapas clasificados por contenido descargable.</li>
-        <li><b>4. CORE</b> contiene los archivos que usa el juego en todos sus modos.</li>
+        <li>
+          <b>1. Campaña</b> contiene los archivos para campañas y modos bonus.
+        </li>
+        <li>
+          <b>2. Multijugador</b> contiene archivos del multijugador y DLC.
+        </li>
+        <li>
+          <b>3. Zombis</b> contiene todos los mapas clasificados por contenido descargable.
+        </li>
+        <li>
+          <b>4. CORE</b> contiene los archivos que usa el juego en todos sus modos.
+        </li>
       </ul>
     </div>
   </div>
   <figure class="quote">
     <blockquote>
       <p>
-        Los archivos que señalan <b>(Requerido)</b> deben instalarse con prioridad porque contienen
-        diálogos compartidos entre varios mapas o modos.
+        Los archivos que señalan <b>(Requerido)</b> deben instalarse con prioridad
+        porque contienen diálogos compartidos entre varios mapas o modos.
       </p>
     </blockquote>
     <figcaption>Publicado originalmente por atu</figcaption>
   </figure>
   <p><b>Distribución de mapas del modo Zombies:</b></p>
-  <img src="/assets/img/BO3/2819323099_preview_Contenido-mapas.webp" alt="bo3 latino mapas zombies" loading="lazy" decoding="async" />
+  <img
+    src="/assets/img/BO3/2819323099_preview_Contenido-mapas.webp"
+    alt="bo3 latino mapas zombies"
+    loading="lazy"
+    decoding="async"
+  />
 </section>
 
 <section id="MD5" class="guide-section">
@@ -180,20 +277,47 @@ const changelog = [
     <li>Necesitas un programa para descomprimir archivos <b>7z</b>.</li>
     <li>El juego debe estar instalado en <b>Español de España</b>.</li>
   </ul>
-  <img src="/assets/img/BO3/2819323099_preview_idioma.webp" alt="bo3 latino paso 1" loading="lazy" decoding="async" />
+  <img
+    src="/assets/img/BO3/2819323099_preview_idioma.webp"
+    alt="bo3 latino paso 1"
+    loading="lazy"
+    decoding="async"
+  />
+  <br>
   <p>
     Luego ubica la carpeta del juego y dirígete a
     <span class="path">Call of Duty Black Ops III\zone\snd\es</span>.
   </p>
-  <video loop muted playsinline preload="none" class="guide-video" data-autoplay-on-visible>
-    <source src="/assets/img/BO3/2819323099_preview_es.webm" type="video/webm" />
+  <video
+    loop
+    muted
+    playsinline
+    preload="none"
+    class="guide-video"
+    data-autoplay-on-visible
+  >
+    <source
+      src="/assets/img/BO3/2819323099_preview_es.webm"
+      type="video/webm"
+    />
   </video>
+  <br>
   <p>
     En esa carpeta extrae el contenido del archivo comprimido elegido y
     <b>sobrescribe todos los archivos del destino</b>.
   </p>
-  <video loop muted playsinline preload="none" class="guide-video" data-autoplay-on-visible>
-    <source src="/assets/img/BO3/2819323099_preview_es2.webm" type="video/webm" />
+  <video
+    loop
+    muted
+    playsinline
+    preload="none"
+    class="guide-video"
+    data-autoplay-on-visible
+  >
+    <source
+      src="/assets/img/BO3/2819323099_preview_es2.webm"
+      type="video/webm"
+    />
   </video>
 </section>
 
@@ -202,32 +326,98 @@ const changelog = [
   <p>
     <ul>
       <li>Ninguno que conozcamos.</li>
-    </ul> 
+    </ul>
   </p>
 </section>
 
 <section id="item-8" class="guide-section">
   <h2 class="section-title">🧟 Workshop - Zombies</h2>
   <p>
-    Todos los mapas del modo Zombies están disponibles de forma adicional en Workshop para quienes
-    prefieran ese método.
+    Todos los mapas del modo Zombies están disponibles de forma adicional en
+    Workshop para quienes prefieran ese método.
   </p>
-  <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2822435465" target="_blank" rel="noopener">
-    <img src="/assets/img/BO3/workshop.webp" alt="bo3 latino workshop" loading="lazy" decoding="async" />
+  <a
+    href="https://steamcommunity.com/sharedfiles/filedetails/?id=2822435465"
+    target="_blank"
+    rel="noopener"
+  >
+    <img
+      src="/assets/img/BO3/workshop.webp"
+      alt="bo3 latino workshop"
+      loading="lazy"
+      decoding="async"
+    />
   </a>
+</section>
+
+<section id="item-10" class="guide-section">
+  <h2 class="section-title">🧐 Nota de responsabilidad</h2>
+  <p>
+    El material utilizado pertenece a todos los involucrados en el proyecto
+    original por Activision, Treyarch y sus respectivos autores, no estamos
+    afiliados con ellos, y no tenemos la intención de infringir ninguna ley de
+    derechos de autor o beneficiarnos económicamente.<br /><br />Nosotros sólo
+    podemos hacernos responsables de nuestros archivos, los identificadores
+    ayudan a determinar la integridad y autenticidad de estos. Todos fueron
+    escaneados con software de seguridad informática. Si encuentran mods en
+    internet distribuidos bajo otro dominio, dirección, e identificador, no
+    recomendamos su uso, ni nos hacemos cargo de estos.<br /><br />Pueden leer
+    los valores de nuestros archivos usando el <b
+      >algoritmo de reducción criptográfica</b
+    >
+    <a href="https://es.wikipedia.org/wiki/MD5" target="_blank" rel="noopener"
+      >MD5</a
+    > (En inglés: MD5 hash checksum values)<br /><br />Para más información
+    sobre las funciones hash, pueden leer los hipervínculos. Para ver el MD5 de
+    un archivo, escriban lo siguiente en un Terminal haciendo referencia al
+    nombre del mismo:
+  </p>
+  <hr />
+  <pre class="code-block">
+    Get-FileHash "archivo"
+  </pre>
+  <hr />
+  <p>
+    <ul class="bullet-list">
+      <li>
+        Todos los archivos fueron comprimidos en formato 7z con el mejor
+        algoritmo para evitar peso adicional.
+      </li>
+      <li>
+        Los archivos de extensión SABS y SABL forman parte de la arquitectura
+        original del juego.
+      </li>
+    </ul>
+  </p>
 </section>
 
 <section id="item-9" class="guide-section">
   <h2 class="section-title">🤝 Créditos</h2>
-  <h4>Gracias por estos cuatro años de desarrollo y adaptación. Esto fue, es, y siempre será de fans, para fans.</h3>
+  <h4>
+    Gracias por estos cuatro años de desarrollo y adaptación. Esto fue, es, y
+    siempre será de fans, para fans.
+  </h4>
   <ul class="bullet-list">
-    <li>Artur16211 - Creación de <a href="#" rel="noopener">SabViewer</a> para reemplazo de audios y recopilación de material.</li>
+    <li>
+      Artur16211 - Creación de <a href="#" rel="noopener">SabViewer</a> para reemplazo
+      de audios y recopilación de material.
+    </li>
     <li>atuburapaler - Presentación, edición, y redacción.</li>
     <li>
-      Agradecimientos a Guitargamer, master131, Namish, Dairon, y a la comunidad.
+      Agradecimientos a Guitargamer, master131, Namish, Dairon, y a la
+      comunidad.
     </li>
-    <li><a href="https://doblaje.fandom.com/es/wiki/Call_of_Duty:_Black_Ops_III" target="_blank" rel="noopener">Doblaje original del videojuego</a>.</li>
+    <li>
+      <a
+        href="https://doblaje.fandom.com/es/wiki/Call_of_Duty:_Black_Ops_III"
+        target="_blank"
+        rel="noopener">Doblaje original del videojuego</a
+      >.
+    </li>
     <li>En memoria de Thomas Tom Kane Roberts y Andrea Echeverría Arruti.</li>
-    <li>Activision, Treyarch y otros son dueños del material utilizado en esta creación.</li>
+    <li>
+      Activision, Treyarch y otros son dueños del material utilizado en esta
+      creación.
+    </li>
   </ul>
 </section>
