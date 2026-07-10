@@ -191,6 +191,7 @@
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
+  background: #05070a;
 }
 
 .guide-prose .guide-media {
@@ -205,6 +206,8 @@
 
 .guide-prose .guide-video {
   width: min(700px, 100%);
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 .guide-prose iframe {
@@ -212,6 +215,7 @@
   aspect-ratio: 16 / 9;
   border: 0;
   border-radius: 1rem;
+  background: #05070a;
 }
 
 .guide-prose hr {
@@ -405,6 +409,8 @@
 
 .guide-prose .guide-video {
   width: min(720px, 100%);
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 .guide-prose .table-action {
