@@ -45,13 +45,18 @@ if (activeLang === 'en' || activeLang === 'es') {
       if (html) element.innerHTML = html;
     });
 
+    const orderedParents = new Set();
     document.querySelectorAll('[data-en-order]').forEach((element) => {
       const parent = element.parentElement;
-      if (!parent) return;
+      if (!parent || orderedParents.has(parent)) return;
+      orderedParents.add(parent);
       const ordered = Array.from(parent.children)
         .filter((child) => child instanceof HTMLElement && child.dataset.enOrder !== undefined)
         .sort((a, b) => Number(a.dataset.enOrder) - Number(b.dataset.enOrder));
       ordered.forEach((child) => parent.appendChild(child));
+      if (ordered.some((child) => child.classList.contains('disable-padding-top'))) {
+        ordered.forEach((child, index) => child.classList.toggle('disable-padding-top', index > 0));
+      }
     });
 
     const closeBtn = document.querySelector('[data-close-menu-en]');

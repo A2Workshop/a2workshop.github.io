@@ -203,6 +203,9 @@ const menuItemsEnByPath = new Map(
     }
     .navbar {
       box-shadow: none;
+      box-sizing: border-box;
+      left: 0;
+      max-width: 100%;
     }
     .navbar a,
     .nav-link {
@@ -215,10 +218,13 @@ const menuItemsEnByPath = new Map(
     }
     .pq2-dropdown {
       position: relative;
+      min-width: 0;
     }
     .pq2-dropdown-title {
       cursor: pointer;
       list-style: none;
+      max-width: 100%;
+      overflow-wrap: anywhere;
     }
     .pq2-dropdown-title::-webkit-details-marker {
       display: none;
@@ -387,6 +393,7 @@ const menuItemsEnByPath = new Map(
       }
       .pq2-dropdown .dropdown-menu {
         min-width: min(86vw, 320px);
+        max-width: calc(100vw - 24px);
       }
     }
   </style>

@@ -26,6 +26,9 @@ const englishCopy = getUiCopy('en');
 const englishMenuItems = getMenuItems('en');
 const homeHref = localizeHref(locale, '/');
 const contactHref = localizeHref(locale, '/contacto');
+const englishMenuItemsByPath = new Map(
+  englishMenuItems.map((item, index) => [item.href.replace(/^\/en(?=\/|$)/, ''), { ...item, index }]),
+);
 
 const path = Astro.url.pathname.toLowerCase();
 const proyectoActive =
@@ -58,12 +61,15 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
 
           <div class="megamenu-content">
             <button class="close-btn" type="button" aria-label={copy.nav.closeMenu} data-close-menu-en={englishCopy.nav.closeMenu}>&times;</button>
-            {menuItems.map((item, i) => (
-              <a href={item.href} class={i > 0 ? 'disable-padding-top' : undefined} data-menu-index={i} data-en-href={englishMenuItems[i]?.href}>
+            {menuItems.map((item, i) => {
+              const englishItem = englishMenuItemsByPath.get(item.href.replace(/^\/en(?=\/|$)/, '')) ?? englishMenuItems[i];
+              return (
+              <a href={item.href} class={i > 0 ? 'disable-padding-top' : undefined} data-menu-index={i} data-en-order={englishItem?.index ?? i} data-en-href={englishItem?.href}>
                 <img src={item.imgPath} alt={item.alt} class="nav-menu-icon" loading="lazy" decoding="async" />
-                <span data-menu-text data-en-text={englishMenuItems[i]?.text}>{item.text}</span>
+                <span data-menu-text data-en-text={englishItem?.text}>{item.text}</span>
               </a>
-            ))}
+              );
+            })}
           </div>
         </div>
 
