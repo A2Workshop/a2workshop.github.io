@@ -3,15 +3,17 @@ interface Props {
   indexSelector?: string;
   imageSelector?: string;
   backToTopLabel?: string;
+  showProgress?: boolean;
 }
 const {
   indexSelector = '.guide-index-item',
   imageSelector = '.guide-prose img',
   backToTopLabel = 'Volver arriba',
+  showProgress = true,
 } = Astro.props;
 ---
 
-<div id="guide-progress" aria-hidden="true"></div>
+{showProgress && <div id="guide-progress" aria-hidden="true"></div>}
 
 <button id="guide-to-top" type="button" aria-label={backToTopLabel}>
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
