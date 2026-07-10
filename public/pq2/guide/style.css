@@ -152,6 +152,7 @@ body {
 .logo {
     width: 450px;
     height: auto;
+    aspect-ratio: 1972 / 1024;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -249,23 +250,30 @@ footer {
     /* content-visibility: auto; */
 }
 
+.pq2-creator-avatar {
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+}
+
 .tutorial-img {
+    display: block;
     max-width: auto !important;
     min-width: 100%;
-    aspect-ratio: auto !important;
     border-radius: 0px !important;
 }
 
 .tutorial-img-android {
+    display: block;
     max-width: auto !important;
     min-width: 50%;
     width: auto !important;
     height: auto !important;
-    aspect-ratio: auto !important;
     border-radius: 0px !important;
 }
 
 .tutorial-img-texturas {
+    display: block;
     max-width: auto !important;
     min-width: 80%;
     border-radius: 0px !important;
@@ -398,7 +406,7 @@ footer {
 
 /* Mobile "Creado Por" drawer (shared MobileDrawer component). */
 .drawer-trigger.pq2-drawer-trigger {
- top: 10%;
+ top: 18%;
  right: -5px;
  width: auto;
  height: auto;
@@ -411,6 +419,7 @@ footer {
 
 .pq2-drawer-trigger img {
  height: 70px;
+ aspect-ratio: 55 / 36;
  box-shadow: 0 0 10px rgba(15, 15, 15, 0.733);
 }
 
@@ -735,6 +744,7 @@ code {
 }
 
 .addon-img {
+    display: block;
     max-width: 100% !important;
     height: auto !important;
     border-radius: 0px !important;

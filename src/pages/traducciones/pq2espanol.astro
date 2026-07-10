@@ -12,6 +12,16 @@ const menuItemsEn = getMenuItems('en');
 const menuItemsEnByPath = new Map(
   menuItemsEn.map((item, index) => [item.href.replace(/^\/en(?=\/|$)/, ''), { ...item, index }]),
 );
+const mobileMenuText: Record<string, { es: string; en: string }> = {
+  '/proyectos/blackopsiiilatino': { es: '(PC) COD: BOIII Espa\u00f1ol Latino', en: '(PC) COD: BOIII Latin American Spanish' },
+  '/proyectos/blackopslatino': { es: '(PC) COD: BO Zombies Espa\u00f1ol Latino', en: '(PC) COD: BO Zombies Latin American Spanish' },
+  '/proyectos/infinitewarfarelatino': { es: '(PC) COD: IW Espa\u00f1ol Latino', en: '(PC) COD: IW Latin American Spanish' },
+  '/proyectos/modernwarfarerlatino': { es: '(PC) COD: MWR Espa\u00f1ol Latino', en: '(PC) COD: MWR Latin American Spanish' },
+  '/proyectos/legobatman2latino': { es: '(PC) LB2 en Espa\u00f1ol Latino', en: '(PC) LB2 in Latin American Spanish' },
+  '/traducciones/pq2espanol': { es: '(3DS) PQ2 Traducci\u00f3n al Espa\u00f1ol', en: '(3DS) PQ2 Spanish Translation' },
+  '/traducciones/p4despanol': { es: '(PS4/PSV) P4D Traducci\u00f3n al Espa\u00f1ol', en: '(PS4/PSV) P4D Spanish Translation' },
+  '/proyectos/bo3customdubs': { es: '(PC) COD: BOIII Custom Map Dubs', en: '(PC) COD: BOIII Custom Map Dubs' },
+};
 ---
 
 <BaseLayout
@@ -27,16 +37,37 @@ const menuItemsEnByPath = new Map(
 
   <nav class="navbar" aria-label="Persona Q2">
     <a href="/" class="logo-link">
-      <img src="/pq2/img/a2logo/logo_outline.webp" alt="A2Workshop" class="logo" decoding="async" />
+      <img src="/pq2/img/a2logo/logo_outline.webp" alt="A2Workshop" class="logo" width="6989" height="2955" decoding="async" />
     </a>
     <details class="pq2-dropdown">
-      <summary class="nav-link pq2-dropdown-title" data-pq2-projects-title data-en-text="Projects | Persona Q2 Spanish Translation">Proyectos | Persona Q2 Traducci&oacute;n al Espa&ntilde;ol</summary>
+      <summary
+        class="nav-link pq2-dropdown-title"
+        data-pq2-projects-title
+        data-full-text="Proyectos | Persona Q2 Traducci&oacute;n al Espa&ntilde;ol"
+        data-mobile-text="Proyectos"
+        data-en-text="Projects | Persona Q2 Spanish Translation"
+        data-en-mobile-text="Projects"
+      >
+        Proyectos | Persona Q2 Traducci&oacute;n al Espa&ntilde;ol
+      </summary>
       <ul class="dropdown-menu">
         {menuItems.map((item, index) => {
           const englishItem = menuItemsEnByPath.get(item.href) ?? menuItemsEn[index];
+          const shortText = mobileMenuText[item.href];
           return (
             <li data-en-order={englishItem?.index ?? index}>
-              <a class="dropdown-item" href={item.href} data-pq2-menu-index={index} data-en-text={englishItem?.text} data-en-href={englishItem?.href}>{item.text}</a>
+              <a
+                class="dropdown-item"
+                href={item.href}
+                data-pq2-menu-index={index}
+                data-full-text={item.text}
+                data-mobile-text={shortText?.es}
+                data-en-text={englishItem?.text}
+                data-en-mobile-text={shortText?.en}
+                data-en-href={englishItem?.href}
+              >
+                {item.text}
+              </a>
             </li>
           );
         })}
@@ -55,10 +86,10 @@ const menuItemsEnByPath = new Map(
       title="fondo"
     ></iframe>
     <div class="video-overlay">
-      <video autoplay loop muted playsinline class="logo" preload="metadata" poster="/pq2/img/es_logo/pq2_still.webp">
+      <video autoplay loop muted playsinline class="logo" width="1972" height="1024" preload="metadata" poster="/pq2/img/es_logo/pq2_still.webp">
         <source src="/pq2/img/es_logo/pq2.webm" type="video/webm" />
       </video>
-      <img src="/pq2/img/es_logo/pq2_still.webp" alt="Logo" class="fallback-image logo" style="display:none;" decoding="async" fetchpriority="high" />
+      <img src="/pq2/img/es_logo/pq2_still.webp" alt="Logo" class="fallback-image logo" width="1972" height="1024" style="display:none;" decoding="async" fetchpriority="high" />
       <a href="/traducciones/pq2espanol/descargar" id="downloadButton" class="pq2-button">Descargar</a>
     </div>
   </div>
@@ -93,7 +124,7 @@ const menuItemsEnByPath = new Map(
             <div class={`carousel-item${slideIndex === 0 ? ' active' : ''}`}>
               <div class="pq2-center">
                 {slide.map((n) => (
-                  <img src={`/pq2/img/screenshots/${n}.webp`} class="pq2-shot pq2-modal-trigger" alt={`prev${n}`} loading="lazy" decoding="async" />
+                  <img src={`/pq2/img/screenshots/${n}.webp`} class="pq2-shot pq2-modal-trigger" alt={`prev${n}`} width="400" height="480" loading="lazy" decoding="async" />
                 ))}
               </div>
             </div>
@@ -116,7 +147,7 @@ const menuItemsEnByPath = new Map(
           {mobileSlides.map((n, slideIndex) => (
             <div class={`carousel-item${slideIndex === 0 ? ' active' : ''}`}>
               <div class="pq2-center">
-                <img src={`/pq2/img/screenshots/${n}.webp`} class="pq2-shot pq2-modal-trigger" alt={`prev${slideIndex}`} loading="lazy" decoding="async" />
+                <img src={`/pq2/img/screenshots/${n}.webp`} class="pq2-shot pq2-modal-trigger" alt={`prev${slideIndex}`} width="400" height="480" loading="lazy" decoding="async" />
               </div>
             </div>
           ))}
@@ -145,14 +176,14 @@ const menuItemsEnByPath = new Map(
 
   <footer class="pq2-footer pq2-footer-mobile">
     <a class="logo-link" href="/">
-      <img src="/pq2/img/a2logo/logo_outline.webp" alt="Logo" class="pq2-footer-logo" loading="lazy" decoding="async" />
+      <img src="/pq2/img/a2logo/logo_outline.webp" alt="Logo" class="pq2-footer-logo" width="6989" height="2955" loading="lazy" decoding="async" />
     </a>
     <p>Este proyecto no est&aacute; afiliado con ATLUS o SEGA. Todos los derechos reservados por sus respectivos propietarios.</p>
   </footer>
   <footer class="pq2-footer pq2-footer-desktop">
     <div class="pq2-footer-grid">
       <a class="logo-link" href="/">
-        <img src="/pq2/img/a2logo/logo_outline.webp" alt="Logo" class="pq2-footer-logo" loading="lazy" decoding="async" />
+        <img src="/pq2/img/a2logo/logo_outline.webp" alt="Logo" class="pq2-footer-logo" width="6989" height="2955" loading="lazy" decoding="async" />
       </a>
       <div></div>
       <p>Este proyecto no est&aacute; afiliado con ATLUS o SEGA. Todos los derechos reservados por sus respectivos propietarios.</p>
@@ -161,6 +192,27 @@ const menuItemsEnByPath = new Map(
 
   <script>
     import '../../scripts/pq2-page.ts';
+  </script>
+  <script is:inline>
+    (() => {
+      const media = window.matchMedia('(max-width: 990px)');
+      const getLang = () => new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'es';
+      const syncLabels = () => {
+        const lang = getLang();
+        document.querySelectorAll('.pq2-dropdown-title, .pq2-dropdown .dropdown-item').forEach((item) => {
+          const full = lang === 'en' ? item.dataset.enText : item.dataset.fullText;
+          const short = lang === 'en' ? item.dataset.enMobileText : item.dataset.mobileText;
+          item.textContent = media.matches && short ? short : full || item.textContent;
+        });
+      };
+      media.addEventListener?.('change', syncLabels);
+      document.addEventListener('DOMContentLoaded', () => {
+        syncLabels();
+        setTimeout(syncLabels, 0);
+      });
+      window.addEventListener('load', syncLabels);
+      syncLabels();
+    })();
   </script>
 
   <style>
@@ -308,14 +360,17 @@ const menuItemsEnByPath = new Map(
     .pq2-modal::backdrop {
       background: rgba(0, 0, 0, 0.8);
     }
-    .pq2-modal img {
+    .pq2-modal img,
+    .pq2-modal #modalImage {
+      width: auto;
+      height: auto;
       max-width: 92vw;
       max-height: 90vh;
       object-fit: contain;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) !important;
     }
     .pq2-modal-close,
     .pq2-modal-arrow {
@@ -392,8 +447,15 @@ const menuItemsEnByPath = new Map(
         margin-left: 8px;
       }
       .pq2-dropdown .dropdown-menu {
-        min-width: min(86vw, 320px);
-        max-width: calc(100vw - 24px);
+        position: fixed;
+        top: 70px;
+        left: 12px;
+        right: 12px;
+        min-width: 0;
+        max-width: none;
+        width: auto;
+        max-height: calc(100vh - 88px);
+        overflow-y: auto;
       }
     }
   </style>

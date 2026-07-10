@@ -144,6 +144,7 @@
 }
 
 .logo-container .logo_p4d {
+    height: auto;
     touch-action: manipulation;
     user-select: none;
     -webkit-user-select: none;

@@ -79,10 +79,10 @@ const creditos = [
     <div class="w-full px-3 min-[992px]:w-3/4">
       <div class="mt-2 rounded-[15px] bg_container p-6 video-overlay">
         <a href="/traducciones/pq2espanol">
-          <video autoplay loop muted playsinline class="logo" preload="metadata" poster="/pq2/img/es_logo/pq2_still.webp">
+          <video autoplay loop muted playsinline class="logo" width="1972" height="1024" preload="metadata" poster="/pq2/img/es_logo/pq2_still.webp">
             <source src="/pq2/img/es_logo/pq2.webm" type="video/webm" />
           </video>
-          <img src="/pq2/img/es_logo/pq2_still.webp" alt="Logo" class="fallback-image logo" style="display: none;" decoding="async" fetchpriority="high" />
+          <img src="/pq2/img/es_logo/pq2_still.webp" alt="Logo" class="fallback-image logo" width="1972" height="1024" style="display: none;" decoding="async" fetchpriority="high" />
         </a>
         <h1 class="text-center text-[1.75rem]">
           Parche de traducción al Español de Persona Q<span class="orange-text">2</span>: New Cinema Labyrinth
@@ -425,7 +425,7 @@ const creditos = [
           <>
             {i > 0 && <hr />}
             <div class="creator-entry mt-4">
-              <img src={c.img} alt={c.alt} class="img-fluid mx-auto" loading="lazy" decoding="async" />
+              <img src={c.img} alt={c.alt} class="img-fluid pq2-creator-avatar mx-auto" width="128" height="128" loading="lazy" decoding="async" />
               <p class="mt-2 text-xl">{c.name}</p>
               <button class="btn btn-link my-1" type="button" data-collapse-target={`#${c.id}`} aria-label="Mostrar redes sociales">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6l-6-6z" /></svg>
@@ -477,12 +477,12 @@ const creditos = [
     triggerClass="pq2-drawer-trigger animated-border"
     triggerLabel="Abrir Creado Por"
   >
-    <img slot="trigger" src="/pq2/img/creadopor_card.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+    <img slot="trigger" src="/pq2/img/creadopor_card.webp" alt="" width="110" height="72" aria-hidden="true" loading="lazy" decoding="async" />
 
     <h2 class="title2 mb-2 text-2xl">Creado Por:</h2>
     {creadores.map((c) => (
       <div class="pq2-creator mt-5">
-        <img src={c.img} alt={c.alt} class="img-fluid mx-auto" loading="lazy" decoding="async" />
+        <img src={c.img} alt={c.alt} class="img-fluid pq2-creator-avatar mx-auto" width="128" height="128" loading="lazy" decoding="async" />
         <p class="creator-name mt-2 text-xl">{c.name}</p>
         <div class="pq2-socials">
           {c.socials.map((s) => (
@@ -507,7 +507,7 @@ const creditos = [
     <div class="mx-auto max-w-[1140px] px-3">
       <div class="mt-6 mb-12 flex flex-col items-center gap-4 md:flex-row md:justify-between">
         <a class="logo-link" href="/">
-          <img src="/pq2/img/a2logo/logo_outline.webp" alt="Logo" class="a2logofooter" loading="lazy" decoding="async" style="width: 200px;" />
+          <img src="/pq2/img/a2logo/logo_outline.webp" alt="Logo" class="a2logofooter" width="6989" height="2955" loading="lazy" decoding="async" style="width: 200px; height: auto;" />
         </a>
         <p class="max-w-md text-center text-white">Este proyecto no está afiliado con ATLUS o SEGA. Todos los derechos reservados por sus respectivos propietarios.</p>
       </div>

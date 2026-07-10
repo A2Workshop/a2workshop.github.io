@@ -49,6 +49,7 @@ body {
     height: 50px;
     margin-right: 20px;
     width: 118.25px;
+    aspect-ratio: 6989 / 2955;
 }
 
 .navbar .nav-links {
@@ -103,6 +104,7 @@ body {
 .video-overlay .logo {
     width: 450px;
     height: auto;
+    aspect-ratio: 1972 / 1024;
 }
 
 @media (max-width: 400px) {
@@ -175,6 +177,7 @@ body {
 
 .carousel-item img {
     background-color: #000000;
+    height: auto;
 }
 
 .trailer-video iframe {
