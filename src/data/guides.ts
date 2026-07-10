@@ -64,7 +64,6 @@ export const guides = {
       steamUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3476068089',
     },
     creators: [
-      { name: 'Guitargamer', img: '/assets/img/Profile/guitargamer.jpg', buttonLabel: 'Perfil de Steam', buttonHref: 'https://steamcommunity.com/profiles/76561198078360579' },
       { name: 'atuburapaler', img: '/assets/img/Profile/atuburapaler.jpg' },
       { name: 'Artur16211', img: '/assets/img/Profile/Artur16211.webp', buttonLabel: 'Contacto', buttonHref: CONTACT },
     ],
