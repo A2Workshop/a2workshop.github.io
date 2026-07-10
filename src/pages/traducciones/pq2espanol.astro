@@ -210,11 +210,18 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
         if (!dropdown?.open) return;
         if (event.target instanceof Node && dropdown.contains(event.target)) return;
         dropdown.open = false;
+        document.body.classList.remove('nav-menu-open');
       };
       media.addEventListener?.('change', syncLabels);
+      dropdown?.addEventListener('toggle', () => {
+        document.body.classList.toggle('nav-menu-open', dropdown.open);
+      });
       document.addEventListener('pointerdown', closeDropdown);
       document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && dropdown?.open) dropdown.open = false;
+        if (event.key === 'Escape' && dropdown?.open) {
+          dropdown.open = false;
+          document.body.classList.remove('nav-menu-open');
+        }
       });
       document.addEventListener('DOMContentLoaded', () => {
         syncLabels();

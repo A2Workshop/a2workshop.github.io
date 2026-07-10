@@ -86,8 +86,14 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
   const trigger = document.querySelector('.megamenu > a');
   const closeBtn = document.querySelector('.close-btn');
 
-  const open = () => content?.classList.add('is-open');
-  const close = () => content?.classList.remove('is-open');
+  const open = () => {
+    content?.classList.add('is-open');
+    document.body.classList.add('nav-menu-open');
+  };
+  const close = () => {
+    content?.classList.remove('is-open');
+    document.body.classList.remove('nav-menu-open');
+  };
 
   trigger?.addEventListener('click', (e) => {
     e.preventDefault();
