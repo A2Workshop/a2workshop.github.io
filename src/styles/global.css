@@ -52,6 +52,29 @@ body {
   font-family: 'motiva', sans-serif;
 }
 
+.text-break {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+main,
+section,
+article,
+aside,
+footer,
+.drawer-panel,
+.guide-prose,
+.guide-panel {
+  overflow-wrap: anywhere;
+}
+
+code,
+pre,
+.path {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .nav-hr { color: #ffffff; margin: 0; }
 
 @keyframes gradient {
