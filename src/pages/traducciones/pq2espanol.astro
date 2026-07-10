@@ -372,6 +372,15 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
       left: 50%;
       transform: translate(-50%, -50%) !important;
     }
+    @media (min-width: 990px) {
+      .pq2-modal img,
+      .pq2-modal #modalImage {
+        width: min(96vw, 80vh);
+        height: auto;
+        max-width: 96vw;
+        max-height: 96vh;
+      }
+    }
     .pq2-modal-close,
     .pq2-modal-arrow {
       position: absolute;
