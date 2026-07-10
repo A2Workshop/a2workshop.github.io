@@ -109,6 +109,10 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
 <style is:global>
   #navbar-container {
     position: relative;
+    z-index: 998;
+  }
+
+  body.nav-menu-open #navbar-container {
     z-index: 10040;
   }
 
