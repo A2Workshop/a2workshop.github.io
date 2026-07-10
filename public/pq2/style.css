@@ -45,6 +45,12 @@ body {
     z-index: 1;
 }
 
+@media (max-width: 990px) {
+    .navbar {
+        background-color: #141414;
+    }
+}
+
 .navbar .logo {
     height: 50px;
     margin-right: 20px;
@@ -73,6 +79,7 @@ body {
     width: 100%;
     height: 500px;
     overflow: hidden;
+    background-color: #000;
 }
 
 .video-container iframe {
@@ -86,6 +93,7 @@ body {
     z-index: 0;
     pointer-events: none;
     filter: brightness(0.5);
+    background-color: #000;
 }
 
 .video-overlay {
@@ -181,6 +189,7 @@ body {
 }
 
 .trailer-video iframe {
+    background-color: #000;
     box-shadow: 10px 5px 0 #f04e2977;
     border-radius: 0;
     border: 2px solid black;

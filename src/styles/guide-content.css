@@ -147,6 +147,14 @@
     content-visibility: auto;
     contain-intrinsic-size: auto 720px;
   }
+
+  .guide-section:has(iframe),
+  .guide-section:has(video),
+  .guide-prose > section:has(iframe),
+  .guide-prose > section:has(video) {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
 }
 
 .guide-section:first-child,
