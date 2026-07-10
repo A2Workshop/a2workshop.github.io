@@ -376,6 +376,8 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
       border: none;
       padding: 0;
       background: rgba(0, 0, 0, 0.9);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .pq2-modal::backdrop {
       background: rgba(0, 0, 0, 0.8);
@@ -391,6 +393,9 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) !important;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
     }
     @media (min-width: 990px) {
       .pq2-modal img,
@@ -409,6 +414,14 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
       color: #ffffff9a;
       cursor: pointer;
       z-index: 2;
+      outline: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pq2-modal-close:focus-visible,
+    .pq2-modal-arrow:focus-visible {
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.75);
     }
     .pq2-modal-close {
       top: 1rem;

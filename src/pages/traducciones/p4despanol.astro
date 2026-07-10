@@ -199,6 +199,8 @@ const desktopSlides = [
       border: none;
       padding: 0;
       background: #000000b9;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .p4d-modal::backdrop { background: rgba(0, 0, 0, 0.8); }
     .p4d-modal img {
@@ -209,6 +211,9 @@ const desktopSlides = [
       max-height: 80vh;
       max-width: 92vw;
       object-fit: contain;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
     }
     #imageLabel {
       position: absolute;
@@ -225,6 +230,13 @@ const desktopSlides = [
       cursor: pointer;
       z-index: 2;
       box-shadow: 0 0 5px #ff33ff;
+      outline: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .p4d-modal-close:focus-visible,
+    .p4d-modal-arrow:focus-visible {
+      box-shadow: 0 0 0 2px #fff, 0 0 8px #ff33ff;
     }
     .p4d-modal-close {
       top: 1rem;

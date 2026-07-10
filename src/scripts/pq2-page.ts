@@ -53,6 +53,13 @@ const initImageModal = () => {
   document.getElementById('prevImage')?.addEventListener('click', () => show(current - 1));
   document.getElementById('nextImage')?.addEventListener('click', () => show(current + 1));
   document.getElementById('modalClose')?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('dblclick', (event) => event.preventDefault());
+  let lastTouchEnd = 0;
+  dialog?.addEventListener('touchend', (event) => {
+    const now = Date.now();
+    if (now - lastTouchEnd < 350) event.preventDefault();
+    lastTouchEnd = now;
+  }, { passive: false });
   dialog?.addEventListener('click', (event) => {
     if (event.target === dialog) dialog.close();
   });
