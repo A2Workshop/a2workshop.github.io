@@ -191,6 +191,9 @@
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
+}
+
+.guide-prose video {
   background: #05070a;
 }
 
