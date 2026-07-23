@@ -141,7 +141,7 @@ export const guides = {
       steamUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3438530146',
     },
     creators: [
-      { name: 'Namish9741', img: 'https://cdn.fastly.steamstatic.com/steamcommunity/public/images/items/1504020/4495cb7125faf0795bf63ce532290bc28bebb440.gif', buttonLabel: 'Perfil de Steam', buttonHref: 'https://steamcommunity.com/profiles/76561199112392013' },
+      { name: 'Namish9741', img: '/assets/img/Profile/Namish9741.webp', buttonLabel: 'Perfil de Steam', buttonHref: 'https://steamcommunity.com/profiles/76561199112392013' },
       { name: 'atuburapaler', img: '/assets/img/Profile/atuburapaler.jpg' },
       { name: 'Artur16211', img: '/assets/img/Profile/Artur16211.webp', buttonLabel: 'Contacto', buttonHref: CONTACT },
     ],
@@ -180,7 +180,7 @@ export const guides = {
       steamUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3478574794',
     },
     creators: [
-      { name: 'Namish9741', img: 'https://cdn.fastly.steamstatic.com/steamcommunity/public/images/items/1504020/4495cb7125faf0795bf63ce532290bc28bebb440.gif', buttonLabel: 'Perfil de Steam', buttonHref: 'https://steamcommunity.com/profiles/76561199112392013' },
+      { name: 'Namish9741', img: '/assets/img/Profile/Namish9741.webp', buttonLabel: 'Perfil de Steam', buttonHref: 'https://steamcommunity.com/profiles/76561199112392013' },
       { name: 'atuburapaler', img: '/assets/img/Profile/atuburapaler.jpg' },
       { name: 'Artur16211', img: '/assets/img/Profile/Artur16211.webp', buttonLabel: 'Contacto', buttonHref: CONTACT },
     ],
