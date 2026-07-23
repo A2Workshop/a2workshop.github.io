@@ -8,7 +8,9 @@ const target = '/traducciones/pq2espanol';
     <meta charset="UTF-8" />
     <title>Persona Q2 - Traducción al Español</title>
     <link rel="canonical" href={`https://a2workshop.github.io${target}`} />
-    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <script is:inline define:vars={{ target }}>
+      location.replace(`${target}${location.search}${location.hash}`);
+    </script>
   </head>
   <body>
     <a href={target}>Persona Q2 Traducción al Español</a>

@@ -213,7 +213,7 @@ export const guides = {
     accentText: '#fdfdfd',
     gridVariant: 'default',
     header: {
-      logo: '/assets/img/Custom/logo.gif',
+      logo: '/assets/img/Custom/logo.webp',
       title: 'Call of Duty: Black Ops III Custom Map Dubs',
       description: 'Guía para cambiar el audio de algunos Custom Maps de Black Ops III por sus doblajes de Black Ops II.',
       steamUrl: '',

@@ -43,7 +43,7 @@ export function getGuideProject(key: GuideKey, locale: Locale): GuideProject {
       'Guide for replacing the audio of some Black Ops III Custom Maps with Black Ops II dubs.';
     guide.header = {
       ...guide.header,
-      logo: '/assets/img/Custom/logo.gif',
+      logo: '/assets/img/Custom/logo.webp',
       title: 'Call of Duty: Black Ops III Custom Map Dubs',
       description:
         'Guide for replacing the audio of some Black Ops III Custom Maps with Black Ops II dubs.',

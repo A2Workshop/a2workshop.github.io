@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getMenuItems, menuItems } from '../../data/nav';
+import YoutubeFacade from '../../components/YoutubeFacade.astro';
 
 const desktopSlides = [
   [3, 4],
@@ -85,10 +86,10 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
       title="fondo"
     ></iframe>
     <div class="video-overlay">
-      <video autoplay loop muted playsinline class="logo" width="1972" height="1024" preload="metadata" poster="/pq2/img/es_logo/pq2_still.webp">
-        <source src="/pq2/img/es_logo/pq2.webm" type="video/webm" />
+      <video autoplay loop muted playsinline class="logo" width="1972" height="1024" preload="metadata" poster="/pq2/img/es_logo/pq2_still-1350.webp">
+        <source src="/pq2/img/es_logo/pq2-1350.webm" type="video/webm" />
       </video>
-      <img src="/pq2/img/es_logo/pq2_still.webp" alt="Logo" class="fallback-image logo" width="1972" height="1024" style="display:none;" decoding="async" fetchpriority="high" />
+      <img src="/pq2/img/es_logo/pq2_still-1350.webp" alt="Logo" class="fallback-image logo" width="1972" height="1024" style="display:none;" decoding="async" fetchpriority="high" />
       <a href="/traducciones/pq2espanol/descargar" id="downloadButton" class="pq2-button">Descargar</a>
     </div>
   </div>
@@ -97,16 +98,7 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
     <div class="section2 pq2-trailer-section">
       <h2 class="font-title text-break">TR&Aacute;ILER</h2>
       <div class="trailer-video pq2-center">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/tKLf3WEvaNk?si=itraJQpi6VqBNd1r"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+        <YoutubeFacade videoId="tKLf3WEvaNk" title="Tráiler de Persona Q2" />
       </div>
       <br />
     </div>

@@ -1,0 +1,88 @@
+---
+interface Props {
+  videoId: string;
+  title: string;
+}
+
+const { videoId, title } = Astro.props;
+const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+---
+
+<button
+  class="youtube-facade"
+  type="button"
+  data-youtube-id={videoId}
+  data-youtube-title={title}
+  aria-label={`Reproducir ${title}`}
+>
+  <img src={thumbnail} alt="" width="480" height="360" loading="lazy" decoding="async" />
+  <span class="youtube-facade-play" aria-hidden="true">▶</span>
+</button>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.youtube-facade').forEach((button) => {
+    button.addEventListener('click', () => {
+      const videoId = button.dataset.youtubeId;
+      if (!videoId) return;
+
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.title = button.dataset.youtubeTitle ?? 'Video de YouTube';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      button.replaceWith(iframe);
+    }, { once: true });
+  });
+</script>
+
+<style is:global>
+  .youtube-facade {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: inherit;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 1rem;
+    background: #05070a;
+    cursor: pointer;
+  }
+
+  .youtube-facade img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+  .youtube-facade:hover img,
+  .youtube-facade:focus-visible img {
+    filter: brightness(0.78);
+    transform: scale(1.025);
+  }
+
+  .youtube-facade-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 4rem;
+    height: 2.8rem;
+    place-items: center;
+    border-radius: 0.75rem;
+    background: #f03;
+    color: #fff;
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .youtube-facade:focus-visible {
+    outline: 3px solid var(--accent, #fff);
+    outline-offset: 3px;
+  }
+</style>

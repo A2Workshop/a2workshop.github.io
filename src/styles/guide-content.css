@@ -141,22 +141,6 @@
   -webkit-backdrop-filter: blur(16px) saturate(130%);
 }
 
-@supports (content-visibility: auto) {
-  .guide-section:not(:first-child),
-  .guide-prose > section:not(:first-child) {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 720px;
-  }
-
-  .guide-section:has(iframe),
-  .guide-section:has(video),
-  .guide-prose > section:has(iframe),
-  .guide-prose > section:has(video) {
-    content-visibility: visible;
-    contain-intrinsic-size: auto;
-  }
-}
-
 .guide-section:first-child,
 .guide-prose > section:first-child {
   margin-top: 0;

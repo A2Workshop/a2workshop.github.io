@@ -30,6 +30,10 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
       readonly
     ></textarea>
 
+    <div id="comments-loading" class="comments-loading" role="status" aria-live="polite" aria-hidden="true" hidden>
+      <span class="comments-spinner" aria-hidden="true"></span>
+      <span>Cargando comentarios...</span>
+    </div>
     <div id="comentarios" class="text-break"></div>
     <ul class="pagination mt-3 flex flex-wrap justify-center gap-1" id="pagination-controls"></ul>
   </div>
@@ -170,11 +174,15 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
       avatar.alt = 'avatar';
       avatar.width = 60;
       avatar.height = 60;
+      avatar.loading = 'lazy';
+      avatar.decoding = 'async';
       steam.className = 'guide-comment-steam';
       steam.src = '/assets/img/Steam/steam_icon.webp';
       steam.alt = 'Steam';
       steam.width = 25;
       steam.height = 25;
+      steam.loading = 'lazy';
+      steam.decoding = 'async';
       body.className = 'guide-comment-body';
       author.className = 'guide-comment-author';
       author.textContent = comment.author;
@@ -207,6 +215,14 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
     }
   }
 
+  function setCommentsLoading(isLoading) {
+    const loader = document.getElementById('comments-loading');
+    if (!loader) return;
+    loader.hidden = !isLoading;
+    loader.setAttribute('aria-hidden', String(!isLoading));
+    commentsSection?.setAttribute('aria-busy', String(isLoading));
+  }
+
   document.getElementById('comment-text')?.addEventListener('click', () => {
     window.open(textareaUrl, '_blank');
   });
@@ -216,7 +232,8 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
   const requestComments = () => {
     if (commentsLoaded) return;
     commentsLoaded = true;
-    loadComments();
+    setCommentsLoading(true);
+    loadComments().finally(() => setCommentsLoading(false));
   };
 
   if (commentsSection && 'IntersectionObserver' in window) {
@@ -224,7 +241,7 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
       if (!entries.some((entry) => entry.isIntersecting)) return;
       observer.disconnect();
       requestComments();
-    }, { rootMargin: '320px 0px' });
+    }, { rootMargin: '0px' });
     observer.observe(commentsSection);
   } else {
     requestComments();
@@ -237,6 +254,36 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
     flex-direction: column;
     gap: 0;
     margin-top: 1rem;
+  }
+
+  .comments-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-height: 5rem;
+    color: #d8e1ec;
+  }
+
+  .comments-loading[hidden] {
+    display: none !important;
+  }
+
+  .comments-spinner {
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--accent, #fff);
+    border-radius: 50%;
+    animation: commentsSpin 0.75s linear infinite;
+  }
+
+  @keyframes commentsSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .comments-spinner { animation: none; }
   }
 
   .guide-comment {

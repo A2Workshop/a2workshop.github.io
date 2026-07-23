@@ -65,7 +65,7 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
               const englishItem = englishMenuItemsByPath.get(item.href.replace(/^\/en(?=\/|$)/, '')) ?? englishMenuItems[i];
               return (
               <a href={item.href} class={i > 0 ? 'disable-padding-top' : undefined} data-menu-index={i} data-en-order={englishItem?.index ?? i} data-en-href={englishItem?.href}>
-                <img src={item.imgPath} alt={item.alt} class="nav-menu-icon" width="70" height="70" loading="lazy" decoding="async" />
+                <img data-src={item.imgPath} alt={item.alt} class="nav-menu-icon" width="70" height="70" decoding="async" />
                 <span data-menu-text data-en-text={englishItem?.text}>{item.text}</span>
               </a>
               );
@@ -86,7 +86,15 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
   const trigger = document.querySelector('.megamenu > a');
   const closeBtn = document.querySelector('.close-btn');
 
+  const loadMenuImages = () => {
+    content?.querySelectorAll<HTMLImageElement>('img[data-src]').forEach((image) => {
+      image.src = image.dataset.src ?? '';
+      image.removeAttribute('data-src');
+    });
+  };
+
   const open = () => {
+    loadMenuImages();
     content?.classList.add('is-open');
     document.body.classList.add('nav-menu-open');
   };
@@ -99,6 +107,8 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
     e.preventDefault();
     open();
   });
+  document.querySelector('.megamenu')?.addEventListener('mouseenter', loadMenuImages, { once: true });
+  trigger?.addEventListener('focus', loadMenuImages, { once: true });
   closeBtn?.addEventListener('click', close);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();

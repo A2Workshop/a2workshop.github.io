@@ -81,10 +81,10 @@ const creditos = [
     <div class="w-full px-3 min-[992px]:w-3/4">
       <div class="mt-2 rounded-[15px] bg_container p-6 video-overlay">
         <a href="/traducciones/pq2espanol">
-          <video autoplay loop muted playsinline class="logo" width="1972" height="1024" preload="metadata" poster="/pq2/img/es_logo/pq2_still.webp">
-            <source src="/pq2/img/es_logo/pq2.webm" type="video/webm" />
+          <video autoplay loop muted playsinline class="logo" width="1972" height="1024" preload="metadata" poster="/pq2/img/es_logo/pq2_still-1350.webp">
+            <source src="/pq2/img/es_logo/pq2-1350.webm" type="video/webm" />
           </video>
-          <img src="/pq2/img/es_logo/pq2_still.webp" alt="Logo" class="fallback-image logo" width="1972" height="1024" style="display: none;" decoding="async" fetchpriority="high" />
+          <img src="/pq2/img/es_logo/pq2_still-1350.webp" alt="Logo" class="fallback-image logo" width="1972" height="1024" style="display: none;" decoding="async" fetchpriority="high" />
         </a>
         <h1 class="text-center text-[1.75rem]">
           Parche de traducción al Español de Persona Q<span class="orange-text">2</span>: New Cinema Labyrinth
@@ -289,7 +289,7 @@ const creditos = [
                   <div id="collapseOne" class="collapsible is-open">
                     <div class="image-comparator" id="comparator-1">
                       <div class="image-container">
-                        <img src="/pq2/img/comparison_hd/hd/battle.webp" class="image-before" alt="HD batalla" loading="lazy" decoding="async" />
+                        <img src="/pq2/img/comparison_hd/hd/battle-1280.webp" class="image-before" alt="HD batalla" width="1280" height="768" loading="lazy" decoding="async" />
                         <img src="/pq2/img/comparison_hd/sd/battle.webp" class="image-after" alt="SD batalla" loading="lazy" decoding="async" />
                       </div>
                       <div class="slider"></div>
@@ -303,7 +303,7 @@ const creditos = [
                   <div id="collapseTwo" class="collapsible">
                     <div class="image-comparator" id="comparator-2">
                       <div class="image-container">
-                        <img src="/pq2/img/comparison_hd/hd/taquilla.webp" class="image-before" alt="HD taquilla" loading="lazy" decoding="async" />
+                        <img src="/pq2/img/comparison_hd/hd/taquilla-1280.webp" class="image-before" alt="HD taquilla" width="1280" height="768" loading="lazy" decoding="async" />
                         <img src="/pq2/img/comparison_hd/sd/taquilla.webp" class="image-after" alt="SD taquilla" loading="lazy" decoding="async" />
                       </div>
                       <div class="slider"></div>
@@ -317,7 +317,7 @@ const creditos = [
                   <div id="collapseThree" class="collapsible">
                     <div class="image-comparator" id="comparator-3">
                       <div class="image-container">
-                        <img src="/pq2/img/comparison_hd/hd/fusion.webp" class="image-before" alt="HD fusión" loading="lazy" decoding="async" />
+                        <img src="/pq2/img/comparison_hd/hd/fusion-1600.webp" class="image-before" alt="HD fusión" width="1600" height="534" loading="lazy" decoding="async" />
                         <img src="/pq2/img/comparison_hd/sd/fusion.webp" class="image-after" alt="SD fusión" loading="lazy" decoding="async" />
                       </div>
                       <div class="slider"></div>
@@ -352,7 +352,7 @@ const creditos = [
                     <button class="accordion-button accordion-button-addon text-white" type="button" data-collapse-target="#collapseFour" data-collapse-group="accordionImagesAlt">Batalla</button>
                   </h2>
                   <div id="collapseFour" class="collapsible is-open">
-                    <img src="/pq2/img/addon/batalla.webp" alt="addon batalla" class="addon-img" loading="lazy" decoding="async" style="aspect-ratio: 5 / 3; width: 100%; object-fit: contain;" />
+                    <img src="/pq2/img/addon/batalla-1280.webp" alt="addon batalla" class="addon-img" width="1280" height="768" loading="lazy" decoding="async" style="aspect-ratio: 5 / 3; width: 100%; object-fit: contain;" />
                   </div>
                 </div>
               </div>
@@ -485,7 +485,7 @@ const creditos = [
     <h2 class="title2 mb-2 text-2xl">Creado Por:</h2>
     {creadores.map((c) => (
       <div class="pq2-creator mt-5">
-        <img src={c.img} alt={c.alt} class="img-fluid pq2-creator-avatar mx-auto" width="128" height="128" loading="lazy" decoding="async" />
+        <img data-drawer-src={c.img} alt={c.alt} class="img-fluid pq2-creator-avatar mx-auto" width="128" height="128" loading="lazy" decoding="async" />
         <p class="creator-name mt-2 text-xl">{c.name}</p>
         <div class="pq2-socials">
           {c.socials.map((s) => (

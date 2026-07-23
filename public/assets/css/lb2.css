@@ -264,6 +264,11 @@ hr {
     flex-wrap: wrap;
 }
 
+.steam-link-row > a {
+    width: min(300px, 100%);
+    aspect-ratio: 512 / 164;
+}
+
 .steam-link img {
     max-width: 300px;
     height: auto;
@@ -281,6 +286,10 @@ hr {
 }
 
 @media (max-width: 768px) {
+    .steam-link-row > a {
+        width: min(200px, 100%);
+    }
+
     .steam-link img {
         max-width: 200px;
         height: auto;
@@ -382,7 +391,9 @@ code {
 .lb2-install-video {
     display: block;
     width: 100%;
+    height: auto;
     margin: 0.75rem 0 2rem;
+    background: #080808;
 }
 
 .lb2-steam-deck-img {

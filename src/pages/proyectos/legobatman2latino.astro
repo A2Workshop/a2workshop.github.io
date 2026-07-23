@@ -1,6 +1,7 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
+import YoutubeFacade from '../../components/YoutubeFacade.astro';
 import Footer from '../../components/Footer.astro';
 import GuideEnhancements from '../../components/guide/GuideEnhancements.astro';
 import CommentsSection from '../../components/guide/CommentsSection.astro';
@@ -39,8 +40,8 @@ const creadores = [
 
   <div id="banner-container">
     <div id="banner" class="banner">
-      <img src="/assets/img/LB2/Banner.webp" alt="Banner de Lego Batman 2" class="banner-img" width="1920" height="1080" decoding="async" fetchpriority="high" />
-      <img src="/assets/img/LB2/Logo.webp" alt="Logo" class="banner-logo" width="3591" height="885" decoding="async" fetchpriority="high" />
+      <img src="/assets/img/LB2/Banner-1280.webp" alt="Banner de Lego Batman 2" class="banner-img" width="1920" height="1080" decoding="async" fetchpriority="high" />
+      <img src="/assets/img/LB2/Logo-1600.webp" alt="Logo" class="banner-logo" width="3591" height="885" decoding="async" fetchpriority="high" />
       <div class="banner-text blink-text">Guía de instalación</div>
     </div>
   </div>
@@ -88,19 +89,15 @@ const creadores = [
         <section id="trailer">
           <h2>TRÁILER</h2>
           <div class="video-container">
-            <iframe width="460" height="215"
-              src="https://www.youtube.com/embed/DW0KvM-99G0?si=-nzfbb0GWzSVn_OO"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <YoutubeFacade videoId="DW0KvM-99G0" title="Trailer Lego Batman 2" />
           </div>
           <br>
           <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
             <div class="mb-3 flex justify-center">
-              <img src="/assets/img/LB2/Screenbox_20255324_235309.webp" alt="captura1" class="capturas h-auto max-w-full shadow" width="1920" height="1080" loading="lazy" decoding="async" />
+              <img src="/assets/img/LB2/Screenbox_20255324_235309-1280.webp" alt="captura1" class="capturas h-auto max-w-full shadow" width="1920" height="1080" loading="lazy" decoding="async" />
             </div>
             <div class="mb-3 flex justify-center">
-              <img src="/assets/img/LB2/Screenbox_20253926_103933.webp" alt="captura2" class="capturas h-auto max-w-full shadow" width="1920" height="1080" loading="lazy" decoding="async" />
+              <img src="/assets/img/LB2/Screenbox_20253926_103933-1280.webp" alt="captura2" class="capturas h-auto max-w-full shadow" width="1920" height="1080" loading="lazy" decoding="async" />
             </div>
           </div>
         </section>
@@ -134,26 +131,26 @@ const creadores = [
           <ol class="list-decimal pl-6">
             <li>
               Localiza la carpeta raíz del juego. (Ej. C:\Program Files (x86)\Steam\steamapps\common\LEGO Batman 2)
-              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible>
-                <source src="/assets/img/LB2/Gif1.webm" type="video/webm">
+              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible width="600" height="377">
+                <source src="/assets/img/LB2/Gif1-optimized.webm" type="video/webm">
               </video>
             </li>
             <li>
               <b>Descomprime</b> el contenido de <b>quickbms.zip</b> y el archivo <b>Extract_LB2_Files.bat</b> (incluido en LB2EspLatinoModx.x.7z) en la carpeta del juego. Luego, mueve el archivo <b>ttgames.bms</b> a la misma carpeta.
-              <video loop muted playsinline controls preload="none" class="lb2-install-video" data-autoplay-on-visible>
-                <source src="/assets/img/LB2/Gif2.webm" type="video/webm">
+              <video loop muted playsinline controls preload="none" class="lb2-install-video" data-autoplay-on-visible width="800" height="400">
+                <source src="/assets/img/LB2/Gif2-optimized.webm" type="video/webm">
               </video>
             </li>
             <li>
               Ejecuta <b>Extract_LB2_Files.bat</b> para extraer los archivos <b>.DAT</b> del juego.
-              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible>
-                <source src="/assets/img/LB2/Gif3.webm" type="video/webm">
+              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible width="600" height="348">
+                <source src="/assets/img/LB2/Gif3-optimized.webm" type="video/webm">
               </video>
             </li>
             <li>
               Extrae el contenido de <b>LB2EspLatinoModx.x.7z</b> en la carpeta del juego y reemplaza los archivos.
-              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible>
-                <source src="/assets/img/LB2/Gif4.webm" type="video/webm">
+              <video loop muted playsinline preload="none" class="lb2-install-video" data-autoplay-on-visible width="800" height="408">
+                <source src="/assets/img/LB2/Gif4-optimized.webm" type="video/webm">
               </video>
             </li>
           </ol>

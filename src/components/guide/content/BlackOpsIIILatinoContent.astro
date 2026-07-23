@@ -1,4 +1,6 @@
 ---
+import YoutubeFacade from '../../YoutubeFacade.astro';
+
 const changelog = [
   {
     version: "v3.0",
@@ -109,32 +111,16 @@ const changelog = [
   <h2 class="section-title">📽️ Avances</h2>
   <div class="grid-container">
     <div class="grid-item">
-      <iframe
-        src="https://www.youtube.com/embed/Z4I6EChsZyQ"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        title="Trailer 3"></iframe>
+      <YoutubeFacade videoId="Z4I6EChsZyQ" title="Trailer 3" />
     </div>
     <div class="grid-item">
-      <iframe
-        src="https://www.youtube.com/embed/LadPrKuNzvQ?si=IpmFTbJvExELzuf-"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        title="Trailer 5"></iframe>
+      <YoutubeFacade videoId="LadPrKuNzvQ" title="Trailer 5" />
     </div>
     <div class="grid-item">
-      <iframe
-        src="https://www.youtube.com/embed/w4U-ayK4DvU"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        title="Trailer 4"></iframe>
+      <YoutubeFacade videoId="w4U-ayK4DvU" title="Trailer 4" />
     </div>
     <div class="grid-item">
-      <iframe
-        src="https://www.youtube.com/embed/nwQBtpsrCCI"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        title="Trailer 1"></iframe>
+      <YoutubeFacade videoId="nwQBtpsrCCI" title="Trailer 1" />
     </div>
   </div>
 </section>

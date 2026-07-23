@@ -45,6 +45,11 @@ function initDrawer(trigger: HTMLElement): void {
     isOpen = true;
     lastFocused = document.activeElement as HTMLElement | null;
 
+    panel.querySelectorAll<HTMLImageElement>('img[data-drawer-src]').forEach((image) => {
+      if (!image.src) image.src = image.dataset.drawerSrc ?? '';
+      image.removeAttribute('data-drawer-src');
+    });
+
     panel.setAttribute('data-open', '');
     panel.removeAttribute('inert');
     panel.removeAttribute('aria-hidden');

@@ -78,7 +78,7 @@ const menuItemDefs: NavMenuItemDef[] = [
   },
   {
     href: '/proyectos/bo3customdubs',
-    imgPath: '/assets/img/Custom/logo.gif',
+    imgPath: '/assets/img/Custom/logo.webp',
     alt: 'custommapdubslogo',
     text: {
       es: '(PC) Call of Duty: Black Ops III Custom Map Dubs',

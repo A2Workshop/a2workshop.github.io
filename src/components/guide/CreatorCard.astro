@@ -9,7 +9,7 @@ const external = !!creator.buttonHref && /^https?:\/\//.test(creator.buttonHref)
 ---
 
 <div class="creator-card">
-  <img src={creator.img} alt={creator.name} class="creator-avatar" loading="lazy" decoding="async" />
+  <img data-creator-avatar data-src={creator.img} alt={creator.name} class="creator-avatar" width="76" height="76" decoding="async" />
   <div class="min-w-0">
     <div class="creator-name">{creator.name}</div>
     {creator.buttonLabel && creator.buttonHref && (
@@ -23,3 +23,27 @@ const external = !!creator.buttonHref && /^https?:\/\//.test(creator.buttonHref)
     )}
   </div>
 </div>
+
+<script>
+  const avatars = document.querySelectorAll<HTMLImageElement>('img[data-creator-avatar][data-src]');
+
+  const loadAvatar = (avatar: HTMLImageElement) => {
+    const src = avatar.dataset.src;
+    if (!src) return;
+    avatar.src = src;
+    avatar.removeAttribute('data-src');
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadAvatar(entry.target as HTMLImageElement);
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '120px 0px' });
+    avatars.forEach((avatar) => observer.observe(avatar));
+  } else {
+    avatars.forEach(loadAvatar);
+  }
+</script>
