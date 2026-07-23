@@ -36,7 +36,7 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
 >
   <link slot="head" rel="stylesheet" href="/pq2/style.css" />
 
-  <nav class="navbar" aria-label="Persona Q2">
+  <nav class="navbar pq2-mobile-navbar" aria-label="Persona Q2">
     <a href="/" class="logo-link">
       <img src="/pq2/img/a2logo/logo_outline.webp" alt="A2Workshop" class="logo" width="6989" height="2955" decoding="async" />
     </a>
@@ -241,6 +241,14 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
       syncLabels();
     })();
   </script>
+
+  <style is:global>
+    @media (max-width: 990px) {
+      .pq2-mobile-navbar {
+        background: #000 !important;
+      }
+    }
+  </style>
 
   <style>
     .bg-black {
@@ -481,6 +489,9 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
       margin: 1rem auto 0;
     }
     @media (max-width: 990px) {
+      .navbar {
+        background-color: #000 !important;
+      }
       .pq2-desktop-gallery,
       .pq2-footer-desktop {
         display: none;

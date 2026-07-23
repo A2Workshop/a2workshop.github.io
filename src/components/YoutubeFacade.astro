@@ -15,11 +15,32 @@ const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
   data-youtube-title={title}
   aria-label={`Reproducir ${title}`}
 >
-  <img src={thumbnail} alt="" width="480" height="360" loading="lazy" decoding="async" />
+  <img data-youtube-thumbnail data-src={thumbnail} alt="" width="480" height="360" decoding="async" />
   <span class="youtube-facade-play" aria-hidden="true">▶</span>
 </button>
 
 <script>
+  const thumbnails = document.querySelectorAll<HTMLImageElement>('img[data-youtube-thumbnail][data-src]');
+  const loadThumbnail = (thumbnail: HTMLImageElement) => {
+    const src = thumbnail.dataset.src;
+    if (!src) return;
+    thumbnail.src = src;
+    thumbnail.removeAttribute('data-src');
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadThumbnail(entry.target as HTMLImageElement);
+        observer.unobserve(entry.target);
+      });
+    });
+    thumbnails.forEach((thumbnail) => observer.observe(thumbnail));
+  } else {
+    thumbnails.forEach(loadThumbnail);
+  }
+
   document.querySelectorAll<HTMLButtonElement>('.youtube-facade').forEach((button) => {
     button.addEventListener('click', () => {
       const videoId = button.dataset.youtubeId;
