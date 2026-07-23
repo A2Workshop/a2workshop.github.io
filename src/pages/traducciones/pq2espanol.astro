@@ -79,7 +79,8 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
 
   <div class="video-container">
     <iframe
-      src="https://www.youtube.com/embed/-RDqYkRxvig?autoplay=1&loop=1&mute=1&playlist=-RDqYkRxvig"
+      data-background-video
+      data-src="https://www.youtube-nocookie.com/embed/-RDqYkRxvig?autoplay=1&loop=1&mute=1&playlist=-RDqYkRxvig&playsinline=1&controls=0&rel=0"
       frameborder="0"
       allow="autoplay"
       allowfullscreen
@@ -182,6 +183,25 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
 
   <script>
     import '../../scripts/pq2-page.ts';
+  </script>
+  <script is:inline>
+    (() => {
+      const video = document.querySelector('iframe[data-background-video]');
+      if (!video) return;
+      const loadVideo = () => {
+        const src = video.dataset.src;
+        if (src) video.src = src;
+      };
+      const schedule = () => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadVideo, { timeout: 2500 });
+        } else {
+          window.setTimeout(loadVideo, 600);
+        }
+      };
+      if (document.readyState === 'complete') schedule();
+      else window.addEventListener('load', schedule, { once: true });
+    })();
   </script>
   <script is:inline>
     (() => {
