@@ -81,8 +81,8 @@ if (activeLang === 'en' || activeLang === 'es') {
   syncAllLinks();
   translateSharedChrome();
 
-  document.addEventListener('DOMContentLoaded', syncAllLinks);
-  document.addEventListener('DOMContentLoaded', translateSharedChrome);
+  document.addEventListener('astro:page-load', syncAllLinks);
+  document.addEventListener('astro:page-load', translateSharedChrome);
   document.addEventListener('click', (event) => {
     const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
     if (link) syncLink(link);

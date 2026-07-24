@@ -271,21 +271,23 @@ const guideUi =
           .catch((error) => console.error(md5Error, error));
       };
 
-      if (!tbody) {
-        loadMd5();
-      } else if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            if (!entries.some((entry) => entry.isIntersecting)) return;
-            observer.disconnect();
-            loadMd5();
-          },
-          { rootMargin: '320px' },
-        );
-        observer.observe(tbody.closest('table') ?? tbody);
-      } else {
-        loadMd5();
-      }
+      document.addEventListener('astro:page-load', () => {
+        if (!tbody) {
+          loadMd5();
+        } else if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              if (!entries.some((entry) => entry.isIntersecting)) return;
+              observer.disconnect();
+              loadMd5();
+            },
+            { rootMargin: '320px' },
+          );
+          observer.observe(tbody.closest('table') ?? tbody);
+        } else {
+          loadMd5();
+        }
+      });
     </script>
   )}
 </BaseLayout>

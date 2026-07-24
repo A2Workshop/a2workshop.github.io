@@ -77,11 +77,10 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
     return jsonMap[projectName] ?? jsonMap.default;
   }
 
-  const urls = getJsonUrlsForProject(getCurrentProjectName());
-  const commentsSection = document.getElementById('item-10');
+  let urls = [];
 
-  // Hide index links initially (the section is already hidden via inline style)
-  updateIndexLinks(false);
+  // Remove the global updateIndexLinks(false) and commentsSection
+  // We will run this dynamically inside initComments.
 
   function formatFechaHora(value) {
     const date = new Date(value);
@@ -225,6 +224,7 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
       allComments = payloads.flatMap((payload) => payload.comments ?? []);
       totalPages = Math.max(1, Math.ceil(allComments.length / COMMENTS_PER_PAGE));
       
+      const commentsSection = document.getElementById('item-10');
       if (allComments.length > 0 && commentsSection) {
         commentsSection.style.display = '';
         updateIndexLinks(true);
@@ -242,17 +242,29 @@ const atLabel = locale === 'en' ? 'at' : 'a las';
     if (!loader) return;
     loader.hidden = !isLoading;
     loader.setAttribute('aria-hidden', String(!isLoading));
+    const commentsSection = document.getElementById('item-10');
     commentsSection?.setAttribute('aria-busy', String(isLoading));
   }
 
-  document.getElementById('comment-text')?.addEventListener('click', () => {
-    window.open(textareaUrl, '_blank');
-  });
+  function initComments() {
+    urls = getJsonUrlsForProject(getCurrentProjectName());
+    updateIndexLinks(false);
+    const textarea = document.getElementById('comment-text');
+    if (textarea) {
+      // Remove any previously attached listener to prevent duplicates
+      const newTextarea = textarea.cloneNode(true);
+      textarea.parentNode.replaceChild(newTextarea, textarea);
+      newTextarea.addEventListener('click', () => {
+        window.open(textareaUrl, '_blank');
+      });
+    }
 
-  if (urls.length > 0) {
-    // Fetch immediately on load instead of waiting for scroll
-    loadComments();
+    if (urls.length > 0) {
+      loadComments();
+    }
   }
+
+  document.addEventListener('astro:page-load', initComments);
 </script>
 
 <style is:global>

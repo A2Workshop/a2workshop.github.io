@@ -252,17 +252,21 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function resizeHandler() {
+    document.querySelectorAll('.collapsible.is-open').forEach(setCollapseHeight);
+  }
+
+  document.addEventListener('astro:page-load', function () {
     document.querySelectorAll('.collapsible').forEach(setCollapseHeight);
     openDefaultExtrasAccordions();
     document.querySelectorAll('.image-comparator').forEach(initComparator);
 
     loadFromHash();
+    window.removeEventListener('hashchange', loadFromHash);
     window.addEventListener('hashchange', loadFromHash);
 
-    window.addEventListener('resize', function () {
-      document.querySelectorAll('.collapsible.is-open').forEach(setCollapseHeight);
-    });
+    window.removeEventListener('resize', resizeHandler);
+    window.addEventListener('resize', resizeHandler);
 
     // Safari <video> fallback.
     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
