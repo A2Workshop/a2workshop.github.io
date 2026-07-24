@@ -37,6 +37,7 @@ const projectsEnHtml = proyectoActive ? `<b>${englishCopy.nav.projects}</b>` : u
 const projectsEnText = proyectoActive ? undefined : englishCopy.nav.projects;
 const contactEnHtml = boldContacto ? `<b>${englishCopy.nav.contact}</b>` : undefined;
 const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
+const connectOnMobile = mobileLogoSrc !== '/assets/img/A2/logo.webp';
 ---
 
 <div id="navbar-container" class={`navbar-page-${activeKey}`}>
@@ -45,9 +46,9 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
       {showLogo && (
         <div class="nav-brand">
           <a href={homeHref}>
-            <picture>
+            <picture transition:persist={`navbar-logo-${fullLogoSrc}`}>
               <source media="(max-width: 990px)" srcset={mobileLogoSrc} />
-              <img src={fullLogoSrc} alt="A2WORKSHOP" class="logo_nav" width="7055" height="1381" decoding="async" />
+              <img src={fullLogoSrc} alt="A2WORKSHOP" class={`logo_nav ${connectOnMobile ? 'connect-on-mobile' : ''}`} width="7055" height="1381" />
             </picture>
           </a>
         </div>
@@ -82,38 +83,40 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
 </div>
 
 <script>
-  const content = document.querySelector('.megamenu-content');
-  const trigger = document.querySelector('.megamenu > a');
-  const closeBtn = document.querySelector('.close-btn');
+  document.addEventListener('astro:page-load', () => {
+    const content = document.querySelector('.megamenu-content');
+    const trigger = document.querySelector('.megamenu > a');
+    const closeBtn = document.querySelector('.close-btn');
 
-  const loadMenuImages = () => {
-    content?.querySelectorAll<HTMLImageElement>('img[data-src]').forEach((image) => {
-      image.src = image.dataset.src ?? '';
-      image.removeAttribute('data-src');
+    const loadMenuImages = () => {
+      content?.querySelectorAll<HTMLImageElement>('img[data-src]').forEach((image) => {
+        image.src = image.dataset.src ?? '';
+        image.removeAttribute('data-src');
+      });
+    };
+
+    const open = () => {
+      loadMenuImages();
+      content?.classList.add('is-open');
+      document.body.classList.add('nav-menu-open');
+    };
+    const close = () => {
+      content?.classList.remove('is-open');
+      document.body.classList.remove('nav-menu-open');
+    };
+
+    trigger?.addEventListener('click', (e) => {
+      e.preventDefault();
+      open();
     });
-  };
-
-  const open = () => {
-    loadMenuImages();
-    content?.classList.add('is-open');
-    document.body.classList.add('nav-menu-open');
-  };
-  const close = () => {
-    content?.classList.remove('is-open');
-    document.body.classList.remove('nav-menu-open');
-  };
-
-  trigger?.addEventListener('click', (e) => {
-    e.preventDefault();
-    open();
+    document.querySelector('.megamenu')?.addEventListener('mouseenter', loadMenuImages, { once: true });
+    trigger?.addEventListener('focus', loadMenuImages, { once: true });
+    closeBtn?.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+    content?.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
   });
-  document.querySelector('.megamenu')?.addEventListener('mouseenter', loadMenuImages, { once: true });
-  trigger?.addEventListener('focus', loadMenuImages, { once: true });
-  closeBtn?.addEventListener('click', close);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') close();
-  });
-  content?.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
 </script>
 
 <style is:global>
@@ -216,6 +219,10 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
   }
 
   @media (min-width: 990px) {
+    .logo_nav {
+      view-transition-name: main-logo;
+    }
+
     .a2-navbar a {
       font-size: 24px;
       padding: 10px 20px;
@@ -462,6 +469,20 @@ const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
     .mb-mobile {
       margin-bottom: 3rem !important;
     }
+  }
+
+  @media (max-width: 989px) {
+    .logo_nav.connect-on-mobile {
+      view-transition-name: main-logo;
+    }
+  }
+
+  [data-nav-projects] {
+    view-transition-name: nav-projects;
+  }
+
+  [data-nav-contact] {
+    view-transition-name: nav-contact;
   }
 
   main,

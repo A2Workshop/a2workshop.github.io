@@ -6,6 +6,7 @@ import {
   normalizeLocale,
   stripLocaleFromPath,
 } from '../i18n/config';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -55,6 +56,7 @@ const englishUrl = new URL(buildLocalizedPath(basePath, 'en'), Astro.site).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
+    <ClientRouter />
     <link rel="icon" href="/assets/img/A2/favicon.ico" />
     <meta name="theme-color" content={themeColor} />
     <link rel="canonical" href={canonicalUrl} />
