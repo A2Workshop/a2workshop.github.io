@@ -65,20 +65,16 @@ const initImageModal = () => {
   });
 };
 
-const initPage = () => {
+const syncBtn = () => {
   const btn = document.getElementById('downloadButton');
-  const syncBtn = () => {
-    if (btn) btn.textContent = location.hash === '#ts' ? 'Gu\u00eda de instalaci\u00f3n' : 'Descargar';
-  };
+  if (btn) btn.textContent = location.hash === '#ts' ? 'Gu\u00eda de instalaci\u00f3n' : 'Descargar';
+};
+window.addEventListener('hashchange', syncBtn);
 
+const initPage = () => {
   syncBtn();
-  window.addEventListener('hashchange', syncBtn);
   document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(initCarousel);
   initImageModal();
 };
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initPage, { once: true });
-} else {
-  initPage();
-}
+document.addEventListener('astro:page-load', initPage);
