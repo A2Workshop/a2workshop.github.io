@@ -205,33 +205,56 @@ const guideUi =
               const newButton = button.cloneNode(true);
               button.parentNode.replaceChild(newButton, button);
               
+              newButton.style.display = rows.length > 3 ? 'inline-block' : 'none';
+              
+              const wrap = tbody.closest('.table-wrap');
+              if (wrap) {
+                wrap.style.overflow = 'hidden';
+                wrap.style.transition = 'height 0.38s cubic-bezier(0.4, 0, 0.2, 1)';
+              }
+              
               let expanded = false;
               newButton.addEventListener('click', () => {
+                if (wrap && wrap.dataset.animating === 'true') return;
+                if (wrap) wrap.dataset.animating = 'true';
+
                 expanded = !expanded;
-                const wrap = tbody.closest('.table-wrap');
+                const startHeight = wrap ? wrap.offsetHeight : 0;
+                
+                if (!expanded && wrap) {
+                  const section = wrap.closest('section');
+                  if (section && section.getBoundingClientRect().top < 0) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+                
                 if (wrap) {
                   if (expanded) {
-                    wrap.dataset.animating = 'true';
-                    const startHeight = wrap.offsetHeight;
-                    rows.forEach((row) => (row.style.display = 'table-row'));
-                    const endHeight = wrap.scrollHeight;
+                    rows.forEach((row, index) => {
+                      if (index >= 3) row.style.display = '';
+                    });
+                    
+                    const endHeight = wrap.offsetHeight;
                     wrap.style.height = `${startHeight}px`;
                     requestAnimationFrame(() => {
                       wrap.style.height = `${endHeight}px`;
                     });
                     
                     setTimeout(() => {
-                      wrap.style.height = 'auto';
+                      wrap.style.height = '';
                       wrap.dataset.animating = 'false';
                     }, 380);
                   } else {
-                    wrap.dataset.animating = 'true';
-                    const startHeight = wrap.offsetHeight;
+                    rows.forEach((row, index) => {
+                      if (index >= 3) row.style.display = 'none';
+                    });
+                    const endHeight = wrap.offsetHeight;
+                    rows.forEach((row, index) => {
+                      if (index >= 3) row.style.display = '';
+                    });
+                    
                     wrap.style.height = `${startHeight}px`;
                     requestAnimationFrame(() => {
-                      const baseRowHeight = rows[0]?.offsetHeight || 40;
-                      const headerHeight = tbody.closest('table')?.querySelector('thead')?.offsetHeight || 40;
-                      const endHeight = (baseRowHeight * 3) + headerHeight;
                       wrap.style.height = `${endHeight}px`;
                     });
                     
@@ -245,7 +268,7 @@ const guideUi =
                   }
                 } else {
                   rows.forEach((row, index) => {
-                    if (index >= 3) row.style.display = 'none';
+                    if (index >= 3) row.style.display = expanded ? '' : 'none';
                   });
                 }
                 newButton.textContent = expanded ? collapseLabel : expandLabel;
