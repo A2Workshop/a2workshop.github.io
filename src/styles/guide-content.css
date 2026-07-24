@@ -12,23 +12,13 @@
 .guide-hero,
 .guide-panel {
   background: rgba(23, 33, 50, 0.6);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
 }
 
 .guide-section,
 .guide-prose > section {
   background: rgba(23, 33, 50, 0.95);
-}
-
-.guide-hero::before,
-.guide-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  backdrop-filter: blur(16px) saturate(130%);
-  -webkit-backdrop-filter: blur(16px) saturate(130%);
-  z-index: -1;
-  pointer-events: none;
 }
 
 .guide-hero {
@@ -450,5 +440,21 @@
   .guide-prose .grid-item iframe {
     height: 100%;
     min-height: 250px;
+  }
+
+  .guide-hero-logo {
+    view-transition-name: guide-hero-logo;
+  }
+  .guide-hero-title {
+    view-transition-name: guide-hero-title;
+  }
+  .guide-desktop-credits > .guide-panel:nth-child(1) {
+    view-transition-name: guide-credits-1;
+  }
+  .guide-desktop-credits > .guide-panel:nth-child(2) {
+    view-transition-name: guide-credits-2;
+  }
+  .guide-desktop-credits > .guide-panel:nth-child(3) {
+    view-transition-name: guide-credits-3;
   }
 }
