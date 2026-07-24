@@ -153,128 +153,108 @@ const guideUi =
 
   {guide.md5Path && (
     <script define:vars={{ md5Path: guide.md5Path, expandLabel: guideUi.expandLabel, collapseLabel: guideUi.collapseLabel, md5Error: guideUi.md5Error }}>
-      const tbody = document.getElementById('md5-table-body');
-      const button = document.getElementById('show-more');
-      let loaded = false;
+      document.addEventListener('astro:page-load', () => {
+        const tbody = document.getElementById('md5-table-body');
+        const button = document.getElementById('show-more');
+        let loaded = false;
 
-      const loadMd5 = () => {
-        if (loaded || !tbody) return;
-        loaded = true;
+        if (!tbody) return;
 
-        fetch(md5Path)
-          .then((response) => response.text())
-          .then((text) => {
-            const columnCount = tbody.closest('table')?.querySelectorAll('thead th').length ?? 2;
-            const validMd5 = (value) => !value || /^[0-9a-fA-F]{32}$/.test(value);
-            const rows = text.trim().split(/\r?\n/).map((line) => {
-              const separator = line.includes('|') ? '|' : ':';
-              const parts = line.split(separator);
-              const fileName = parts.shift()?.trim() ?? '';
-              const steamMd5 = parts.shift()?.trim() ?? '';
-              const msMd5 = parts.shift()?.trim() ?? '';
-              if (!fileName || !validMd5(steamMd5) || !validMd5(msMd5)) return null;
+        const loadMd5 = () => {
+          if (loaded) return;
+          loaded = true;
 
-              const tr = document.createElement('tr');
-              const fileCell = document.createElement('td');
-              const steamCell = document.createElement('td');
-              fileCell.textContent = fileName;
-              steamCell.textContent = steamMd5 || '-';
-              if (!steamMd5) steamCell.classList.add('md5-empty');
-              tr.append(fileCell, steamCell);
+          fetch(md5Path)
+            .then((response) => response.text())
+            .then((text) => {
+              const columnCount = tbody.closest('table')?.querySelectorAll('thead th').length ?? 2;
+              const validMd5 = (value) => !value || /^[0-9a-fA-F]{32}$/.test(value);
+              const rows = text.trim().split(/\r?\n/).map((line) => {
+                const separator = line.includes('|') ? '|' : ':';
+                const parts = line.split(separator);
+                const fileName = parts.shift()?.trim() ?? '';
+                const steamMd5 = parts.shift()?.trim() ?? '';
+                const msMd5 = parts.shift()?.trim() ?? '';
+                if (!fileName || !validMd5(steamMd5) || !validMd5(msMd5)) return null;
 
-              if (columnCount > 2) {
-                const msCell = document.createElement('td');
-                msCell.textContent = msMd5 || '-';
-                if (!msMd5) msCell.classList.add('md5-empty');
-                tr.append(msCell);
-              }
+                const tr = document.createElement('tr');
+                const fileCell = document.createElement('td');
+                const steamCell = document.createElement('td');
+                fileCell.textContent = fileName;
+                steamCell.textContent = steamMd5 || '-';
+                if (!steamMd5) steamCell.classList.add('md5-empty');
+                tr.append(fileCell, steamCell);
 
-              return tr;
-            }).filter(Boolean);
+                if (columnCount > 2) {
+                  const msCell = document.createElement('td');
+                  msCell.textContent = msMd5 || '-';
+                  if (!msMd5) msCell.classList.add('md5-empty');
+                  tr.append(msCell);
+                }
 
-            rows.forEach((row, index) => {
-              if (index >= 3) row.style.display = 'none';
-              tbody.appendChild(row);
-            });
-            if (!button) return;
-            let expanded = false;
-            button.style.display = rows.length > 3 ? 'inline-block' : 'none';
-            
-            const wrap = tbody.closest('.table-wrap');
-            if (wrap) {
-              wrap.style.overflow = 'hidden';
-              wrap.style.transition = 'height 0.38s cubic-bezier(0.4, 0, 0.2, 1)';
-            }
+                return tr;
+              }).filter(Boolean);
 
-            button.addEventListener('click', () => {
-              if (wrap && wrap.dataset.animating === 'true') return;
-              if (wrap) wrap.dataset.animating = 'true';
+              rows.forEach((row, index) => {
+                if (index >= 3) row.style.display = 'none';
+                tbody.appendChild(row);
+              });
 
-              expanded = !expanded;
-              const startHeight = wrap ? wrap.offsetHeight : 0;
+              if (!button) return;
               
-              if (!expanded && wrap) {
-                const section = wrap.closest('section');
-                if (section && section.getBoundingClientRect().top < 0) {
-                  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }
-
-              if (expanded) {
-                rows.forEach((row, index) => {
-                  if (index >= 3) row.style.display = '';
-                });
-                
+              const newButton = button.cloneNode(true);
+              button.parentNode.replaceChild(newButton, button);
+              
+              let expanded = false;
+              newButton.addEventListener('click', () => {
+                expanded = !expanded;
+                const wrap = tbody.closest('.table-wrap');
                 if (wrap) {
-                  const endHeight = wrap.offsetHeight;
-                  wrap.style.height = `${startHeight}px`;
-                  requestAnimationFrame(() => {
-                    wrap.style.height = `${endHeight}px`;
-                  });
-                  
-                  setTimeout(() => {
-                    wrap.style.height = '';
-                    wrap.dataset.animating = 'false';
-                  }, 380);
-                }
-              } else {
-                if (wrap) {
-                  rows.forEach((row, index) => {
-                    if (index >= 3) row.style.display = 'none';
-                  });
-                  const endHeight = wrap.offsetHeight;
-                  rows.forEach((row, index) => {
-                    if (index >= 3) row.style.display = '';
-                  });
-                  
-                  wrap.style.height = `${startHeight}px`;
-                  requestAnimationFrame(() => {
-                    wrap.style.height = `${endHeight}px`;
-                  });
-                  
-                  setTimeout(() => {
-                    rows.forEach((row, index) => {
-                      if (index >= 3) row.style.display = 'none';
+                  if (expanded) {
+                    wrap.dataset.animating = 'true';
+                    const startHeight = wrap.offsetHeight;
+                    rows.forEach((row) => (row.style.display = 'table-row'));
+                    const endHeight = wrap.scrollHeight;
+                    wrap.style.height = `${startHeight}px`;
+                    requestAnimationFrame(() => {
+                      wrap.style.height = `${endHeight}px`;
                     });
-                    wrap.style.height = '';
-                    wrap.dataset.animating = 'false';
-                  }, 380);
+                    
+                    setTimeout(() => {
+                      wrap.style.height = 'auto';
+                      wrap.dataset.animating = 'false';
+                    }, 380);
+                  } else {
+                    wrap.dataset.animating = 'true';
+                    const startHeight = wrap.offsetHeight;
+                    wrap.style.height = `${startHeight}px`;
+                    requestAnimationFrame(() => {
+                      const baseRowHeight = rows[0]?.offsetHeight || 40;
+                      const headerHeight = tbody.closest('table')?.querySelector('thead')?.offsetHeight || 40;
+                      const endHeight = (baseRowHeight * 3) + headerHeight;
+                      wrap.style.height = `${endHeight}px`;
+                    });
+                    
+                    setTimeout(() => {
+                      rows.forEach((row, index) => {
+                        if (index >= 3) row.style.display = 'none';
+                      });
+                      wrap.style.height = '';
+                      wrap.dataset.animating = 'false';
+                    }, 380);
+                  }
                 } else {
                   rows.forEach((row, index) => {
                     if (index >= 3) row.style.display = 'none';
                   });
                 }
-              }
-              button.textContent = expanded ? collapseLabel : expandLabel;
-            });
-          })
-          .catch((error) => console.error(md5Error, error));
-      };
+                newButton.textContent = expanded ? collapseLabel : expandLabel;
+              });
+            })
+            .catch((error) => console.error(md5Error, error));
+        };
 
-      document.addEventListener('astro:page-load', () => {
-        if (!tbody) {
-          loadMd5();
-        } else if ('IntersectionObserver' in window) {
+        if ('IntersectionObserver' in window) {
           const observer = new IntersectionObserver(
             (entries) => {
               if (!entries.some((entry) => entry.isIntersecting)) return;
