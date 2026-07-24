@@ -5,7 +5,8 @@ interface Props {
 }
 
 const { videoId, title } = Astro.props;
-const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+const thumbnail = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+const fallback = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 ---
 
 <button
@@ -15,7 +16,7 @@ const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
   data-youtube-title={title}
   aria-label={`Reproducir ${title}`}
 >
-  <img data-youtube-thumbnail data-src={thumbnail} alt="" width="480" height="360" decoding="async" />
+  <img data-youtube-thumbnail data-src={thumbnail} data-fallback={fallback} alt="" width="1280" height="720" decoding="async" />
   <span class="youtube-facade-play" aria-hidden="true">▶</span>
 </button>
 
@@ -25,6 +26,14 @@ const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     const loadThumbnail = (thumbnail: HTMLImageElement) => {
       const src = thumbnail.dataset.src;
       if (!src) return;
+      
+      thumbnail.onerror = () => {
+        const fallbackSrc = thumbnail.dataset.fallback;
+        if (fallbackSrc && thumbnail.src !== fallbackSrc) {
+          thumbnail.src = fallbackSrc;
+        }
+      };
+      
       thumbnail.src = src;
       thumbnail.removeAttribute('data-src');
     };
@@ -52,6 +61,7 @@ const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
         if (!videoId) return;
 
         const iframe = document.createElement('iframe');
+        iframe.className = 'youtube-facade-iframe';
         iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
         iframe.title = button.dataset.youtubeTitle ?? 'Video de YouTube';
         iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
@@ -64,17 +74,20 @@ const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 </script>
 
 <style is:global>
-  .youtube-facade {
+  .youtube-facade,
+  .youtube-facade-iframe {
     position: relative;
     display: block;
     width: 100%;
-    min-height: inherit;
     aspect-ratio: 16 / 9;
     padding: 0;
     overflow: hidden;
     border: 0;
     border-radius: 1rem;
     background: #05070a;
+  }
+  
+  .youtube-facade {
     cursor: pointer;
   }
 
