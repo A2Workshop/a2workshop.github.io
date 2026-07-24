@@ -84,18 +84,20 @@ const { data } = Astro.props;
     }
   }
 
-  const counters = document.querySelectorAll<HTMLElement>('[data-mediafire-download-count]');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const element = entry.target as HTMLElement;
-        observer.unobserve(element);
-        updateMediaFireDownloadCount(element);
-      });
-    }, { rootMargin: '160px' });
-    counters.forEach((element) => observer.observe(element));
-  } else {
-    counters.forEach(updateMediaFireDownloadCount);
-  }
+  document.addEventListener('astro:page-load', () => {
+    const counters = document.querySelectorAll<HTMLElement>('[data-mediafire-download-count]');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const element = entry.target as HTMLElement;
+          observer.unobserve(element);
+          updateMediaFireDownloadCount(element);
+        });
+      }, { rootMargin: '160px' });
+      counters.forEach((element) => observer.observe(element));
+    } else {
+      counters.forEach(updateMediaFireDownloadCount);
+    }
+  });
 </script>
