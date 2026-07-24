@@ -32,7 +32,7 @@ const desktopSlides = [
 
   <div class="video-wrapper">
     <iframe
-      src="https://www.youtube.com/embed/AENzjfi1S0Q?rel=0&autoplay=1&mute=1&loop=1&playlist=AENzjfi1S0Q&controls=0&modestbranding=1&fs=0&disablekb=1&iv_load_policy=3"
+      src="https://www.youtube.com/embed/AENzjfi1S0Q?rel=0&autoplay=1&mute=1&loop=1&playlist=AENzjfi1S0Q&controls=0&modestbranding=1&fs=0&disablekb=1&iv_load_policy=3&enablejsapi=1"
       frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="fondo"></iframe>
     <div class="pattern-overlay"></div>
     <div class="logo-container text-center">
@@ -301,5 +301,15 @@ const desktopSlides = [
       }
     }
   </style>
+
+  <script is:inline>
+    document.addEventListener('astro:page-load', () => {
+      // Ensure the YouTube iframe autoplays after view transitions without flashing controls
+      const iframe = document.querySelector('.video-wrapper iframe');
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'playVideo' }), '*');
+      }
+    });
+  </script>
 </BaseLayout>
 

@@ -80,7 +80,7 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
   <div class="video-container">
     <iframe
       data-background-video
-      data-src="https://www.youtube-nocookie.com/embed/-RDqYkRxvig?autoplay=1&loop=1&mute=1&playlist=-RDqYkRxvig&playsinline=1&controls=0&rel=0"
+      data-src="https://www.youtube-nocookie.com/embed/-RDqYkRxvig?autoplay=1&loop=1&mute=1&playlist=-RDqYkRxvig&playsinline=1&controls=0&rel=0&enablejsapi=1"
       frameborder="0"
       allow="autoplay"
       allowfullscreen
@@ -185,29 +185,37 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
     import '../../scripts/pq2-page.ts';
   </script>
   <script is:inline>
-    (() => {
+    document.addEventListener('astro:page-load', () => {
       const video = document.querySelector('iframe[data-background-video]');
-      if (!video) return;
-      const loadVideo = () => {
-        const src = video.dataset.src;
-        if (src) video.src = src;
-      };
-      const schedule = () => {
+      if (video) {
+        const loadVideo = () => {
+          const src = video.dataset.src;
+          if (src) {
+            if (video.src === src || video.src === src + '/') {
+              if (video.contentWindow) {
+                video.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'playVideo' }), '*');
+              }
+            } else {
+              video.src = src;
+            }
+          }
+        };
         if ('requestIdleCallback' in window) {
           window.requestIdleCallback(loadVideo, { timeout: 2500 });
         } else {
           window.setTimeout(loadVideo, 600);
         }
-      };
-      if (document.readyState === 'complete') schedule();
-      else window.addEventListener('load', schedule, { once: true });
-    })();
+      }
+
+      // Force autoplay videos to play if dynamically inserted
+      document.querySelectorAll('video[autoplay]').forEach(v => v.play().catch(() => {}));
+    });
   </script>
   <script is:inline>
     (() => {
       const media = window.matchMedia('(max-width: 990px)');
-      const dropdown = document.querySelector('.pq2-dropdown');
       const getLang = () => new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'es';
+      
       const syncLabels = () => {
         const lang = getLang();
         document.querySelectorAll('.pq2-dropdown-title, .pq2-dropdown .dropdown-item').forEach((item) => {
@@ -216,29 +224,32 @@ const mobileMenuText: Record<string, { es: string; en: string }> = {
           item.textContent = media.matches && short ? short : full || item.textContent;
         });
       };
+
       const closeDropdown = (event) => {
+        const dropdown = document.querySelector('.pq2-dropdown');
         if (!dropdown?.open) return;
         if (event.target instanceof Node && dropdown.contains(event.target)) return;
         dropdown.open = false;
         document.body.classList.remove('nav-menu-open');
       };
+
       media.addEventListener?.('change', syncLabels);
-      dropdown?.addEventListener('toggle', () => {
-        document.body.classList.toggle('nav-menu-open', dropdown.open);
-      });
       document.addEventListener('pointerdown', closeDropdown);
       document.addEventListener('keydown', (event) => {
+        const dropdown = document.querySelector('.pq2-dropdown');
         if (event.key === 'Escape' && dropdown?.open) {
           dropdown.open = false;
           document.body.classList.remove('nav-menu-open');
         }
       });
-      document.addEventListener('DOMContentLoaded', () => {
+
+      document.addEventListener('astro:page-load', () => {
+        const dropdown = document.querySelector('.pq2-dropdown');
+        dropdown?.addEventListener('toggle', () => {
+          document.body.classList.toggle('nav-menu-open', dropdown.open);
+        });
         syncLabels();
-        setTimeout(syncLabels, 0);
       });
-      window.addEventListener('load', syncLabels);
-      syncLabels();
     })();
   </script>
 
