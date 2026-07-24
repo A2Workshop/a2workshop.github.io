@@ -442,11 +442,8 @@
     min-height: 250px;
   }
 
-  .guide-hero-logo {
-    view-transition-name: guide-hero-logo;
-  }
-  .guide-hero-title {
-    view-transition-name: guide-hero-title;
+  .guide-hero {
+    view-transition-name: guide-hero;
   }
   .guide-desktop-credits > .guide-panel:nth-child(1) {
     view-transition-name: guide-credits-1;
