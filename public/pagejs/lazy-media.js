@@ -24,6 +24,8 @@ const initLazyMedia = () => {
   videos.forEach((video) => observer.observe(video));
 };
 
+document.addEventListener('astro:page-load', initLazyMedia);
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initLazyMedia, { once: true });
 } else {

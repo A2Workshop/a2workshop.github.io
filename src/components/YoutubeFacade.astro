@@ -20,40 +20,46 @@ const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 </button>
 
 <script>
-  const thumbnails = document.querySelectorAll<HTMLImageElement>('img[data-youtube-thumbnail][data-src]');
-  const loadThumbnail = (thumbnail: HTMLImageElement) => {
-    const src = thumbnail.dataset.src;
-    if (!src) return;
-    thumbnail.src = src;
-    thumbnail.removeAttribute('data-src');
-  };
+  document.addEventListener('astro:page-load', () => {
+    const thumbnails = document.querySelectorAll<HTMLImageElement>('img[data-youtube-thumbnail][data-src]');
+    const loadThumbnail = (thumbnail: HTMLImageElement) => {
+      const src = thumbnail.dataset.src;
+      if (!src) return;
+      thumbnail.src = src;
+      thumbnail.removeAttribute('data-src');
+    };
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        loadThumbnail(entry.target as HTMLImageElement);
-        observer.unobserve(entry.target);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          loadThumbnail(entry.target as HTMLImageElement);
+          observer.unobserve(entry.target);
+        });
       });
+      thumbnails.forEach((thumbnail) => observer.observe(thumbnail));
+    } else {
+      thumbnails.forEach(loadThumbnail);
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('.youtube-facade').forEach((button) => {
+      // Prevent multiple listeners if astro:page-load fires again for the same element
+      if (button.dataset.ytLoaded) return;
+      button.dataset.ytLoaded = 'true';
+
+      button.addEventListener('click', () => {
+        const videoId = button.dataset.youtubeId;
+        if (!videoId) return;
+
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        iframe.title = button.dataset.youtubeTitle ?? 'Video de YouTube';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        button.replaceWith(iframe);
+      }, { once: true });
     });
-    thumbnails.forEach((thumbnail) => observer.observe(thumbnail));
-  } else {
-    thumbnails.forEach(loadThumbnail);
-  }
-
-  document.querySelectorAll<HTMLButtonElement>('.youtube-facade').forEach((button) => {
-    button.addEventListener('click', () => {
-      const videoId = button.dataset.youtubeId;
-      if (!videoId) return;
-
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-      iframe.title = button.dataset.youtubeTitle ?? 'Video de YouTube';
-      iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
-      iframe.allowFullscreen = true;
-      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-      button.replaceWith(iframe);
-    }, { once: true });
   });
 </script>
 
