@@ -31,7 +31,9 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
 </BaseLayout>
 
 <style>
-  #a2logo {
-    view-transition-name: main-logo;
+  @media (min-width: 990px) {
+    #a2logo {
+      view-transition-name: main-logo;
+    }
   }
 </style>

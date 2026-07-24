@@ -1,16 +1,37 @@
 .guide-hero,
 .guide-panel,
-.guide-section {
-  background: rgba(23, 33, 50, 0.6);
+.guide-section,
+.guide-prose > section {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.6rem;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+  z-index: 1;
+}
+
+.guide-hero,
+.guide-panel {
+  background: rgba(23, 33, 50, 0.6);
+}
+
+.guide-section,
+.guide-prose > section {
+  background: rgba(23, 33, 50, 0.95);
+}
+
+.guide-hero::before,
+.guide-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   backdrop-filter: blur(16px) saturate(130%);
   -webkit-backdrop-filter: blur(16px) saturate(130%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .guide-hero {
-  position: relative;
   overflow: hidden;
 }
 
@@ -133,12 +154,6 @@
 .guide-prose > section {
   margin-top: 1.15rem;
   padding: 1.15rem 1.15rem 1.25rem;
-  background: rgba(23, 33, 50, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.6rem;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(16px) saturate(130%);
-  -webkit-backdrop-filter: blur(16px) saturate(130%);
 }
 
 .guide-section:first-child,

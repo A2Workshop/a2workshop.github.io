@@ -141,7 +141,16 @@ const englishUrl = new URL(buildLocalizedPath(basePath, 'en'), Astro.site).href;
     <script src="/pagejs/locale-links.js" defer></script>
     {lazyMedia && <script src="/pagejs/lazy-media.js" defer></script>}
     <script is:inline>
-      (() => {
+      let scrollTimeout;
+      window.addEventListener('scroll', () => {
+        document.body.classList.add('is-scrolling');
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          document.body.classList.remove('is-scrolling');
+        }, 150);
+      }, { passive: true });
+
+      document.addEventListener('astro:page-load', () => {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (reduceMotion) return;
 
@@ -156,6 +165,19 @@ const englishUrl = new URL(buildLocalizedPath(basePath, 'en'), Astro.site).href;
           summary.addEventListener('click', (event) => {
             event.preventDefault();
             if (details.dataset.animating === 'true') return;
+
+            if (!details.open) {
+              const parent = details.parentElement;
+              if (parent) {
+                const siblings = parent.querySelectorAll('details.changelog-item[open], details.group[open]');
+                siblings.forEach((sibling) => {
+                  if (sibling !== details && sibling.dataset.animating !== 'true') {
+                    const siblingSummary = sibling.querySelector('summary');
+                    if (siblingSummary) siblingSummary.click();
+                  }
+                });
+              }
+            }
 
             const startHeight = details.offsetHeight;
             details.dataset.animating = 'true';
@@ -190,7 +212,7 @@ const englishUrl = new URL(buildLocalizedPath(basePath, 'en'), Astro.site).href;
             }
           });
         });
-      })();
+      });
     </script>
   </body>
 </html>

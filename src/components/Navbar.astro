@@ -37,7 +37,6 @@ const projectsEnHtml = proyectoActive ? `<b>${englishCopy.nav.projects}</b>` : u
 const projectsEnText = proyectoActive ? undefined : englishCopy.nav.projects;
 const contactEnHtml = boldContacto ? `<b>${englishCopy.nav.contact}</b>` : undefined;
 const contactEnText = boldContacto ? undefined : englishCopy.nav.contact;
-const connectOnMobile = mobileLogoSrc !== '/assets/img/A2/logo.webp';
 ---
 
 <div id="navbar-container" class={`navbar-page-${activeKey}`}>
@@ -48,7 +47,7 @@ const connectOnMobile = mobileLogoSrc !== '/assets/img/A2/logo.webp';
           <a href={homeHref}>
             <picture transition:persist={`navbar-logo-${fullLogoSrc}`}>
               <source media="(max-width: 990px)" srcset={mobileLogoSrc} />
-              <img src={fullLogoSrc} alt="A2WORKSHOP" class={`logo_nav ${connectOnMobile ? 'connect-on-mobile' : ''}`} width="7055" height="1381" />
+              <img src={fullLogoSrc} alt="A2WORKSHOP" class="logo_nav" width="7055" height="1381" />
             </picture>
           </a>
         </div>
@@ -471,19 +470,7 @@ const connectOnMobile = mobileLogoSrc !== '/assets/img/A2/logo.webp';
     }
   }
 
-  @media (max-width: 989px) {
-    .logo_nav.connect-on-mobile {
-      view-transition-name: main-logo;
-    }
-  }
 
-  [data-nav-projects] {
-    view-transition-name: nav-projects;
-  }
-
-  [data-nav-contact] {
-    view-transition-name: nav-contact;
-  }
 
   main,
   section,

@@ -140,5 +140,10 @@ function initAll(): void {
     .forEach(initDrawer);
 }
 
-if (document.readyState !== 'loading') initAll();
-else document.addEventListener('DOMContentLoaded', initAll);
+document.addEventListener('astro:page-load', initAll);
+
+if (document.readyState !== 'loading') {
+  initAll();
+} else {
+  document.addEventListener('DOMContentLoaded', initAll);
+}

@@ -199,11 +199,72 @@ const guideUi =
             if (!button) return;
             let expanded = false;
             button.style.display = rows.length > 3 ? 'inline-block' : 'none';
+            
+            const wrap = tbody.closest('.table-wrap');
+            if (wrap) {
+              wrap.style.overflow = 'hidden';
+              wrap.style.transition = 'height 0.38s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+
             button.addEventListener('click', () => {
+              if (wrap && wrap.dataset.animating === 'true') return;
+              if (wrap) wrap.dataset.animating = 'true';
+
               expanded = !expanded;
-              rows.forEach((row, index) => {
-                if (index >= 3) row.style.display = expanded ? '' : 'none';
-              });
+              const startHeight = wrap ? wrap.offsetHeight : 0;
+              
+              if (!expanded && wrap) {
+                const section = wrap.closest('section');
+                if (section && section.getBoundingClientRect().top < 0) {
+                  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+
+              if (expanded) {
+                rows.forEach((row, index) => {
+                  if (index >= 3) row.style.display = '';
+                });
+                
+                if (wrap) {
+                  const endHeight = wrap.offsetHeight;
+                  wrap.style.height = `${startHeight}px`;
+                  requestAnimationFrame(() => {
+                    wrap.style.height = `${endHeight}px`;
+                  });
+                  
+                  setTimeout(() => {
+                    wrap.style.height = '';
+                    wrap.dataset.animating = 'false';
+                  }, 380);
+                }
+              } else {
+                if (wrap) {
+                  rows.forEach((row, index) => {
+                    if (index >= 3) row.style.display = 'none';
+                  });
+                  const endHeight = wrap.offsetHeight;
+                  rows.forEach((row, index) => {
+                    if (index >= 3) row.style.display = '';
+                  });
+                  
+                  wrap.style.height = `${startHeight}px`;
+                  requestAnimationFrame(() => {
+                    wrap.style.height = `${endHeight}px`;
+                  });
+                  
+                  setTimeout(() => {
+                    rows.forEach((row, index) => {
+                      if (index >= 3) row.style.display = 'none';
+                    });
+                    wrap.style.height = '';
+                    wrap.dataset.animating = 'false';
+                  }, 380);
+                } else {
+                  rows.forEach((row, index) => {
+                    if (index >= 3) row.style.display = 'none';
+                  });
+                }
+              }
               button.textContent = expanded ? collapseLabel : expandLabel;
             });
           })
